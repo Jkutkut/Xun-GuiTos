@@ -49,3 +49,4 @@ election table
 - https://linuxconfig.org/ubuntu-20-04-connect-to-wifi-from-command-line
 - https://linuxconfig.org/how-to-configure-static-ip-address-on-ubuntu-20-04-focal-fossa-desktop-server
 - https://www.mysqltutorial.org/mysql-cheat-sheet.aspx
+- https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-18-04
