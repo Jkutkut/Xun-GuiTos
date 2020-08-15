@@ -1,3 +1,40 @@
+# Notes:
+
+
+
+
+
+## DB logic:
+0 = spy; 1 = Resistencia 
+
+
+{
+    GameId: number?
+    nPlayers: int
+    players: table
+    Score: table
+}
+
+players table
+{
+    GameId: number
+    IndexPlayer: number
+    Name: string
+    IconIndex: number
+    Role: null, 0, 1
+}
+
+score table
+{
+    gameID: number
+    status: {0,1,2,3,4}
+    value: null, 0, 1
+}
+
+
+
+
+
 
 ## Links:
 - install-linux-apache-mysql-php: https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-ubuntu-18-04
