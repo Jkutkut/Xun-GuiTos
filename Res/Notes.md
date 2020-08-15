@@ -1,6 +1,8 @@
 # Notes:
 
-
+## Files to update on SHs:
+- bluetooth-communication.sh:
+    /usr/local/bin/bluetooth-communication.sh
 
 
 
@@ -55,7 +57,7 @@ election table
     - https://www.raspberrypi.org/forums/viewtopic.php?p=919420#p919420
 
 
-    
+
 ## Useful commands:
 
 - Change keyboard: sudo dpkg-reconfigure keyboard-configuration

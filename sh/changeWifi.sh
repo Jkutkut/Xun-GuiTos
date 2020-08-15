@@ -16,10 +16,8 @@ echo "executing"
 #     fi
 # done
 
-mkfifo fifootje
-cat fifootje  | other_program &
-while read input ; do
-    echo "$input" >>fifootje
-done <&3
+# while read input ; do
+#     echo "$input" >> fifootje
+# done <&3
 
 echo "done"
