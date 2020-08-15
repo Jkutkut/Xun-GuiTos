@@ -1,8 +1,8 @@
 #!/bin/sh
 dir="/dev/rfcomm0"
-echo "executing"
 
-while ! test -f "README.md"; do
+echo "executing"
+while ! test -f $dir; do
     echo "Bluetooth device not connected"
     sleep 2
 done
