@@ -3,7 +3,7 @@
 ## Main table:
 CREATE TABLE 'Main' (
 	'GameId' INT(5) NOT NULL,
-	'nPlayers' INT(10),
+	'nPlayers' TINYINT,
 	PRIMARY KEY ('GameId')
 );
 ## players table:
