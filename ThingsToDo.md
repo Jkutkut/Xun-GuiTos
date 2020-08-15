@@ -14,7 +14,7 @@
     - [ ] 
 
 ### DB:
-- Store info
+- [] Logic database
 
 
 
