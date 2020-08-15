@@ -15,12 +15,12 @@
 
 ### DB:
 - [] Logic database
-
+- [] Change order of players
 
 
 
 ## Client:
-- 
+- Create a player form
 
 
 
@@ -37,3 +37,4 @@
 - Store previous wifis
 - Tutorial?
 - Readme
+- Custom names for resistencia and spies 

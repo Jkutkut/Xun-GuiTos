@@ -11,8 +11,10 @@
 {
     GameId: number?
     nPlayers: int
+    
     players: table
     Score: table
+    Election: table
 }
 
 players table
@@ -27,10 +29,16 @@ players table
 score table
 {
     gameID: number
-    status: {0,1,2,3,4}
+    missionIndex: {0,1,2,3,4}
     value: null, 0, 1
 }
 
+election table
+{
+    GameId: number
+    missionIndex: {0,1,2,3,4}
+    player index: {0 -- nPlayers-1}
+}
 
 
 
