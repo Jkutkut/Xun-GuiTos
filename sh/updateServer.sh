@@ -32,6 +32,6 @@ echo "${TITLE}
  \__,_| .__/ \__,_|\__,_|\__\___\__/\___|_|    \_/ \___|_|   
       |_|${NC}"
 
-(sudo mv Client/* /var/www/jkutkut/ ||
+(sudo mv ../Client/* /var/www/jkutkut/ ||
 echo "Error moving files") &&
 echo "done."
