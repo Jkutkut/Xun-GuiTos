@@ -7,6 +7,6 @@ while inotifywait -e modify $dir; do
   echo 
   if tail -n1 $dir | grep wifi; then
     # echo "Hey!! wifi found"
-    kdialog --msgbox "Hey!! wifi found"
+    touch founded.txt
   fi
 done
