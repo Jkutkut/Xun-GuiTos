@@ -34,4 +34,4 @@ ${NC}"
 
 (sudo cp -f ./bluetoothInterpreter.sh /usr/bin/bluetoothInterpreter.sh ||
 error "Error moving file") &&
-echo "done."
+echo ${GREEN}DONE${NC}

@@ -34,4 +34,4 @@ ${NC}"
 
 (sudo cp -f ./bluetoothCommunication.sh /usr/bin/bluetoothCommunication.sh ||
 error "Error moving file") &&
-echo "done."
+echo ${GREEN}DONE${NC}
