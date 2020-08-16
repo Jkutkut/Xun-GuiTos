@@ -13,14 +13,15 @@ fi
 
 while true; do
     if [ $(wc -w < $f) -gt 0 ]; then
-        file=$(sed -n '1,100p' $f)
+        file=$(cat $f)
         for c in $file; do
             echo $c
+            y2=$(echo $c | cut -d ':' -f 1)
         done
-        rm $f; touch $f # Clear the file
-        cat $f
+        # rm $f; touch $f # Clear the file
     else
         break
     fi
+    break
 done
 # echo "$(date)  - Bt Interpreter: end" >> /home/ubuntu/bluetooth/log.txt
