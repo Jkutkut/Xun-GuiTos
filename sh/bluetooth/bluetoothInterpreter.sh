@@ -6,9 +6,7 @@ f="btData.txt"
 
 cd $dir # go to the desired directory
 echo "$(date)  - Bt Interpreter: start" >> log.txt
-if ! test -e $f; then # If no file
-    touch $f; # Create file
-fi
+
 while true; do
     if [ $(wc -w < $f) -gt 0 ]; then # if more than one msg on btData file 
         for c in $(cat $f); do

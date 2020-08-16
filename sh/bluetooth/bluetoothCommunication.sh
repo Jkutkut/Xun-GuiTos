@@ -1,6 +1,14 @@
 #!/bin/sh
 # This sh file stores on a file the msgs recived from bluetooth communication
-echo "$(date) - Bt Comunication: start" >> /home/ubuntu/bluetooth/log.txt
+dir="/home/ubuntu/bluetooth/"
+echo "$(date) - Bt Comunication: start" >> "$dir"log.txt
+
+# Clear the previous files
+rm -f "$dir"log.txt
+rm -f "$dir"btData.txt
+touch "$dir"log.txt
+touch "$dir"btData.txt
+
 while true; do
   if test -e /dev/rfcomm0; then # If connected by bluetooth
     cat /dev/rfcomm0 >> /home/ubuntu/bluetooth/btData.txt
