@@ -2,7 +2,7 @@
 
 ## Files to update on SHs:
 - bluetooth-communication.sh:
-    /usr/local/bin/bluetooth-communication.sh
+    /usr/bin/bluetoothCommunication.sh
 
 
 
