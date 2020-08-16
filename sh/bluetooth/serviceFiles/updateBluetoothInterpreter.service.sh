@@ -24,9 +24,9 @@ error(){ # function to generate the error messages. If executed, ends the script
   exit 1
 }
 
-(sudo systemctl disable bluetoothCommunication ||
-echo "Not able to disable bluetoothCommunication.service") &&
-(sudo cp -f bluetoothCommunication.sh /etc/systemd/system/bluetoothCommunication.service ||
-error "Not able to update the file bluetoothCommunication.service") &&
-(sudo systemctl enable bluetoothCommunication ||
-error "Not able to enable bluetoothCommunication.service") &&
+(sudo systemctl disable bluetoothInterpreter ||
+echo "Not able to disable bluetoothInterpreter.service") &&
+(sudo cp -f bluetoothInterpreter.sh /etc/systemd/system/bluetoothInterpreter.service ||
+error "Not able to update the file bluetoothInterpreter.service") &&
+(sudo systemctl enable bluetoothInterpreter ||
+error "Not able to enable bluetoothInterpreter.service") &&
