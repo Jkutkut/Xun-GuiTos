@@ -1,8 +1,9 @@
 # Notes:
 
-## Files to update with SHs:
-- bluetooth-communication.sh:
-    /usr/bin/bluetoothCommunication.sh
+## Bluetooth syntax:
+- Change wifi credentials:
+    wifiC SSID PASSW
+
 
 
 
