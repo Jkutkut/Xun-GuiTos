@@ -29,4 +29,4 @@ echo "Not able to disable bluetoothCommunication.service") &&
 (sudo cp -f bluetoothCommunication.sh /etc/systemd/system/bluetoothCommunication.service ||
 error "Not able to update the file bluetoothCommunication.service") &&
 (sudo systemctl enable bluetoothCommunication ||
-error "Not able to enable bluetoothCommunication.service") &&
+error "Not able to enable bluetoothCommunication.service")

@@ -29,4 +29,4 @@ echo "Not able to disable bluetoothInterpreter.service") &&
 (sudo cp -f bluetoothInterpreter.sh /etc/systemd/system/bluetoothInterpreter.service ||
 error "Not able to update the file bluetoothInterpreter.service") &&
 (sudo systemctl enable bluetoothInterpreter ||
-error "Not able to enable bluetoothInterpreter.service") &&
+error "Not able to enable bluetoothInterpreter.service")
