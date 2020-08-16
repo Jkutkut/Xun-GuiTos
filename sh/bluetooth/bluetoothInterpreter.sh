@@ -4,16 +4,15 @@
 dir="/home/ubuntu/bluetooth/"
 f="btData.txt"
 
-echo "$(date)  - Bt Interpreter: start" >> /home/ubuntu/bluetooth/log.txt
+echo "$(date)  - Bt Interpreter: start" >> "$dir"log.txt
 cd $dir # go to the desired directory
 if ! test -e btData.txt; then # If no file
     touch $f; # Create file
 fi
 while true; do
-    if [ $(wc -w < $f) -gt 0 ]; then
-        file=$(sed -n '1,100p' $f)
-        for c in $file; do
-            # echo $c
+    if [ $(wc -w < $f) -gt 0 ]; then # if more than one msg on btData file 
+        for c in $(cat $f); do
+            echo "$(date)  - Bt Interpreter: command detected: $c" >> "$dir"log.txt
             type=$(echo $c | cut -d ':' -f 1)
             case "$type" in
                 "wifi")
