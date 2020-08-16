@@ -1,0 +1,10 @@
+[Unit]
+Description=RFCOM service
+After=bluetoothCommunication.service
+Requires=bluetoothCommunication.service
+
+[Service]
+ExecStart=sh /usr/bin/bluetoothInterpreter.sh
+
+[Install]
+WantedBy=multi-user.target

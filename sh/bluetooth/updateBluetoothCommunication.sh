@@ -33,5 +33,5 @@ echo "${TITLE}
 ${NC}"
 
 (sudo cp -f ./bluetoothCommunication.sh /usr/bin/bluetoothCommunication.sh ||
-error "Error moving files") &&
+error "Error moving file") &&
 echo "done."
