@@ -1,5 +1,6 @@
 #/bin/sh
 # This sh file stores on a file the msgs recived from any bluetooth device
+touch /home/ubuntu/running.txt
 while true; do
     if test -e /dev/rfcomm0; then # If connected by bluetooth
         # while test -e /dev/rfcomm0; do # While connected by bluetooth
