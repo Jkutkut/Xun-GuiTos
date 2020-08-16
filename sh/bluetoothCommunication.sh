@@ -1,4 +1,4 @@
-#/bin/sh
+#/bin/bash
 # This sh file stores on a file the msgs recived from any bluetooth device
 touch /home/ubuntu/running.txt
 while true; do
