@@ -8,3 +8,4 @@ while true; do
     sleep 5 # If device not connected, wait a bit
   fi
 done
+echo "$(date) - Bt Comunication: end" >> /home/ubuntu/bluetooth/log.txt
