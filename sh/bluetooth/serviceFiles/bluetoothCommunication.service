@@ -1,0 +1,10 @@
+[Unit]
+Description=RFCOM service
+After=bluetooth.service
+Requires=bluetooth.service
+
+[Service]
+ExecStart=sh /usr/bin/bluetoothCommunication.sh
+
+[Install]
+WantedBy=multi-user.target
