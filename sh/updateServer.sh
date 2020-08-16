@@ -33,5 +33,5 @@ echo "${TITLE}
       |_|${NC}"
 
 (sudo mv ../Client/* /var/www/jkutkut/ ||
-echo "Error moving files") &&
+error "Error moving files") &&
 echo "done."
