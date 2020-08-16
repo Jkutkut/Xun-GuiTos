@@ -30,4 +30,4 @@ echo "Not able to disable bluetoothCommunication.service") &&
 error "Not able to update the file bluetoothCommunication.service") &&
 (sudo systemctl enable bluetoothCommunication ||
 error "Not able to enable bluetoothCommunication.service") &&
-echo ${GREEN} DONE ${NC}
+echo ${GREEN}DONE${NC}

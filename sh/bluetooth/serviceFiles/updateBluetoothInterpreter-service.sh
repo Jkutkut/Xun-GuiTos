@@ -30,4 +30,4 @@ echo "Not able to disable bluetoothInterpreter.service") &&
 error "Not able to update the file bluetoothInterpreter.service") &&
 (sudo systemctl enable bluetoothInterpreter ||
 error "Not able to enable bluetoothInterpreter.service") &&
-echo ${GREEN} DONE ${NC}
+echo ${GREEN}DONE${NC}
