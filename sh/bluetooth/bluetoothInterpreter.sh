@@ -27,7 +27,7 @@ while true; do
         touch $f # Clear the file
         cat $f
     else
-        break
+        sleep 1
     fi
 done
 echo "$(date)  - Bt Interpreter: end" >> log.txt
