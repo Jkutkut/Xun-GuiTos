@@ -23,7 +23,7 @@ while true; do
                     pass=$(echo $c | cut -d ':' -f 3)
                     echo "ssid = $ssid; passw = $pass" > wifidata.txt
                     # echo "***   ssid = $ssid; passw = $pass    ***"
-                    echo "WIFI changed :D" > /dev/rfcomm0
+                    echo "WIFI changed: SSID: $ssid  PASSW: $pass" > /dev/rfcomm0
                 ;;
             esac
         done
