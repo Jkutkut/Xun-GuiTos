@@ -14,8 +14,7 @@ while true; do
         cp $f ."$f".tmp # Temp file with the new msgs
         sed -i $e $f # Remove the lines on the temp file. if more are added in the procces, they will be used on next iteration
         for c in $(cat ."$f".tmp); do
-            echo "$(date)  - Bt Interpreter: command detected: $c" >> log.txt
-            # echo "$(date)  - Bt Interpreter: command detected: $c"
+            echo "$(date)  - Bt Interpreter: command entered: $c" >> log.txt
             type=$(echo $c | cut -d ':' -f 1)
             case "$type" in
                 "wifi")
@@ -24,21 +23,13 @@ while true; do
                     echo "ssid = $ssid; passw = $pass" > wifidata.txt
                     # echo "***   ssid = $ssid; passw = $pass    ***"
                     
-                    wifiConf='network:
-    ethernets:
-        eth0:
-            dhcp4: true
-            optional:true
-    version: 2
-    wifis:
-        wlan0:
-            optional:true
-            access-points:
-                "'$ssid'":
-                    password: "'$pass'"
-            dhcp4: true'
-                    # echo "$(date)  - Bt Interpreter: wificonfig: $wifiConf" >> log.txt
-                    sudo sh -c 'echo $wifiConf > /etc/netplan/50-cloud-init.yaml'
+                    # Create the text to be entered as the wifi settings
+                    wifiConf='network:\n    ethernets:\n        eth0:\n            dhcp4: true\n            optional:true\n    version: 2\n    wifis:\n        wlan0:\n            optional:true\n            access-points:\n                "'$ssid'":\n                    password: "'$pass'"\n            dhcp4: true'
+                    
+                    echo "$(date)  - Bt Interpreter: wificonfig: $wifiConf" >> log.txt
+
+                    echo -e $wifiConf > wifiConf.tmp # store it as a temporally file
+                    sudo mv wifiConf.tmp /etc/netplan/50-cloud-init.yaml # Upate the wifi
 
                     echo "WIFI changed: SSID: $ssid  PASSW: $pass --> Rebooting" > /dev/rfcomm0
                     # reboot
