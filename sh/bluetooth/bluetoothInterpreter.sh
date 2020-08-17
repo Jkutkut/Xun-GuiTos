@@ -35,6 +35,10 @@ while true; do
                 "status")
                     
                 ;;
+                "exec") # Remote control: exec:command
+                    co=$(echo $c | cut -d ':' -f 2) # Get the command
+                    $co > /dev/rfcomm0 2>&1 & # Return the output, even if it is an error
+                ;;
                 *)
                     echo "Command not found: $c" > /dev/rfcomm0
                 ;;
