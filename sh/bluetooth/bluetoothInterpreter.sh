@@ -20,17 +20,17 @@ while true; do
                 "wifi")
                     ssid=$(echo $c | cut -d ':' -f 2)
                     pass=$(echo $c | cut -d ':' -f 3)
-                    echo "ssid = $ssid; passw = $pass" > wifidata.txt
-                    # echo "***   ssid = $ssid; passw = $pass    ***"
-                    
+                    echo "" > wifidata.txt
+
                     # Create the text to be entered as the wifi settings on a temp file (wifiConf.tmp)
-                    'network:\n    ethernets:\n        eth0:\n            dhcp4: true\n            optional:true\n    version: 2\n    wifis:\n        wlan0:\n            optional:true\n            access-points:\n                "'$ssid'":\n                    password: "'$pass'"\n            dhcp4: true' > wifiConf.tmp
+                    echo 'network:\n    ethernets:\n        eth0:\n            dhcp4: true\n            optional: true\n    version: 2\n    wifis:\n        wlan0:\n            optional: true\n            access-points:\n                "'$ssid'":\n                    password: "'$pass'"\n            dhcp4: true' > wifiConf.tmp
                     
-                    echo "$(date)  - Bt Interpreter: wificonfig: $wifiConf" >> log.txt
+                    echo "$(date)  - Bt Interpreter: ssid = $ssid; passw = $pass)" >> log.txt
                     sudo mv -f wifiConf.tmp /etc/netplan/50-cloud-init.yaml # Upate the wifi
 
-                    echo "WIFI changed: SSID: $ssid  PASSW: $pass --> Rebooting" > /dev/rfcomm0
-                    # reboot
+                    echo -e "\nWIFI changed: SSID: $ssid  PASSW: $pass --> Rebooting\n" > /dev/rfcomm0
+                    sudo netplan apply
+                    reboot
                 ;;
                 "status")
                     
