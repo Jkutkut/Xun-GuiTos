@@ -53,6 +53,7 @@ election table
 - https://linuxconfig.org/how-to-configure-static-ip-address-on-ubuntu-20-04-focal-fossa-desktop-server
 - https://www.mysqltutorial.org/mysql-cheat-sheet.aspx
 - https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-18-04
+- https://www.digitalocean.com/community/tutorials/the-basics-of-using-the-sed-stream-editor-to-manipulate-text-in-linux
 - Rasp bluetooth:
     - https://bluedot.readthedocs.io/en/latest/pairpiandroid.html
     - https://www.raspberrypi.org/forums/viewtopic.php?p=919420#p919420
