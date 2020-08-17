@@ -4,6 +4,7 @@ After=bluetoothCommunication.service
 Requires=bluetoothCommunication.service
 
 [Service]
+User=root
 ExecStart=sudo sh /usr/bin/bluetoothInterpreter.sh
 
 [Install]
