@@ -23,7 +23,28 @@ while true; do
                     pass=$(echo $c | cut -d ':' -f 3)
                     echo "ssid = $ssid; passw = $pass" > wifidata.txt
                     # echo "***   ssid = $ssid; passw = $pass    ***"
-                    echo "WIFI changed: SSID: $ssid  PASSW: $pass" > /dev/rfcomm0
+                    echo 'network:
+    ethernets:
+        eth0:
+            dhcp4: true
+            optional:true
+    version: 2
+    wifis:
+        wlan0:
+            optional:true
+            access-points:
+                "'$ssid'":
+                    password: "'$pass'"
+            dhcp4: true'> /etc/50-cloud-init.yaml
+
+                    echo "WIFI changed: SSID: $ssid  PASSW: $pass --> Rebooting" > /dev/rfcomm0
+                    # reboot
+                ;;
+                "status")
+                    
+                ;;
+                *)
+                    echo "Command not found: $c" > /dev/rfcomm0
                 ;;
             esac
         done
