@@ -37,7 +37,8 @@ while true; do
                 "'$ssid'":
                     password: "'$pass'"
             dhcp4: true'
-                    sudo sh -c 'echo $wifiConf > /etc/50-cloud-init.yaml'
+                    # echo "$(date)  - Bt Interpreter: wificonfig: $wifiConf" >> log.txt
+                    sudo sh -c 'echo $wifiConf > /etc/netplan/50-cloud-init.yaml'
 
                     echo "WIFI changed: SSID: $ssid  PASSW: $pass --> Rebooting" > /dev/rfcomm0
                     # reboot
