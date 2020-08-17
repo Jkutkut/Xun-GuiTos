@@ -2,11 +2,20 @@
 
 
 ## Rasp4:
-- [ ] Bluetooth communication
-- [ ] change wifi based on data from BT
-- [x] Install LAMP
-- [x] Create database
-- [x] Easy way to update the page provaider
+- [ ] Bluetooth communication:
+    - [x] Connection
+    - [x] Basic interpreter and communication
+    - [x] Change wifi using BT
+    - [x] Execute shells at startup (also as root if needed)
+    - [x] Communication logic:
+        - Input: type:(param1:...)
+        - Output: any
+    - [] Solve error: when sending msg from android, the msg is returned
+    - [] Make status respond
+    - [] Execute commands
+- [] Install LAMP
+- [] Create database
+- [] Easy way to update the page provaider
 - [ ] Define logic:
     - [ ] Logic database
     - [ ] Communication logic
