@@ -1,11 +1,11 @@
 [Unit]
-Description=RFCOM service
+Description=Interpreter of the bluetooth messages
 After=bluetoothCommunication.service
 Requires=bluetoothCommunication.service
 
 [Service]
-User=root
-ExecStart=sudo sh /usr/bin/bluetoothInterpreter.sh
+User=ubuntu
+ExecStart=/usr/bin/sudo /bin/sh /usr/bin/bluetoothInterpreter.sh
 
 [Install]
 WantedBy=multi-user.target
