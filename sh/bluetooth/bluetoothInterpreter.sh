@@ -27,7 +27,9 @@ while true; do
                     wifiConf='network:\n    ethernets:\n        eth0:\n            dhcp4: true\n            optional:true\n    version: 2\n    wifis:\n        wlan0:\n            optional:true\n            access-points:\n                "'$ssid'":\n                    password: "'$pass'"\n            dhcp4: true' > wifiConf.tmp
                     
                     echo "$(date)  - Bt Interpreter: wificonfig: $wifiConf" >> log.txt
-
+                    echo "-----------------------------" >> log.txt
+                    cat wifiConf.tmp >> log.txt
+                    echo "-----------------------------" >> log.txt
                     sudo mv wifiConf.tmp /etc/netplan/50-cloud-init.yaml # Upate the wifi
 
                     echo "WIFI changed: SSID: $ssid  PASSW: $pass --> Rebooting" > /dev/rfcomm0
