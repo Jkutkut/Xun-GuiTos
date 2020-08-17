@@ -35,8 +35,8 @@ while true; do
                 "status")
                     
                 ;;
-                "exec") # Remote control: exec:command
-                    co=$(echo $c | cut -d ':' -f 2) # Get the command
+                "exec") # Remote control: exec:command (space as ~)
+                    co=$(echo $c | cut -d ':' -f 2 | sed 's/~/ /g') # Get the command
                     $co > /dev/rfcomm0 2>&1 & # Return the output, even if it is an error
                 ;;
                 *)
