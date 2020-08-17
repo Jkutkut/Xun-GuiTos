@@ -28,7 +28,7 @@ while true; do
                     echo "$(date)  - Bt Interpreter: ssid = $ssid; passw = $pass)" >> log.txt
                     sudo mv -f wifiConf.tmp /etc/netplan/50-cloud-init.yaml # Upate the wifi
 
-                    echo -e "\nWIFI changed: SSID: $ssid  PASSW: $pass --> Rebooting\n" > /dev/rfcomm0
+                    echo "\nWIFI changed: SSID: $ssid  PASSW: $pass --> Rebooting\n" > /dev/rfcomm0
                     sudo netplan apply
                     reboot
                 ;;
