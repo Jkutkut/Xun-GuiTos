@@ -2,9 +2,7 @@
 # This sh file analyces the content recieved from bluetooth
 # sleep 5
 dir="/home/ubuntu/bluetooth/"
-# dir="./"
 f="btData.txt"
-# f="hola"
 
 cd $dir # go to the desired directory
 echo "$(date)  - Bt Interpreter: start" >> log.txt
@@ -12,8 +10,9 @@ echo "$(date)  - Bt Interpreter: start" >> log.txt
 
 while true; do
     if [ $(wc -w < $f) -gt 0 ]; then # if more than one msg on btData file 
-        cp $f ."$f".tmp
-        echo "" > $f
+        e="1,"$(wc -l < $f)"d" # Sed expression: del lines from first to last. If more lines added from this point on, they will not be lost.
+        cp $f ."$f".tmp # Temp file with the new msgs
+        sed -i $e $f # Remove the lines on the temp file. if more are added in the procces, they will be used on next iteration
         for c in $(cat ."$f".tmp); do
             echo "$(date)  - Bt Interpreter: command detected: $c" >> log.txt
             # echo "$(date)  - Bt Interpreter: command detected: $c"
@@ -33,4 +32,4 @@ while true; do
         sleep 1
     fi
 done
-echo "$(date)  - Bt Interpreter: end" >> log.txt
+echo "$(date)  - Bt Interpreter: end" >> log.txt # If all correct, this should be never triggered
