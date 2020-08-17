@@ -23,12 +23,11 @@ while true; do
                     echo "ssid = $ssid; passw = $pass" > wifidata.txt
                     # echo "***   ssid = $ssid; passw = $pass    ***"
                     
-                    # Create the text to be entered as the wifi settings
-                    wifiConf='network:\n    ethernets:\n        eth0:\n            dhcp4: true\n            optional:true\n    version: 2\n    wifis:\n        wlan0:\n            optional:true\n            access-points:\n                "'$ssid'":\n                    password: "'$pass'"\n            dhcp4: true'
+                    # Create the text to be entered as the wifi settings on a temp file (wifiConf.tmp)
+                    wifiConf='network:\n    ethernets:\n        eth0:\n            dhcp4: true\n            optional:true\n    version: 2\n    wifis:\n        wlan0:\n            optional:true\n            access-points:\n                "'$ssid'":\n                    password: "'$pass'"\n            dhcp4: true' > wifiConf.tmp
                     
                     echo "$(date)  - Bt Interpreter: wificonfig: $wifiConf" >> log.txt
 
-                    printf $wifiConf > wifiConf.tmp # store it as a temporally file
                     sudo mv wifiConf.tmp /etc/netplan/50-cloud-init.yaml # Upate the wifi
 
                     echo "WIFI changed: SSID: $ssid  PASSW: $pass --> Rebooting" > /dev/rfcomm0
