@@ -23,7 +23,8 @@ while true; do
                     pass=$(echo $c | cut -d ':' -f 3)
                     echo "ssid = $ssid; passw = $pass" > wifidata.txt
                     # echo "***   ssid = $ssid; passw = $pass    ***"
-                    echo 'network:
+                    
+                    wifiConf='network:
     ethernets:
         eth0:
             dhcp4: true
@@ -35,7 +36,8 @@ while true; do
             access-points:
                 "'$ssid'":
                     password: "'$pass'"
-            dhcp4: true'> /etc/50-cloud-init.yaml
+            dhcp4: true'
+                    sudo sh -c 'echo $wifiConf > /etc/50-cloud-init.yaml'
 
                     echo "WIFI changed: SSID: $ssid  PASSW: $pass --> Rebooting" > /dev/rfcomm0
                     # reboot
