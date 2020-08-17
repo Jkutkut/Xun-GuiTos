@@ -28,7 +28,7 @@ while true; do
                     
                     echo "$(date)  - Bt Interpreter: wificonfig: $wifiConf" >> log.txt
 
-                    echo -e $wifiConf > wifiConf.tmp # store it as a temporally file
+                    printf $wifiConf > wifiConf.tmp # store it as a temporally file
                     sudo mv wifiConf.tmp /etc/netplan/50-cloud-init.yaml # Upate the wifi
 
                     echo "WIFI changed: SSID: $ssid  PASSW: $pass --> Rebooting" > /dev/rfcomm0
