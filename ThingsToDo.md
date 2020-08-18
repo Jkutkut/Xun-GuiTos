@@ -11,6 +11,7 @@
         - Input: type:(param1:...)
         - Output: any
     - [] Solve error: when sending msg from android, the msg is returned
+    - [] Solve error: sometimes it stops
     - [] Make status respond
     - [] Execute commands
 - [] Install LAMP
