@@ -33,7 +33,9 @@ while true; do
                     reboot
                 ;;
                 "status")
-                    
+                    ssid=$(iwgetid -r)
+                    ip=$(hostname -I)
+                    echo "Current status:\n  -Date: "date"\n  -Network:\n    -SSID: "$ssid"\n    -IP: "$ip >> /dev/rfcomm0
                 ;;
                 "exec") # Remote control: exec:command (space as ~)
                     co=$(echo $c | cut -d ':' -f 2 | sed 's/~/ /g') # Get the command
