@@ -12,8 +12,8 @@
         - Output: any
     - [] Solve error: when sending msg from android, the msg is returned
     - [] Solve error: sometimes it stops
-    - [] Make status respond
-    - [] Execute commands
+    - [x] Make status respond
+    - [x] Execute commands
 - [] Install LAMP
 - [] Create database
 - [] Easy way to update the page provaider
@@ -28,9 +28,10 @@
 - [] Change order of players
 
 
-
 ## Client:
 - Create a player form
+- Host + player menu (controler)
+- player menu
 
 
 
