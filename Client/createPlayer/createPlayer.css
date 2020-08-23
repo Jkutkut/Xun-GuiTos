@@ -1,0 +1,45 @@
+.granparent {
+    display: grid;
+    place-items: center;
+
+    background: lightblue;
+    padding: 2%;
+    width: 100%;
+    min-height: 800px;
+    height: 80%;
+
+    resize: both;
+    overflow: auto;
+}
+.parent {
+    display: grid;
+    place-items: center;
+    background: lightskyblue;
+    width: 100%;
+}
+.child {
+    padding: 0.5rem;
+    border-radius: 10px;
+    border: 1px solid red;
+    background: lightpink;
+    font-size: 2rem;
+    text-align: center;
+}
+.title {
+    font-size: 4rem;
+}
+
+#fname {
+    padding: 0.5rem;
+    border-radius: 10px;
+    border: 1.5px solid blue;
+    background: lightskyblue;
+    font-size: 2rem;
+    text-align: center;
+}
+
+body {
+    font-family: system-ui, serif;
+    place-items: center;
+
+}
