@@ -10,13 +10,13 @@
     - [x] Communication logic:
         - Input: type:(param1:...)
         - Output: any
-    - [] Solve error: when sending msg from android, the msg is returned
-    - [] Solve error: sometimes it stops
+    - [ ] Solve error: when sending msg from android, the msg is returned
+    - [ ] Solve error: sometimes it stops
     - [x] Make status respond
     - [x] Execute commands
-- [] Install LAMP
-- [] Create database
-- [] Easy way to update the page provaider
+- [ ] Install LAMP
+- [ ] Create database
+- [ ] Easy way to update the page provaider
 - [ ] Define logic:
     - [ ] Logic database
     - [ ] Communication logic
@@ -24,14 +24,14 @@
     - [ ] 
 
 ### DB:
-- [] Logic database
-- [] Change order of players
+- [ ] Logic database
+- [ ] Change order of players
 
 
 ## Client:
-- Create a player form
-- Host + player menu (controler)
-- player menu
+- [ ] Create a player form
+- [ ] Host + player menu (controler)
+- [ ] player menu
 
 
 
@@ -49,3 +49,4 @@
 - Tutorial?
 - Readme
 - Custom names for resistencia and spies 
+- Photo input as profile pic
