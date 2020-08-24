@@ -21,7 +21,7 @@
     /* background: green; */
     width: 100%;
 }
-.child {
+.label {
     padding: 0.5rem;
     font-size: 2rem;
     text-align: center;
@@ -57,5 +57,16 @@ body {
     height: 40%;
     text-transform: capitalize;
     font-size: 1.5rem;
-    border-radius: 2rem;
+    border-radius: 1.5rem;
+    
+}
+
+.iconInput {
+    border-radius: 1rem;
+    padding: 1rem;
+    border: 1.5px solid blue;
+    background: lightskyblue;
+}
+#icon {
+    clip: rect(0px, 0px, 500px, 500px);
 }

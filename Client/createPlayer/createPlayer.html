@@ -8,19 +8,29 @@
     
 </head>
 <body>
-    
-    <div class="granparent" >
-        <div class="parent">
-            <h1 class="title">Crear jugador</h1>
-            <p class="child">Hola! Rellena estos datos para empezar a jugar</p>
+    <form>
+        <div class="granparent" >
+            <div class="parent">
+                <h1 class="title">Crear jugador</h1>
+                <p class="label">Hola! Rellena estos datos para empezar a jugar</p>
+            </div>
+            <div style="width: 500px; height: 100%; background: red">
+                <img id="icon"/>
+            </div>
+            <div class="parent">
+                <!-- <input type="file" class="iconInput" id="myFile"> -->
+                
+                <p><label for="file" class="label iconInput">Añadir imagen</label></p>
+                <input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;">
+            </div>
+
+            <div class="parent">
+                <div class="label">Introduce tu nombre</div>
+                <input type="text" id="fname" name="username">
+            </div>
+            <!--submit btn-->
+            <a id="h" class="btn mdc-button mdc-button--raised "><h1>Empezar</h1></a>
         </div>
-        <div class="parent">
-            <div class="child">Introduce tu nombre</div>
-            <input type="text" id="fname" name="username">
-        </div>
-        <!--submit btn-->
-          
-        <a id="h" class="btn mdc-button mdc-button--raised "><h1>Empezar</h1></a>
-    </div>
+    </form>
 </body>
 </html>
