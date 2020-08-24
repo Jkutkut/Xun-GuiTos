@@ -49,3 +49,6 @@ election table
 
 - Change keyboard: sudo dpkg-reconfigure keyboard-configuration
 - on the bluetoothctl menu: trust [XX:XX:XX:XX:XX:XX]
+
+## Links to add:
+- https://www.w3schools.com/cssref/css_units.asp
