@@ -1,19 +1,32 @@
 <html>
 <head>
     <title>Resistencia</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="createPlayer.css">
-    <script src="createPlayer.js"></script>
+    <script type="module" src="createPlayer.js"></script>
     
 </head>
 <body>
     
     <div class="granparent" >
         <h1 class="title">Create a player</h1>
-        <p class="child">Introduce tu nombre para empezar a jugar</p>
+        <p class="child"> para empezar a jugar</p>
         <div class="parent">
-            <input type="text" id="fname" name="fname">
-            <div class="child">:)</div>
+            <div class="child">Introduce tu nombre</div>
+            <input type="text" id="fname" name="username">
         </div>
+        <!--submit btn-->
+        <button type="button">Click Me!</button>
+        <div class="mdc-touch-target-wrapper">
+            <button class="mdc-button mdc-button--touch">
+              <div class="mdc-button__ripple"></div>
+              <span class="mdc-button__label">My Accessible Button</span>
+              <div class="mdc-button__touch"></div>
+            </button>
+          </div>
+        <button class="mdc-button--raised">
+            <span class="mdc-button__label">Contained Button</span>
+        </button>
     </div>
 </body>
 </html>
