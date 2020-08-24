@@ -50,3 +50,4 @@
 - Readme
 - Custom names for resistencia and spies 
 - Photo input as profile pic
+- Laguage support
