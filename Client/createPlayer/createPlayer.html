@@ -2,31 +2,25 @@
 <head>
     <title>Resistencia</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://unpkg.com/material-components-web@7.0.0/dist/material-components-web.css">
     <link rel="stylesheet" href="createPlayer.css">
-    <script type="module" src="createPlayer.js"></script>
+    <script src="createPlayer.js"></script>
     
 </head>
 <body>
     
     <div class="granparent" >
-        <h1 class="title">Create a player</h1>
-        <p class="child"> para empezar a jugar</p>
+        <div class="parent">
+            <h1 class="title">Crear jugador</h1>
+            <p class="child">Hola! Rellena estos datos para empezar a jugar</p>
+        </div>
         <div class="parent">
             <div class="child">Introduce tu nombre</div>
             <input type="text" id="fname" name="username">
         </div>
         <!--submit btn-->
-        <button type="button">Click Me!</button>
-        <div class="mdc-touch-target-wrapper">
-            <button class="mdc-button mdc-button--touch">
-              <div class="mdc-button__ripple"></div>
-              <span class="mdc-button__label">My Accessible Button</span>
-              <div class="mdc-button__touch"></div>
-            </button>
-          </div>
-        <button class="mdc-button--raised">
-            <span class="mdc-button__label">Contained Button</span>
-        </button>
+          
+        <a id="h" class="btn mdc-button mdc-button--raised "><h1>Empezar</h1></a>
     </div>
 </body>
 </html>
