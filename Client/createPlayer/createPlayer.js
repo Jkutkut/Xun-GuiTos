@@ -15,7 +15,7 @@ var loadFile = function(event) {
         // crop(event) {
         //     console.log(event.detail.width);
         // },
-        // viewMode: 2,
+        viewMode: 2,
         ready(event) {
             crop = this;
             // document.getElementById("icon2").src= this.cropper.getCroppedCanvas().toDataURL("image/png"); 
@@ -43,10 +43,28 @@ var loadFile = function(event) {
 function cropImg(){
     try {
         console.log("start");
-        document.getElementById("icon2").src= crop.cropper.getCroppedCanvas().toDataURL("image/png"); 
-        cropper = null;
-        crop = null;
-        document.getElementById("icon2").style.width = "1024px";
+        crop.cropper.destroy = function destroy() {
+            var element = this.element;
+      
+            if (!element[NAMESPACE]) {
+              return this;
+            }
+      
+            element[NAMESPACE] = undefined;
+      
+            // if (this.isImg && this.replaced) {
+            //   element.src = this.originalUrl;
+            // }
+      
+            this.uncreate();
+            return this;
+          };
+        // crop.cropper.destroy();
+        let newImg = crop.cropper.getCroppedCanvas()//.toDataURL("image/png");
+        // document.getElementById("icon2").src= crop.cropper.getCroppedCanvas().toDataURL("image/png"); 
+        // cropper = null;
+        // crop = null;
+        // document.getElementById("icon2").style.width = "1024px";
     } catch (error) {
         alert(error);
     }

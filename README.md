@@ -23,6 +23,7 @@ Work focused on the configuration of the rapsberry pi 4 and the bluetooth commun
 
 ### Links:
 Links to pages used to configure or consult with usefull information:
+#### Raspberry:
 - install-linux-apache-mysql-php: https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-ubuntu-18-04
 - https://linuxconfig.org/ubuntu-20-04-connect-to-wifi-from-command-line
 - https://linuxconfig.org/how-to-configure-static-ip-address-on-ubuntu-20-04-focal-fossa-desktop-server
@@ -32,3 +33,6 @@ Links to pages used to configure or consult with usefull information:
 - Rasp bluetooth:
     - https://bluedot.readthedocs.io/en/latest/pairpiandroid.html
     - https://www.raspberrypi.org/forums/viewtopic.php?p=919420#p919420
+
+#### Web:
+- Crop img: https://codepen.io/blackjacques/pen/bqgNoa
