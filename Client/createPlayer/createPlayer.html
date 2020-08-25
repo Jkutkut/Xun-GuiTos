@@ -4,25 +4,32 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://unpkg.com/material-components-web@7.0.0/dist/material-components-web.css">
     <link rel="stylesheet" href="createPlayer.css">
+
+    <link  href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.7/cropper.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.7/cropper.min.js"></script>
+    
     <script src="createPlayer.js"></script>
     
 </head>
 <body>
     <form>
         <div class="granparent" >
+            <!-- TITLE + INTRO -->
             <div class="parent">
                 <h1 class="title">Crear jugador</h1>
                 <p class="label">Hola! Rellena estos datos para empezar a jugar</p>
             </div>
-            <div style="width: 500px; height: 100%; background: red">
-                <img id="icon"/>
+            <!-- IMG -->
+            <div id="picParent" style="display: flex; justify-content: center; background: red">
+                <img id="icon" src="../../Res/img/default_user.png"/>
             </div>
+            <img id="icon2" src="../../Res/img/default_user.png"/>
             <div class="parent">
-                <!-- <input type="file" class="iconInput" id="myFile"> -->
-                
+                <button class="label iconInput" onclick="cropImg()">Listo!</button>
                 <p><label for="file" class="label iconInput">Añadir imagen</label></p>
-                <input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;">
             </div>
+            <input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;">
+
 
             <div class="parent">
                 <div class="label">Introduce tu nombre</div>
