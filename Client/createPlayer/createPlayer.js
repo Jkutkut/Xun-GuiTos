@@ -4,41 +4,20 @@ var a, b;
 
 var loadFile = function(event) {
     image = document.getElementById('icon');
-    // console.log("proper: (" + image.width + ", " + image.height + ")");
     image.src = URL.createObjectURL(event.target.files[0]);
     image.style.width = "1024px";
-    cropper = new Cropper(image, {
-        aspectRatio: 1 / 1,
-        movable: false,
-        rotatable: false,
-        minCropBoxWidth: 500,
-        // crop(event) {
-        //     console.log(event.detail.width);
-        // },
-        viewMode: 2,
-        ready(event) {
-            crop = this;
-            // document.getElementById("icon2").src= this.cropper.getCroppedCanvas().toDataURL("image/png"); 
-            
-            // generatePreview();
-        }
-    });
-    // cropper = new Cropper(document.getElementById('icon'), {
-    //     autoCrop: true,
-    //     autoCropArea: 1,
-    //     aspectRatio: 500 / 660,
-    //     minCropBoxWidth: 500,
-    //     minCropBoxHeight: 660,
-    //     viewMode: 2,
-    //     ready: function() {
-    //         // console.log(this.cropper.getCroppedCanvas());
-    //         // document.getElementById("picParent").append(this.cropper.getCroppedCanvas())
-    //         let newImg = this.cropper.getCroppedCanvas().toDataURL();
-    //         document.getElementById("icon2").src = newImg;
-    //         // console.log(newImg);
-    //         document.getElementById("icon2").width = "1024px";
-    //     }
-    // });
+
+
+    var img = new Image();
+    img.onload = function() {
+        context.canvas.height = img.height;
+        context.canvas.width  = img.width;
+        context.drawImage(img, 0, 0);
+        var cropper = canvas.cropper({
+            aspectRatio: 1 / 1
+        });
+    };
+    img.src = evt.target.result;
 };
 function cropImg(){
     try {
