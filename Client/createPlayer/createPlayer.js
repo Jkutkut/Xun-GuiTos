@@ -1,54 +1,49 @@
-// import Cropper from 'cropperjs';
-var cropper, crop, image;
-var a, b;
+var canvas, context, imgHTML, cropper, imgF;
+
+window.onload = function(){
+    canvas = $("#canvas");
+    context = canvas.get(0).getContext("2d");
+    imgHTML = $("#resultImg");
+}
 
 var loadFile = function(event) {
-    image = document.getElementById('icon');
-    image.src = URL.createObjectURL(event.target.files[0]);
-    image.style.width = "1024px";
-
-
-    var img = new Image();
-    img.onload = function() {
-        context.canvas.height = img.height;
-        context.canvas.width  = img.width;
-        context.drawImage(img, 0, 0);
-        var cropper = canvas.cropper({
+    canvas.css("display", "inline");
+    imgHTML.css("display", "none");
+    
+    imgF = new Image();
+    imgF.onload = function(event) {
+        let dW = window.innerWidth * 0.9; //Max width of the canvas
+        let dH = window.innerHeight * 0.5; //Max height of the canvas
+        let w = imgF.width;
+        let h = imgF.height;
+        
+        if (w > h) { //if horizontal photo -> reduce height
+            //dW = Use all the width - some padding
+            dH *= h / w; //adjust the width to fit the photo
+            console.log("horizontal");
+        }
+        else { //if vertical photo -> reduce width
+            //dH = Use all the height - some padding
+            dW *= w / h; //adjust the width to fit the photo
+            console.log("vertical");
+        }
+        context.canvas.width = dW;
+        context.canvas.height = dH;
+        canvas.css({width: dW + "px",height: dH + "px"});
+                                
+        context.drawImage(imgF, 0, 0, imgF.width, imgF.height, 0, 0, dW, dH);
+        cropper = new Cropper(document.getElementById("canvas"), {
+            viewMode: 2,
             aspectRatio: 1 / 1
         });
-    };
-    img.src = evt.target.result;
+    }
+    imgF.src = URL.createObjectURL(event.target.files[0]);
 };
 function cropImg(){
-    try {
-        console.log("start");
-        crop.cropper.destroy = function destroy() {
-            var element = this.element;
-      
-            if (!element[NAMESPACE]) {
-              return this;
-            }
-      
-            element[NAMESPACE] = undefined;
-      
-            // if (this.isImg && this.replaced) {
-            //   element.src = this.originalUrl;
-            // }
-      
-            this.uncreate();
-            return this;
-          };
-        // crop.cropper.destroy();
-        let newImg = crop.cropper.getCroppedCanvas()//.toDataURL("image/png");
-        // document.getElementById("icon2").src= crop.cropper.getCroppedCanvas().toDataURL("image/png"); 
-        // cropper = null;
-        // crop = null;
-        // document.getElementById("icon2").style.width = "1024px";
-    } catch (error) {
-        alert(error);
-    }
-    console.log("end");
-
-
-    // console.log("proper: (" + image.width + ", " + image.height + ")");
+    // Get a string base 64 data url
+    var croppedImageDataURL = cropper.getCroppedCanvas().toDataURL("image/png");
+    imgHTML.attr('src', croppedImageDataURL);
+    cropper.destroy();
+    canvas.css("display", "none");
+    imgHTML.css("display", "inline");
 }
