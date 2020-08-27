@@ -61,7 +61,7 @@ body {
     
 }
 
-.iconInput {
+/* .iconInput {
     border-radius: 1rem;
     padding: 1rem;
     border: 1.5px solid blue;
@@ -69,4 +69,16 @@ body {
 }
 #icon {
     clip: rect(0px, 0px, 500px, 500px);
+} */
+#picParent {
+    width: 90%;
+    height: 80%;
+    background: red;
+    display: flex;
+    justify-content: center;
+}
+#canvas {
+    background-color: #ffffff;
+    cursor: default;
+    border: 1px solid black;
 }

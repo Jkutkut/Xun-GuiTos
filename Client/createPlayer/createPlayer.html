@@ -22,10 +22,11 @@
                 <p class="label">Hola! Rellena estos datos para empezar a jugar</p>
             </div>
             <!-- IMG -->
-            <div id="picParent" style="display: flex; justify-content: center; background: red">
-                <img id="icon" src="../../Res/img/default_user.png"/>
+            <div id="picParent" style="">
+                <canvas id="canvas" style="display: none;"> Your browser does not support the HTML5 canvas element. </canvas>
+                <img id="resultImg" src="../../Res/img/default_user.png" style="display: inline;">
             </div>
-            <img id="icon2" src="../../Res/img/default_user.png"/>
+            <!-- <img id="icon2" src="../../Res/img/default_user.png"/> -->
             <div class="parent">
                 <button class="label iconInput" onclick="cropImg()">Listo!</button>
                 <p><label for="file" class="label iconInput">Añadir imagen</label></p>
