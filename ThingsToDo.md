@@ -29,7 +29,11 @@
 
 
 ## Client:
-- [ ] Create a player form
+- [ ] Create a player creation menu:
+    - [ ] Optimize css
+    - [ ] Optimize html
+    - [ ] Optimize js
+    - [ ] 
 - [ ] Host + player menu (controler)
 - [ ] player menu
 
