@@ -9,40 +9,70 @@ $('#fileInput').on( 'change', function(){
             reader.onload = function(evt) {
                 img = new Image();
                 img.onload = function() {
-                    // let w = 1024;
-                    // let h = 1024 * img.height / img.width;
-                    // // context.canvas.height = h;
-                    // // context.canvas.height = img.height;
-                    // // context.canvas.width = w;
-                    // // context.canvas.width  = img.width;
-                    // context.drawImage(img, 0, 0, w, w * h);
-
-                    var imgWidth = img.width;
-                    var screenWidth = 1024;
-                    var scaleX = 1;
-                    if (imgWidth > screenWidth)
-                        scaleX = screenWidth/imgWidth;
-                    var imgHeight = img.height;
-                    var screenHeight = 1024;
-                    var scaleY = 1;
-                    if (imgHeight > screenHeight)
-                        scaleY = screenHeight/imgHeight;
-                    var scale = scaleY;
-                    if(scaleX < scaleY)
-                        scale = scaleX;
-                    if(scale < 1){
-                        imgHeight = imgHeight*scale;
-                        imgWidth = imgWidth*scale;          
+                    let dW = window.innerWidth * 0.9; //Max width of the canvas
+                    let dH = window.innerHeight * 0.5; //Max height of the canvas
+                    let w = img.width;
+                    let h = img.height;
+                    
+                    if (w > h) { //if horizontal photo -> reduce height
+                        //dW = Use all the width - some padding
+                        // dH *= w / h; //adjust the height to fit the photo
+                        dH *= h / w; //adjust the width to fit the photo
+                        console.log("horizontal");
                     }
-                  
-                    canvas.height = imgHeight;
-                    canvas.width = imgWidth;
-
-                    context.drawImage(img, 0, 0, img.width, img.height, 0,0, imgWidth, imgHeight);
-
+                    else { //if vertical photo -> reduce width
+                        //dH = Use all the height - some padding
+                        // dW *= h / w; //adjust the width to fit the photo
+                        dW *= w / h; //adjust the width to fit the photo
+                        console.log(dW);
+                        console.log("vertical");
+                    }
+                    context.canvas.width = dW;
+                    context.canvas.height = dH;
+                    
+                    context.drawImage(img, 0, 0);
+                    // context.drawImage(img, 0, 0, img.width, img.height, 0, 0, dW, dH);
                     cropper = canvas.cropper({
-                        aspectRatio: 1 / 1
+                        viewMode: 2,
+                        aspectRatio: 1 / 1,
+                        movable: false,
+                        zoomable: false,
+                        // minContainerHeight: 500,
+                        // minContainerWidth: 500,
+                        // minContainerHeight: dH,
+                        // minContainerWidth: dW,
+                        // minCanvasHeight: dH,
+		                // minCanvasWidth: dW
                     });
+
+
+                    // var imgWidth = img.width;
+
+                    // var scaleX = 1;
+                    // if (imgWidth > 1024){
+                    //     scaleX = 1024/imgWidth;
+                    // }
+                    // var imgHeight = img.height;
+
+                    // var scaleY = 1;
+                    // if (imgHeight > 1024){
+                    //     scaleY = 1024/imgHeight;
+                    // }
+                    // var scale = scaleY;
+                    // if(scaleX < scaleY){
+                    //     scale = scaleX;
+                    // }
+                    // if(scale < 1){
+                    //     imgHeight = imgHeight*scale;
+                    //     imgWidth = imgWidth*scale;          
+                    // }
+                  
+                    // canvas.height = imgHeight;
+                    // canvas.width = imgWidth;
+
+                    // context.drawImage(img, 0, 0, img.width, img.height, 0,0, imgWidth, imgHeight);
+
+                    
                 };
                 img.src = evt.target.result;
             };
