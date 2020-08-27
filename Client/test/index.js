@@ -29,15 +29,14 @@ $('#fileInput').on( 'change', function(){
                     }
                     context.canvas.width = dW;
                     context.canvas.height = dH;
-                    // canvas.width = dW;
-                    // canvas.height = dH;
+                    canvas.css({width: dW + "px",height: dH + "px"});
                     
                     // context.drawImage(img, 0, 0);
                     context.drawImage(img, 0, 0, img.width, img.height, 0, 0, dW, dH);
                     cropper = canvas.cropper({
                         viewMode: 2,
-                        aspectRatio: 1 / 1,
-                        movable: false
+                        aspectRatio: 1 / 1
+                        // movable: false
                         // zoomable: false,
                         // minContainerHeight: 500,
                         // minContainerWidth: 500,
