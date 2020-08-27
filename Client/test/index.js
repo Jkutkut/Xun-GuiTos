@@ -1,4 +1,4 @@
-var canvas = $("#canvas"), context = canvas.get(0).getContext("2d"), $result = $('#result');
+var canvas = $("#canvas"), context = canvas.get(0).getContext("2d");
 var cropper, img;
 $('#fileInput').on( 'change', function(){
     if (this.files && this.files[0]) { // if file selected
@@ -29,14 +29,16 @@ $('#fileInput').on( 'change', function(){
                     }
                     context.canvas.width = dW;
                     context.canvas.height = dH;
+                    // canvas.width = dW;
+                    // canvas.height = dH;
                     
-                    context.drawImage(img, 0, 0);
-                    // context.drawImage(img, 0, 0, img.width, img.height, 0, 0, dW, dH);
+                    // context.drawImage(img, 0, 0);
+                    context.drawImage(img, 0, 0, img.width, img.height, 0, 0, dW, dH);
                     cropper = canvas.cropper({
                         viewMode: 2,
                         aspectRatio: 1 / 1,
-                        movable: false,
-                        zoomable: false,
+                        movable: false
+                        // zoomable: false,
                         // minContainerHeight: 500,
                         // minContainerWidth: 500,
                         // minContainerHeight: dH,
@@ -44,35 +46,6 @@ $('#fileInput').on( 'change', function(){
                         // minCanvasHeight: dH,
 		                // minCanvasWidth: dW
                     });
-
-
-                    // var imgWidth = img.width;
-
-                    // var scaleX = 1;
-                    // if (imgWidth > 1024){
-                    //     scaleX = 1024/imgWidth;
-                    // }
-                    // var imgHeight = img.height;
-
-                    // var scaleY = 1;
-                    // if (imgHeight > 1024){
-                    //     scaleY = 1024/imgHeight;
-                    // }
-                    // var scale = scaleY;
-                    // if(scaleX < scaleY){
-                    //     scale = scaleX;
-                    // }
-                    // if(scale < 1){
-                    //     imgHeight = imgHeight*scale;
-                    //     imgWidth = imgWidth*scale;          
-                    // }
-                  
-                    // canvas.height = imgHeight;
-                    // canvas.width = imgWidth;
-
-                    // context.drawImage(img, 0, 0, img.width, img.height, 0,0, imgWidth, imgHeight);
-
-                    
                 };
                 img.src = evt.target.result;
             };
