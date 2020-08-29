@@ -32,7 +32,7 @@
 - [ ] Create a player creation menu:
     - [x] Optimize css
     - [x] Optimize html
-    - [ ] Optimize js
+    - [x] Optimize js
     - [ ] 
 - [ ] Host + player menu (controler)
 - [ ] main menu
