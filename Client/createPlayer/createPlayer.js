@@ -7,6 +7,7 @@ window.onload = function(){
 }
 
 var loadFile = function(event) {
+    $("#iconReady").css("display", "inline");
     canvas.css("display", "inline");
     imgHTML.css("display", "none");
     
@@ -46,4 +47,5 @@ function cropImg(){
     cropper.destroy();
     canvas.css("display", "none");
     imgHTML.css("display", "inline");
+    $("#iconReady").css("display", "none");
 }
