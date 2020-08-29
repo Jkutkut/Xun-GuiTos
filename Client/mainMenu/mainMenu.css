@@ -1,12 +1,20 @@
-.granparent {
+:root {
+    --background-color: lightskyblue;
+}
+
+/* Containers */
+body {
+    background: var(--background-color);
+    place-items: center;
+}
+.grandparent {
     display: grid;
     place-items: center;
-    background: lightskyblue;
+    background: var(--bg, --background-color);
     padding: 2%;
     width: 100%;
-    min-height: 800px;
-    height: 100%;
-
+    /* min-height: 800px; */
+    height: var(--h, 100%);
     resize: both;
     overflow: auto;
 }
@@ -14,44 +22,7 @@
     display: grid;
     place-items: center;
     width: 100%;
-}
-.label {
-    padding: 0.5rem;
-    font-size: 2rem;
-    text-align: center;
-}
-.title {
-    text-align: center;
-    width: 80%;
-    font-size: 4rem;
-    padding: 1.2rem;
-    background: rgb(39, 189, 240);
-    border-radius: 18px;
-}
-
-#fname {
-    padding: 0.5rem;
-    border-radius: 10px;
-    border: 1.5px solid blue;
-    background: lightskyblue;
-    font-size: 2rem;
-    text-align: center;
-}
-
-body {
-    font-family: system-ui, serif;
-    place-items: center;
-    background: lightskyblue;
-}
-
-.btn {
-    background: red;
-    width: 50%;
-    height: 40%;
-    text-transform: capitalize;
-    font-size: 1.5rem;
-    border-radius: 1.5rem;
-    
+    height: var(--h, auto);
 }
 #picParent {
     width: 90%;
@@ -60,13 +31,52 @@ body {
     display: flex;
     justify-content: center;
 }
-#canvas {
+
+
+/* Elements Classes */
+.label { /* Common label class */
+    padding: 0.5rem;
+    font-size: 2rem;
+    text-align: center;
+}
+.title { /* Bigger than label. Used for titles */
+    text-align: center;
+    width: 80%;
+    font-size: 4rem;
+    padding: 1.2rem;
+    background: rgb(39, 189, 240);
+    border-radius: 18px;
+}
+#nameTb { /* Textbox class */
+    padding: 0.5rem;
+    border-radius: 10px;
+    border: 1.5px solid blue;
+    background: lightskyblue;
+    font-size: 2rem;
+    text-align: center;
+}
+#canvas { /* Canvas at createPlayer */
     display: none;
     background-color: #ffffff;
     cursor: default;
     border: 1px solid black;
 }
-img {
+img { /* Img at createPlayer */
     display: inline;
     max-width: 100%; /* This rule is very important, please do not ignore this! */
+}
+    /* Btn */
+.btn { /* Summit btn */
+    /* background: red; */
+    width: 60%;
+    height: 40%;
+    text-transform: capitalize;
+    font-size: 1.5rem;
+    border-radius: 1.5rem;
+    
+}
+.iconBtn { /* Btn to crop the img at createPlayer */
+    text-transform: capitalize;
+    padding: 2%;
+    height: autos;
 }
