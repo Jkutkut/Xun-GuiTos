@@ -10,12 +10,11 @@ body {
 .grandparent {
     display: grid;
     place-items: center;
-    /* background: var(--bg, --background-color); */
+    background: var(--bg, --background-color);
     padding: 2%;
     width: 100%;
-    /* min-height: 800px; */
     height: 100%;
-    /* height: var(--h, 100%); */
+    height: var(--h, 100%);
     resize: both;
     overflow: auto;
 }
