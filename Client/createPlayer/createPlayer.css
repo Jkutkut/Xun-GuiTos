@@ -1,32 +1,41 @@
-/* @use "node_modules/@material/button";
-
-@include button.core-styles; */
-
+/* Containers */
+body {
+    font-family: system-ui, serif;
+    place-items: center;
+    background: lightskyblue;
+}
 .granparent {
     display: grid;
     place-items: center;
-
     background: lightskyblue;
     padding: 2%;
     width: 100%;
     min-height: 800px;
     height: 100%;
-
     resize: both;
     overflow: auto;
 }
 .parent {
     display: grid;
     place-items: center;
-    /* background: green; */
     width: 100%;
 }
-.label {
+#picParent {
+    width: 90%;
+    max-height: 60%;
+    background: red;
+    display: flex;
+    justify-content: center;
+}
+
+
+/* Elements Classes */
+.label { /* Common label class */
     padding: 0.5rem;
     font-size: 2rem;
     text-align: center;
 }
-.title {
+.title { /* Bigger than label. Used for titles */
     text-align: center;
     width: 80%;
     font-size: 4rem;
@@ -34,8 +43,7 @@
     background: rgb(39, 189, 240);
     border-radius: 18px;
 }
-
-#fname {
+#fname { /* Textbox class */
     padding: 0.5rem;
     border-radius: 10px;
     border: 1.5px solid blue;
@@ -43,40 +51,14 @@
     font-size: 2rem;
     text-align: center;
 }
-
-body {
-    font-family: system-ui, serif;
-    place-items: center;
-    background: lightskyblue;
-
-}
-
-.btn {
+.btn { /* Summit btn */
     background: red;
-    width: 50%;
+    width: 60%;
     height: 40%;
     text-transform: capitalize;
     font-size: 1.5rem;
     border-radius: 1.5rem;
     
-}
-
-/* .iconInput {
-    border-radius: 1rem;
-    padding: 1rem;
-    border: 1.5px solid blue;
-    background: lightskyblue;
-}
-#icon {
-    clip: rect(0px, 0px, 500px, 500px);
-} */
-#picParent {
-    width: 90%;
-    /* height: 80%; */
-    max-height: 60%;
-    background: red;
-    display: flex;
-    justify-content: center;
 }
 #canvas {
     display: none;
