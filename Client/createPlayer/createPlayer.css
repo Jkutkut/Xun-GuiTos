@@ -43,7 +43,7 @@ body {
     background: rgb(39, 189, 240);
     border-radius: 18px;
 }
-#fname { /* Textbox class */
+#nameTb { /* Textbox class */
     padding: 0.5rem;
     border-radius: 10px;
     border: 1.5px solid blue;
@@ -51,8 +51,19 @@ body {
     font-size: 2rem;
     text-align: center;
 }
+#canvas { /* Canvas at createPlayer */
+    display: none;
+    background-color: #ffffff;
+    cursor: default;
+    border: 1px solid black;
+}
+img { /* Img at createPlayer */
+    display: inline;
+    max-width: 100%; /* This rule is very important, please do not ignore this! */
+}
+    /* Btn */
 .btn { /* Summit btn */
-    background: red;
+    /* background: red; */
     width: 60%;
     height: 40%;
     text-transform: capitalize;
@@ -60,13 +71,8 @@ body {
     border-radius: 1.5rem;
     
 }
-#canvas {
-    display: none;
-    background-color: #ffffff;
-    cursor: default;
-    border: 1px solid black;
-}
-img {
-    display: inline;
-    max-width: 100%; /* This rule is very important, please do not ignore this! */
+.iconBtn { /* Btn to crop the img at createPlayer */
+    text-transform: capitalize;
+    padding: 2%;
+    height: autos;
 }
