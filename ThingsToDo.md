@@ -30,8 +30,8 @@
 
 ## Client:
 - [ ] Create a player creation menu:
-    - [ ] Optimize css
-    - [ ] Optimize html
+    - [x] Optimize css
+    - [x] Optimize html
     - [ ] Optimize js
     - [ ] 
 - [ ] Host + player menu (controler)
