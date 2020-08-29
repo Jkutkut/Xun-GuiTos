@@ -1,8 +1,11 @@
 # Resistencia:
 
 ## Version history:
-### v2.0: 
-Work focused on the form to create a new player.
+### v2:
+- v2.0:
+    - Work focused on the form to create a new player menu.
+- v2.1:
+    - Work on the main menu.
 
 ### v0 - v1: Bluetooth communication
 Work focused on the configuration of the rapsberry pi 4 and the bluetooth communication protocol. Basic structure of the repository created.
