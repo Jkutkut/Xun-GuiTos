@@ -35,7 +35,8 @@
     - [ ] Optimize js
     - [ ] 
 - [ ] Host + player menu (controler)
-- [ ] player menu
+- [ ] main menu
+- [ ] Single CSS file
 
 
 
