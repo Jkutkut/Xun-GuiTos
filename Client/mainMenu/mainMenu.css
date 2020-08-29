@@ -1,0 +1,72 @@
+.granparent {
+    display: grid;
+    place-items: center;
+    background: lightskyblue;
+    padding: 2%;
+    width: 100%;
+    min-height: 800px;
+    height: 100%;
+
+    resize: both;
+    overflow: auto;
+}
+.parent {
+    display: grid;
+    place-items: center;
+    width: 100%;
+}
+.label {
+    padding: 0.5rem;
+    font-size: 2rem;
+    text-align: center;
+}
+.title {
+    text-align: center;
+    width: 80%;
+    font-size: 4rem;
+    padding: 1.2rem;
+    background: rgb(39, 189, 240);
+    border-radius: 18px;
+}
+
+#fname {
+    padding: 0.5rem;
+    border-radius: 10px;
+    border: 1.5px solid blue;
+    background: lightskyblue;
+    font-size: 2rem;
+    text-align: center;
+}
+
+body {
+    font-family: system-ui, serif;
+    place-items: center;
+    background: lightskyblue;
+}
+
+.btn {
+    background: red;
+    width: 50%;
+    height: 40%;
+    text-transform: capitalize;
+    font-size: 1.5rem;
+    border-radius: 1.5rem;
+    
+}
+#picParent {
+    width: 90%;
+    max-height: 60%;
+    background: red;
+    display: flex;
+    justify-content: center;
+}
+#canvas {
+    display: none;
+    background-color: #ffffff;
+    cursor: default;
+    border: 1px solid black;
+}
+img {
+    display: inline;
+    max-width: 100%; /* This rule is very important, please do not ignore this! */
+}
