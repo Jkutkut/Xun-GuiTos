@@ -23,6 +23,9 @@ Work focused on the configuration of the rapsberry pi 4 and the bluetooth commun
 
 
 ## Special mentions.
+### Icons:
+- Gun icons: Made by smalllikeart: https://www.flaticon.com/authors/smalllikeart
+- Torch icon: Icons made by freepik http://www.freepik.com/
 
 ### Links:
 Links to pages used to configure or consult with usefull information:
