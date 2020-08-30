@@ -13,16 +13,35 @@
     <script src="mainMenu.js"></script>
 </head>
 <body>
-    <div class="grandparent" style="--h:15%; background: green;">
-        <label> hola </label>
+    <div class="horizontal5col" style="--h:15%;">
+        <div class="score"><div class="scoreMain">hola</div></div>
+        <div class="score"><div class="scoreMain">hola</div></div>
+        <div class="score"><div class="scoreMain">hola</div></div>
+        <div class="score"><div class="scoreMain">hola</div></div>
+        <div class="score"><div class="scoreMain">hola</div></div>
     </div>
-    <div class="grandparent" style="--h:85%; --bg: lightblue;">
-        <label> hola </label>
-        <label> hola </label>
-        <label> hola </label>
-        <label> hola </label>
-        <label> hola </label>
-        <label> hola </label>
+    <div class="vertical5row">
+        <div class="horizontal3col" style="grid-row: 1;">
+            <div class="left-side playercontainer">left</div>
+            <div class="right-side playercontainer">right</div>
+        </div>
+        <div class="horizontal3col" style="grid-row: 2;">
+            <div class="left-side playercontainer">left</div>
+            <div class="right-side playercontainer">right</div>
+        </div>
+        <div class="horizontal3col" style="grid-row: 3;">
+            <div class="left-side playercontainer">left</div>
+            <div class="right-side playercontainer">right</div>
+        </div>
+        <div class="horizontal3col" style="grid-row: 4;">
+            <div class="left-side playercontainer">left</div>
+            <div class="right-side playercontainer">right</div>
+        </div>
+        <div class="horizontal3col" style="grid-row:5;">
+            <div class="left-side playercontainer">Yes</div>
+            <div class="playercontainer" style="--pos: 2">Player</div>
+            <div class="right-side playercontainer">No</div>
+        </div>
     </div>
 </body>
 </html>
