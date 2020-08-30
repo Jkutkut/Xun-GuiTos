@@ -34,7 +34,18 @@
     - [x] Optimize html
     - [x] Optimize js
     - [ ] 
-- [ ] Host + player menu (controler)
+- [ ] Host + player menu (controler):
+    - [x] basic UI
+    - [ ] player UI
+        - [ ] Icon img
+        - [ ] Name
+        - [ ] Gun img
+        - [ ] leader
+        - [ ] 
+    - [ ] Btns
+    - [ ] Leader:
+        - [ ] gun asign
+        - [ ] Icon
 - [ ] main menu
 - [ ] Single CSS file
 
