@@ -6,6 +6,8 @@
     - Work focused on the form to create a new player menu.
 - v2.1:
     - Work on the main menu.
+- v2.2:
+    - First aproach to DB creation and modification usign JS.
 
 ### v0 - v1: Bluetooth communication
 Work focused on the configuration of the rapsberry pi 4 and the bluetooth communication protocol. Basic structure of the repository created.

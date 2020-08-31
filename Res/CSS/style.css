@@ -6,6 +6,7 @@
 body {
     background: var(--background-color);
     place-items: center;
+    font-size: 1.35rem;
 }
 .grandparent {
     display: grid;
@@ -100,12 +101,18 @@ img { /* Img at createPlayer */
 
 /* top */
 .score {
-    padding: 1rem;
+    text-align: center;
+
     width: 100%;
-}
-.scoreMain {
-    background: lime;
     height: 100%;
+    background: lime;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    align-content:center;
+}
+#score-nPlayers {
+    font-size: 50px;
 }
 
 /* main */
@@ -136,7 +143,6 @@ img { /* Img at createPlayer */
 }
 .username {
     width: 40%;
-    font-size: 1.3rem;
 }
 .playerGunTorch {
     max-width: 25%;
