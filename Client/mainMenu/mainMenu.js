@@ -3,7 +3,16 @@ window.onload = function() {
     // let score = $("#scoreContainer");
     // let w = score.css("height");
     // $("#scoreM1").css("height", w);
-    
+    let e = ["#M1", "#nPlayers1", "#score-specialM"];
+    let size = [0.2, 0.6, 0.2];
+    let s = $("#scoreM1").css("height");
+    s = parseFloat(s.substring(0, s.length - 2));
+    for (let i = 0; i < e.length; i++){
+        console.log(s);
+        console.log((s * size[i]) + "px");
+        $(e[i]).css("font-size", (s * size[i]) + "px");
+        // $(e[i]).css("font-size", $(e[i]).css("height"));
+    }
     
     playersContainer = $("#playersContainer"); //The div element with the rows where the player's divs + btns are stored
     mainPlayer = $("#mainPlayer"); //The div element with the info of the host of the device
