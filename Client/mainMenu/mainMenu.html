@@ -14,33 +14,18 @@
 </head>
 <body>
     <div class="horizontalCols" style="--h:15%; --c: 5">
-        <div class="score"><div class="scoreMain">hola</div></div>
-        <div class="score"><div class="scoreMain">hola</div></div>
-        <div class="score"><div class="scoreMain">hola</div></div>
-        <div class="score"><div class="scoreMain">hola</div></div>
+        <div class="score">
+            <div class="scoreMain">
+                hola
+            </div>
+        </div>
         <div class="score"><div class="scoreMain">hola</div></div>
     </div>
-    <div class="verticalRows" style="--r: 5">
-        <!-- <div class="horizontalCols" style="--h: 100%; --c: 3; grid-row: 1;">
-            <div class="left-side playercontainer">left</div>
-            <div class="right-side playercontainer">right</div>
-        </div>
-        <div class="horizontalCols" style="--h: 100%; --c: 3; grid-row: 2;">
-            <div class="left-side playercontainer">left</div>
-            <div class="right-side playercontainer">right</div>
-        </div>
-        <div class="horizontalCols" style="--h: 100%; --c: 3; grid-row: 3;">
-            <div class="left-side playercontainer">left</div>
-            <div class="right-side playercontainer">right</div>
-        </div>
-        <div class="horizontalCols" style="--h: 100%; --c: 3; grid-row: 4;">
-            <div class="left-side playercontainer">left</div>
-            <div class="right-side playercontainer">right</div>
-        </div> -->
-        <div class="horizontalCols" style="--h: 100%; --c: 3; grid-row:5;">
+    <div id="playersContainer" class="verticalRows" style="--r: 5; --h: 85%">
+        <div class="horizontalCols" style="--h: 100%; --c: 3; grid-row: 5;">
             <div class="left-side playercontainer">Yes</div>
-            <div class="playercontainer" style="--pos: 2">
-                <img src="../../Res/img/default_user.png" class="playerIcon">
+            <div id="mainPlayer" class="playercontainer" style="--pos: 2">
+                <img id="mainPlayerIcon" class="playerIcon">
                 <div class="playerData">
                     <img src="../../Res/img/torch.png" class="playerGunTorch">
                     <i class="username">Username</i>
