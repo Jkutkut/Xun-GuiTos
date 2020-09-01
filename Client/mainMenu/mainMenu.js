@@ -1,32 +1,29 @@
 var playersContainer, mainPlayer;
 window.onload = function() {
-    // let e = ["#M1", "#nPlayers1", "#score-specialM"];
-    let e = ["M", "nPlayers"];
-    let size = [0.2, 0.6, 0.15].map(x => x * 0.9);
-    let s = $("#scoreM1").css("height");
+    let e = ["M", "nPlayers"]; //id of elements on the score/mission div
+    let size = [0.2, 0.6, 0.15].map(x => x * 0.9); //height multiplier of those elements
+    let s = $("#scoreM1").css("height"); //height of the container
     s = parseFloat(s.substring(0, s.length - 2));
 
-    for (let i = 0; i < e.length; i++){
-        console.log(s);
-        console.log((s * size[i]) + "px");
-        $("#" + e[i] + 1).css("font-size", (s * size[i]) + "px");
+    for (let i = 0; i < e.length; i++){// for each element inside a Mission score container
+        $("#" + e[i] + 1).css("font-size", (s * size[i]) + "px"); //adjust the font-size to fit the space avalible
     }
-    $("#nPlayers1").css("width", $("#nPlayers1").css("height"));
-    $("#nPlayers1").css("border-radius", s);
+    $("#nPlayers1").css("width", $("#nPlayers1").css("height")); //nPlayersX has a circle background, make the width = height
+    $("#nPlayers1").css("border-radius", s * 0.5); // The radius of the circle is the height/2
 
-    let score = $("#scoreM1");
-    for(let i = 2; i <= 5; i++){
-        let newS = score.clone();
-        newS.attr("id", "scoreM" + i);
+    let score = $("#scoreM1"); //get the container with the 1º mission score to make the rest
+    for(let i = 2; i <= 5; i++){ //for all the rest
+        let newS = score.clone(); //duplicate the container and change the parameters:
+        newS.attr("id", "scoreM" + i); //id
         let children = newS.children();
-        for(let j = 0; j < children.length; j++){
-            children[j].id = e[j] + i;
+        for(let j = 0; j < children.length; j++){ //for all the children on the container
+            children[j].id = e[j] + i; //change the id of the children
         }
-        $("#scoreContainer").append(newS);
-        $("#M" + i).text("Misión " + i);
+        $("#scoreContainer").append(newS); //add the new container to the div with all of the missions
+        $("#M" + i).text("Misión " + i); //also change the title of the mission
     }
-    $("#scoreM4").append(jQuery('<i id="score-specialM">2 fallos</i>'));
-    $("#score-specialM").css("font-size", (s * size[2]) + "px");
+    $("#scoreM4").append(jQuery('<i id="score-specialM">2 fallos</i>')); //on the 4º, add the special label
+    $("#score-specialM").css("font-size", (s * size[2]) + "px"); //adjust the size to fit the container
 
 
 
