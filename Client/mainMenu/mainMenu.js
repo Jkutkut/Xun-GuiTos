@@ -1,5 +1,12 @@
 var playersContainer, mainPlayer;
+var height;
 window.onload = function() {
+    /** CSS */
+    height = $("body").css("height");
+    height = parseFloat(height.substring(0, height.length - 2));
+    console.log(height)
+    $("body").css("font-size", height * 0.014);
+
     /** Missions' scores */
     let e = ["M", "nPlayers"]; //id of elements on the score/mission div
     let size = [0.2, 0.6, 0.15].map(x => x * 0.9); //height multiplier of those elements
@@ -40,7 +47,7 @@ window.onload = function() {
 
     for(let i = 1; i < 5; i++) { //Make the rest of the users
         //create a row
-        let row = jQuery('<div class="horizontalCols" style="--h: 100%;--c: 3; grid-row: ' + i + '"></div>');
+        let row = jQuery('<div id="Row' + i + '" class="horizontalCols" style="--h: 100%;--c: 3; grid-row: ' + i + '"></div>');
         for(let j = 1; j <= 3; j += 2){
             let p = mainPlayer.clone();
             p.attr("id", i + "" + j);
@@ -60,4 +67,32 @@ window.onload = function() {
         console.log($("#11").css("background"));
         $("#11").css("background", "red");
     });
+
+    /** Poll zone */
+    for (let i = 2; i < 5; i++){
+        let p = jQuery('<div id="PollContainer' + (i - 1) + '" class="playercontainer PollContainer" style="--pos:2"></div>');
+        p.append(jQuery('<strong id="PollText' + (i - 1) + '" class="PollText"></strong>'))
+
+        p.insertAfter($("#" + i + 1));
+        $("#PollText" + (i - 1)).css("font-size", h * 0.20);
+    }
+
+    $("#PollText1").text("Sí: 10");
+    $("#PollText2").text("No: 10");
+    $("#PollText3").text("Misión aceptada");
+    $("#PollText3").css("padding-top", "30%");
+    $("#PollText3").css("text-decoration", "underline");
+}
+
+function resultPoll(si, no){
+    if(si > no){
+        //mission valid -> aceptada
+        console.log("aceptada");
+        $("#PollText3").text("Aceptada");
+    }
+    else{
+        //mission invalid -> denegada
+        console.log("denegada");
+        $("#PollText3").text("Denegada");
+    }
 }

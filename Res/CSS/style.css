@@ -6,7 +6,6 @@
 body {
     background: var(--background-color);
     place-items: center;
-    font-size: 1.35rem;
 }
 .grandparent {
     display: grid;
@@ -107,9 +106,6 @@ img { /* Img at createPlayer */
     height: 100%;
     width: 100%;
 }
-.score-M {
-    font-size: fit-width;
-}
 .score-nPlayers {
     text-align: center;
     background: rgb(97, 223, 255);
@@ -134,7 +130,6 @@ img { /* Img at createPlayer */
 .right-side {
     --pos: 3;
 }
-
 .playerData {
     text-align: center;
     height: 25%;
@@ -147,4 +142,17 @@ img { /* Img at createPlayer */
 }
 .playerGunTorch {
     max-width: 25%;
+}
+
+.PollContainer {
+    /* background: rgb(144, 2, 240); */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.PollText {
+    padding-top: 40%;
+    text-align: center;
+    /* background: blue; */
 }
