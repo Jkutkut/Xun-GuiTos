@@ -1,5 +1,6 @@
 var playersContainer, mainPlayer;
 window.onload = function() {
+    /** Missions' scores */
     let e = ["M", "nPlayers"]; //id of elements on the score/mission div
     let size = [0.2, 0.6, 0.15].map(x => x * 0.9); //height multiplier of those elements
     let s = $("#scoreM1").css("height"); //height of the container
@@ -27,6 +28,7 @@ window.onload = function() {
 
 
 
+    /** Players' containers */
     playersContainer = $("#playersContainer"); //The div element with the rows where the player's divs + btns are stored
     mainPlayer = $("#mainPlayer"); //The div element with the info of the host of the device
 
