@@ -84,7 +84,14 @@ window.onload = function() {
     $("#PollText3").css("text-decoration", "underline");
 }
 
+
+
+/** Poll zone */
+function updatePoll() {
+}
 function resultPoll(si, no){
+    $("#PollText1").text("Sí: " + si);
+    $("#PollText2").text("No: " + no);
     if(si > no){
         //mission valid -> aceptada
         console.log("aceptada");
@@ -97,6 +104,30 @@ function resultPoll(si, no){
     }
 }
 
-function showPlayers(){
 
+/**
+ * Given the number of players, show the containers on the correct positions.
+ * @param {number} n - The number of players on the game.
+ * @throws error if the value is not on the range [5, 10]
+ */
+function showPlayers(n){
+    if (n < 5 || n > 10 || !Number.isInteger(n)){ //if n not on the correct range or not an int
+        throw "Error at showPlayers: The value show an int be between 5 and 10, both inclusive.";
+    }
+    // Rows: always: 2, 4, self; n > 6: 3; n > 8: 1; if even, 12 on;
+    let index = new Set(); //set of row numbers to show on screen
+    if (n > 6) index.add(3);
+    if (n > 8) index.add(1);
+    
+    let display = function(id, visible){ //function to switch the visibility of the container given as input
+        $(id).css("display", (visible)? "flex" : "none");
+    }
+
+    for(let i = 1; i < 4; i += 2){ //for each row to change
+        let visible = index.has(i); // if not on set -> no need to drawit => delete it
+        for(let j = 1; j <= 3; j += 2){ //change both containers (left and right)
+            display("#" + i + j, visible);
+        }
+    }
+    display("#12", n % 2 == 0); //if even, add the one on the top middle
 }
