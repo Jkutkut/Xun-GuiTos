@@ -1,5 +1,4 @@
-var playersContainer, mainPlayer;
-var height;
+var height, pollBtnState;
 window.onload = function() {
     /** CSS */
     height = $("body").css("height");
@@ -36,8 +35,8 @@ window.onload = function() {
 
 
     /** Players' containers */
-    playersContainer = $("#playersContainer"); //The div element with the rows where the player's divs + btns are stored
-    mainPlayer = $("#mainPlayer"); //The div element with the info of the host of the device
+    let playersContainer = $("#playersContainer"); //The div element with the rows where the player's divs + btns are stored
+    let mainPlayer = $("#mainPlayer"); //The div element with the info of the host of the device
 
     let h = mainPlayer.css("height"); //get current height of mainplayer div
     h = parseFloat(h.substring(0, h.length - 2));
@@ -82,28 +81,19 @@ window.onload = function() {
     $("#PollText3").text("Misión: Aceptada");
     $("#PollText3").css("padding-top", "30%");
     $("#PollText3").css("text-decoration", "underline");
+
+    //Poll btns
+    $("#LefttBtn").css("height", h);
+    $("#LeftBtnLabel").css("font-size", h * 0.25);
+    $("#RightBtn").css("height", h);
+    $("#RightBtnLabel").css("font-size", h * 0.25);
+    
+    $("#LeftBtn").click(function(){vote(true);});
+    $("#RightBtn").click(function(){vote(false);});
 }
 
 
-
-/** Poll zone */
-function updatePoll() {
-}
-function resultPoll(si, no){
-    $("#PollText1").text("Sí: " + si);
-    $("#PollText2").text("No: " + no);
-    if(si > no){
-        //mission valid -> aceptada
-        console.log("aceptada");
-        $("#PollText3").text("Misión: Aceptada");
-    }
-    else{
-        //mission invalid -> denegada
-        console.log("denegada");
-        $("#PollText3").text("Misión: Denegada");
-    }
-}
-
+/** Main functions */
 
 /**
  * Given the number of players, show the containers on the correct positions.
@@ -130,4 +120,29 @@ function showPlayers(n){
         }
     }
     display("#12", n % 2 == 0); //if even, add the one on the top middle
+}
+
+/** Poll zone */
+/**
+ * Given the input, show it on screen and calculate the current result of the poll.
+ * @param {number} si number of people who chose the positive option.
+ * @param {number} no number of people who chose the negative option.
+ */
+function updatePoll(si, no){
+    $("#PollText1").text("Sí: " + si);
+    $("#PollText2").text("No: " + no);
+    $("#PollText3").text("Misión: " + ((si > no)? "Aceptada" : "Denegada")); //mission valid -> aceptada; mission invalid -> denegada
+}
+function vote(v){
+    // pollBtnState = Current status of the btns
+    if (v == undefined || v == pollBtnState) { //if empty argument or they are the same, clear vote
+        pollBtnState = undefined; //reset var
+    }
+    else if(v) {
+        pollBtnState = true;
+    }
+    else {
+        pollBtnState = false;
+    }
+    console.log(pollBtnState);
 }

@@ -23,7 +23,9 @@
     <!-- Players + btns -->
     <div id="playersContainer" class="verticalRows" style="--r: 5; --h: 84%">
         <div id="Row5" class="horizontalCols" style="--h: 100%; --c: 3; grid-row: 5;">
-            <div class="left-side playercontainer">Yes</div>
+            <div id="LeftBtn" class="left-side playercontainer pollContainer">
+                <strong id="RightBtnLabel" class="PollText">Sí</strong>
+            </div>
             <div id="mainPlayer" class="playercontainer" style="--pos: 2">
                 <img id="mainPlayerIcon" class="playerIcon">
                 <div class="playerData">
@@ -32,7 +34,9 @@
                     <img src="../../Res/img/guns/001-gun.png" class="playerGunTorch">
                 </div>
             </div>
-            <div class="right-side playercontainer">No</div>
+            <div id="RightBtn" class="right-side playercontainer pollContainer">
+                <strong id="LeftBtnLabel" class="PollText">No</strong>
+            </div>
         </div>
     </div>
 </body>
