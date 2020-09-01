@@ -72,14 +72,14 @@ window.onload = function() {
     for (let i = 2; i < 5; i++){
         let p = jQuery('<div id="PollContainer' + (i - 1) + '" class="playercontainer PollContainer" style="--pos:2"></div>');
         p.append(jQuery('<strong id="PollText' + (i - 1) + '" class="PollText"></strong>'))
-
+        p.css("height", h);
         p.insertAfter($("#" + i + 1));
         $("#PollText" + (i - 1)).css("font-size", h * 0.20);
     }
 
     $("#PollText1").text("Sí: 10");
     $("#PollText2").text("No: 10");
-    $("#PollText3").text("Misión aceptada");
+    $("#PollText3").text("Misión: Aceptada");
     $("#PollText3").css("padding-top", "30%");
     $("#PollText3").css("text-decoration", "underline");
 }
@@ -88,11 +88,15 @@ function resultPoll(si, no){
     if(si > no){
         //mission valid -> aceptada
         console.log("aceptada");
-        $("#PollText3").text("Aceptada");
+        $("#PollText3").text("Misión: Aceptada");
     }
     else{
         //mission invalid -> denegada
         console.log("denegada");
-        $("#PollText3").text("Denegada");
+        $("#PollText3").text("Misión: Denegada");
     }
+}
+
+function showPlayers(){
+
 }
