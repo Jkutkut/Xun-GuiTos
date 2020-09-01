@@ -106,26 +106,19 @@ img { /* Img at createPlayer */
     flex-direction: column;
     height: 100%;
     width: 100%;
-    background: lime;
 }
 .score-M {
-    /* height: 20%; */
     font-size: fit-width;
-    background: greenyellow;
 }
 .score-nPlayers {
-    /* font-size: 50px; */
-    /* height: 60%; */
-    background: green;
-    
+    text-align: center;
+    background: rgb(97, 223, 255);
 }
 #score-specialM {
-    /* height: 20%; */
-    background: lightseagreen;
+    text-align: center;
 }
 
 /* main */
-
 .playercontainer {
     grid-column: var(--pos, 1);
     display: flex;
@@ -148,7 +141,6 @@ img { /* Img at createPlayer */
     width: 100%;
     display: flex;
     align-items: center;
-    background: brown;
 }
 .username {
     width: 40%;

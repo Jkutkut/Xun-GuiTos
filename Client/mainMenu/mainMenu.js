@@ -1,19 +1,35 @@
 var playersContainer, mainPlayer;
 window.onload = function() {
-    // let score = $("#scoreContainer");
-    // let w = score.css("height");
-    // $("#scoreM1").css("height", w);
-    let e = ["#M1", "#nPlayers1", "#score-specialM"];
-    let size = [0.2, 0.6, 0.2];
+    // let e = ["#M1", "#nPlayers1", "#score-specialM"];
+    let e = ["M", "nPlayers"];
+    let size = [0.2, 0.6, 0.15].map(x => x * 0.9);
     let s = $("#scoreM1").css("height");
     s = parseFloat(s.substring(0, s.length - 2));
+
     for (let i = 0; i < e.length; i++){
         console.log(s);
         console.log((s * size[i]) + "px");
-        $(e[i]).css("font-size", (s * size[i]) + "px");
-        // $(e[i]).css("font-size", $(e[i]).css("height"));
+        $("#" + e[i] + 1).css("font-size", (s * size[i]) + "px");
     }
-    
+    $("#nPlayers1").css("width", $("#nPlayers1").css("height"));
+    $("#nPlayers1").css("border-radius", s);
+
+    let score = $("#scoreM1");
+    for(let i = 2; i <= 5; i++){
+        let newS = score.clone();
+        newS.attr("id", "scoreM" + i);
+        let children = newS.children();
+        for(let j = 0; j < children.length; j++){
+            children[j].id = e[j] + i;
+        }
+        $("#scoreContainer").append(newS);
+        $("#M" + i).text("Misión " + i);
+    }
+    $("#scoreM4").append(jQuery('<i id="score-specialM">2 fallos</i>'));
+    $("#score-specialM").css("font-size", (s * size[2]) + "px");
+
+
+
     playersContainer = $("#playersContainer"); //The div element with the rows where the player's divs + btns are stored
     mainPlayer = $("#mainPlayer"); //The div element with the info of the host of the device
 
@@ -31,9 +47,16 @@ window.onload = function() {
             p.attr("id", i + "" + j);
             p.css("--pos", j);
             row.append(p);
+            if(i == 1 && j == 1){
+                let p = mainPlayer.clone();
+                p.attr("id", "12");
+                p.css("--pos", 2);
+                row.append(p);
+            }
         }
         row.appendTo(playersContainer);
     }
+
     $("#11").click(function() {
         console.log($("#11").css("background"));
         $("#11").css("background", "red");
