@@ -3,7 +3,6 @@ window.onload = function() {
     /** CSS */
     height = $("body").css("height");
     height = parseFloat(height.substring(0, height.length - 2));
-    console.log(height)
     $("body").css("font-size", height * 0.014);
 
     /** Missions' scores */
