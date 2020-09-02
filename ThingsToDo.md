@@ -37,17 +37,17 @@
 - [ ] Host + player menu (controler):
     - [x] basic UI
     - [ ] player UI
-        - [ ] Icon img
-        - [ ] Name
-        - [ ] Gun img
-        - [ ] leader
+        - [x] Icon img
+        - [x] Name
+        - [x] Gun img
+        - [x] leader icon
         - [ ] 
-    - [ ] Btns
+    - [x] Btns
     - [ ] Leader:
         - [ ] gun asign
-        - [ ] Icon
+        - [x] Icon
 - [ ] main menu
-- [ ] Single CSS file
+- [x] Single CSS file
 
 
 

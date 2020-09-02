@@ -6,6 +6,11 @@
     - Work focused on the form to create a new player menu.
 - v2.1:
     - Work on the main menu.
+        - Basic layout defined.
+        - Some funcionalities added.
+        - Icons for guns and team leader added.
+        - CSS file unified.
+        - Feedback system implemented.
 - v2.2:
     - First aproach to DB creation and modification usign JS.
 
