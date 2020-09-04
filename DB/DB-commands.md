@@ -2,7 +2,7 @@
 https://smallbusiness.chron.com/use-sqlite-ubuntu-46774.html
 
 install: sudo apt-get install sqlite3 libsqlite3-dev;
-open: sqlite3 mydatabase.db
+create: sqlite3 mydatabase.db
 quit: .quit
 
 ## Main table:
@@ -20,6 +20,11 @@ CREATE TABLE 'Players' (
 	'Role' TINYINT,
 	PRIMARY KEY ('GameId','IndexPlayer')
 );
+
+## img table:
+CREATE TABLE Images(Id INTEGER PRIMARY KEY, Data BLOB);
+
+
 ## Score table:
 CREATE TABLE 'Score' (
 	'gameId' INT NOT NULL,
