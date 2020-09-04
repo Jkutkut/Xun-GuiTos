@@ -14,7 +14,10 @@
     - [ ] Solve error: sometimes it stops
     - [x] Make status respond
     - [x] Execute commands
-- [ ] Install LAMP
+- [ ] Install LAMP:
+    - [x] Install apache
+    - [ ] Install sqlite
+    - [ ] 
 - [ ] Create database
 - [ ] Easy way to update the page provaider
 - [ ] Define logic:
