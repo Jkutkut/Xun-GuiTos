@@ -36,7 +36,9 @@ htmlDestination="/var/www/html/"
 resDestination="/var/www/Res/"
 
 (sudo cp ../Client/createPlayer $htmlDestination -rf &&
+echo "1"
 sudo cp ../Client/mainMenu $htmlDestination -rf &&
+echo "2"
 sudo cp ../Res/* $resDestination -rf ||
 error "Error moving files") &&
 echo "done."
