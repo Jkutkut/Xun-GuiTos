@@ -52,3 +52,4 @@ election table
 
 ## Links to add:
 - https://www.w3schools.com/cssref/css_units.asp
+- https://askubuntu.com/questions/92069/how-to-add-custom-directory-e-g-phpmyadmin
