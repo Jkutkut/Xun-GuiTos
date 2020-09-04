@@ -1,6 +1,6 @@
 # Things to do:
 
-- [ ] Mv links to repo
+- [ ] Mv links to README
 ## Rasp4:
 - [ ] Bluetooth communication:
     - [x] Connection
