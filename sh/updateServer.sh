@@ -32,6 +32,6 @@ echo "${TITLE}
  \__,_| .__/ \__,_|\__,_|\__\___\__/\___|_|    \_/ \___|_|   
       |_|${NC}"
 
-(sudo cp ../Client/* /var/www/html/ ||
+(sudo cp ../Client/* /var/www/html/ -r||
 error "Error moving files") &&
 echo "done."
