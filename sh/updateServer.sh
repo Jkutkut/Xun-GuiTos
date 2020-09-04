@@ -33,9 +33,10 @@ echo "${TITLE}
       |_|${NC}"
 
 htmlDestination="/var/www/html/"
+resDestination="/var/www/Res/"
 
 (sudo cp ../Client/createPlayer $htmlDestination -rf &&
-(sudo cp ../Client/mainMenu $htmlDestination -rf &&
-(sudo cp ../Client/mainMenu/mainMenu.* $htmlDestination -rf ||
+sudo cp ../Client/mainMenu $htmlDestination -rf &&
+sudo cp ../Res/* $resDestination -rf ||
 error "Error moving files") &&
 echo "done."
