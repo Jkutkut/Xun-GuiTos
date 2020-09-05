@@ -13,8 +13,10 @@
         - Feedback system implemented.
 - v2.2:
     - First aproach to DB creation and modification usign JS/JQuerry/PHP.
-        - Communication to Raspberry using PHP
-        - Post commands to send information (plain text)
+        - Communication to Raspberry using PHP and JQuerry (Ajax)
+        - Ajax commands to send information (plain text)
+        - Database logic defined
+        - Game proccess logic defined
         
 
 ### v0 - v1: Bluetooth communication
