@@ -36,7 +36,8 @@ htmlDestination="/var/www/html/"
 resDestination="/var/www/Res/"
 
 # Remove old version
-echo "${LBLUE}Removing deprecated version${NC}"
+echo "
+${YELLOW}Removing deprecated version${NC}"
 (sudo rm /var/www/html/* &&
 echo "Removing deprecated files 50%" &&
 sudo rm -rf /var/www/Res/* &&
@@ -46,7 +47,7 @@ echo "${GREEN}Deprecated files removed${NC}
 "
 
 # Save new version
-echo "${LBLUE}Installing new version${NC}"
+echo "${YELLOW}Installing new version${NC}"
 (sudo cp ../Client/createPlayer/* $htmlDestination -rf &&
 echo "CreatePlayer html/js code moved" &&
 sudo cp ../Client/mainMenu/* $htmlDestination -rf &&
