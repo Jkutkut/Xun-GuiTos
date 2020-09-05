@@ -57,6 +57,7 @@ Links to pages used to configure or consult with usefull information:
 - Rasp sqlite:
     - https://www.ochobitshacenunbyte.com/2019/10/01/instalacion-y-uso-basico-de-sqlite-en-ubuntu-18-04/
     - connect to SQLite using PHP: https://www.a2hosting.com/kb/developer-corner/sqlite/connect-to-sqlite-using-php
+    - jQuerry ajax: https://api.jquery.com/jquery.ajax/
     - js php: https://stackoverflow.com/questions/12498839/how-to-execute-php-code-within-javascript/12498905
 
 
