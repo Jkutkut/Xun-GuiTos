@@ -17,12 +17,12 @@ $.ajax({
     }
 ?>
 
-### 02
+### 02.1
 $.ajax({
   url: 'test2.php',
   method: 'post',
   data: {
-    'data1': "hola1"
+    'data1': "hola1",
     'data2': "hoooola2"
   },
   success: function(data) {
@@ -32,7 +32,23 @@ $.ajax({
 
 <?php
     include("setup.php");
-
     print $_POST['data1']
-    print $_POST['data2']
+?>
+
+### 02.2
+$.ajax({
+  url: 'test2.php',
+  method: 'post',
+  data: {
+    'otherThing': "data from otherThing",
+    'id': "data from id"
+  },
+  success: function(data) {
+    console.log(data);
+  }
+});
+
+<?php
+    include("setup.php");
+    print $_POST['data1']
 ?>
