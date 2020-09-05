@@ -1,5 +1,20 @@
 ## Access database:
 
+<?php
+    include("setup.php");
+?>
+
+$.ajax({
+  url: 'test.php',
+  success: function(data) {
+    console.log(data);
+  }
+});
+
+
+
+
+## Tests:
 ### 01
 $.ajax({
   url: 'test.php',
