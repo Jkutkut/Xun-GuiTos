@@ -10,25 +10,21 @@
     - [x] Communication logic:
         - Input: type:(param1:...)
         - Output: any
-    - [ ] Solve error: when sending msg from android, the msg is returned
-    - [ ] Solve error: sometimes it stops
     - [x] Make status respond
     - [x] Execute commands
-- [ ] Install LAMP:
-    - [x] Install apache
-    - [ ] Install sqlite
-    - [ ] 
-- [ ] Create database
-- [ ] Easy way to update the page provaider
-- [ ] Define logic:
-    - [ ] Logic database
-    - [ ] Communication logic
-    - [ ] 
-    - [ ] 
-
-### DB:
-- [ ] Logic database
-- [ ] Change order of players
+    - [ ] Solve error: when sending msg from android, the msg is returned
+    - [ ] Solve error: sometimes it stops
+- LAMP with Sqlite:
+    - [x] Easy way to update the page provaider
+    - [x] Install LAMP:
+        - [x] Install apache
+        - [x] Install sqlite
+    - [x] Create database
+    - [ ] Define logic:
+        - [ ] Logic database
+        - [ ] Communication logic
+    - [ ] Access all database with JS/JQuerry/PHP
+    - [ ] Modify all database with JS/JQuerry/PHP
 
 
 ## Client:
@@ -36,20 +32,17 @@
     - [x] Optimize css
     - [x] Optimize html
     - [x] Optimize js
-    - [ ] 
 - [ ] Host + player menu (controler):
     - [x] basic UI
-    - [ ] player UI
+    - [x] player UI
         - [x] Icon img
         - [x] Name
         - [x] Gun img
         - [x] leader icon
-        - [ ] 
     - [x] Btns
     - [ ] Leader:
         - [ ] gun asign
-        - [x] Icon
-- [ ] main menu
+        - [x] Icon asign
 - [x] Single CSS file
 
 

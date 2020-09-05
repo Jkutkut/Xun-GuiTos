@@ -12,7 +12,10 @@
         - CSS file unified.
         - Feedback system implemented.
 - v2.2:
-    - First aproach to DB creation and modification usign JS.
+    - First aproach to DB creation and modification usign JS/JQuerry/PHP.
+        - Communication to Raspberry using PHP
+        - Post commands to send information (plain text)
+        
 
 ### v0 - v1: Bluetooth communication
 Work focused on the configuration of the rapsberry pi 4 and the bluetooth communication protocol. Basic structure of the repository created.
