@@ -36,9 +36,14 @@ htmlDestination="/var/www/html/"
 resDestination="/var/www/Res/"
 
 (sudo cp ../Client/createPlayer/* $htmlDestination -rf &&
-echo "1"
+echo "CreatePlayer html/js code moved" &&
 sudo cp ../Client/mainMenu/* $htmlDestination -rf &&
-echo "2"
-sudo cp ../Res/* $resDestination -rf ||
+echo "MainMenu html/js code moved" &&
+sudo cp ../Res/img $resDestination -rf &&
+echo "img moved to Res folder" &&
+sudo cp ../Res/CSS $resDestination -rf &&
+echo "CSS moved to Res folder"
+sudo cp ../Res/php $htmlDestination -rf &&
+echo "Php code moved to html folder" ||
 error "Error moving files") &&
 echo "done."
