@@ -1,6 +1,6 @@
 <?php
-    $result = $myPDO->query("SELECT * FROM phpDB;");
-    foreach($result as $row) {
-        print $row['id'] . "\n";
-    }
+    include("setup.php");
+
+    print $_POST['data1']
+    print $_POST['data2']
 ?>
