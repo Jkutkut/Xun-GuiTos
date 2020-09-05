@@ -36,14 +36,17 @@ htmlDestination="/var/www/html/"
 resDestination="/var/www/Res/"
 
 # Remove old version
+echo "${LBLUE}Removing deprecated version${NC}"
 (sudo rm /var/www/html/* &&
 echo "Removing deprecated files 50%" &&
-sudo rm -rf /var/www/Res/*
+sudo rm -rf /var/www/Res/* &&
 echo "Removing deprecated files 100%" ||
 error "Error removing old version") &&
-echo "${GREEN}Deprecated files removed${NC}" &&
+echo "${GREEN}Deprecated files removed${NC}
+"
 
 # Save new version
+echo "${LBLUE}Installing new version${NC}"
 (sudo cp ../Client/createPlayer/* $htmlDestination -rf &&
 echo "CreatePlayer html/js code moved" &&
 sudo cp ../Client/mainMenu/* $htmlDestination -rf &&
@@ -51,7 +54,7 @@ echo "MainMenu html/js code moved" &&
 sudo cp ../Res/img $resDestination -rf &&
 echo "img moved to Res folder" &&
 sudo cp ../Res/CSS $resDestination -rf &&
-echo "CSS moved to Res folder"
+echo "CSS moved to Res folder" &&
 sudo cp ../DB-Server/php/*.php $htmlDestination -rf &&
 echo "Php code moved to html folder" ||
 error "Error moving files") &&
