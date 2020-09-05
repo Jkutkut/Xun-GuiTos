@@ -2,7 +2,7 @@
 
 ### 01
 $.ajax({
-  url: 'php/test.php',
+  url: 'test.php',
   success: function(data) {
     alert(data);
     console.log(data);
@@ -19,8 +19,12 @@ $.ajax({
 
 ### 02
 $.ajax({
-  url: 'php/test.php',
-  data {data1: "hola1", data2: "hoooola2"}
+  url: 'test2.php',
+  method: 'post',
+  data: {
+    'data1': "hola1"
+    //'data2': "hoooola2"
+  },
   success: function(data) {
     console.log(data);
   }
