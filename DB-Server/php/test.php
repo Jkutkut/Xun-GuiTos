@@ -1,5 +1,5 @@
 <?php
-    include("config.php");
+    include("setup.php");
 
     $result = $myPDO->query("SELECT * FROM phpDB;");
     foreach($result as $row) {
