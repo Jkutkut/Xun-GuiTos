@@ -59,4 +59,5 @@ echo "CSS moved to Res folder" &&
 sudo cp ../DB-Server/php/*.php $htmlDestination -rf &&
 echo "Php code moved to html folder" ||
 error "Error moving files") &&
-echo "${GREEN}done${NC}"
+echo "${GREEN}done${NC}
+"
