@@ -35,6 +35,15 @@ echo "${TITLE}
 htmlDestination="/var/www/html/"
 resDestination="/var/www/Res/"
 
+# Remove old version
+(sudo rm /var/www/html/* &&
+echo "Removing deprecated files 50%" &&
+sudo rm -rf /var/www/Res/*
+echo "Removing deprecated files 100%" ||
+error "Error removing old version") &&
+echo "${GREEN}Deprecated files removed${NC}" &&
+
+# Save new version
 (sudo cp ../Client/createPlayer/* $htmlDestination -rf &&
 echo "CreatePlayer html/js code moved" &&
 sudo cp ../Client/mainMenu/* $htmlDestination -rf &&
