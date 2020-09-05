@@ -23,7 +23,7 @@ $.ajax({
   method: 'post',
   data: {
     'data1': "hola1"
-    //'data2': "hoooola2"
+    'data2': "hoooola2"
   },
   success: function(data) {
     console.log(data);
