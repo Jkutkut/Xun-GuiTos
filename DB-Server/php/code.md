@@ -36,7 +36,7 @@ $.ajax({
 
 ### 03
 $.ajax({
-  url: 'test2.php',
+  url: 'test3.php',
   method: 'post',
   data: {
     otherThing: "data from otherThing",
@@ -46,3 +46,9 @@ $.ajax({
     console.log(data);
   }
 });
+
+<?php
+    include("setup.php");
+    print $_POST['otherThing'];
+    print $_POST['id']
+?>
