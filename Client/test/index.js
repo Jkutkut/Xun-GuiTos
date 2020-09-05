@@ -1,71 +1,52 @@
-var canvas = $("#canvas"), context = canvas.get(0).getContext("2d");
-var cropper, img;
-$('#fileInput').on( 'change', function(){
-    if (this.files && this.files[0]) { // if file selected
-        if ( this.files[0].type.match(/^image\//) ) { //if file is an image
-            canvas.css("display", "inline");
-            $('#resultImg').css("display", "none");
-            var reader = new FileReader();
-            reader.onload = function(evt) {
-                img = new Image();
-                img.onload = function() {
-                    let dW = window.innerWidth * 0.9; //Max width of the canvas
-                    let dH = window.innerHeight * 0.5; //Max height of the canvas
-                    let w = img.width;
-                    let h = img.height;
-                    
-                    if (w > h) { //if horizontal photo -> reduce height
-                        //dW = Use all the width - some padding
-                        // dH *= w / h; //adjust the height to fit the photo
-                        dH *= h / w; //adjust the width to fit the photo
-                        console.log("horizontal");
-                    }
-                    else { //if vertical photo -> reduce width
-                        //dH = Use all the height - some padding
-                        // dW *= h / w; //adjust the width to fit the photo
-                        dW *= w / h; //adjust the width to fit the photo
-                        console.log(dW);
-                        console.log("vertical");
-                    }
-                    context.canvas.width = dW;
-                    context.canvas.height = dH;
-                    canvas.css({width: dW + "px",height: dH + "px"});
-                    
-                    // context.drawImage(img, 0, 0);
-                    context.drawImage(img, 0, 0, img.width, img.height, 0, 0, dW, dH);
-                    cropper = canvas.cropper({
-                        viewMode: 2,
-                        aspectRatio: 1 / 1
-                        // movable: false
-                        // zoomable: false,
-                        // minContainerHeight: 500,
-                        // minContainerWidth: 500,
-                        // minContainerHeight: dH,
-                        // minContainerWidth: dW,
-                        // minCanvasHeight: dH,
-		                // minCanvasWidth: dW
-                    });
-                };
-                img.src = evt.target.result;
-            };
-            reader.readAsDataURL(this.files[0]);
-        }
-        else {
-            alert("Invalid file type! Please select an image file.");
-        }
-    }
-    else {
-      alert('No file(s) selected.');
-    }
-});
+document.addEventListener("deviceready", onDeviceReady, false);
+var img;
+var currentRow;
+var b = new Blob();
+function previewFile() {
+    // var preview = document.querySelector('img');
+    var file    = document.querySelector('input[type=file]').files[0];
+    var reader  = new FileReader();
+    // var package_name = document.getElementById("pr").value;
 
-$('#btnCrop').click(function() {
-    // Get a string base 64 data url
-    var croppedImageDataURL = canvas.cropper('getCroppedCanvas').toDataURL("image/png"); 
-    
-    // $result.append( $('<img>').attr('src', croppedImageDataURL));
-    $('#resultImg').attr('src', croppedImageDataURL);
-    canvas.cropper("destroy");
-    canvas.css("display", "none");
-    $('#resultImg').css("display", "inline");
- });
+    reader.onloadend = function () {
+        // img = reader.result;
+        if(file.type.match('image.*'))
+        {
+            img = reader.result;
+            // ref.push({"image":image,"service":arr,"package_name":package_name});
+        }
+        else
+        {
+            alert("select an image file");
+        }
+    }
+
+    if (file) {
+        reader.readAsDataURL(file);
+    } else {
+        preview.src = "";
+    }
+    var image1 = encodeURI(img);
+    // var b = new Blob();
+    b = image1;
+
+    console.log(b);
+    console.log(image1);
+    //document.write('<img src="'+image+'"/>');
+}
+function onDeviceReady() {
+    var db = window.sqlitePlugin.openDatabase({name:"mydatabase"});
+    db.transaction(populateDB, errorCB, successCB);
+}
+function populateDB(tx) {
+    tx.executeSql('CREATE TABLE IF NOT EXISTS DEMO (id INTEGER PRIMARY KEY AUTOINCREMENT, name,number,image BLOB)');
+}
+function insertDB(tx) {
+    tx.executeSql('INSERT INTO DEMO (name,number,image) VALUES ("' +document.getElementById("txtName").value
+                    +'","'+document.getElementById("txtNumber").value+'","' +b+ '")');
+
+}
+function goInsert() {
+    var db = window.sqlitePlugin.openDatabase({name:"sqlite"});
+    db.transaction(insertDB, errorCB, successCB);
+}

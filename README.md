@@ -47,5 +47,8 @@ Links to pages used to configure or consult with usefull information:
     - https://bluedot.readthedocs.io/en/latest/pairpiandroid.html
     - https://www.raspberrypi.org/forums/viewtopic.php?p=919420#p919420
 
+- https://askubuntu.com/questions/92069/how-to-add-custom-directory-e-g-phpmyadmin
+
 #### Web:
 - Crop img: https://codepen.io/blackjacques/pen/bqgNoa
+- https://www.w3schools.com/cssref/css_units.asp

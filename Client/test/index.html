@@ -9,13 +9,8 @@
 </head>
 <body>
     <!-- Below are a series of inputs which allow file selection and interaction with the cropper api -->
-    <input type="file" id="fileInput" accept="image/*" />
-    <input type="button" id="btnCrop" value="Crop" />
-    </p>
-    <div id="result">
-        <canvas id="canvas" style="display: none;"> Your browser does not support the HTML5 canvas element. </canvas>
-        <img id="resultImg" src="../../Res/img/default_user.png" style="display: inline;">
-    </div>
+    <input type="file" onchange="previewFile()">    
+    <button onclick="goInsert()">Insert</button>
 </body>
 <script src="index.js"></script>
 </html>
