@@ -26,6 +26,7 @@
     - [ ] Access all database with JS/JQuerry/PHP
     - [ ] Modify all database with JS/JQuerry/PHP
 
+- [x] Define Game logic
 
 ## Client:
 - [ ] Create a player creation menu:
