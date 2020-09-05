@@ -52,7 +52,7 @@ sudo cp ../Res/img $resDestination -rf &&
 echo "img moved to Res folder" &&
 sudo cp ../Res/CSS $resDestination -rf &&
 echo "CSS moved to Res folder"
-sudo cp ../Res/php/*.php $htmlDestination -rf &&
+sudo cp ../DB-Server/php/*.php $htmlDestination -rf &&
 echo "Php code moved to html folder" ||
 error "Error moving files") &&
 echo "${GREEN}done${NC}"
