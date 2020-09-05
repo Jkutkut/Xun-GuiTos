@@ -37,20 +37,29 @@ Work focused on the configuration of the rapsberry pi 4 and the bluetooth commun
 ### Links:
 Links to pages used to configure or consult with usefull information:
 #### Raspberry:
-- install-linux-apache-mysql-php: https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-ubuntu-18-04
-- https://linuxconfig.org/ubuntu-20-04-connect-to-wifi-from-command-line
-- https://linuxconfig.org/how-to-configure-static-ip-address-on-ubuntu-20-04-focal-fossa-desktop-server
-- https://www.mysqltutorial.org/mysql-cheat-sheet.aspx
-- https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-18-04
-- https://www.digitalocean.com/community/tutorials/the-basics-of-using-the-sed-stream-editor-to-manipulate-text-in-linux
+- Rasp SH code:
+    - change wifi: https://linuxconfig.org/ubuntu-20-04-connect-to-wifi-from-command-line
+    - static IP with wired connection: https://linuxconfig.org/how-to-configure-static-ip-address-on-ubuntu-20-04-focal-fossa-desktop-server
+    - Manipulate text on linux: https://www.digitalocean.com/community/tutorials/the-basics-of-using-the-sed-stream-editor-to-manipulate-text-in-linux
+
 - Rasp bluetooth:
     - https://bluedot.readthedocs.io/en/latest/pairpiandroid.html
     - https://www.raspberrypi.org/forums/viewtopic.php?p=919420#p919420
+
+- Rasp LAMP:
+    - install-linux-apache-mysql-php: https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-ubuntu-18-04
+    - MySQL Cheatsheet: https://www.mysqltutorial.org/mysql-cheat-sheet.aspx
+    - Secure phpmyadmin: https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-18-04
+
+- Rasp php:
+    - https://askubuntu.com/questions/92069/how-to-add-custom-directory-e-g-phpmyadmin
+
 - Rasp sqlite:
     - https://www.ochobitshacenunbyte.com/2019/10/01/instalacion-y-uso-basico-de-sqlite-en-ubuntu-18-04/
     - connect to SQLite using PHP: https://www.a2hosting.com/kb/developer-corner/sqlite/connect-to-sqlite-using-php
+    - js php: https://stackoverflow.com/questions/12498839/how-to-execute-php-code-within-javascript/12498905
 
-- https://askubuntu.com/questions/92069/how-to-add-custom-directory-e-g-phpmyadmin
+
 
 #### Web:
 - Crop img: https://codepen.io/blackjacques/pen/bqgNoa
