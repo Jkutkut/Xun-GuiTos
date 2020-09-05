@@ -22,8 +22,7 @@ $.ajax({
   url: 'test2.php',
   method: 'post',
   data: {
-    'data1': "hola1",
-    'data2': "hoooola2"
+    'data1': "hola1"
   },
   success: function(data) {
     console.log(data);
@@ -40,8 +39,8 @@ $.ajax({
   url: 'test2.php',
   method: 'post',
   data: {
-    'otherThing': "data from otherThing",
-    'id': "data from id"
+    otherThing: "data from otherThing",
+    id: "data from id"
   },
   success: function(data) {
     console.log(data);

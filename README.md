@@ -46,6 +46,9 @@ Links to pages used to configure or consult with usefull information:
 - Rasp bluetooth:
     - https://bluedot.readthedocs.io/en/latest/pairpiandroid.html
     - https://www.raspberrypi.org/forums/viewtopic.php?p=919420#p919420
+- Rasp sqlite:
+    - https://www.ochobitshacenunbyte.com/2019/10/01/instalacion-y-uso-basico-de-sqlite-en-ubuntu-18-04/
+    - connect to SQLite using PHP: https://www.a2hosting.com/kb/developer-corner/sqlite/connect-to-sqlite-using-php
 
 - https://askubuntu.com/questions/92069/how-to-add-custom-directory-e-g-phpmyadmin
 
