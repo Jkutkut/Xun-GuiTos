@@ -34,7 +34,7 @@ $.ajax({
     print $_POST['data1']
 ?>
 
-### 02.2
+### 03
 $.ajax({
   url: 'test2.php',
   method: 'post',
@@ -46,8 +46,3 @@ $.ajax({
     console.log(data);
   }
 });
-
-<?php
-    include("setup.php");
-    print $_POST['data1']
-?>
