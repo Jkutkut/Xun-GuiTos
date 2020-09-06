@@ -7,6 +7,7 @@
     // echo "SELECT " . $ele . " FROM " . $_POST["table"] . " WHERE " . $_POST["token"] . ";";
     // echo $data;
     // print $myPDO->query($_REQUEST["command"]);
-    $d = $myPDO->query("" . $_GET["command"]);
+    $d = $myPDO->query("SELECT * FROM tablaEliminar WHERE id=6;");
+    // $d = $myPDO->query("" . $_GET["command"]);
     print $d;
 ?>
