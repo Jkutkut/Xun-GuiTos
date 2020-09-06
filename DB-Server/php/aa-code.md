@@ -69,7 +69,6 @@ $.ajax({
 ?>
 
 ### GetFromTable:
-
 $.ajax({
   url: 'getFromTable.php',
   method: 'post',
@@ -82,11 +81,14 @@ $.ajax({
     console.log(data);
   }
 });
+
+
+### ClearTable:
 $.ajax({
-  url: 'getFromTable.php',
+  url: 'clearTable.php',
   method: 'post',
   data: {
-    command: "SELECT * FROM tablaEliminar WHERE id=6;"
+    table: "tablaEliminar"
   },
   success: function(data) {
     console.log(data);
