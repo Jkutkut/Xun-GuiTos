@@ -82,3 +82,13 @@ $.ajax({
     console.log(data);
   }
 });
+$.ajax({
+  url: 'getFromTable.php',
+  method: 'post',
+  data: {
+    command: "SELECT * FROM tablaEliminar WHERE id=6;"
+  },
+  success: function(data) {
+    console.log(data);
+  }
+});
