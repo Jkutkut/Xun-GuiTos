@@ -70,7 +70,7 @@ $.ajax({
 
 ### GetFromTable:
 $.ajax({
-  url: 'getFromTable.php',
+  url: 'getRow.php',
   method: 'post',
   data: {
     ele: "*",
@@ -86,7 +86,6 @@ $.ajax({
 ### ClearTable:
 $.ajax({
   url: 'clearTable.php',
-  method: 'post',
   data: {
     table: "tablaEliminar"
   },
