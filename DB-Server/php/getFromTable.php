@@ -9,5 +9,8 @@
     // print $myPDO->query($_REQUEST["command"]);
     $d = $myPDO->query("SELECT * FROM tablaEliminar WHERE id=6;");
     // $d = $myPDO->query("" . $_GET["command"]);
-    print $d;
+    // print $d;
+    foreach($d as $row) {
+        print $row['id'] . "\n";
+    }
 ?>
