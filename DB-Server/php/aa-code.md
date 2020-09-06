@@ -67,3 +67,18 @@ $.ajax({
     print $_POST['otherThing'];
     print $_POST['id']
 ?>
+
+### GetFromTable:
+
+$.ajax({
+  url: 'getFromTable.php',
+  method: 'post',
+  data: {
+    ele: "*",
+    table: "tablaEliminar",
+    token: "id=6"
+  },
+  success: function(data) {
+    console.log(data);
+  }
+});
