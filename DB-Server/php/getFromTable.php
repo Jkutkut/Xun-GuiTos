@@ -6,5 +6,5 @@
     // $data = $myPDO->query("SELECT " . $ele . " FROM " . $_POST["table"] . " WHERE " . $_POST["token"] . ";");
     // echo "SELECT " . $ele . " FROM " . $_POST["table"] . " WHERE " . $_POST["token"] . ";";
     // echo $data;
-    print $myPDO->query($_POST["command"]);
+    print $myPDO->exec($_POST["command"]);
 ?>
