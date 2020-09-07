@@ -33,9 +33,11 @@
     - [x] Optimize css
     - [x] Optimize html
     - [x] Optimize js
-    - [ ] The img does not scale correctly
-    - [ ] IOS (+ Chrome?): ScreenHeight may not be direct
-    - [ ] 
+    - ERRORS:
+        - [ ] The img does not scale correctly
+        - [ ] IOS (+ Chrome?): ScreenHeight may not be direct
+        - [ ] "LISTO" btn height not correct
+        - [ ] 
 
 - [ ] Host + player menu (controler):
     - [x] basic UI
@@ -48,6 +50,12 @@
     - [ ] Leader:
         - [ ] gun asign
         - [x] Icon asign
+    - ERRORS: 
+        - [ ] "2Fallos label" small
+        - [ ] "Username" small
+        - [ ] Yes/no btns not centered
+        - [ ] at playerContainer, bottom div bigger than img (IOS)
+    
 - [x] Single CSS file
 
 
