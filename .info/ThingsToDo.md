@@ -33,6 +33,10 @@
     - [x] Optimize css
     - [x] Optimize html
     - [x] Optimize js
+    - [ ] The img does not scale correctly
+    - [ ] IOS (+ Chrome?): ScreenHeight may not be direct
+    - [ ] 
+
 - [ ] Host + player menu (controler):
     - [x] basic UI
     - [x] player UI
