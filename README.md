@@ -17,7 +17,7 @@
         - Ajax commands to send information (plain text)
         - Database logic defined
         - Game proccess logic defined
-        
+        - Use of uxf file to display info
 
 ### v0 - v1: Bluetooth communication
 Work focused on the configuration of the rapsberry pi 4 and the bluetooth communication protocol. Basic structure of the repository created.
