@@ -13,7 +13,7 @@ name:
 group-pos:
 -..
 img-id:
--..</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>640</x><y>420</y><w>50</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>30;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>230</x><y>280</y><w>160</w><h>120</h></coordinates><panel_attributes>Mission
+-..</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>640</x><y>420</y><w>50</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>30;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>230</x><y>270</y><w>160</w><h>100</h></coordinates><panel_attributes>Mission
 --
 m-id: autoincrement
 -..
@@ -21,22 +21,27 @@ active: boolean
 -..
 l-id: 
 -..
-y:
-n:
--..
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>380</x><y>340</y><w>80</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-&gt;&gt;</panel_attributes><additional_attributes>10;10;60;10</additional_attributes></element><element><id>UMLNote</id><coordinates><x>190</x><y>80</y><w>430</w><h>180</h></coordinates><panel_attributes>Translator:
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>380</x><y>330</y><w>80</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-&gt;&gt;</panel_attributes><additional_attributes>10;10;60;10</additional_attributes></element><element><id>UMLNote</id><coordinates><x>190</x><y>80</y><w>430</w><h>180</h></coordinates><panel_attributes>Translator:
 
 p-id = player id
 l-id = leader id
 m-id: mission id
 cm-id: current mission id
 
-y: number people who chose the "Afirmative" / "good option"/"aceptada" option
-n: number people who chose the "Negative" / "bad option"/"denegada" option
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>40</x><y>370</y><w>140</w><h>70</h></coordinates><panel_attributes>Mission-Team
+val: value of the poll: 
+     true="aceptada"/ok
+     false="denegada"/nope
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>40</x><y>370</y><w>140</w><h>90</h></coordinates><panel_attributes>Mission-Team
 --
 -..
 m-id: 
 -..
 p-id:
--..</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>170</x><y>360</y><w>290</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;-&gt;&gt;</panel_attributes><additional_attributes>10;70;240;70;240;10;270;10</additional_attributes></element><element><id>Relation</id><coordinates><x>170</x><y>300</y><w>80</w><h>130</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;110;40;110;40;10;60;10</additional_attributes></element></diagram>
+-..
+vote</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>170</x><y>350</y><w>290</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;-&gt;&gt;</panel_attributes><additional_attributes>10;80;230;80;230;10;270;10</additional_attributes></element><element><id>Relation</id><coordinates><x>170</x><y>290</y><w>80</w><h>140</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;120;40;120;40;10;60;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>210</x><y>460</y><w>160</w><h>80</h></coordinates><panel_attributes>Opinion
+--
+-..
+p-id
+-..
+val: boolean
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>360</x><y>370</y><w>100</w><h>150</h></coordinates><panel_attributes>lt=&lt;&lt;-&gt;&gt;</panel_attributes><additional_attributes>10;130;50;130;50;10;80;10</additional_attributes></element></diagram>
