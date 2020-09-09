@@ -52,6 +52,8 @@ echo "${YELLOW}Installing new version${NC}"
 echo "CreatePlayer html/js code moved" &&
 sudo cp ../Client/mainMenu/* $htmlDestination -rf &&
 echo "MainMenu html/js code moved" &&
+sudo cp ../Client/waitingRoom/* $htmlDestination -rf &&
+echo "WaitingRoom html/js code moved" &&
 sudo cp ../Res/img $resDestination -rf &&
 echo "img moved to Res folder" &&
 sudo cp ../Res/CSS $resDestination -rf &&
