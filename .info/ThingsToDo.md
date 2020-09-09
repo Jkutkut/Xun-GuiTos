@@ -33,6 +33,8 @@
     - [x] Optimize css
     - [x] Optimize html
     - [x] Optimize js
+    - [ ] If data not correct, handle error
+    - [ ] 
     - ERRORS:
         - [ ] The img does not scale correctly
         - [ ] IOS (+ Chrome?): ScreenHeight may not be direct
