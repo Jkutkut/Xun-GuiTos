@@ -1,8 +1,8 @@
-<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>670</x><y>400</y><w>100</w><h>90</h></coordinates><panel_attributes>img
+<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>630</x><y>390</y><w>100</w><h>90</h></coordinates><panel_attributes>img
 --
 img-id:
 -..
-img: BLOB</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>440</x><y>310</y><w>210</w><h>150</h></coordinates><panel_attributes>Players
+img: BLOB</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>400</x><y>300</y><w>210</w><h>150</h></coordinates><panel_attributes>Players
 --
 -..
 
@@ -13,7 +13,7 @@ name:
 group-pos:
 -..
 img-id:
--..</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>640</x><y>420</y><w>50</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>30;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>230</x><y>270</y><w>160</w><h>100</h></coordinates><panel_attributes>Mission
+-..</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>600</x><y>410</y><w>50</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>30;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>190</x><y>260</y><w>160</w><h>100</h></coordinates><panel_attributes>Mission
 --
 m-id: autoincrement
 -..
@@ -21,7 +21,7 @@ active: boolean
 -..
 l-id: 
 -..
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>380</x><y>330</y><w>80</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-&gt;&gt;</panel_attributes><additional_attributes>10;10;60;10</additional_attributes></element><element><id>UMLNote</id><coordinates><x>190</x><y>80</y><w>430</w><h>180</h></coordinates><panel_attributes>Translator:
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>340</x><y>320</y><w>80</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-&gt;&gt;</panel_attributes><additional_attributes>10;10;60;10</additional_attributes></element><element><id>UMLNote</id><coordinates><x>130</x><y>50</y><w>490</w><h>200</h></coordinates><panel_attributes>Translator:
 
 p-id = player id
 l-id = leader id
@@ -31,17 +31,18 @@ cm-id: current mission id
 val: value of the poll: 
      true="aceptada"/ok
      false="denegada"/nope
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>40</x><y>370</y><w>140</w><h>90</h></coordinates><panel_attributes>Mission-Team
+
+group-pos = position of the player from the root user (place 0 is the root user, clockwise)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>360</y><w>140</w><h>90</h></coordinates><panel_attributes>Mission-Team
 --
 -..
 m-id: 
 -..
 p-id:
 -..
-vote</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>170</x><y>350</y><w>290</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;-&gt;&gt;</panel_attributes><additional_attributes>10;80;230;80;230;10;270;10</additional_attributes></element><element><id>Relation</id><coordinates><x>170</x><y>290</y><w>80</w><h>140</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;120;40;120;40;10;60;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>210</x><y>460</y><w>160</w><h>80</h></coordinates><panel_attributes>Opinion
+vote</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>130</x><y>340</y><w>290</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;-&gt;&gt;</panel_attributes><additional_attributes>10;80;230;80;230;10;270;10</additional_attributes></element><element><id>Relation</id><coordinates><x>130</x><y>280</y><w>80</w><h>140</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;120;40;120;40;10;60;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>170</x><y>450</y><w>160</w><h>80</h></coordinates><panel_attributes>Opinion
 --
 -..
 p-id
 -..
 val: boolean
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>360</x><y>370</y><w>100</w><h>150</h></coordinates><panel_attributes>lt=&lt;&lt;-&gt;&gt;</panel_attributes><additional_attributes>10;130;50;130;50;10;80;10</additional_attributes></element></diagram>
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>320</x><y>360</y><w>100</w><h>150</h></coordinates><panel_attributes>lt=&lt;&lt;-&gt;&gt;</panel_attributes><additional_attributes>10;130;50;130;50;10;80;10</additional_attributes></element></diagram>
