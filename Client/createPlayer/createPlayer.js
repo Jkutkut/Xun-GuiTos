@@ -4,6 +4,36 @@ window.onload = function(){ //When page loaded, define vars
     canvas = $("#canvas");
     context = canvas.get(0).getContext("2d");
     imgHTML = $("#resultImg");
+
+    $("#submitBtn").click(function(){
+        let name, img;
+        name = $("#nameTb").val(); //Get the name entered in the input.
+        if(name == ""){ //If data is not correct
+            //DO SOMETHING
+            console.log("data not correct")
+        }
+        else{ //If data is correct
+            //add name, img to DB
+            let addName = {
+                url: 'createPlayer.php',
+                method: 'post',
+                data: {
+                    "name": name //name: "Adrián"
+                },
+                success: function(data) {
+                    console.log("DONE");
+                    console.log(data);
+                }
+            };
+            // let addImg;
+
+            $.ajax(addName);
+            // $.ajax(addImg);
+
+            // window.location.href = "waitingRoom.html?username='" + name + "'" //Go to the waiting room with the user's name
+
+        }
+    });
 }
 
 var loadFile = function(event) { //When img selected
