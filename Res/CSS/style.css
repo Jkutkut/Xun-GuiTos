@@ -91,7 +91,7 @@ img { /* Img at createPlayer */
 .lds-ring {
     display: inline-block;
     position: relative;
-    width: 40%;
+    width: 30%;
 }
 .lds-ring div {
     box-sizing: border-box;
