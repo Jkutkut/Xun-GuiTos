@@ -68,5 +68,6 @@ Links to pages used to configure or consult with usefull information:
 
 
 #### Web:
+- Css loading: https://loading.io/css/
 - Crop img: https://codepen.io/blackjacques/pen/bqgNoa
 - https://www.w3schools.com/cssref/css_units.asp
