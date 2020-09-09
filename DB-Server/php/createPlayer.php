@@ -1,5 +1,5 @@
 <?php
     include("setup.php");
-    $myPDO->query('INSERT INTO Players ("p-id") VALUES("' . $_POST['name'] . '")');
-    echo 'INSERT INTO Players ("p-id") VALUES("' . $_POST['name'] . '")';
+    $myPDO->query('INSERT INTO Players ("name") VALUES("' . $_POST['name'] . '")');
+    echo $_POST["name"] . " player created";
 ?>
