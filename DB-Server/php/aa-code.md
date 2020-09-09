@@ -97,6 +97,7 @@ $.ajax({
 ### GetPage:
 $.ajax({
   url: 'getPage.php',
+  method: 'post',
   data: {
     webPage: "waitingRoom.html"
   },
