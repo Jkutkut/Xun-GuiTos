@@ -1,5 +1,7 @@
 var height, pollBtnState;
 window.onload = function() {
+    getQuerry(); //function from common.js
+
     /** CSS */
     height = $("body").css("height");
     height = parseFloat(height.substring(0, height.length - 2));
