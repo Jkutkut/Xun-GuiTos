@@ -42,6 +42,7 @@ Work focused on the configuration of the rapsberry pi 4 and the bluetooth commun
 ### Links:
 Links to pages used to configure or consult with usefull information:
 #### Raspberry:
+- ssh control: https://vitux.com/how-to-remotely-manage-a-ubuntu-server-with-ssh/
 - Rasp SH code:
     - change wifi: https://linuxconfig.org/ubuntu-20-04-connect-to-wifi-from-command-line
     - static IP with wired connection: https://linuxconfig.org/how-to-configure-static-ip-address-on-ubuntu-20-04-focal-fossa-desktop-server
