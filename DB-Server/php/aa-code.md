@@ -96,7 +96,7 @@ $.ajax({
 
 ### GetPage:
 $.ajax({
-  url: 'clearTable.php',
+  url: 'getPage.php',
   data: {
     webPage: "waitingRoom.html"
   },
