@@ -3,4 +3,6 @@ window.onload = function(){
     $("#secretBtn").click(function(){
         console.log("works");
     });
+
+    getQuerry();
 }
