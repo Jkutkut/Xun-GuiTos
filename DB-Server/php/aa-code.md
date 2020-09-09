@@ -93,3 +93,14 @@ $.ajax({
     console.log(data);
   }
 });
+
+### GetPage:
+$.ajax({
+  url: 'clearTable.php',
+  data: {
+    webPage: "waitingRoom.html"
+  },
+  success: function(data) {
+    console.log(data);
+  }
+});
