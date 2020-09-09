@@ -1,0 +1,10 @@
+CREATE TABLE 'Players' (
+	'p-id' INTEGER PRIMARY KEY AUTOINCREMENT,
+	'name' VARCHAR,
+	'group-pos' INT DEFAULT NULL,
+	'img-id' INT DEFAULT NULL
+);
+
+INSERT INTO Players ('name') values ("Jorge");
+
+DROP table Players;
