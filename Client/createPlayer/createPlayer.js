@@ -30,7 +30,7 @@ window.onload = function(){ //When page loaded, define vars
             $.ajax(addName);
             // $.ajax(addImg);
 
-            // window.location.href = "waitingRoom.html?username='" + name + "'" //Go to the waiting room with the user's name
+            // window.location.href = "waitingRoom.html?username='" + name + "'&fistTime=true" //Go to the waiting room with the user's name
 
         }
     });
