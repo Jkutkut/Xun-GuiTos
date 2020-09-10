@@ -8,9 +8,9 @@
     // foreach($result as $row) {
     //     print $row['name'] . "\n";
     // }
-    $db->exec('BEGIN');
+    // $db->exec('BEGIN');
     $db->exec($querry) or die("Error at creating player :S");
-    $db->exec('COMMIT');
+    // $db->exec('COMMIT');
     
     
     
