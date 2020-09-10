@@ -4,13 +4,17 @@
     $querry = "INSERT INTO Players (name) VALUES('$name')";
     echo $querry;
     
-    $result = $db->query('SELECT * FROM Players');
-    foreach($result as $row) {
-        print $row['name'] . "\n";
-    }
-
+    // $result = $db->query('SELECT * FROM Players');
+    // foreach($result as $row) {
+    //     print $row['name'] . "\n";
+    // }
+    $db->exec('BEGIN');
     $db->exec($querry) or die("Error at creating player :S");
-    echo $_POST["name"] . " player created\n";
+    $db->exec('COMMIT');
+    
+    
+    
+    echo $_POST["name"] . " created\n";
 
     
 ?>
