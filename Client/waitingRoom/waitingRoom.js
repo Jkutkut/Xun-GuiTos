@@ -1,14 +1,11 @@
 var phrasesIndex = [];
 const phrases = [
-    "Esperando al resto de jugadores",
-    "phrase 1",
-    "phrase 2",
-    "phrase 3",
-    "phrase 4",
-    "phrase 5",
-    "phrase 6",
-    "phrase 7",
-    "phrase 8"
+    "Buscando aliados",
+    "Luchando contra chunguitos",
+    "Practicando el baile de la resistencia",
+    "Muchiflopeando los servidores",
+    "Haciendo movidas chungas",
+    ""
 ];
 
 function changePhrase(){
@@ -26,7 +23,37 @@ function changePhrase(){
 window.onload = function(){
     
     getQuerry(); //function from common.js
-    setInterval(changePhrase, 7000);
+    
+    let phr;
+    if(queryString['fistTime'] == "true"){
+        phr = [
+            "Esperando al resto de jugadores",
+            "Analizando al resto de jugadores",
+            "Sincronizando dispositivos",
+            "Validando datos",
+            ""
+        ];
+        
+        $("#waitingLabel").text("Esperando al resto de jugadores");
+    }
+    else {
+        phr = [
+            "Pensando quién puede ser chunguito",
+            "Dudando si el de al lado miente",
+            "Será bueno el de enfrente?",
+            "Duda de tí el de la derecha seguro",
+            "El de la izquierda puede ser chunguito",
+            ""
+        ];
+        
+    }
+    for (let i = 0; i < phr.length; i++) { //for all new phrases
+        phrases.push(phr[i]); //Add them to the phases array
+    }
+    $("#waitingLabel").text(phr[0]); //Set the first string from the phr array as the text now
+    setInterval(changePhrase, 5000); //Change the phrase periodically
+
+
 
     $(".lds-ring").css("height", $(".lds-ring").css("width"));
     $("#secretBtn").click(function(){
