@@ -1,6 +1,6 @@
 <?php
     include("setup.php");
-    $db->exec('INSERT INTO Players ("name") VALUES("' . $_POST['name'] . '");');
+    $db->exec('INSERT INTO Players (name) VALUES("' . $_POST['name'] . '");');
     // $db->query('INSERT INTO Players (name) VALUES("adri");');
     echo 'INSERT INTO Players ("name") VALUES("' . $_POST['name'] . '");' . "\n";
     echo $_POST["name"] . " player created";
