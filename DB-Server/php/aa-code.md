@@ -86,6 +86,7 @@ $.ajax({
 ### ClearTable:
 $.ajax({
   url: 'clearTable.php',
+  method: 'post',
   data: {
     table: "tablaEliminar"
   },
