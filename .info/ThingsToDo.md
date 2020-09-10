@@ -29,7 +29,7 @@
 - [x] Define Game logic
 
 ## Client:
-- [ ] Create a player creation menu:
+- [ ] CreatePlayer menu:
     - [x] Optimize css
     - [x] Optimize html
     - [x] Optimize js
@@ -40,8 +40,17 @@
         - [ ] IOS (+ Chrome?): ScreenHeight may not be direct
         - [ ] "LISTO" btn height not correct
         - [ ] 
+- [ ] WaitingRoom:
+    - [ ] Fill all phrases
+    - [ ] Root menu:
+        - [ ] Get Players
+        - [ ] Order players
+        - [ ] Apply players
+        - [ ] 
+    - [ ] ERRORS:
 
-- [ ] Host + player menu (controler):
+        
+- [ ] mainMenu:
     - [x] basic UI
     - [x] player UI
         - [x] Icon img
@@ -52,7 +61,7 @@
     - [ ] Leader:
         - [ ] gun asign
         - [x] Icon asign
-    - ERRORS: 
+    - [ ] ERRORS: 
         - [ ] "2Fallos label" small
         - [ ] "Username" small
         - [ ] Yes/no btns not centered
