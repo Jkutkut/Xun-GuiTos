@@ -1,4 +1,4 @@
 <?php
-    $db = new SQLite3('sqlite:/home/ubuntu/DB/mydatabase.db');
+    $db = new PDO('sqlite:/home/ubuntu/DB/mydatabase.db') or die("Ops! I died :S");
     // $myPDO = new PDO('sqlite:/home/ubuntu/DB/mydatabase.db');
 ?>
