@@ -7,6 +7,6 @@
     $sql = 'INSERT INTO Players ("name") VALUES("' . $_POST['name'] . '");';
     $stmt = $myPDO->prepare($sql);
     // $stmt = $this->pdo->prepare($sql);
-    $stmt->bindValue(':project_name', $projectName);
+    $stmt->bindValue('name', $_POST['name']);
     $stmt->execute();
 ?>
