@@ -11,13 +11,16 @@
         - Icons for guns and team leader added.
         - CSS file unified.
         - Feedback system implemented.
-- v2.2: Data base
+- v2.2: Data base creation
     - First aproach to DB creation and modification usign JS/JQuerry/PHP.
-        - Communication to Raspberry using PHP and JQuerry (Ajax)
-        - Ajax commands to send information (plain text)
-        - Database logic defined
-        - Game proccess logic defined
-        - Use of uxf file to display info
+        - Communication to Raspberry using PHP and JQuerry (Ajax).
+        - Ajax commands to send information (plain text).
+        - Database logic defined.
+        - Game proccess logic defined.
+        - Use of uxf file to display info.
+        - Change between menus using php.
+        - Succesfull sqlite update of table using php and ajax.
+-v2.3: Data base and menus integration
 
 ### v0 - v1: Bluetooth communication
 Work focused on the configuration of the rapsberry pi 4 and the bluetooth communication protocol. Basic structure of the repository created.
