@@ -1,8 +1,10 @@
 <?php
     include("setup.php");
     $name = $_POST['name'];
-    $querry = "INSERT INTO Players (name) VALUES('$name');";
+    $querry = "INSERT INTO Players (name) VALUES('$name')";
     echo $querry;
     $db->exec($querry) or die("Error at creating player :S");
-    echo $_POST["name"] . " player created";
+    echo $_POST["name"] . " player created\n";
+
+    echo $db->query('SELECT * FROM Players');
 ?>
