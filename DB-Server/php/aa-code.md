@@ -83,7 +83,7 @@ $.ajax({
 });
 
 
-### ClearTable:
+### ClearTable: WORKS
 $.ajax({
   url: 'clearTable.php',
   method: 'post',
@@ -94,8 +94,15 @@ $.ajax({
     console.log(data);
   }
 });
+<?php
+    include("setup.php");
+    $ta = $_POST['table'];
+    $querry = "DELETE FROM " . $ta;
+    $db->exec($querry) or die("Error at creating player :S");
+    echo "Table cleared: " . $ta;
+?>
 
-### GetPage:
+### GetPage: WORKS
 $.ajax({
   url: 'getPage.php',
   method: 'post',
@@ -112,3 +119,25 @@ $.ajax({
     echo fread($myfile,filesize($fileName));
     fclose($myfile);
 ?>
+
+### CreatePlayer: WORKS
+$.ajax({
+  url: 'createPlayer.php',
+  method: 'post',
+  data: {
+      "name": name //name: "Adrián"
+  },
+  success: function(data) {
+      console.log("DONE");
+      console.log(data);
+  }
+});
+
+<?php
+    include("setup.php");
+    $name = $_POST['name'];
+    $querry = "INSERT INTO Players (name) VALUES('$name')";
+    $db->exec($querry) or die("Error at creating player :S");
+    echo "Player created: " . $name;
+?>
+
