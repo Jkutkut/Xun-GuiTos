@@ -19,17 +19,14 @@ function changePhrase(){
     }
     // At this point phrasesIndex has length != 1
     let randomIndex = Math.floor(Math.random() * phrasesIndex.length); //Using phrasesIndex to avoid repeat the same phrase
-    let index = phrasesIndex[randomIndex];
-    console.log(index + " -> " + phrases[index]);
     phrasesIndex.splice(randomIndex, 1);
-
-    $("#waitingLabel").text(phrases[index]);
+    $("#waitingLabel").text(phrases[phrasesIndex[randomIndex]]);
 }
 
 window.onload = function(){
     
     getQuerry(); //function from common.js
-
+    setInterval(changePhrase, 7000);
 
     $(".lds-ring").css("height", $(".lds-ring").css("width"));
     $("#secretBtn").click(function(){
