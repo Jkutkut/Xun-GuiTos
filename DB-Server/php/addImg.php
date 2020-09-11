@@ -5,9 +5,12 @@
     $query = "INSERT INTO Imgs (img) VALUES('$img')";
     $db->exec($query) or die("Error adding the img :S"); //Store the img or fail
 
-    $imgId = $db->query("SELECT imgId FROM Imgs WHERE img = 'hola'"); //Get imgId once stored
 
-    $db->exec("UPDATE Players SET imgId = $imgId WHERE name = $user");
+    $getImgId = 'SELECT imgId FROM Imgs WHERE img = $img';
+    $imgId = $db->query($getImgId) or die("Error at getting the correct imgId"); //Get imgId once stored
+
+    $imgIdToPlayers = 'UPDATE Players SET imgId = $getImgId WHERE name = $user';
+    $db->exec($imgIdToPlayers) or die("Error at updating the table ");
 
     echo "Img stored and linked";
 ?>
