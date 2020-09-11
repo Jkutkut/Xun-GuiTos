@@ -1,5 +1,7 @@
 var canvas, context, imgHTML, cropper, imgF;
 
+var state = false;
+
 window.onload = function(){ //When page loaded, define vars
     canvas = $("#canvas");
     context = canvas.get(0).getContext("2d");
@@ -7,9 +9,9 @@ window.onload = function(){ //When page loaded, define vars
 
     $("#submitBtn").click(function(){
         let name = $("#nameTb").val(); //Get the name entered in the input.
-        if(name == ""){ //If data is not correct
+        if(name == "" || imgHTML.css("display") == "none"){ //If data is not correct
             //DO SOMETHING
-            console.log("data not correct")
+            console.log("data not correct");
         }
         else{ //If data is correct
             //add name, img to DB
@@ -48,9 +50,9 @@ window.onload = function(){ //When page loaded, define vars
 }
 
 var loadFile = function(event) { //When img selected
-    $("#iconReady").css("display", "inline"); //Display Btn to crop img 
+    togleMenu(); //Change to edit menu
+
     canvas.css("display", "inline"); //Show canvas
-    imgHTML.css("display", "none"); //Hide current img
     
     imgF = new Image(); //Here the new img File will be stored
     imgF.onload = function(event) { //When img loaded, display it the best way possible
@@ -79,12 +81,26 @@ var loadFile = function(event) { //When img selected
     }
     imgF.src = URL.createObjectURL(event.target.files[0]); //Add the img selected as the img file
 };
+
 function cropImg(){ //When cropped btn selected, this code is executed
     // Get a string base 64 data url
     let croppedImageDataURL = cropper.getCroppedCanvas().toDataURL("image/png");
     imgHTML.attr('src', croppedImageDataURL); //add the cropped img to the img tag 
     cropper.destroy(); //The cropper is destroyed 
     canvas.css("display", "none"); //hide canvas
-    imgHTML.css("display", "inline"); //Show imgtag with the cropped img
-    $("#iconReady").css("display", "none"); //Hide crop btn
+
+    imgHTML.css("display", "inline");
+    togleMenu(); //Return to normal menu
+}
+function cancelCrop(){
+    cropper.destroy(); //The cropper is destroyed 
+    canvas.css("display", "none"); //hide canvas
+    togleMenu(); //Return to normal menu
+}
+
+function togleMenu() {
+    let s = function(sta){ return (sta)? "grid" : "none";};
+    $("#main").css("display", s(state));
+    $("#photo").css("display", s(!state));
+    state = !state;
 }
