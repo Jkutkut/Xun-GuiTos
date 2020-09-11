@@ -23,9 +23,8 @@ window.onload = function(){ //When page loaded, define vars
                 success: function(data) {
                     if (data.includes("Player created")){ //If name added correctly
                         $.ajax(addImg); //Try to add the img
-                    }else { //If failed
-                        console.log(data); //show the error
                     }
+                    console.log(data); //show the msg
                 }
             };
             let addImg = {
@@ -35,16 +34,15 @@ window.onload = function(){ //When page loaded, define vars
                     "img": getBase64Image(document.getElementById("resultImg"))
                 },
                 success: function(data) {
-                    console.log("DONE");
                     console.log(data);
+                    if(data == "Img stored"){ // if img stored correctly:
+                        //Go to the waiting room with the user's name and being the firstTime
+                        window.location.href = "waitingRoom.html?username='" + name + "'&fistTime=true";
+                    }
                 }
             };
 
             $.ajax(addName); //First add name
-            
-
-            // window.location.href = "waitingRoom.html?username='" + name + "'&fistTime=true" //Go to the waiting room with the user's name
-
         }
     });
 }
