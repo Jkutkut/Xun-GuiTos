@@ -9,9 +9,9 @@ window.onload = function(){ //When page loaded, define vars
 
     $("#submitBtn").click(function(){
         let name = $("#nameTb").val(); //Get the name entered in the input.
-        if(name == ""){ //If data is not correct
+        if(name == "" || imgHTML.css("display") == "none"){ //If data is not correct
             //DO SOMETHING
-            console.log("data not correct")
+            console.log("data not correct");
         }
         else{ //If data is correct
             //add name, img to DB

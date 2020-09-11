@@ -14,9 +14,9 @@
     - [ ] If data not correct, handle error
     - [ ] If username taken, handle error
     - ERRORS:
-        - [ ] The img does not scale correctly
+        - [x] The img does not scale correctly
         - [ ] IOS (+ Chrome?): ScreenHeight may not be direct
-        - [ ] "LISTO" btn height not correct
+        - [x] "LISTO" btn height not correct
         - [ ] 
 - [ ] WaitingRoom:
     - [ ] Fill all phrases
