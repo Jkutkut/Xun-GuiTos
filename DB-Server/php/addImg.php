@@ -11,7 +11,7 @@
   
 
     echo $imgId . "\n";
-    $imgIdToPlayers = 'UPDATE Players SET imgId = ' . $imgId . ' WHERE name = ' . $user;
+    $imgIdToPlayers = 'UPDATE Players SET imgId = ' . $imgId . ' WHERE name = \'' . $user . '\'';
     echo $imgIdToPlayers;
     $db->exec($imgIdToPlayers) or die("Error at updating the table");
 
