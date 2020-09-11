@@ -37,7 +37,7 @@ window.onload = function(){ //When page loaded, define vars
                     console.log(data);
                     if(data == "Img stored"){ // if img stored correctly:
                         //Go to the waiting room with the user's name and being the firstTime
-                        window.location.href = "waitingRoom.html?username='" + name + "'&fistTime=true";
+                        window.location.href = "waitingRoom.html?username=" + name + "&fistTime=true";
                     }
                 }
             };
