@@ -29,6 +29,8 @@
 
         
 - [ ] mainMenu:
+    - [ ] Get userNames
+    - [ ] Get userIcons
     - [ ] Btns
     - [ ] Leader:
         - [ ] gun asign
@@ -38,6 +40,16 @@
         - [ ] "Username" small
         - [ ] Yes/no btns not centered
         - [ ] at playerContainer, bottom div bigger than img (IOS)
+
+- [ ] Root menu:
+    - [ ] Get all players
+    - [ ] Allow to modify them?
+    - [ ] order the players
+    - [ ] Btns:
+        - [ ] Start game
+        - [ ] end opinion poll
+        - [ ] end mission poll
+        - [ ] 
 
 
 
