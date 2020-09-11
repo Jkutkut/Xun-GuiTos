@@ -1,9 +1,9 @@
 # Players:
 CREATE TABLE 'Players' (
-	'p-id' INTEGER PRIMARY KEY AUTOINCREMENT,
+	'pId' INTEGER PRIMARY KEY AUTOINCREMENT,
 	'name' VARCHAR,
-	'group-pos' INT DEFAULT NULL,
-	'img-id' INT DEFAULT NULL
+	'groupPos' INT DEFAULT NULL,
+	'imgId' INT DEFAULT NULL
 );
 
 INSERT INTO Players ('name') values ("Jorge");
@@ -13,7 +13,7 @@ DROP table Players;
 
 # Imgs:
 CREATE TABLE 'Imgs' (
-	'img-id' INTEGER PRIMARY KEY AUTOINCREMENT,
+	'imgId' INTEGER PRIMARY KEY AUTOINCREMENT,
 	'img' BLOB NOT NULL
 );
 
