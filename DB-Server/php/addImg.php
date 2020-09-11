@@ -9,7 +9,9 @@
     $getImgId = 'SELECT imgId FROM Imgs WHERE img = $img';
     $imgId = intval($db->query($getImgId)) or die("Error at getting the correct imgId"); //Get imgId once stored
 
+    echo $imgId . "\n";
     $imgIdToPlayers = 'UPDATE Players SET imgId = $getImgId WHERE name = $user';
+    echo $imgIdToPlayers;
     $db->exec($imgIdToPlayers) or die("Error at updating the table ");
 
     echo "Img stored and linked";
