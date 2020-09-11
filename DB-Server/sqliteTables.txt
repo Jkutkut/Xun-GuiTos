@@ -16,3 +16,6 @@ CREATE TABLE 'Imgs' (
 	'img-id' INTEGER PRIMARY KEY AUTOINCREMENT,
 	'img' BLOB NOT NULL
 );
+
+SELECT * FROM Players WHERE 'p-id' = (SELECT MAX('p-id') FROM Players);
+SELECT * FROM Imgs WHERE 'img-id' = (SELECT MAX('img-id') FROM Imgs);
