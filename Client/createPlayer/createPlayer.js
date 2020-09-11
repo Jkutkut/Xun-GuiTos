@@ -21,14 +21,27 @@ window.onload = function(){ //When page loaded, define vars
                     "name": name //name: "Adrián"
                 },
                 success: function(data) {
+                    if (data.includes("Player created")){ //If name added correctly
+                        $.ajax(addImg); //Try to add the img
+                    }else { //If failed
+                        console.log(data); //show the error
+                    }
+                }
+            };
+            let addImg = {
+                url: 'addImg.php',
+                method: 'post',
+                data: {
+                    "img": getBase64Image(document.getElementById("resultImg"))
+                },
+                success: function(data) {
                     console.log("DONE");
                     console.log(data);
                 }
             };
-            // let addImg;
 
-            $.ajax(addName);
-            // $.ajax(addImg);
+            $.ajax(addName); //First add name
+            
 
             // window.location.href = "waitingRoom.html?username='" + name + "'&fistTime=true" //Go to the waiting room with the user's name
 
