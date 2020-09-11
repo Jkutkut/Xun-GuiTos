@@ -6,7 +6,7 @@
     $db->exec($query) or die("Error adding the img :S"); //Store the img or fail
 
 
-    $getImgId = 'SELECT * FROM Imgs WHERE \'imgId\' = (SELECT MAX(\'imgId\') FROM Imgs)';;
+    $getImgId = 'SELECT imgId FROM Imgs WHERE imgId = (SELECT MAX(imgId) FROM Imgs)';;
     $imgId = intval($db->query($getImgId)) or die("Error at getting the correct imgId"); //Get imgId once stored
   
 
