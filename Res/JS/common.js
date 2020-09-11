@@ -23,3 +23,30 @@ function getBase64Image(img) {
     var dataURL = canvas.toDataURL("image/png");
     return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
 }
+
+// DEBUGING
+function clearTables(){
+    tablesToClear = [
+        "Players",
+        "Imgs"
+    ];
+    for (let i = 0; i < tablesToClear.length; i++){
+        clearTable(tablesToClear[i]);
+    }
+}
+/**
+ * Clears the content of the sqlite3 table using ajax
+ * @param {string} t - Name of the table to clear (case sensitive)
+ */
+function clearTable(t){
+    $.ajax({
+        url: 'clearTable.php',
+        method: 'post',
+        data: {
+          table: t
+        },
+        success: function(data) {
+          console.log(data);
+        }
+      });
+}
