@@ -20,7 +20,10 @@
         - Use of uxf file to display info.
         - Change between menus using php.
         - Succesfull sqlite update of table using php and ajax.
--v2.3: Data base and menus integration
+- v2.3: Data base and menus integration:
+    - CreateMenu and Waiting room basic logic implemented.
+    - Now the game stores the username and the icon asociated.
+    - 
 
 ### v0 - v1: Bluetooth communication
 Work focused on the configuration of the rapsberry pi 4 and the bluetooth communication protocol. Basic structure of the repository created.
