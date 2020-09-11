@@ -1,3 +1,4 @@
+# Players:
 CREATE TABLE 'Players' (
 	'p-id' INTEGER PRIMARY KEY AUTOINCREMENT,
 	'name' VARCHAR,
@@ -8,3 +9,10 @@ CREATE TABLE 'Players' (
 INSERT INTO Players ('name') values ("Jorge");
 
 DROP table Players;
+
+
+# Imgs:
+CREATE TABLE 'Imgs' (
+	'img-id' INTEGER PRIMARY KEY AUTOINCREMENT,
+	'img' BLOB NOT NULL
+);
