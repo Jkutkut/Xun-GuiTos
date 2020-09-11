@@ -80,7 +80,7 @@ img { /* Img at createPlayer */
 .iconBtn { /* Btn to crop the img at createPlayer */
     text-transform: capitalize;
     padding: 2%;
-    height: autos;
+    height: auto;
 }
 
 /* WAITING ROOM */

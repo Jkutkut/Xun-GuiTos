@@ -6,8 +6,7 @@ window.onload = function(){ //When page loaded, define vars
     imgHTML = $("#resultImg");
 
     $("#submitBtn").click(function(){
-        let name, img;
-        name = $("#nameTb").val(); //Get the name entered in the input.
+        let name = $("#nameTb").val(); //Get the name entered in the input.
         if(name == ""){ //If data is not correct
             //DO SOMETHING
             console.log("data not correct")
@@ -36,7 +35,7 @@ window.onload = function(){ //When page loaded, define vars
                 },
                 success: function(data) {
                     console.log(data);
-                    if(data == "Img stored"){ // if img stored correctly:
+                    if(data == "Img stored and linked"){ // if img stored correctly:
                         //Go to the waiting room with the user's name and being the firstTime
                         window.location.href = "waitingRoom.html?username=" + name + "&fistTime=true";
                     }
