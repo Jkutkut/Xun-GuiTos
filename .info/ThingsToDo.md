@@ -3,38 +3,16 @@
 - [ ] Mv links to README
 ## Rasp4:
 - [ ] Bluetooth communication:
-    - [x] Connection
-    - [x] Basic interpreter and communication
-    - [x] Change wifi using BT
-    - [x] Execute shells at startup (also as root if needed)
-    - [x] Communication logic:
-        - Input: type:(param1:...)
-        - Output: any
-    - [x] Make status respond
-    - [x] Execute commands
     - [ ] Solve error: when sending msg from android, the msg is returned
     - [ ] Solve error: sometimes it stops
-- LAMP with Sqlite:
-    - [x] Easy way to update the page provaider
-    - [x] Install LAMP:
-        - [x] Install apache
-        - [x] Install sqlite
-    - [x] Create database
-    - [ ] Define logic:
-        - [ ] Logic database
-        - [ ] Communication logic
-    - [ ] Access all database with JS/JQuerry/PHP
-    - [ ] Modify all database with JS/JQuerry/PHP
-
-- [x] Define Game logic
 
 ## Client:
 - [ ] CreatePlayer menu:
-    - [x] Optimize css
-    - [x] Optimize html
-    - [x] Optimize js
+    - [ ] Optimize css
+    - [ ] Optimize html
+    - [ ] Optimize js
     - [ ] If data not correct, handle error
-    - [ ] 
+    - [ ] If username taken, handle error
     - ERRORS:
         - [ ] The img does not scale correctly
         - [ ] IOS (+ Chrome?): ScreenHeight may not be direct
@@ -51,23 +29,15 @@
 
         
 - [ ] mainMenu:
-    - [x] basic UI
-    - [x] player UI
-        - [x] Icon img
-        - [x] Name
-        - [x] Gun img
-        - [x] leader icon
-    - [x] Btns
+    - [ ] Btns
     - [ ] Leader:
         - [ ] gun asign
-        - [x] Icon asign
+        - [ ] Icon asign
     - [ ] ERRORS: 
         - [ ] "2Fallos label" small
         - [ ] "Username" small
         - [ ] Yes/no btns not centered
         - [ ] at playerContainer, bottom div bigger than img (IOS)
-    
-- [x] Single CSS file
 
 
 
