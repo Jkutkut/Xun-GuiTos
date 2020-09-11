@@ -48,20 +48,25 @@ echo "${GREEN}Deprecated files removed${NC}
 
 # Save new version
 echo "${YELLOW}Installing new version${NC}"
-(sudo cp ../Client/createPlayer/* $htmlDestination -rf &&
+
+# html
+(sudo cp ../Client/createPlayer/* $htmlDestination -rf && # createPlayer
 echo "CreatePlayer html/js code moved" &&
-sudo cp ../Client/mainMenu/* $htmlDestination -rf &&
+sudo cp ../Client/mainMenu/* $htmlDestination -rf && # mainMenu
 echo "MainMenu html/js code moved" &&
-sudo cp ../Client/waitingRoom/* $htmlDestination -rf &&
+sudo cp ../Client/waitingRoom/* $htmlDestination -rf && # waitingRoom
 echo "WaitingRoom html/js code moved" &&
-sudo cp ../Res/img $resDestination -rf &&
+sudo cp ../DB-Server/php/*.php $htmlDestination -rf && # PHP
+echo "Php code moved to html folder" &&
+
+# Res
+sudo cp ../Res/img $resDestination -rf && # Imgs
 echo "img moved to Res folder" &&
-sudo cp ../Res/CSS $resDestination -rf &&
+sudo cp ../Res/CSS $resDestination -rf && # CSS
 echo "CSS moved to Res folder" &&
-sudo cp ../Res/JS $resDestination -rf &&
-echo "CSS moved to Res folder" &&
-sudo cp ../DB-Server/php/*.php $htmlDestination -rf &&
-echo "Php code moved to html folder" ||
+sudo cp ../Res/JS $resDestination -rf && # JS
+echo "CSS moved to Res folder" ||
+
 error "Error moving files") &&
 echo "${GREEN}done${NC}
 "
