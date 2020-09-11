@@ -23,7 +23,10 @@
 - v2.3: Data base and menus integration:
     - CreateMenu and Waiting room basic logic implemented.
     - Now the game stores the username and the icon asociated.
-    - 
+    - Visual change to createMenu:
+        - When selecting an img, the crop menu is opened on a dedicated screen.
+        - There isn't a default player icon anymore.
+        - New btn to cancel the change of icon.
 
 ### v0 - v1: Bluetooth communication
 Work focused on the configuration of the rapsberry pi 4 and the bluetooth communication protocol. Basic structure of the repository created.
