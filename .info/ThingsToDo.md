@@ -85,5 +85,5 @@
 - Tutorial?
 - Readme
 - Custom names for resistencia and spies 
-- Photo input as profile pic
 - Laguage support
+- Enable to work even if player disconected
