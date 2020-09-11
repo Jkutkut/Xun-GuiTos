@@ -7,7 +7,7 @@
 
 
     $getImgId = 'SELECT imgId FROM Imgs WHERE img = $img';
-    $imgId = $db->query($getImgId) or die("Error at getting the correct imgId"); //Get imgId once stored
+    $imgId = intval($db->query($getImgId)) or die("Error at getting the correct imgId"); //Get imgId once stored
 
     $imgIdToPlayers = 'UPDATE Players SET imgId = $getImgId WHERE name = $user';
     $db->exec($imgIdToPlayers) or die("Error at updating the table ");
