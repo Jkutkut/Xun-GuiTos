@@ -50,9 +50,7 @@ window.onload = function(){ //When page loaded, define vars
 }
 
 var loadFile = function(event) { //When img selected
-    togleMenu(); //Change to edit menu
-
-    canvas.css("display", "inline"); //Show canvas
+    togleMenu(); //Change to edit menuñ
     
     imgF = new Image(); //Here the new img File will be stored
     imgF.onload = function(event) { //When img loaded, display it the best way possible
@@ -86,15 +84,13 @@ function cropImg(){ //When cropped btn selected, this code is executed
     // Get a string base 64 data url
     let croppedImageDataURL = cropper.getCroppedCanvas().toDataURL("image/png");
     imgHTML.attr('src', croppedImageDataURL); //add the cropped img to the img tag 
-    cropper.destroy(); //The cropper is destroyed 
-    canvas.css("display", "none"); //hide canvas
+    cropper.destroy(); //The cropper is destroyed
 
     imgHTML.css("display", "inline");
     togleMenu(); //Return to normal menu
 }
 function cancelCrop(){
-    cropper.destroy(); //The cropper is destroyed 
-    canvas.css("display", "none"); //hide canvas
+    cropper.destroy(); //The cropper is destroyed
     togleMenu(); //Return to normal menu
 }
 

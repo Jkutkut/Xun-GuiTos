@@ -61,7 +61,6 @@ body {
     display: none;
     background-color: #ffffff;
     cursor: default;
-    border: 1px solid black;
 }
 img { /* Img at createPlayer */
     display: inline;
