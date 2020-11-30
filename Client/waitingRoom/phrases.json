@@ -1,0 +1,26 @@
+{
+    "common": [
+        "Luchando contra chunguitos",
+        "Practicando el baile de la resistencia",
+        "Muchiflopeando los servidores",
+        "Haciendo movidas chungas",
+        "Creando nombres en clave",
+        ""
+    ],
+    "firstTime": [
+        "Buscando aliados",
+        "Esperando al resto de jugadores",
+        "Analizando al resto de jugadores",
+        "Sincronizando dispositivos",
+        "Validando datos",
+        ""
+    ],
+    "round": [
+        "Pensando quién puede ser chunguito",
+        "Dudando si el de al lado miente",
+        "Será bueno el de enfrente?",
+        "Duda de tí el de la derecha seguro",
+        "El de la izquierda puede ser chunguito",
+        ""
+    ]
+}
