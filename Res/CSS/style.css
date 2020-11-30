@@ -83,7 +83,7 @@ img { /* Img at createPlayer */
 }
 
 /* WAITING ROOM */
-#secretBtn {
+.secretBtn {
     background: rgb(255, 97, 97);
 }
 
