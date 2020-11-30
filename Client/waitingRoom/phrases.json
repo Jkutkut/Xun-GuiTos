@@ -2,17 +2,18 @@
     "common": [
         "Luchando contra chunguitos",
         "Practicando el baile de la resistencia",
-        "Muchiflopeando los servidores",
-        "Haciendo movidas chungas",
-        "Creando nombres en clave",
+        "Analizando al resto de jugadores",
+        "Haciendo movidas no chungas",
+        "Creando nombres en clave para el equipo",
         ""
     ],
     "firstTime": [
         "Esperando al resto de jugadores",
         "Buscando aliados",
-        "Analizando al resto de jugadores",
+        "Muchiflopeando los servidores",
         "Sincronizando dispositivos",
         "Validando datos",
+        "Preparando partida",
         ""
     ],
     "newRound": [

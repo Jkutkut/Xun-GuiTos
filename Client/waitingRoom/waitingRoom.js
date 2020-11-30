@@ -3,14 +3,12 @@ var phrases;
 
 function changePhrase(){
     if (phrasesIndex.length == 0){
-        for(let i = 0; i < phrases.length; i++){
-            phrasesIndex.push(i);
-        }
+        phrasesIndex = phrases;
     }
     // At this point phrasesIndex has length != 1
     let randomIndex = Math.floor(Math.random() * phrasesIndex.length); //Using phrasesIndex to avoid repeat the same phrase
-    phrasesIndex.splice(randomIndex, 1);
-    $("#waitingLabel").text(phrases[phrasesIndex[randomIndex]]);
+    let p = phrasesIndex.splice(randomIndex, 1);
+    $("#waitingLabel").text(p);
 }
 
 function processPhrases(data) {
@@ -36,6 +34,7 @@ window.onload = function(){
     jQuery.getJSON("phrases.json").then(processPhrases);
     
     $(".lds-ring").css("height", $(".lds-ring").css("width"));
+    
     $("#secretBtn").click(function(){
         console.log("works");
     });
