@@ -37,7 +37,9 @@ function processPhrases(data) {
     setInterval(changePhrase, 5000); //Change the phrase periodically
 }
 
-
+/**
+ * Using the variable "waitingMenu", this code toggles the view of both menus
+ */
 function toggleMenu() {
     let hideDiv, showDiv;
     if (waitingMenu) { // If on the waiting menu
@@ -54,6 +56,25 @@ function toggleMenu() {
     
     console.log(hideDiv + " -> " + showDiv);
     waitingMenu = ! waitingMenu;
+    if (!waitingMenu) {
+        loadRootMenu();
+    }
+}
+
+function loadRootMenu() {
+    let playersContainer = $("#playersContainer"); //The div element with the rows where the player's divs + btns are stored
+    let mainPlayer = $("#mainPlayer"); //The div element with the info of the host of the device
+
+    mainPlayer.css("height", "100%");
+    mainPlayer.css("width", "100%");
+
+
+    let h = mainPlayer.css("height"); //get current height of mainplayer div
+    h = parseFloat(h.substring(0, h.length - 2));
+    $('#mainPlayerIcon').attr("src", "../../Res/img/default_user.png");
+    $('#mainPlayerIcon').css("height", (h * 0.8) + "px"); //adjust the size of the icon to fit the div
+    mainPlayer.css("height", h + "px"); //Also lock this height
+    console.log("loaded")
 }
 
 
