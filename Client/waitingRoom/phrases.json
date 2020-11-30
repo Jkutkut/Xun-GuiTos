@@ -8,14 +8,15 @@
         ""
     ],
     "firstTime": [
-        "Buscando aliados",
         "Esperando al resto de jugadores",
+        "Buscando aliados",
         "Analizando al resto de jugadores",
         "Sincronizando dispositivos",
         "Validando datos",
         ""
     ],
-    "round": [
+    "newRound": [
+        "Psicoanalizando al resto",
         "Pensando quién puede ser chunguito",
         "Dudando si el de al lado miente",
         "Será bueno el de enfrente?",
