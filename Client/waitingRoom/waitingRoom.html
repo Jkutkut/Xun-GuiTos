@@ -14,12 +14,17 @@
     <script src="waitingRoom.js"></script>
 </head>
 <body>
-    <div class="grandparent">
-        <div id="secretBtn" class="parent" style="--h: 80%"></div>
+    <!-- WAITING ROOM -->
+    <div id="waitingMenu" class="grandparent">
+        <div id="secretBtn_waitingM" class="parent secretBtn" style="--h: 80%"></div>
         <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
         
-        <div id="waitingLabel" class="title"></div>
-        
+        <div id="waitingLabel" class="title"></div>  
+    </div>
+
+    <!-- ROOT MENU -->
+    <div id="rootMenu" class="grandparent" style="display: none;">
+        <div id="secretBtn_rootM" class="parent secretBtn" style="--h: 80%"></div>
     </div>
 </body>
 </html>
