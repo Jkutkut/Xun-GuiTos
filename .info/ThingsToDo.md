@@ -19,7 +19,7 @@
         - [x] "LISTO" btn height not correct
         - [ ] 
 - [ ] WaitingRoom:
-    - [ ] Fill all phrases
+    - [x] Fill all phrases
     - [ ] Root menu:
         - [ ] Get Players
         - [ ] Order players
