@@ -69,3 +69,4 @@
 - Custom names for resistencia and spies 
 - Laguage support
 - Enable to work even if player disconected
+- bluetooth tuto when connected with commands
