@@ -23,6 +23,18 @@ function getBase64Image(img) {
     return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
 }
 
+
+// Conversors
+
+/**
+ * Transforms a px unit to a float.
+ * @param {string} p string with the pixels in the regex-format "d+ px"
+ */
+function pixel2float(p){
+    return parseFloat(p.substring(0, p.length - 2));
+}
+
+
 // DEBUGING
 function clearTables(){
     tablesToClear = [
