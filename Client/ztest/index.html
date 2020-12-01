@@ -17,37 +17,9 @@
 
 </head>
 <body>
-    <div id="main" class="grandparent">
-        <!-- TITLE + INTRO -->
-        <div class="parent">
-            <h1 class="title">Crear jugador</h1>
-            <p class="label">Hola! Rellena estos datos para empezar a jugar</p>
-        </div>
-        <!-- IMG -->
-        <img id="resultImg" src="../../Res/img/default_user.png" style="display: none; width: 45%; height: auto;">
-        <!-- Img control -->
-        <div class="parent">
-            <p><label for="file" class="label">Añadir imagen</label></p>
-            <input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;">
-        </div>
-        
-
-        <!-- NAME -->
-        <div id="main" class="parent">
-            <div class="label">Introduce tu nombre</div>
-            <input type="text" id="nameTb" name="username">
-        </div>
-        <!-- Submit BTN -->
-        <a id="submitBtn" class="btn mdc-button mdc-button--raised "><h1>Empezar</h1></a>
-    </div>
-    <div id="photo" class="grandparent" style="display: none;">
-        <div class="parent" style="height: 85%; width: 95%;">
-            <canvas id="canvas"> Your browser does not support the HTML5 canvas element. </canvas>
-        </div>
-        <div class="horizontalCols" style="background: red; --c: 2; --h: auto">
-            <button id="iconCancel" class="label iconBtn mdc-button mdc-button--raised" onclick="cancelCrop()">Cancelar</button>
-            <button id="iconReady" class="label iconBtn mdc-button mdc-button--raised" onclick="cropImg()">Listo!</button>
-        </div>
+    <div id="container">
+        <p>Toggle your browser device toolbar and change device to any mobile or tablet from your browser inspect.</p>
+        <div id="box"></div>
     </div>
 </body>
 </html>
