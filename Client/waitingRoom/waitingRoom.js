@@ -91,11 +91,17 @@ function loadRootMenu() {
 
 function movingElement(e) {
     // grab the location of touch
-    var touchLocation = e.targetTouches[0];
-    let container = {w: rootMenu.playerP.container.css("width")}
-
-    rootMenu.box.style.left = (touchLocation.pageX - rootMenu.playerP.w / 2) + 'px';
-    rootMenu.box.style.top = (touchLocation.pageY - rootMenu.playerP.h / 2) + 'px';
+    let touchLocation = e.targetTouches[0];
+    let eP = {
+        x: touchLocation.pageX - rootMenu.playerP.w / 2,
+        y: touchLocation.pageY - rootMenu.playerP.h / 2,
+        w: rootMenu.playerP.w,
+        h: rootMenu.playerP.h
+    };
+    if (stillIn(eP, div2disposition(rootMenu.playerP.container), false)){
+        rootMenu.box.style.left = eP.x + 'px';
+        rootMenu.box.style.top = eP.y + 'px';
+    }
 }
 
 function landElement(e) {
