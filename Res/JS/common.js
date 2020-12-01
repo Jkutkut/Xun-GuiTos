@@ -1,7 +1,6 @@
 var queryString = new Array();
 
 function getQuerry(){
-    console.log("hola");
     if (queryString.length == 0) {
         if (window.location.search.split('?').length > 1) {
             var params = window.location.search.split('?')[1].split('&');
