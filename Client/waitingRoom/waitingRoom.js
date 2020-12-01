@@ -90,24 +90,31 @@ function loadRootMenu() {
 }
 
 function movingElement(e) {
-    // grab the location of touch
-    let touchLocation = e.targetTouches[0];
-    let eP = {
+    let touchLocation = e.targetTouches[0]; // grab the location of touch
+    let eP = { // properties of the element to move
         x: touchLocation.pageX - rootMenu.playerP.w / 2,
         y: touchLocation.pageY - rootMenu.playerP.h / 2,
         w: rootMenu.playerP.w,
         h: rootMenu.playerP.h
     };
+    // if e inside the container
     if (stillIn(eP, div2disposition(rootMenu.playerP.container), false)){
-        rootMenu.box.style.left = eP.x + 'px';
-        rootMenu.box.style.top = eP.y + 'px';
+        e.target.style.left = eP.x + 'px';
+        e.target.style.top = eP.y + 'px';
     }
 }
 
 function landElement(e) {
     // current box position.
-    var x = parseInt(rootMenu.box.style.left);
-    var y = parseInt(rootMenu.box.style.top);
+    let eP = div2disposition($(e.target));
+    let pP = div2disposition($(rootMenu.playerP.container));
+
+    let coord = {
+        x: parseInt(eP.x / eP.w),
+        y: parseInt(eP.y / eP.h)
+    };
+    e.target.style.left = (coord.x * eP.w + pP.x) + "px";
+    e.target.style.top = (coord.y * eP.h + pP.x)+ "px";
 }
 
 
