@@ -3,15 +3,14 @@ window.onload = function() {
     getQuerry(); //function from common.js
 
     /** CSS */
-    height = $("body").css("height");
-    height = parseFloat(height.substring(0, height.length - 2));
+    height = pixel2float($("body").css("height"));
     $("body").css("font-size", height * 0.014);
 
     /** Missions' scores */
     let e = ["M", "nPlayers"]; //id of elements on the score/mission div
     let size = [0.2, 0.6, 0.15].map(x => x * 0.9); //height multiplier of those elements
-    let s = $("#scoreM1").css("height"); //height of the container
-    s = parseFloat(s.substring(0, s.length - 2));
+    
+    let s = pixel2float($("#scoreM1").css("height")); //height of the container
 
     for (let i = 0; i < e.length; i++){// for each element inside a Mission score container
         $("#" + e[i] + 1).css("font-size", (s * size[i]) + "px"); //adjust the font-size to fit the space avalible
@@ -39,8 +38,7 @@ window.onload = function() {
     let playersContainer = $("#playersContainer"); //The div element with the rows where the player's divs + btns are stored
     let mainPlayer = $("#mainPlayer"); //The div element with the info of the host of the device
 
-    let h = mainPlayer.css("height"); //get current height of mainplayer div
-    h = parseFloat(h.substring(0, h.length - 2));
+    let h = pixel2float(mainPlayer.css("height")); //get current height of mainplayer div
     $('#mainPlayerIcon').attr("src", "../../Res/img/default_user.png");
     $('#mainPlayerIcon').css("height", (h * 0.75) + "px"); //adjust the size of the icon to fit the div
     mainPlayer.css("height", h + "px"); //Also lock this height
