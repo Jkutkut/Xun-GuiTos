@@ -1,6 +1,9 @@
 var waitingMenu = true; // To hadle the switch between rootMenu and waitingMenu
 var phrases;
-var phrasesIndex = [];
+var phrasesBuffer = [];
+var rootMenu = {
+    playerP: {}
+};
 
 
 /**
@@ -8,12 +11,12 @@ var phrasesIndex = [];
  * (See processPhrases to see how the phrases have been obtained)
  */
 function changePhrase(){
-    if (phrasesIndex.length == 0){
-        phrasesIndex = phrases; // Refill with the phrases
+    if (phrasesBuffer.length == 0){
+        phrasesBuffer = phrases; // Refill with the phrases
     }
-    // At this point phrasesIndex has length != 1
-    let randomIndex = Math.floor(Math.random() * phrasesIndex.length); //Using phrasesIndex to avoid repeat the same phrase
-    let p = phrasesIndex.splice(randomIndex, 1);
+    // At this point phrasesBuffer has length != 1
+    let randomIndex = Math.floor(Math.random() * phrasesBuffer.length); //Using phrasesBuffer to avoid repeat the same phrase
+    let p = phrasesBuffer.splice(randomIndex, 1);
     $("#waitingLabel").text(p);
 }
 
@@ -63,18 +66,42 @@ function toggleMenu() {
 
 function loadRootMenu() {
     let playersContainer = $("#playersContainer"); //The div element with the rows where the player's divs + btns are stored
+    rootMenu.playerP.container = playersContainer;
     let mainPlayer = $("#mainPlayer"); //The div element with the info of the host of the device
 
-    mainPlayer.css("height", "100%");
-    mainPlayer.css("width", "100%");
+    rootMenu.playerP.w = pixel2float(playersContainer.css("width")) / 3; //get current height of mainplayer div
+    rootMenu.playerP.h = pixel2float(playersContainer.css("height")) / 5; //get current height of mainplayer div
 
-
-    let h = mainPlayer.css("height"); //get current height of mainplayer div
-    h = parseFloat(h.substring(0, h.length - 2));
+    
     $('#mainPlayerIcon').attr("src", "../../Res/img/default_user.png");
-    $('#mainPlayerIcon').css("height", (h * 0.8) + "px"); //adjust the size of the icon to fit the div
-    mainPlayer.css("height", h + "px"); //Also lock this height
-    console.log("loaded")
+    $('#mainPlayerIcon').css("height", (rootMenu.playerP.h * 0.8) + "px"); //adjust the size of the icon to fit the div
+
+    $(".username").css("font-size", rootMenu.playerP.h * 0.2);
+    
+    mainPlayer.css("width", rootMenu.playerP.w + "px"); //Also lock this width
+    mainPlayer.css("height", rootMenu.playerP.h + "px"); //Also lock this height
+
+    mainPlayer.css("position", "absolute");
+
+    
+    rootMenu.box = document.getElementById('mainPlayer');
+    rootMenu.box.addEventListener('touchmove', movingElement);
+    rootMenu.box.addEventListener('touchend', landElement);
+}
+
+function movingElement(e) {
+    // grab the location of touch
+    var touchLocation = e.targetTouches[0];
+    let container = {w: rootMenu.playerP.container.css("width")}
+
+    rootMenu.box.style.left = (touchLocation.pageX - rootMenu.playerP.w / 2) + 'px';
+    rootMenu.box.style.top = (touchLocation.pageY - rootMenu.playerP.h / 2) + 'px';
+}
+
+function landElement(e) {
+    // current box position.
+    var x = parseInt(rootMenu.box.style.left);
+    var y = parseInt(rootMenu.box.style.top);
 }
 
 
