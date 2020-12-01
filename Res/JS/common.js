@@ -29,7 +29,7 @@ function getBase64Image(img) {
  * Checks whenever an element e is (phisically) inside of a element p
  * @param {object} e - Element to check if it is inside ({x: number, y: number, w: number, h: number})
  * @param {object} p - Parent ({x: number, y: number, w: number, h: number})
- * @param {*boolean} noConversion - (optional) if the conversion div-disposition (see function div2disposition) shold be calculated 
+ * @param {boolean} conversion - (optional) if the input is a HTML element (true) or it is a object with the div2disposition function format
  * @returns {boolean} The result of the analysis
  */
 function stillIn(e, p, conversion = true) {
@@ -37,8 +37,10 @@ function stillIn(e, p, conversion = true) {
         e = div2disposition(e);
         p = div2disposition(p);
     }
+    // return !(e.x < 0 || e.y < 0 ||
     return !(e.x < p.x || e.y < p.y ||
-        e.x + e.w > p.x + p.w || e.y + e.h > p.y + p.h);
+        e.x + e.w > p.x + p.w || 
+        e.y + e.h > p.y + p.h);
 }
 
 // Conversors
@@ -50,9 +52,9 @@ function stillIn(e, p, conversion = true) {
 function div2disposition(e) {
     let posi = e.position();
     return {
-        x: posi.top,
-        y: posi.left,
-        w: pixel2float(e.css("with")),
+        x: posi.left,
+        y: posi.top,
+        w: pixel2float(e.css("width")),
         h: pixel2float(e.css("height"))
     }
 }
