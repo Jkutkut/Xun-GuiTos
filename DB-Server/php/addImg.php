@@ -45,7 +45,7 @@
     // echo "\n";
     // echo "$imgIdF['imgId']";
     // echo "\n";
-    print_r($imgIdF);
+    echo $imgIdF;
     // $imgId = $imgIdF['imgId'] or die("Error at getting the correct imgId");
     // echo "\n";
     // echo $imgIdF;
