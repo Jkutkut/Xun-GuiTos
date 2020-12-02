@@ -13,9 +13,10 @@
     
     var_dump($imgIdF);
     $imgId = $imgIdF['imgId'];
+    $imgId = $imgIdF['imgId'];
     // $imgId = $imgIdF['imgId']; // or die("Error at getting the correct imgId");
     // echo "\n";
-    echo $imgIdF;
+    echo $imgId;
     // echo "\n";
 
     // //Set an id reference on the Players table
