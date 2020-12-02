@@ -122,7 +122,7 @@ window.onload = function(){
     
     getQuerry(); //function from common.js
 
-    // jQuery.getJSON("phrases.json").then(processPhrases); // Get the phrases from the json file and process them with the function
+    jQuery.getJSON("phrases.json").then(processPhrases); // Get the phrases from the json file and process them with the function
     
     $(".lds-ring").css("height", $(".lds-ring").css("width")); // Change propertie of the loading animation
     
