@@ -9,9 +9,39 @@
     $getImgId = 'SELECT imgId FROM Imgs ORDER BY imgId desc limit 1';
     // $imgId = $db->query($getImgId)->fetchArray() or die("Error at getting the correct imgId");
     $imgIdResult = $db->query($getImgId) or die("Error at getting the correct imgId");
+
+    function fetchObject($sqlite3result, $objectType = NULL) {
+        $array = $sqlite3result->fetchArray();
+    
+        if(is_null($objectType)) {
+            $object = new stdClass();
+        } else {
+            // does not call this class' constructor
+            $object = unserialize(sprintf('O:%d:"%s":0:{}', strlen($objectType), $objectType));
+        }
+       
+        $reflector = new ReflectionObject($object);
+        for($i = 0; $i < $sqlite3result->numColumns(); $i++) {
+            $name = $sqlite3result->columnName($i);
+            $value = $array[$name];
+           
+            try {
+                $attribute = $reflector->getProperty($name);
+               
+                $attribute->setAccessible(TRUE);
+                $attribute->setValue($object, $value);
+            } catch (ReflectionException $e) {
+                $object->$name = $value;
+            }
+        }
+       
+        return $object;
+    }
+
     // echo $imgIdResult;
     // $imgIdF = $imgIdResult->fetchAll(SQLITE3_ASSOC);
-    $imgIdF = $imgIdResult->fetchArray();
+    // $imgIdF = $imgIdResult->fetchArray();
+    $imgIdF = fetchObject($imgIdResult)
     // echo "\n";
     // echo "$imgIdF['imgId']";
     // echo "\n";
