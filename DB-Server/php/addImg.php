@@ -14,14 +14,14 @@
     echo "\n";
     echo $imgIdF;
     echo "\n";
-    $imgId = $imgIdF['imgId'] or die("Error at getting the correct imgId");
-    echo "\n";
-    echo $imgIdF;
-    echo "\n";
+    // $imgId = $imgIdF['imgId'] or die("Error at getting the correct imgId");
+    // echo "\n";
+    // echo $imgIdF;
+    // echo "\n";
 
-    //Set an id reference on the Players table
-    $imgIdToPlayers = 'UPDATE Players SET imgId = 32 WHERE name = \'' . $user . '\'';
-    $db->exec($imgIdToPlayers) or die("Error at updating the table");
+    // //Set an id reference on the Players table
+    // $imgIdToPlayers = 'UPDATE Players SET imgId = 32 WHERE name = \'' . $user . '\'';
+    // $db->exec($imgIdToPlayers) or die("Error at updating the table");
 
-    echo "Img stored and linked";
+    // echo "Img stored and linked";
 ?>
