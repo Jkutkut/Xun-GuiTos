@@ -12,7 +12,7 @@
 
     // echo $imgIdResult;
     // $imgIdF = $imgIdResult->fetchAll(SQLITE3_ASSOC);
-    $imgIdF = $imgIdResult->fetchArray(SQLITE3_ASSOC);
+    $imgIdF = $imgIdResult->fetchArray(1);
     // $imgIdF = $imgIdResult->fetchArray();
     // $imgIdF = fetchObject($imgIdResult);
     // echo "\n";
