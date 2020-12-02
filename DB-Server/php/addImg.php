@@ -12,17 +12,18 @@
 
     // echo $imgIdResult;
     // $imgIdF = $imgIdResult->fetchAll(SQLITE3_ASSOC);
-    $imgIdF = $imgIdResult->fetchArray(1);
-    // $imgIdF = $imgIdResult->fetchArray();
+    // $imgIdF = $imgIdResult->fetchArray(SQLITE3_ASSOC);
+    $imgIdF = $imgIdResult->fetchArray();
     // $imgIdF = fetchObject($imgIdResult);
     // echo "\n";
     // echo "$imgIdF['imgId']";
     // echo "\n";
     // echo $imgIdF;
-    $imgId = $imgIdF['imgId']; // or die("Error at getting the correct imgId");
-    echo "\n";
-    echo $imgIdF;
-    echo "\n";
+    var_dump($imgIdF);
+    // $imgId = $imgIdF['imgId']; // or die("Error at getting the correct imgId");
+    // echo "\n";
+    // echo $imgIdF;
+    // echo "\n";
 
     // //Set an id reference on the Players table
     // $imgIdToPlayers = 'UPDATE Players SET imgId = 32 WHERE name = \'' . $user . '\'';
