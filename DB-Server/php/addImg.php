@@ -8,6 +8,8 @@
     //Get imgId once it is stored
     $getImgId = 'SELECT imgId FROM Imgs WHERE imgId = (SELECT MAX(imgId) FROM Imgs)';;
     $imgId = intval($db->query($getImgId)) or die("Error at getting the correct imgId");
+    echo "The imgId is $imgId";
+
 
     //Set an id reference on the Players table
     $imgIdToPlayers = 'UPDATE Players SET imgId = ' . $imgId . ' WHERE name = \'' . $user . '\'';
