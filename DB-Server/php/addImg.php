@@ -12,7 +12,7 @@
     // echo $imgIdResult;
     $imgIdF = $imgIdResult->fetchAll(SQLITE3_ASSOC);
     echo "\n";
-    echo $imgIdF;
+    echo $imgIdF['imgId'];
     echo "\n";
     // $imgId = $imgIdF['imgId'] or die("Error at getting the correct imgId");
     // echo "\n";
