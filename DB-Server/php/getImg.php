@@ -1,5 +1,5 @@
 <?php
-
+    include("setup.php");
     $getImgId = "SELECT imgId from Players WHERE pId = \'" . $_POST['user'] . "\'";
     $imgId = $db->query($getImgId);
 
