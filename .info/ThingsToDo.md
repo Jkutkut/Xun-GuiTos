@@ -16,6 +16,7 @@
     - ERRORS:
         - [x] The img does not scale correctly
         - [ ] IOS (+ Chrome?): ScreenHeight may not be direct
+        - [ ] ImgId not updated on players table
         - [x] "LISTO" btn height not correct
         - [ ] 
 - [ ] WaitingRoom:
