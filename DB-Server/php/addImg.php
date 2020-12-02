@@ -6,14 +6,13 @@
     $db->exec($addImg) or die("Error adding the img :S"); //Store the img or fail
 
     //Get imgId once it is stored
-    // $getImgId = 'SELECT imgId FROM Imgs WHERE imgId = (SELECT MAX(imgId) FROM Imgs)';;
-    $getImgId = 'SELECT imgId FROM Imgs ORDER BY imgId desc limit 1';
+    $getImgId = 'SELECT imgId FROM Imgs ORDER BY imgId desc limit 1';;
     $imgId = $db->query($getImgId) or die("Error at getting the correct imgId");
-    // echo "The imgId is $imgId";
+    echo "The imgId is $imgId";
 
 
     //Set an id reference on the Players table
-    $imgIdToPlayers = 'UPDATE Players SET imgId = ' . $imgId . ' WHERE name = \'' . $user . '\'';
+    $imgIdToPlayers = 'UPDATE Players SET imgId = 32 WHERE name = \'' . $user . '\'';
     $db->exec($imgIdToPlayers) or die("Error at updating the table");
 
     echo "Img stored and linked";
