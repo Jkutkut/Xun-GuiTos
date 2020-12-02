@@ -10,46 +10,19 @@
     // $imgId = $db->query($getImgId) or die("Error at getting the correct imgId");
     $imgIdResult = $db->query($getImgId);
 
-    function fetchObject($sqlite3result, $objectType = NULL) {
-        $array = $sqlite3result->fetchArray();
-    
-        if(is_null($objectType)) {
-            $object = new stdClass();
-        } else {
-            // does not call this class' constructor
-            $object = unserialize(sprintf('O:%d:"%s":0:{}', strlen($objectType), $objectType));
-        }
-       
-        $reflector = new ReflectionObject($object);
-        for($i = 0; $i < $sqlite3result->numColumns(); $i++) {
-            $name = $sqlite3result->columnName($i);
-            $value = $array[$name];
-           
-            try {
-                $attribute = $reflector->getProperty($name);
-               
-                $attribute->setAccessible(TRUE);
-                $attribute->setValue($object, $value);
-            } catch (ReflectionException $e) {
-                $object->$name = $value;
-            }
-        }
-       
-        return $object;
-    }
-
     // echo $imgIdResult;
     // $imgIdF = $imgIdResult->fetchAll(SQLITE3_ASSOC);
+    $imgIdF = $imgIdResult->fetchArray(SQLITE3_ASSOC);
     // $imgIdF = $imgIdResult->fetchArray();
-    $imgIdF = fetchObject($imgIdResult);
+    // $imgIdF = fetchObject($imgIdResult);
     // echo "\n";
     // echo "$imgIdF['imgId']";
     // echo "\n";
-    echo $imgIdF;
-    // $imgId = $imgIdF['imgId'] or die("Error at getting the correct imgId");
-    // echo "\n";
     // echo $imgIdF;
-    // echo "\n";
+    $imgId = $imgIdF['imgId']; // or die("Error at getting the correct imgId");
+    echo "\n";
+    echo $imgIdF;
+    echo "\n";
 
     // //Set an id reference on the Players table
     // $imgIdToPlayers = 'UPDATE Players SET imgId = 32 WHERE name = \'' . $user . '\'';
