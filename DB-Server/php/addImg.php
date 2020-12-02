@@ -6,9 +6,10 @@
     $db->exec($addImg) or die("Error adding the img :S"); //Store the img or fail
 
     //Get imgId once it is stored
-    $getImgId = 'SELECT imgId FROM Imgs WHERE imgId = (SELECT MAX(imgId) FROM Imgs)';;
+    // $getImgId = 'SELECT imgId FROM Imgs WHERE imgId = (SELECT MAX(imgId) FROM Imgs)';;
+    $getImgId = 'SELECT imgId FROM Imgs ORDER BY imgId desc limit 1';
     $imgId = $db->query($getImgId) or die("Error at getting the correct imgId");
-    echo "The imgId is $imgId";
+    // echo "The imgId is $imgId";
 
 
     //Set an id reference on the Players table
