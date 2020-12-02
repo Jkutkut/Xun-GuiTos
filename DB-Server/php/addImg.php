@@ -11,13 +11,13 @@
     $imgIdResult = $db->query($getImgId) or die("Error at getting the correct imgId");
     // echo $imgIdResult;
     $imgIdF = $imgIdResult->fetchAll(SQLITE3_ASSOC);
-    echo "\n";
-    echo "$imgIdF['imgId']";
-    echo "\n";
-    // $imgId = $imgIdF['imgId'] or die("Error at getting the correct imgId");
     // echo "\n";
-    // echo $imgIdF;
+    // echo "$imgIdF['imgId']";
     // echo "\n";
+    $imgId = $imgIdF['imgId'] or die("Error at getting the correct imgId");
+    echo "\n";
+    echo $imgIdF;
+    echo "\n";
 
     // //Set an id reference on the Players table
     // $imgIdToPlayers = 'UPDATE Players SET imgId = 32 WHERE name = \'' . $user . '\'';
