@@ -10,7 +10,7 @@
     // $imgId = $db->query($getImgId)->fetchArray() or die("Error at getting the correct imgId");
     $imgIdResult = $db->query($getImgId) or die("Error at getting the correct imgId");
     // echo $imgIdResult;
-    $imgIdF = $imgIdResult->fetchArray(SQLITE3_ASSOC);
+    $imgIdF = $imgIdResult->fetchAll(SQLITE3_ASSOC);
     echo "\n";
     echo $imgIdF;
     echo "\n";
