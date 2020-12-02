@@ -7,8 +7,8 @@
 
     //Get imgId once it is stored
     $getImgId = 'SELECT imgId FROM Imgs ORDER BY imgId desc limit 1';
-    // $imgId = $db->query($getImgId)->fetchArray() or die("Error at getting the correct imgId");
-    $imgIdResult = $db->query($getImgId) or die("Error at getting the correct imgId");
+    // $imgId = $db->query($getImgId) or die("Error at getting the correct imgId");
+    $imgIdResult = $db->query($getImgId);
 
     function fetchObject($sqlite3result, $objectType = NULL) {
         $array = $sqlite3result->fetchArray();
