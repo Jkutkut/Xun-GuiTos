@@ -9,20 +9,13 @@
     $getImgId = 'SELECT imgId FROM Imgs ORDER BY imgId desc limit 1';
     // $imgId = $db->query($getImgId) or die("Error at getting the correct imgId");
     $imgIdResult = $db->query($getImgId);
-
-    // echo $imgIdResult;
-    // $imgIdF = $imgIdResult->fetchAll(SQLITE3_ASSOC);
-    // $imgIdF = $imgIdResult->fetchArray(SQLITE3_ASSOC);
     $imgIdF = $imgIdResult->fetchArray();
-    // $imgIdF = fetchObject($imgIdResult);
-    // echo "\n";
-    // echo "$imgIdF['imgId']";
-    // echo "\n";
-    // echo $imgIdF;
+    
     var_dump($imgIdF);
+    $imgId = $imgIdF['imgId'];
     // $imgId = $imgIdF['imgId']; // or die("Error at getting the correct imgId");
     // echo "\n";
-    // echo $imgIdF;
+    echo $imgIdF;
     // echo "\n";
 
     // //Set an id reference on the Players table
