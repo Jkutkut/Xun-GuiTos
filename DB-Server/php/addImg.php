@@ -8,16 +8,11 @@
     //Get imgId once it is stored
     $getImgId = 'SELECT imgId FROM Imgs ORDER BY imgId desc limit 1';
     // $imgId = $db->query($getImgId) or die("Error at getting the correct imgId");
-    $imgIdResult = $db->query($getImgId);
-    $imgIdF = $imgIdResult->fetchArray();
-    
-    var_dump($imgIdF);
-    $imgId = $imgIdF['imgId'];
-    $imgId = $imgIdF['imgId'];
-    // $imgId = $imgIdF['imgId']; // or die("Error at getting the correct imgId");
-    // echo "\n";
-    echo $imgId;
-    // echo "\n";
+    $imgIdResult = $db->query($getImgId)->fetchArray();
+    // $imgIdF = $imgIdResult;
+    // var_dump($imgIdF);
+    $imgId = $imgIdResult['imgId'];
+    // echo $imgId;
 
     // //Set an id reference on the Players table
     // $imgIdToPlayers = 'UPDATE Players SET imgId = 32 WHERE name = \'' . $user . '\'';
