@@ -7,16 +7,12 @@
 
     //Get imgId once it is stored
     $getImgId = 'SELECT imgId FROM Imgs ORDER BY imgId desc limit 1';
-    // $imgId = $db->query($getImgId) or die("Error at getting the correct imgId");
-    $imgIdResult = $db->query($getImgId)->fetchArray();
-    // $imgIdF = $imgIdResult;
-    // var_dump($imgIdF);
+    $imgIdResult = $db->query($getImgId)->fetchArray() or die("Error at getting the correct imgId");
     $imgId = $imgIdResult['imgId'];
-    // echo $imgId;
 
     // //Set an id reference on the Players table
-    // $imgIdToPlayers = 'UPDATE Players SET imgId = 32 WHERE name = \'' . $user . '\'';
-    // $db->exec($imgIdToPlayers) or die("Error at updating the table");
+    $imgIdToPlayers = 'UPDATE Players SET imgId = ' . $imgId . ' WHERE name = \'' . $user . '\'';
+    $db->exec($imgIdToPlayers) or die("Error at updating the table");
 
-    // echo "Img stored and linked";
+    echo "Img stored and linked";
 ?>
