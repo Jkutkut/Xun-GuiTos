@@ -9,7 +9,7 @@
     $getImgId = 'SELECT imgId FROM Imgs ORDER BY imgId desc limit 1';
     // $imgId = $db->query($getImgId)->fetchArray() or die("Error at getting the correct imgId");
     $imgIdResult = $db->query($getImgId) or die("Error at getting the correct imgId");
-    echo $imgIdResult
+    echo $imgIdResult;
     $imgIdF = $imgIdResult->fetchArray(SQLITE3_ASSOC);
     echo "\n";
     echo $imgIdF;
