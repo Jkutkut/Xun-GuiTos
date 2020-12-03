@@ -5,7 +5,7 @@
     $results = $db->query($querry) or die("Error at getting the players");
     
     function row2jsonPlayer($r){
-        return "{\"pId\":\"" . $r["pId"] . "\", \"name\":\"" . $r["name"] . "\", \"groupPos\":\"" . $r["groupPos"] . "\", \"imgId\":\"" . $r["imgId"] . "\"}";
+        return "{\"pId\":\"" . $r["pId"] . "\", \"name\":\"" . $r["name"] . "\", \"groupPos\":\"" . $r["groupPos"] . "\", \"imgId\":\"" . $r["imgId"] . "\",  \"pType\":\"" . $r["pType"] . "\"}";
     }
 
     if($row = $results->fetchArray()) {
