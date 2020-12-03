@@ -24,12 +24,21 @@
         - [x] "LISTO" btn height not correct
         - [ ] 
 - [ ] WaitingRoom:
-    - [x] Fill all phrases
-    - [ ] Root menu:
-        - [ ] Get Players
-        - [ ] Order players
-        - [ ] Apply players
-        - [ ] 
+    - [x] JSON based phrases
+    - [ ] Redirect logic
+    - [ ] ERRORS:
+- [ ] Root menu:
+    - [ ] Var-status:
+        - [ ] Text-based list
+        - [ ] Editor
+        - [ ] Refresh
+    - [ ] Align players menu:
+        - [ ] Get Players on load
+        - [ ] Drag-drop players div
+        - [ ] Apply player's align
+    - [ ] Delete/edit players:
+        - [ ] Name
+        - [ ] Delete
     - [ ] ERRORS:
 
         
