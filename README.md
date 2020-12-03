@@ -34,7 +34,6 @@
         - setup.php
         - sqliteTables.txt 
     - Minor changes on Style.css and updateServer.sh upgraded.
-
 - v0.2.2: Data base creation
     - First aproach to DB creation and modification usign JS/JQuerry/PHP.
         - Communication to Raspberry using PHP and JQuerry (Ajax).
