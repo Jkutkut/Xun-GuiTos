@@ -24,6 +24,8 @@ function getBase64Image(img) {
     return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
 }
 
+
+
 // Analyzers
 /**
  * Checks whenever an element e is (phisically) inside of a element p
@@ -69,18 +71,21 @@ function pixel2float(p){
 
 
 // DEBUGING
+/**
+ * Clears the content of all the tables on the sqlite3 database.
+ */
 function clearTables(){
     tablesToClear = [
         "Players",
         "Imgs"
     ];
-    for (let i = 0; i < tablesToClear.length; i++){
-        clearTable(tablesToClear[i]);
+    for (let t of tablesToClear){
+        clearTable(t);
     }
 }
 /**
- * Clears the content of the sqlite3 table using ajax
- * @param {string} t - Name of the table to clear (case sensitive)
+ * Clears the content of the sqlite3 table using ajax.
+ * @param {string} t - Name of the table to clear (case sensitive).
  */
 function clearTable(t){
     $.ajax({
