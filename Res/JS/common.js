@@ -30,9 +30,10 @@ function getPlayers() {
         try{
             dataBase.players = jQuery.parseJSON(data);
         }
-        catch(error) {
+        catch(error) { // If error, set the players as empty array (should never be executed)
             dataBase.players = jQuery.parseJSON("[]");
         }
+        console.log("players array updated");
     }
     $.ajax({
         url: 'getPlayers.php',
