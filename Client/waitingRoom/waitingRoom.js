@@ -44,9 +44,9 @@ function processPhrases(data) {
 window.onload = function(){
     getQuerry(); //function from common.js
 
-    // jQuery.getJSON("phrases.json").then(processPhrases); // Get the phrases from the json file and process them with the function
+    jQuery.getJSON("phrases.json").then(processPhrases); // Get the phrases from the json file and process them with the function
     //debug
-    processPhrases(jQuery.parseJSON('{"common": ["Luchando contra chunguitos","Practicando el baile de la resistencia","Analizando al resto de jugadores","Haciendo movidas no chungas","Creando nombres en clave para el equipo"],"firstTime": ["Esperando al resto de jugadores","Buscando aliados","Muchiflopeando los servidores","Sincronizando dispositivos","Validando datos","Preparando partida"],"newRound": ["Psicoanalizando al resto","Pensando quién puede ser chunguito","Dudando si el de al lado miente","Será bueno el de enfrente?","Duda de tí el de la derecha seguro","El de la izquierda puede ser chunguito"]}'));
+    // processPhrases(jQuery.parseJSON('{"common": ["Luchando contra chunguitos","Practicando el baile de la resistencia","Analizando al resto de jugadores","Haciendo movidas no chungas","Creando nombres en clave para el equipo"],"firstTime": ["Esperando al resto de jugadores","Buscando aliados","Muchiflopeando los servidores","Sincronizando dispositivos","Validando datos","Preparando partida"],"newRound": ["Psicoanalizando al resto","Pensando quién puede ser chunguito","Dudando si el de al lado miente","Será bueno el de enfrente?","Duda de tí el de la derecha seguro","El de la izquierda puede ser chunguito"]}'));
 
     $(".lds-ring").css("height", $(".lds-ring").css("width")); // Change propertie of the loading animation
 }
