@@ -6,45 +6,6 @@
 
 
 
-
-## DB logic:
-0 = spy; 1 = Resistencia 
-
-
-{
-    GameId: number?
-    nPlayers: int
-    
-    players: table
-    Score: table
-    Election: table
-}
-
-players table
-{
-    GameId: number
-    IndexPlayer: number
-    Name: string
-    IconIndex: number
-    Role: null, 0, 1
-}
-
-score table
-{
-    gameID: number
-    missionIndex: {0,1,2,3,4}
-    value: null, 0, 1
-}
-
-election table
-{
-    GameId: number
-    missionIndex: {0,1,2,3,4}
-    player index: {0 -- nPlayers-1}
-}
-
-
-
 ## Useful commands:
 
 - Change keyboard: sudo dpkg-reconfigure keyboard-configuration
