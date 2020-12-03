@@ -5,6 +5,9 @@
 - [ ] Bluetooth communication:
     - [ ] Solve error: when sending msg from android, the msg is returned
     - [ ] Solve error: sometimes it stops
+- [ ] DataBase:
+    - [ ] Optimice code
+    - [ ] Same error format
 
 ## Client:
 - [ ] CreatePlayer menu:
