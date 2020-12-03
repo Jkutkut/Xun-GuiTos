@@ -2,6 +2,8 @@
 
 ## Version history:
 ### v0.2:
+- v0.2.4: Root menu:
+
 - v0.2.3: Data base and menus integration:
     - Mayor upgrade of the common.js file:
         - Now categories to store the functions
