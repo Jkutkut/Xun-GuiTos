@@ -3,7 +3,13 @@
 ## Version history:
 ### v0.2:
 - v0.2.4: Root menu:
-
+    - rootMenu:
+        - Features defined
+        - UI design
+    - DB-logic.uxf mayor modification:
+        - Now tables not implemented (yet) apear as theorical.
+        - FieldTypes now apear on diagram.
+        - New fileds on Players, Mission => *new Tables*
 - v0.2.3: Data base and menus integration:
     - Mayor upgrade of the common.js file:
         - Now categories to store the functions
