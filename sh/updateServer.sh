@@ -55,7 +55,9 @@ echo "CreatePlayer html/js code moved" &&
 sudo cp ../Client/mainMenu/* $htmlDestination -rf && # mainMenu
 echo "MainMenu html/js code moved" &&
 sudo cp ../Client/waitingRoom/* $htmlDestination -rf && # waitingRoom
-echo "WaitingRoom html/js code moved" &&
+echo "WaitingRoom html/js/json code moved" &&
+sudo cp ../Client/rootMenu/* $htmlDestination -rf && # rootMenu
+echo "RootMenu html/js code moved" &&
 sudo cp ../DB-Server/php/*.php $htmlDestination -rf && # PHP
 echo "Php code moved to html folder" &&
 
