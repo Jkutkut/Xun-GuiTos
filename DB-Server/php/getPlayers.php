@@ -4,19 +4,16 @@
     $querry = "SELECT * FROM Players;";
     $results = $db->query($querry) or die("Error at getting the players");
     
-
     function row2jsonPlayer($r){
-        return "{\"pid\":\"" . $r["pId"] . "\", \"name\":\"" . $r["name"] . "\", \"groupPos\":\"" . $r["groupPos"] . "\", \"imgId\":\"" . $r["imgId"] . "\"}";
+        return "{\"pId\":\"" . $r["pId"] . "\", \"name\":\"" . $r["name"] . "\", \"groupPos\":\"" . $r["groupPos"] . "\", \"imgId\":\"" . $r["imgId"] . "\"}";
     }
-
 
     if($row = $results->fetchArray()) {
         echo "[";
         echo row2jsonPlayer($row);
         
         while ($row = $results->fetchArray()) {
-            // echo "{\"pid\":\"" . $row["pId"] . "\", \"name\":\"" . $row["name"] . "\", \"groupPos\":\"" . $row["groupPos"] . "\", \"imgId\":\"" . $row["imgId"] . "\"}";
-            echo ",\n";
+            echo ",";//",\n";
             echo row2jsonPlayer($row);
         }
         echo "]";
