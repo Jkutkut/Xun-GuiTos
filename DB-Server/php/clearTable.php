@@ -2,6 +2,6 @@
     include("setup.php");
     $ta = $_POST['table'];
     $querry = "DELETE FROM " . $ta;
-    $db->exec($querry) or die("Error at creating player :S");
+    $db->exec($querry) or die("Error clearing the table :S");
     echo "Table cleared: " . $ta;
 ?>
