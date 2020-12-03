@@ -8,6 +8,7 @@
 - [ ] DataBase:
     - [ ] Optimice code
     - [ ] Same error format
+    - [ ] Document code
 
 ## Client:
 - [ ] CreatePlayer menu:
