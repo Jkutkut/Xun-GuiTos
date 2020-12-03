@@ -1,17 +1,18 @@
 # Resistencia:
 
 ## Version history:
-### v2:
-- v2.0: The start of HTML
-    - Work focused on the form to create a new player menu.
-- v2.1: Main menu
-    - Work on the main menu.
-        - Basic layout defined.
-        - Some funcionalities added.
-        - Icons for guns and team leader added.
-        - CSS file unified.
-        - Feedback system implemented.
-- v2.2: Data base creation
+### v0.2:
+- v0.2.3: Data base and menus integration:
+    - Alpha version of RootMenu at waitingRoom.
+    - CreateMenu and Waiting room basic logic implemented.
+    - Waiting Room interface created, with custom waiting-msgs.
+    - Now the game stores the username and the icon asociated.
+    - Visual change to createMenu:
+        - When selecting an img, the crop menu is opened on a dedicated screen.
+        - There isn't a default player icon anymore.
+        - New btn to cancel the change of icon.
+    - PHP logic expanded and impruved.
+- v0.2.2: Data base creation
     - First aproach to DB creation and modification usign JS/JQuerry/PHP.
         - Communication to Raspberry using PHP and JQuerry (Ajax).
         - Ajax commands to send information (plain text).
@@ -20,15 +21,17 @@
         - Use of uxf file to display info.
         - Change between menus using php.
         - Succesfull sqlite update of table using php and ajax.
-- v2.3: Data base and menus integration:
-    - CreateMenu and Waiting room basic logic implemented.
-    - Now the game stores the username and the icon asociated.
-    - Visual change to createMenu:
-        - When selecting an img, the crop menu is opened on a dedicated screen.
-        - There isn't a default player icon anymore.
-        - New btn to cancel the change of icon.
+- v0.2.1: Main menu
+    - Work on the main menu.
+        - Basic layout defined.
+        - Some funcionalities added.
+        - Icons for guns and team leader added.
+        - CSS file unified.
+        - Feedback system implemented.
+- v0.2.0: The start of HTML
+    - Work focused on the form to create a new player menu.
 
-### v0 - v1: Bluetooth communication
+### v0.0 - v0.1: Bluetooth communication
 Work focused on the configuration of the rapsberry pi 4 and the bluetooth communication protocol. Basic structure of the repository created.
     
     - Bluetooth interpreter and communication stablised. More work will be added on the future.
