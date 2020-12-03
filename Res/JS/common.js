@@ -24,6 +24,16 @@ function getBase64Image(img) {
     return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
 }
 
+function getPlayers() {
+    let f = function(data) {
+        return jQuery.parseJSON(data);
+    }
+    $.ajax({
+        url: 'getPlayers.php',
+        method: 'post',
+        success: f
+    });
+}
 
 
 // Analyzers
