@@ -1,5 +1,6 @@
 // Connectivity
 var queryString = new Array();
+var dataBase = {};
 
 function getQuerry(){
     if (queryString.length == 0) {
@@ -27,10 +28,10 @@ function getBase64Image(img) {
 function getPlayers() {
     let f = function(data) {
         try{
-            return jQuery.parseJSON(data);
+            dataBase.players = jQuery.parseJSON(data);
         }
         catch(error) {
-            return jQuery.parseJSON("[]");
+            dataBase.players = jQuery.parseJSON("[]");
         }
     }
     $.ajax({
