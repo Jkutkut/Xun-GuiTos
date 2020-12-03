@@ -30,14 +30,14 @@
 - [ ] Root menu:
     - [ ] Var-status:
         - [ ] Text-based list
-        - [ ] Editor
-        - [ ] Refresh
-    - [ ] Align players menu:
-        - [ ] Get Players on load
-        - [ ] Drag-drop players div
-        - [ ] Apply player's align
+        - [ ] Editor_btn
+        - [ ] Refresh_btn
     - [ ] Delete/edit players:
         - [ ] Name
+        - [ ] Align players menu:
+            - [ ] Get Players on load
+            - [ ] Drag-drop players div
+            - [ ] Apply player's align
         - [ ] Delete
     - [ ] ERRORS:
 
