@@ -3,15 +3,30 @@
 ## Version history:
 ### v0.2:
 - v0.2.3: Data base and menus integration:
+    - Mayor upgrade of the common.js file:
+        - Now categories to store the functions
+        - Compatibility with php code
     - Alpha version of RootMenu at waitingRoom.
     - CreateMenu and Waiting room basic logic implemented.
     - Waiting Room interface created, with custom waiting-msgs.
-    - Now the game stores the username and the icon asociated.
+    - Now the game stores the username and the icon asociated, to the waiting Room.
     - Visual change to createMenu:
         - When selecting an img, the crop menu is opened on a dedicated screen.
         - There isn't a default player icon anymore.
         - New btn to cancel the change of icon.
-    - PHP logic expanded and impruved.
+    - PHP logic modified:
+        - aa-code.md
+        - addImg.php
+        - clearTable.php
+        - getImg.php
+        - getPage.php
+        - getPlayers.php
+        - getRow.php
+        - insertToTable.php
+        - setup.php
+        - sqliteTables.txt 
+    - Minor changes on Style.css and updateServer.sh upgraded.
+
 - v0.2.2: Data base creation
     - First aproach to DB creation and modification usign JS/JQuerry/PHP.
         - Communication to Raspberry using PHP and JQuerry (Ajax).
