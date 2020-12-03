@@ -26,7 +26,12 @@ function getBase64Image(img) {
 
 function getPlayers() {
     let f = function(data) {
-        return jQuery.parseJSON(data);
+        try{
+            return jQuery.parseJSON(data);
+        }
+        catch(error) {
+            return jQuery.parseJSON("[]");
+        }
     }
     $.ajax({
         url: 'getPlayers.php',
