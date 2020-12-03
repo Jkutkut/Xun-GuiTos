@@ -3,7 +3,8 @@ CREATE TABLE 'Players' (
 	'pId' INTEGER PRIMARY KEY AUTOINCREMENT,
 	'name' VARCHAR,
 	'groupPos' INT DEFAULT NULL,
-	'imgId' INT DEFAULT NULL
+	'imgId' INT DEFAULT NULL,
+	'pType' INT DEFAULT NULL
 );
 
 INSERT INTO Players ('name') values ("Jorge");
