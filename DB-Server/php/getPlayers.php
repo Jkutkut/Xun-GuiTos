@@ -1,13 +1,27 @@
 <?php
     include("setup.php");
 
-    $querry = "SELECT * FROM Players";
+    $querry = "SELECT * FROM Players;";
     $results = $db->query($querry) or die("Error at getting the players");
     
-    echo "data:\n";
-    while ($row = $results->fetchArray()) {
-        // var_dump($row);
-        echo "{\"pid\":\"" . $row["pId"] . "\", \"name\":\"" . $row["name"] . "\", \"groupPos\":\"" . $row["groupPos"] . "\", \"imgId\":\"" . $row["imgId"] . "\"}";
+
+    function row2jsonPlayer($r){
+        return "{\"pid\":\"" . $r["pId"] . "\", \"name\":\"" . $r["name"] . "\", \"groupPos\":\"" . $r["groupPos"] . "\", \"imgId\":\"" . $r["imgId"] . "\"}";
     }
-    echo "\nend";
+
+
+    if($row = $results->fetchArray()) {
+        echo "[";
+        echo row2jsonPlayer($row);
+        
+        while ($row = $results->fetchArray()) {
+            // echo "{\"pid\":\"" . $row["pId"] . "\", \"name\":\"" . $row["name"] . "\", \"groupPos\":\"" . $row["groupPos"] . "\", \"imgId\":\"" . $row["imgId"] . "\"}";
+            echo ",\n";
+            echo row2jsonPlayer($row);
+        }
+        echo "]";
+    }
+    else {
+        echo "No players found :S";
+    }
 ?>
