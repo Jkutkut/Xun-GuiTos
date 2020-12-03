@@ -19,6 +19,7 @@
         echo "]";
     }
     else {
-        echo "No players found :S";
+        // echo "No players found :S";
+        echo "[]";
     }
 ?>
