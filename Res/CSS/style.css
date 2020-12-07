@@ -183,7 +183,9 @@ img { /* Img at createPlayer */
     width: 40%;
 }
 .playerGunTorch {
-    max-width: 25%;
+    max-width: var(--wM, 25%);
+    height: var(--h, auto);
+    
 }
 
 .PollContainer {
