@@ -6,17 +6,26 @@ CREATE TABLE 'Players' (
 	'imgId' INT DEFAULT NULL,
 	'pType' INT DEFAULT NULL
 );
-
-INSERT INTO Players ('name') values ("Jorge");
-
-DROP table Players;
-
-
 # Imgs:
 CREATE TABLE 'Imgs' (
 	'imgId' INTEGER PRIMARY KEY AUTOINCREMENT,
 	'img' BLOB NOT NULL
 );
 
+CREATE TABLE 'Opinion' (
+	'pId' INTEGER PRIMARY KEY,
+	'val' INTEGER DEFAULT 0
+);
+
+
+
+
+# Commandos random:
+INSERT INTO Players ('name') values ("Jorge");
+
+DROP table Players;
+
 SELECT * FROM Players WHERE 'p-id' = (SELECT MAX('p-id') FROM Players);
 SELECT * FROM Imgs WHERE 'img-id' = (SELECT MAX('img-id') FROM Imgs);
+
+PRAGMA TABLE_info('Opinion');
