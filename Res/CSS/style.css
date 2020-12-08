@@ -177,8 +177,8 @@ img { /* Img at createPlayer */
 }
 .playerData {
     text-align: center;
-    height: 25%;
-    width: 100%;
+    height: var(--h, 25%);
+    width: var(--w, 100%);
     display: flex;
     align-items: center;
 }
@@ -208,4 +208,7 @@ img { /* Img at createPlayer */
     background: url(../../Res/img/torch.png);
     height: 90%;
     background-size: contain;
+}
+.rootMenu_playerList {
+    background: green; width: 100%; height: 100%;
 }

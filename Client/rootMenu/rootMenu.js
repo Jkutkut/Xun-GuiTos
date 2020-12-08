@@ -2,8 +2,12 @@ var waitingMenu = true; // To hadle the switch between rootMenu and waitingMenu
 var phrases;
 var phrasesBuffer = [];
 var rootMenu = {
+    playerL: null,
     playerP: {},
-    leader: 1
+    leader: {
+        index: null,
+        icon: null
+    }
 };
 
 
@@ -89,7 +93,14 @@ function landElement(e) {
 
 
 /* New code */
+
+/* PlayerList */
 function updateLeader(leaderIndex){
+    rootMenu.leader.index = leaderIndex;
+    rootMenu.leader.icon.remove(); // Remove the current icon
+    $("#P" + leaderIndex).append(rootMenu.leader.icon);
+}
+function renamePlayer(index, name){
 
 }
 
@@ -97,19 +108,24 @@ window.onload = function(){
     
     getQuerry(); //function from common.js
 
-    let h = pixel2float($("#rootMenu_leaderIcon").css("height"));
-    $("#rootMenu_leaderIcon").css("width", h + "px");
-    let leaderIcon = $("#rootMenu_leaderIcon");
+    rootMenu.playerL = $("#playersList");
+    let h = pixel2float(rootMenu.playerL.css("height")) / 10; // size of a player on the list
+    let userTag = $("<i class=\"username\" style=\"width: 60%;\">Username</i>");
+    rootMenu.leader.icon = $("<div id=\"rootMenu_leaderIcon\"></div>");
+    rootMenu.leader.icon.css("height", (h * 0.98) + "px");
+    rootMenu.leader.icon.css("width", (h * 0.98) + "px");
 
-    let playerL = $("#playersList");
-    let player = $("#P1");
-    $("#rootMenu_leaderIcon").remove();
-    for (let i = 2; i <= 10; i++){
-        let otherPlayer = player.clone();
+    for (let i = 1; i <= 10; i++){
+        let otherPlayer = $("<div class=\"playerData rootMenu_playerList\"></div>");
         otherPlayer.attr("id", "P" + i);
-        playerL.append(otherPlayer);
+        let tag = userTag.clone();
+        tag.attr("id", "P" + i + "_name");
+        otherPlayer.append(tag);
+
+        rootMenu.playerL.append(otherPlayer);
     }
-    
+
+    updateLeader(2);
     
     // $("#secretBtn_waitingM").click(toggleMenu);
     // $("#secretBtn_rootM").click(toggleMenu);
