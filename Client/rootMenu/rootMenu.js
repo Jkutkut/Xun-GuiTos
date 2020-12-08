@@ -95,13 +95,23 @@ function landElement(e) {
 /* New code */
 
 /* PlayerList */
+/**
+ * Changes the index of the leader and adds the icon to the desired player.
+ * @param {number} leaderIndex index (1 based) of the player.
+ */
 function updateLeader(leaderIndex){
     rootMenu.leader.index = leaderIndex;
     rootMenu.leader.icon.remove(); // Remove the current icon
     $("#P" + leaderIndex).append(rootMenu.leader.icon);
 }
+/**
+ * Renames the selected player on the playerList.
+ * @param {number} index - index (1 based) of the desired player
+ * @param {string} name - name to change the player to.
+ */
 function renamePlayer(index, name){
-
+    console.log("P" + index + "_name");
+    $("#P" + index + "_name").text(name);
 }
 
 window.onload = function(){
