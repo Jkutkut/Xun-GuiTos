@@ -94,7 +94,8 @@ function pixel2float(p){
 function clearTables(){
     tablesToClear = [
         "Players",
-        "Imgs"
+        "Imgs",
+        "Opinions"
     ];
     for (let t of tablesToClear){
         clearTable(t);
