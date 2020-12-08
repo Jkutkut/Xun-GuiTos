@@ -95,7 +95,7 @@ function clearTables(){
     tablesToClear = [
         "Players",
         "Imgs",
-        "Opinions"
+        "Opinion"
     ];
     for (let t of tablesToClear){
         clearTable(t);
