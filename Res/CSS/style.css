@@ -1,6 +1,9 @@
 :root {
     --background-color: lightskyblue;
 }
+body{
+    font-size:xx-large;
+}
 
 /* CREATEPLAYER */
 
