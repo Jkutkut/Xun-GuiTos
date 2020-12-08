@@ -27,52 +27,16 @@
     <div id="main_div" class="">
         <!-- TOP -->
         <div class="parent" style="--c: 2; --h: 70%; background: rgba(132, 177, 43, 0.418); display: flex; flex-direction: row; align-items: center; align-content: center;">
-            <div id="playersList_div" style="height: 100%; width: 39%; background: rgba(38, 197, 123, 0.575); text-align: center;">
+            <div id="playersList_divContainer" style="height: 100%; width: 39%; background: rgba(38, 197, 123, 0.575); text-align: center;">
                 <i>Players:</i>
                 
-                <div id="" class="verticalRows" style="--r:10; --h: 100%;">
-                    <div class="playerData" style="background: green; width: 100%; height: 100%;">
-                        <i class="username">Username</i>
-                        <img src="../../Res/img/torch.png" style="background: blueviolet; height: 90px;">
-                    </div>
-                    <div class="playerData" style="background: rgb(0, 154, 243); width: 100%; height: 100%;">
-                        <!-- <img src="../../Res/img/torch.png" class="playerGunTorch" style="--h:100%;"> -->
-                        <i class="username">Username</i>
-                    </div>
-                    <div class="playerData" style="background: green; width: 100%; height: 100%;">
-                        <!-- <img src="../../Res/img/torch.png" class="playerGunTorch" style="--h:100%;"> -->
-                        <i class="username">Username</i>
-                    </div>
-                    <div class="playerData" style="background: rgb(0, 154, 243); width: 100%; height: 100%;">
-                        <!-- <img src="../../Res/img/torch.png" class="playerGunTorch" style="--h:100%;"> -->
-                        <i class="username">Username</i>
-                    </div>
-                    <div class="playerData" style="background: green; width: 100%; height: 100%;">
-                        <!-- <img src="../../Res/img/torch.png" class="playerGunTorch" style="--h:100%;"> -->
-                        <i class="username">Username</i>
-                    </div>
-                    <div class="playerData" style="background: rgb(0, 154, 243); width: 100%; height: 100%;">
-                        <!-- <img src="../../Res/img/torch.png" class="playerGunTorch" style="--h:100%;"> -->
-                        <i class="username">Username</i>
-                    </div>
-                    <div class="playerData" style="background: green; width: 100%; height: 100%;">
-                        <!-- <img src="../../Res/img/torch.png" class="playerGunTorch" style="--h:100%;"> -->
-                        <i class="username">Username</i>
-                    </div>
-                    <div class="playerData" style="background: rgb(0, 154, 243); width: 100%; height: 100%;">
-                        <!-- <img src="../../Res/img/torch.png" class="playerGunTorch" style="--h:100%;"> -->
-                        <i class="username">Username</i>
-                    </div>
-                    <div class="playerData" style="background: green; width: 100%; height: 100%;">
-                        <!-- <img src="../../Res/img/torch.png" class="playerGunTorch" style="--h:100%;"> -->
-                        <i class="username">Username</i>
-                    </div>
-                    <div class="playerData" style="background: rgb(0, 154, 243); width: 100%; height: 100%;">
-                        <!-- <img src="../../Res/img/torch.png" class="playerGunTorch" style="--h:100%;"> -->
-                        <i class="username">Username</i>
+                <div id="playersList" class="verticalRows" style="--r:10; --h: 100%; --w: 100%">
+                    <div id="P1" class="playerData" style="background: green; width: 100%; height: 100%;">
+                        <i class="username" style="width: 60%;">Username</i>
+                        <div id="rootMenu_leaderIcon"></div>
                     </div>
                 </div>
-
+                    
             </div>
             <div style="height: 100%; width: 59%; background: yellow; text-align: center;">
                 <i>Missions:</i>

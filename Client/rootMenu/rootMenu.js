@@ -89,7 +89,21 @@ function landElement(e) {
 window.onload = function(){
     
     getQuerry(); //function from common.js
+
+    let h = pixel2float($("#rootMenu_leaderIcon").css("height"));
+    $("#rootMenu_leaderIcon").css("width", h + "px");
+    let leaderIcon = $("#rootMenu_leaderIcon");
+
+    let playerL = $("#playersList");
+    let player = $("#P1");
+    for (let i = 2; i <= 10; i++){
+        let otherPlayer = player.clone();
+        otherPlayer.attr("id", "P" + i);
+        playerL.append(otherPlayer);
+
+    }
     
-    $("#secretBtn_waitingM").click(toggleMenu);
-    $("#secretBtn_rootM").click(toggleMenu);
+    
+    // $("#secretBtn_waitingM").click(toggleMenu);
+    // $("#secretBtn_rootM").click(toggleMenu);
 }
