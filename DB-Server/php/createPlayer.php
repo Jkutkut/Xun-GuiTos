@@ -8,7 +8,7 @@
     $pIdQuery = $db->query($getpId);
     $pId = $pIdQuery->fetchArray(SQLITE3_ASSOC);
 
-    $query = "INSERT INTO Players (pId) VALUES('$pId')";
+    $query = "INSERT INTO Opinion (pId) VALUES('$pId')";
     $db->exec($query) or die("Error at creating opinion for the player");
 
     echo "Player created: " . $name;
