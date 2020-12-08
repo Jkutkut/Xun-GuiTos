@@ -2,10 +2,12 @@ var waitingMenu = true; // To hadle the switch between rootMenu and waitingMenu
 var phrases;
 var phrasesBuffer = [];
 var rootMenu = {
-    playerP: {}
+    playerP: {},
+    leader: 1
 };
 
 
+/* Old code */
 /**
  * Using the variable "waitingMenu", this code toggles the view of both menus
  * @param {string} btnID - ID of the button used.
@@ -86,6 +88,11 @@ function landElement(e) {
 }
 
 
+/* New code */
+function updateLeader(leaderIndex){
+
+}
+
 window.onload = function(){
     
     getQuerry(); //function from common.js
@@ -96,11 +103,11 @@ window.onload = function(){
 
     let playerL = $("#playersList");
     let player = $("#P1");
+    $("#rootMenu_leaderIcon").remove();
     for (let i = 2; i <= 10; i++){
         let otherPlayer = player.clone();
         otherPlayer.attr("id", "P" + i);
         playerL.append(otherPlayer);
-
     }
     
     
