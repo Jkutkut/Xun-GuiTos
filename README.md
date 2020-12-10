@@ -13,6 +13,7 @@ Digitalization of the board game "[The Resistance](http://devir.es/producto/la-r
         - Now tables not implemented (yet) apear as theorical.
         - FieldTypes now apear on diagram.
         - New fileds on Players, Mission => *new Tables*.
+    - Opinion table created
 - v0.2.3: Data base and menus integration:
     - Mayor upgrade of the common.js file:
         - Now categories to store the functions.
