@@ -16,6 +16,8 @@ Data</panel_attributes><additional_attributes>30;420;10;420;10;10;60;10</additio
 DB-Data</panel_attributes><additional_attributes>10;320;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>520</x><y>230</y><w>70</w><h>320</h></coordinates><panel_attributes>lt=&lt;-
 Request
 content</panel_attributes><additional_attributes>10;300;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>590</x><y>230</y><w>40</w><h>320</h></coordinates><panel_attributes>lt=&lt;-
-UI</panel_attributes><additional_attributes>10;10;10;300</additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>50</x><y>100</y><w>310</w><h>130</h></coordinates><panel_attributes>Wifi
+UI</panel_attributes><additional_attributes>10;10;10;300</additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>330</x><y>320</y><w>480</w><h>140</h></coordinates><panel_attributes>Wifi
 valign=top
-</panel_attributes><additional_attributes></additional_attributes></element></diagram>
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>730</x><y>240</y><w>70</w><h>310</h></coordinates><panel_attributes>lt=&lt;-&gt;
+Control
+Game</panel_attributes><additional_attributes>10;290;10;10</additional_attributes></element></diagram>
