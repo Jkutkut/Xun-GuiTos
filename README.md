@@ -5,6 +5,8 @@ Digitalization of the board game "[The Resistance](http://devir.es/producto/la-r
 
 ## Version history:
 ### v0.2:
+- v0.2.5: Minor fixes to UI.
+
 - v0.2.4: Root menu:
     - rootMenu:
         - Features defined.
