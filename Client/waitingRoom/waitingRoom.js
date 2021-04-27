@@ -12,7 +12,7 @@ var rootMenu = {
  */
 function changePhrase(){
     if (phrasesBuffer.length == 0){
-        phrasesBuffer = phrases; // Refill with the phrases
+        phrasesBuffer = [...phrases]; // Refill with the phrases
     }
     // At this point phrasesBuffer has length != 1
     let randomIndex = Math.floor(Math.random() * phrasesBuffer.length); //Using phrasesBuffer to avoid repeat the same phrase
