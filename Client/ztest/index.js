@@ -1,6 +1,8 @@
 window.onload = function() {
     // find the element that you want to drag.
     var box = document.getElementById('box');
+    box.style.height = "100px";
+    box.style.width = "100px";
     
     /* listen to the touchMove event,
     every time it fires, grab the location
@@ -12,10 +14,16 @@ window.onload = function() {
 
         // assign box new coordinates based on the touch.
         let w = $("#box").css("width");
-        let h = $("#box").css("height"); 
+        let h = $("#box").css("height");
         w = parseFloat(h.substring(0, h.length - 2)) / 2;
         h = parseFloat(h.substring(0, h.length - 2)) / 2;
-        box.style.left = (touchLocation.pageX - w) + 'px';
+
+        bh = parseInt(box.style.height.substr(0, box.style.height.length - 2))
+
+        h = Math.floor(h, bh) * bh;
+
+        console.log(h)
+        // box.style.left = (touchLocation.pageX - w) + 'px';
         box.style.top = (touchLocation.pageY - h) + 'px';
     })
     
