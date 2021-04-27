@@ -58,3 +58,17 @@ $.ajax({
     echo "Player created: " . $name;
 ?>
 
+### GetImg:
+$.ajax({
+  url: 'getImg.php',
+  method: 'get',
+  data: {
+    name: "jorge"
+  },
+  success: function(data) {
+    //console.log(data);
+    var image = new Image();
+    image.src = data;
+    document.body.appendChild(image);
+  }
+});
