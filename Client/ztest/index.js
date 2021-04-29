@@ -1,40 +1,53 @@
-window.onload = function() {
-    // find the element that you want to drag.
-    var box = document.getElementById('box');
-    box.style.height = "100px";
-    box.style.width = "100px";
-    
-    /* listen to the touchMove event,
-    every time it fires, grab the location
-    of touch and assign it to box */
-    
-    box.addEventListener('touchmove', function(e) {
-        // grab the location of touch
-        var touchLocation = e.targetTouches[0];
+// var COL_WIDTH = 62 // should be calculated dynamically, and recalculated at window resize
+// var GUTTER_WIDTH = 30
 
-        // assign box new coordinates based on the touch.
-        let w = $("#box").css("width");
-        let h = $("#box").css("height");
-        w = parseFloat(h.substring(0, h.length - 2)) / 2;
-        h = parseFloat(h.substring(0, h.length - 2)) / 2;
+// var COL_WIDTHS = {
+//   750: 62,
+//   970: 81,
+//   1170: 97
+// }
 
-        bh = parseInt(box.style.height.substr(0, box.style.height.length - 2))
+// $(function() {
+  
+//   var d = dragula({
+//     invalid: function(el, target) {
+//       return $(el).hasClass('ui-resizable-handle')
+//     }
+//   })
+//   $('.row').each(function() {
+//     d.containers.push(this)
+//   })
 
-        h = Math.floor(h, bh) * bh;
+//   $('.block').resizable({
+//     grid: COL_WIDTH - GUTTER_WIDTH,
+//     handles: 'se',
+//     resize: function(e, ui) {
+//       console.log('resized', ui.size)
+//       $(this).css('width', '').removeClass(function(index, css) {
+//         return (css.match (/(^|\s)col-sm-\S+/g) || []).join(' ')
+//       })
+//       .addClass('col-sm-' + Math.max(1, Math.round(ui.size.width / COL_WIDTH)))
+//     }
+//   })
+  
+//   var colWidth = COL_WIDTHS[$('.container').width()] || COL_WIDTHS[0]
+//   $(window).resize(function() {
+//     colWidth = COL_WIDTHS[$('.container').width()] || COL_WIDTHS[0]
+//     console.log('set colWidth to', colWidth, $('.container').width())
+//   })
+  
+// })
 
-        console.log(h)
-        // box.style.left = (touchLocation.pageX - w) + 'px';
-        box.style.top = (touchLocation.pageY - h) + 'px';
-    })
-    
-    /* record the position of the touch
-    when released using touchend event.
-    This will be the drop position. */
-    
-    box.addEventListener('touchend', function(e) {
-        // current box position.
-        var x = parseInt(box.style.left);
-        var y = parseInt(box.style.top);
-    })
-    
-  }
+
+$(function(){
+	$('#grid').gridstrap({
+		/* default options */
+	});
+});
+
+function getOrden() {
+    let children = $("#grid").children();
+    for (let i = 0; i < children.length -1; i++) {
+        console.log(children[i].innerHTML);
+    }
+}

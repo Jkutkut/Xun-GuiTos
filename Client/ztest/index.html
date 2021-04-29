@@ -2,6 +2,20 @@
 <head>
     <meta charset="utf-8">
     <title>Resistencia</title>
+
+    <!-- Boostrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!-- Dragula -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.5.2/dragula.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.5.2/dragula.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script> -->
+
+
     <!-- CSS -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://unpkg.com/material-components-web@7.0.0/dist/material-components-web.css">
@@ -15,11 +29,50 @@
     <script src="../../Res/JS/common.js"></script>
     <script src="index.js"></script>
 
+    
+    <!-- gridStrap -->
+    <link rel="stylesheet" href="gridstrap.js-0.7.3/dist/jquery.gridstrap.min.css"> 
+    <script src="gridstrap.js-0.7.3/dist/jquery.gridstrap.js"></script>
+
 </head>
 <body>
-    <div id="container">
+    <!-- <div id="container">
         <p>Toggle your browser device toolbar and change device to any mobile or tablet from your browser inspect.</p>
         <div id="box"></div>
+    </div> -->
+    <!-- <section class="border p-4 d-flex mb-4 d-flex justify-content-center">
+        <div id="sortable-grid" data-mdb-sortable="sortable" class="sortable-list d-flex flex-wrap">
+        <div class="sortable-item" data-mdb-id="sortable-item-375618" style="transform: translate3d(0px, 0px, 0px); transition: none 0s ease 0s;">Item 1</div>
+        <div class="sortable-item" data-mdb-id="sortable-item-641417" style="transition: none 0s ease 0s; transform: translate3d(0px, 0px, 0px);">Item 2</div>
+        <div class="sortable-item" data-mdb-id="sortable-item-141499" style="transition: none 0s ease 0s; transform: translate3d(0px, 0px, 0px);">Item 3</div>
+        <div class="sortable-item" data-mdb-id="sortable-item-157683" style="transition: none 0s ease 0s; transform: translate3d(0px, 0px, 0px);">Item 4</div>
+        <div class="sortable-item" data-mdb-id="sortable-item-341220" style="transition: none 0s ease 0s; transform: translate3d(0px, 0px, 0px);">Item 5</div>
+        <div class="sortable-item" data-mdb-id="sortable-item-725429" style="transition: none 0s ease 0s; transform: translate3d(0px, 0px, 0px);">Item 6</div>
+        <div class="sortable-item" data-mdb-id="sortable-item-528397" style="transition: none 0s ease 0s; transform: translate3d(0px, 0px, 0px);">Item 7</div>
+        <div class="sortable-item" data-mdb-id="sortable-item-379806" style="transition: none 0s ease 0s; transform: translate3d(0px, 0px, 0px);">Item 8</div>
+        <div class="sortable-item" data-mdb-id="sortable-item-518379" style="transition: none 0s ease 0s; transform: translate3d(0px, 0px, 0px);">Item 9</div>
+        <div class="sortable-item" data-mdb-id="sortable-item-336432" style="transition: none 0s ease 0s; transform: translate3d(0px, 0px, 0px);">Item 10</div>
+        <div class="sortable-item" data-mdb-id="sortable-item-57181" style="transition: none 0s ease 0s; transform: translate3d(0px, 0px, 0px);">Item 11</div>
+        <div class="sortable-item" data-mdb-id="sortable-item-576152" style="transition: none 0s ease 0s; transform: translate3d(0px, 0px, 0px);">Item 12</div></div>
+      </section> -->
+      <!-- <div class="container" id="main">
+        <div class="row">
+          <div class="block col-sm-1">Foo</div>
+          <div class="block col-sm-2">Bar</div>
+          <div class="block col-sm-3">Zoo</div>
+        </div>
+        <div class="row">
+          <div class="block col-sm-4">X</div>
+        </div>
+        <div class="row"></div>
+      </div> -->
+      <div id="grid" class="row" style="background: cornflowerblue; height: 30%;">
+        <div class="col-xs-4 col-sm-2 col-md-1 elemento">1</div>
+        <div class="col-xs-4 col-sm-2 col-md-1 elemento" style="--c: green;">2</div>
+        <div class="col-xs-4 col-sm-2 col-md-1 elemento">3</div>
+        <div class="col-xs-4 col-sm-2 col-md-1 elemento" style="--c: green;">4</div>
+        <div class="col-xs-4 col-sm-2 col-md-1 elemento">5</div>
+        <div class="col-xs-4 col-sm-2 col-md-1 elemento" style="--c: green;">6</div>
     </div>
 </body>
 </html>
