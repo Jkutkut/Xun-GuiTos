@@ -80,6 +80,10 @@ Work focused on the configuration of the rapsberry pi 4 and the bluetooth commun
 - Gun icons: Made by smalllikeart: https://www.flaticon.com/authors/smalllikeart
 - Torch icon: Icons made by freepik http://www.freepik.com/
 
+## Gridstrap:
+- [rosspi.github.io/gridstrap.js](https://rosspi.github.io/gridstrap.js/)
+
+
 ### Links:
 Links to pages used to configure or consult with usefull information:
 #### Raspberry:
