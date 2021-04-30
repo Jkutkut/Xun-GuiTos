@@ -1,3 +1,6 @@
 .elemento {
-  background: var(--c, yellow);
+    background: var(--c, yellow);
+    /* width: 500px; */
+    /* width: 100%; */
+    height: 10%;
 }
