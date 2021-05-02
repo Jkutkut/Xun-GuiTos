@@ -100,9 +100,13 @@ function landElement(e) {
  * @param {number} leaderIndex index (1 based) of the player.
  */
 function updateLeader(leaderIndex){
-    rootMenu.leader.index = leaderIndex;
-    rootMenu.leader.icon.remove(); // Remove the current icon
-    $("#P" + leaderIndex).append(rootMenu.leader.icon);
+    // rootMenu.leader.index = leaderIndex;
+    // let newIcon = rootMenu.leader.icon.clone();
+    // // rootMenu.leader.icon.remove(); // Remove the current icon
+    // $("#P" + leaderIndex).append(rootMenu.leader.icon);
+    // rootMenu.leader.icon = newIcon;
+
+
 }
 /**
  * Renames the selected player on the playerList.
@@ -126,16 +130,26 @@ window.onload = function(){
     let userTag = $("<i class=\"username\" style=\"width: 60%;\">Username</i>");
     
     //Icon
-    rootMenu.leader.icon = $("<div id=\"rootMenu_leaderIcon\"></div>");
-    rootMenu.leader.icon.css("height", (h * 0.98) + "px");
-    rootMenu.leader.icon.css("width", (h * 0.98) + "px");
+    // rootMenu.leader.icon = $("<div id=\"rootMenu_leaderIcon\" style=\"display: block; margin-left: auto; margin-top: 10px;\"></div>");
+    rootMenu.leader.icon = $("<div id=\"rootMenu_leaderIcon\" style=\"display: block; margin-left: auto; transform: translateY(9%);\"></div>");
+    // rootMenu.leader.icon = $("<div id=\"rootMenu_leaderIcon\" style=\"display: block; margin-left: auto; padding: " + (h * 0.1) + "px 0;\"></div>");
+    
+    
+    // rootMenu.leader.icon.css("height", (h * 0.98) + "px");
+    rootMenu.leader.icon.css("height", (h * 0.8) + "px");
+    // rootMenu.leader.icon.css("width", (h * 0.98) + "px");
+    rootMenu.leader.icon.css("width", (h * 0.8) + "px");
 
     
     for (let i = 1; i <= 10; i++){
-        let otherPlayer = $("<div id=\"P"+ i + "\" class=\"\" style=\"background = blue; width: 100%; height: 10%;\"></div>");
-        let tag = $("<i id=\"P" + i + "_name\" class=\"username\" style=\"width: 60%;\">P" + i + "_name</i>");
+        let otherPlayer = $("<div id=\"P"+ i + "\" class=\"\" style=\"width: 100%; height: 10%;\"></div>");
+        let tag = $("<i id=\"P" + i + "_name\" class=\"username\" style=\"width: 50%; transform: translateY(50%);\">P" + i + "_name</i>");
         otherPlayer.append(tag);
         rootMenu.playerL.append(otherPlayer);
+
+        otherPlayer.css("background", "yellow");
+        tag.css("float", "left");
+        
     }
     updateLeader(2);
     
