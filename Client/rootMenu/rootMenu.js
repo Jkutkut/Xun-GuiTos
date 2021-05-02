@@ -119,24 +119,32 @@ window.onload = function(){
     getQuerry(); //function from common.js
 
     rootMenu.playerL = $("#playersList");
-    let h = pixel2float(rootMenu.playerL.css("height")) / 10; // size of a player on the list
+    // let playerListLabel = $("#playersList_divContainer").children()[0];
+    let h = pixel2float($("#playersList_divContainer").css("height")) / 10; // size of a player on the list
+    
+    //User
     let userTag = $("<i class=\"username\" style=\"width: 60%;\">Username</i>");
+    
+    //Icon
     rootMenu.leader.icon = $("<div id=\"rootMenu_leaderIcon\"></div>");
     rootMenu.leader.icon.css("height", (h * 0.98) + "px");
     rootMenu.leader.icon.css("width", (h * 0.98) + "px");
 
+    
     for (let i = 1; i <= 10; i++){
-        let otherPlayer = $("<div class=\"playerData rootMenu_playerList\"></div>");
-        otherPlayer.attr("id", "P" + i);
-        let tag = userTag.clone();
-        tag.attr("id", "P" + i + "_name");
+        let otherPlayer = $("<div id=\"P"+ i + "\" class=\"\" style=\"background = blue; width: 100%; height: 10%;\"></div>");
+        let tag = $("<i id=\"P" + i + "_name\" class=\"username\" style=\"width: 60%;\">P" + i + "_name</i>");
         otherPlayer.append(tag);
-
         rootMenu.playerL.append(otherPlayer);
     }
-
     updateLeader(2);
     
     // $("#secretBtn_waitingM").click(toggleMenu);
     // $("#secretBtn_rootM").click(toggleMenu);
 }
+
+$(function(){
+	$('#playersList').gridstrap({
+		/* default options */
+	});
+});
