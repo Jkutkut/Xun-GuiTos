@@ -63,33 +63,6 @@ function loadRootMenu() {
     rootMenu.box.addEventListener('touchend', landElement);
 }
 
-function movingElement(e) {
-    let touchLocation = e.targetTouches[0]; // grab the location of touch
-    let eP = { // properties of the element to move
-        x: touchLocation.pageX - rootMenu.playerP.w / 2,
-        y: touchLocation.pageY - rootMenu.playerP.h / 2,
-        w: rootMenu.playerP.w,
-        h: rootMenu.playerP.h
-    };
-    // if e inside the container
-    if (stillIn(eP, div2disposition(rootMenu.playerP.container), false)){
-        e.target.style.left = eP.x + 'px';
-        e.target.style.top = eP.y + 'px';
-    }
-}
-
-function landElement(e) {
-    // current box position.
-    let eP = div2disposition($(e.target));
-    let pP = div2disposition($(rootMenu.playerP.container));
-
-    let coord = {
-        x: parseInt(eP.x / eP.w),
-        y: parseInt(eP.y / eP.h)
-    };
-    e.target.style.left = (coord.x * eP.w + pP.x) + "px";
-    e.target.style.top = (coord.y * eP.h + pP.x)+ "px";
-}
 
 
 /* New code */
@@ -100,14 +73,14 @@ function landElement(e) {
  * @param {number} leaderIndex index (1 based) of the player.
  */
 function updateLeader(leaderIndex){
-    // rootMenu.leader.index = leaderIndex;
+    rootMenu.leader.index = leaderIndex;
     // let newIcon = rootMenu.leader.icon.clone();
     // // rootMenu.leader.icon.remove(); // Remove the current icon
-    // $("#P" + leaderIndex).append(rootMenu.leader.icon);
+    $("#P" + leaderIndex).append(rootMenu.leader.icon);
     // rootMenu.leader.icon = newIcon;
-
-
 }
+
+
 /**
  * Renames the selected player on the playerList.
  * @param {number} index - index (1 based) of the desired player
@@ -130,15 +103,11 @@ window.onload = function(){
     let userTag = $("<i class=\"username\" style=\"width: 60%;\">Username</i>");
     
     //Icon
-    // rootMenu.leader.icon = $("<div id=\"rootMenu_leaderIcon\" style=\"display: block; margin-left: auto; margin-top: 10px;\"></div>");
-    rootMenu.leader.icon = $("<div id=\"rootMenu_leaderIcon\" style=\"display: block; margin-left: auto; transform: translateY(9%);\"></div>");
-    // rootMenu.leader.icon = $("<div id=\"rootMenu_leaderIcon\" style=\"display: block; margin-left: auto; padding: " + (h * 0.1) + "px 0;\"></div>");
+    rootMenu.leader.icon = "<div id=\"rootMenu_leaderIcon\" style=\"height:" + (h * 0.8) + "px; width:" + (h * 0.8) + "px; display: block; margin-left: auto; transform: translateY(9%);\"></div>";
+    // rootMenu.leader.icon = $("<div id=\"rootMenu_leaderIcon\" style=\"display: block; margin-left: auto; transform: translateY(9%);\"></div>");
     
-    
-    // rootMenu.leader.icon.css("height", (h * 0.98) + "px");
-    rootMenu.leader.icon.css("height", (h * 0.8) + "px");
-    // rootMenu.leader.icon.css("width", (h * 0.98) + "px");
-    rootMenu.leader.icon.css("width", (h * 0.8) + "px");
+    // rootMenu.leader.icon.css("height", (h * 0.8) + "px");
+    // rootMenu.leader.icon.css("width", (h * 0.8) + "px");
 
     
     for (let i = 1; i <= 10; i++){
