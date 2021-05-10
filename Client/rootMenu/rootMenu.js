@@ -73,23 +73,9 @@ function loadRootMenu() {
  * @param {number} leaderIndex index (1 based) of the player.
  */
 function updateLeader(leaderIndex){
-    // // if (rootMenu.leader.index != undefined) {
-    // //     $("#P" + rootMenu.leader.index).children()[1].remove();
-    // // }
-    // $("#P" + rootMenu.leader.index).children('1').remove();
-
-    // rootMenu.leader.index = leaderIndex;
-    // // let newIcon = rootMenu.leader.icon.clone();
-    // // // rootMenu.leader.icon.remove(); // Remove the current icon
-    // $("#P" + leaderIndex).append(rootMenu.leader.icon);
-    // // rootMenu.leader.icon = newIcon;
-
-    // $("#P" + rootMenu.leader.index).children('1').remove();
-    // $(".rootMenu_leaderIcon").detach();
     rootMenu.leader.index = leaderIndex;
-    // $(rootMenu.leader.icon).appendTo("#P" + leaderIndex);
     $("#rootMenu_leaderIcon").appendTo("#P" + leaderIndex);
-    // $("#P" + leaderIndex).append(rootMenu.leader.icon);
+    return "Changed to P" + leaderIndex;
 }
 
 
@@ -108,19 +94,10 @@ window.onload = function(){
     getQuerry(); //function from common.js
 
     rootMenu.playerL = $("#playersList");
-    // let playerListLabel = $("#playersList_divContainer").children()[0];
     let h = pixel2float($("#playersList_divContainer").css("height")) / 10; // size of a player on the list
-    
-    //User
-    // let userTag = $("<i class=\"username\" style=\"width: 60%;\">Username</i>");
     
     //Icon
     rootMenu.leader.icon = "<div id=\"rootMenu_leaderIcon\" style=\"height:" + (h * 0.8) + "px; width:" + (h * 0.8) + "px; display: block; margin-left: auto; transform: translateY(9%);\"></div>";
-    // rootMenu.leader.icon = "<div class=\"rootMenu_leaderIcon\" style=\"height:" + (h * 0.8) + "px; width:" + (h * 0.8) + "px; display: block; margin-left: auto; transform: translateY(9%);\"></div>";
-    // rootMenu.leader.icon = $("<div id=\"rootMenu_leaderIcon\" style=\"display: block; margin-left: auto; transform: translateY(9%);\"></div>");
-    
-    // rootMenu.leader.icon.css("height", (h * 0.8) + "px");
-    // rootMenu.leader.icon.css("width", (h * 0.8) + "px");
 
     
     for (let i = 1; i <= 10; i++){
@@ -133,10 +110,7 @@ window.onload = function(){
         tag.css("float", "left");
         
     }
-    // $(rootMenu.leader.icon).append("P1");
     $("#P1").append(rootMenu.leader.icon);
-    updateLeader(8);
-    updateLeader(3);
     
     // $("#secretBtn_waitingM").click(toggleMenu);
     // $("#secretBtn_rootM").click(toggleMenu);
