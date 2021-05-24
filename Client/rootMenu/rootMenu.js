@@ -75,7 +75,7 @@ function loadRootMenu() {
 function updateLeader(leaderIndex){
     rootMenu.leader.index = leaderIndex;
     $("#rootMenu_leaderIcon").appendTo("#P" + leaderIndex);
-    return "Changed to P" + leaderIndex;
+    console.log("Changed to P" + leaderIndex);
 }
 
 
@@ -108,6 +108,13 @@ window.onload = function(){
 
         otherPlayer.css("background", "yellow");
         tag.css("float", "left");
+
+        $("#P" + i).on("tap", function(){console.log("fdhakjf")});
+        // $("#P" + i).click(function(){console.log("fdhakjf")});
+        // $("#P" + i).click(eval("()=>{updateLeader(" + i + ");}"));
+        // otherPlayer.on('tap', eval("() =>{updateLeader(" + i + ");}"));
+        // $(document).on('vclick', '#P' + i, eval("() =>{updateLeader(" + i + ");}"));
+        // $(document).on('vclick', '#P' + i, eval("() =>{console.log('hfald')}"));
         
     }
     $("#P1").append(rootMenu.leader.icon);
