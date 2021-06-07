@@ -5,6 +5,16 @@ var rootMenu = {
     playerP: {}
 };
 
+var ready4meetup = {
+    url: "canStopWaiting",
+    method: 'get',
+    success: function(data) {
+        if (data == "t") {
+            window.location.href = "waitingRoom.html?username=" + queryString["name"];
+        }
+    }
+}
+
 
 /**
  * (Executed periodically) This function updates the div tag with a random phrase from the avalible
@@ -50,4 +60,6 @@ window.onload = function(){
     processPhrases(jQuery.parseJSON('{"common": ["Luchando contra chunguitos","Practicando el baile de la resistencia","Analizando al resto de jugadores","Haciendo movidas no chungas","Creando nombres en clave para el equipo"],"firstTime": ["Esperando al resto de jugadores","Buscando aliados","Muchiflopeando los servidores","Sincronizando dispositivos","Validando datos","Preparando partida"],"newRound": ["Psicoanalizando al resto","Pensando quién puede ser chunguito","Dudando si el de al lado miente","Será bueno el de enfrente?","Duda de tí el de la derecha seguro","El de la izquierda puede ser chunguito"]}'));
 
     // $(".lds-ring").css("height", $(".lds-ring").css("width")); // Change propertie of the loading animation
+
+    window.setInterval($.ajax(ready4meetup), 10000);
 }
