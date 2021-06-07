@@ -48,8 +48,7 @@ const FUNCT = {
 
     // ENDM
     isEndGame: function() {return;},
-    endGame: function() {return;},
-    go2newRound: function() {return;}
+    endGame: function() {return;}
 }
 
 global.set("CURRENTSTATE", STATES.SETUP);
