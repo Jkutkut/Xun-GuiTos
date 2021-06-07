@@ -24,6 +24,7 @@ const FUNCT = {
     emptyF: function() {return;},
     
     // SETUP
+    startedGame: function() {return;},
     go2meetup: function() {return;},
     
     // MEETUP
@@ -63,9 +64,9 @@ global.get("fsmMatrix")[STATES.SETUP] = [
         exe: FUNCT.emptyF // Just wait
     },
     {
-        condition: FUNCT.emptyF,
-        to: STATES.MEETUP,
-        exe: FUNCT.go2meetup
+        condition: FUNCT.startedGame, // If game started by root
+        to: STATES.MEETUP, // Start meetup
+        exe: FUNCT.go2meetup // Start meetup
     }
 ];
 global.get("fsmMatrix")[STATES.MEETUP] = [
@@ -76,8 +77,8 @@ global.get("fsmMatrix")[STATES.MEETUP] = [
     },
     {
         condition: FUNCT.meetupDelay, // Wait until the time ends
-        to: STATES.ROUND, // go to 
-        exe: FUNCT.go2newRound
+        to: STATES.ROUND, // Start new round
+        exe: FUNCT.go2newRound // Start new round
     }
 ];
 global.get("fsmMatrix")[STATES.ROUND] = [
