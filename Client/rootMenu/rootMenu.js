@@ -10,6 +10,17 @@ var rootMenu = {
     }
 };
 
+// debug
+debugPlayers = [
+    {"pId":1,"name":"jorge","groupPos":null,"pType":null},
+    {"pId":2,"name":"paula","groupPos":null,"pType":null},
+    {"pId":3,"name":"ana","groupPos":null,"pType":null},
+    {"pId":4,"name":"adri","groupPos":null,"pType":null},
+    {"pId":5,"name":"laura","groupPos":null,"pType":null},
+    {"pId":6,"name":"user23","groupPos":null,"pType":null},
+    {"pId":7,"name":"fklsdj","groupPos":null,"pType":null}
+]
+
 
 /* Old code */
 /**
