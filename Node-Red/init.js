@@ -17,7 +17,13 @@ const STATES = {
     ROUND: 2,
     POLLM: 3,
     MISSION: 4,
-    ENDM: 5
+    ENDM: 5,
+    0: "Setup",
+    1: "Meetup",
+    2: "Round",
+    3: "PollM",
+    4: "Mission",
+    5: "EndM"
 }
 
 const FUNCT = {
