@@ -52,6 +52,7 @@ const FUNCT = {
 }
 
 global.set("currentState", STATES.SETUP);
+global.set("STATES", STATES);
 
 
 global.set("fsmMatrix", {});
@@ -150,7 +151,4 @@ global.get("fsmMatrix")[STATES.ENDM] = [
         exe: FUNCT.go2newRound
     }
 ];
-
-// console.log(global.get("fsmMatrix")[0][1]());
-console.log(global.get("fsmMatrix"));
 
