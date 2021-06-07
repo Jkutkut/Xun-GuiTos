@@ -5,6 +5,8 @@ Digitalization of the board game "[The Resistance](http://devir.es/producto/la-r
 
 ## Version history:
 ### v0.3:
+- v0.3.1:
+    - Added basic logic of the FSM.
 - v0.3.0:
     - Creation of player fully implemented on NodeRed.
     - Work on NodeRed bugs in code.
