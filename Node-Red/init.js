@@ -51,7 +51,7 @@ const FUNCT = {
     endGame: function() {return;}
 }
 
-global.set("CURRENTSTATE", STATES.SETUP);
+global.set("currentState", STATES.SETUP);
 
 
 global.set("fsmMatrix", {});
