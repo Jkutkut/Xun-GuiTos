@@ -12,6 +12,9 @@ var ready4meetup = {
         if (data == "t") {
             window.location.href = "waitingRoom.html?username=" + queryString["username"];
         }
+        else {
+            console.log("not valid");
+        }
     }
 }
 
