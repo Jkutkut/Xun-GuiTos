@@ -61,5 +61,5 @@ window.onload = function(){
 
     // $(".lds-ring").css("height", $(".lds-ring").css("width")); // Change propertie of the loading animation
 
-    window.setInterval($.ajax(ready4meetup), 10000);
+    // window.setInterval($.ajax(ready4meetup), 10000);
 }
