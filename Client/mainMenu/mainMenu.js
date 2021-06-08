@@ -123,11 +123,17 @@ function *playerIterator(n) {
 
 function updatePlayers(players) {
     let len = players.length;
-    let cells = showPlayers(len);
-    console.log(cells);
+    showPlayers(len);
 
-    for (let c of cells) {
-        console.log(c);
+    let pIte = playerIterator(len);
+    let current = pIte.next();
+    let index = 0;
+
+    while (!current.done) {
+        console.log(current.value);
+        console.log(players[index++]);
+        
+        current = pIte.next();
     }
 }
 
