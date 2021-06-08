@@ -138,16 +138,23 @@ function updatePlayers(players) {
     let pIte = playerIterator(len);
     let current = pIte.next();
     let index = 0;
+    console.log(queryString)
+    while(players[index].name != queryString.username) {
+        index++; // While the first is not my name, go to the next
+        if (index === len) {
+            throw new Error("Name not found");
+        }
+    }
 
     while (!current.done) {
         let content = players[index];
         console.log(current.value);
-        console.log(content);
+        console.log(content.name);
 
         $("#userName" + current.value).text(content.name)
 
         current = pIte.next();
-        index++;
+        index = (index + 1) % len;
     }
 }
 
