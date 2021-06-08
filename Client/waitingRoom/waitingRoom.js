@@ -5,6 +5,19 @@ var rootMenu = {
     playerP: {}
 };
 
+var ready4meetup = {
+    url: "canStopWaiting",
+    method: 'get',
+    success: function(data) {
+        if (data == "t") {
+            window.location.href = "mainMenu.html?username=" + queryString["username"];
+        }
+        else {
+            console.log("not valid");
+            return false;
+        }
+    }
+}
 
 
 
@@ -43,19 +56,7 @@ function processPhrases(data) {
 }
 
 
-var ready4meetup = {
-    url: "canStopWaiting",
-    method: 'get',
-    success: function(data) {
-        if (data == "t") {
-            window.location.href = "mainMenu.html?username=" + queryString["username"];
-        }
-        else {
-            console.log("not valid");
-            return false;
-        }
-    }
-}
+
 
 const sleep = async (ms) => {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -63,8 +64,7 @@ const sleep = async (ms) => {
 const asyncInterval = async (petition, ms, triesLeft = 10000) => {
     return new Promise((resolve, reject) => {
         const interval = setInterval(async () => {
-            let a = await $.ajax(petition);
-            if (a == "t") {
+            if (await $.ajax(petition) == "t") {
                 resolve();
                 clearInterval(interval);
             } 
