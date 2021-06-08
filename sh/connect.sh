@@ -1,5 +1,5 @@
-# i=2;
-i=90;
+i=2;
+# ip = 192.168.43.107
 
 while true; do
     echo "Atempting 192.168.43.$i";
