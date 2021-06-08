@@ -151,8 +151,10 @@ function updatePlayers(players) {
         console.log(current.value);
         console.log(content.name);
 
-        $("#userName" + current.value).text(content.name)
+        $("#userName" + current.value).text(content.name); // Update the name of the user
 
+        // Get and update img
+        
         current = pIte.next();
         index = (index + 1) % len;
     }
