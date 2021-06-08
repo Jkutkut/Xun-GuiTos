@@ -43,13 +43,25 @@ window.onload = function() {
     $('#mainPlayerIcon').css("height", (h * 0.75) + "px"); //adjust the size of the icon to fit the div
     mainPlayer.css("height", h + "px"); //Also lock this height
 
+
+    let elem = ["torch", "userName", "gun"];
     for(let i = 1; i < 5; i++) { //Make the rest of the users
         //create a row
         let row = jQuery('<div id="Row' + i + '" class="horizontalCols" style="--h: 100%;--c: 3; grid-row: ' + i + '"></div>');
         for(let j = 1; j <= 3; j += 2){
             let p = mainPlayer.clone();
+            
             p.attr("id", i + "" + j);
             p.css("--pos", j);
+
+            $(p.children()[0]).attr("id", "img" + i + j); // Set id of the icon
+            let pChildren = $(p.children()[1]).children(); // Elemets to change id (see elem)
+            for (let k = 0; k < elem.length; k++) { // For each element
+                $(pChildren[k]).attr("id", elem[k] + i + j); // Change the id of the element
+            }
+            console.log(pChildren);
+
+
             row.append(p);
             if(i == 1 && j == 1){
                 let p = mainPlayer.clone();
@@ -132,7 +144,7 @@ function updatePlayers(players) {
     while (!current.done) {
         console.log(current.value);
         console.log(players[index++]);
-        
+
         current = pIte.next();
     }
 }
