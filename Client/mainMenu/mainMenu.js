@@ -59,8 +59,6 @@ window.onload = function() {
             for (let k = 0; k < elem.length; k++) { // For each element
                 $(pChildren[k]).attr("id", elem[k] + i + j); // Change the id of the element
             }
-            console.log(pChildren);
-
 
             row.append(p);
             if(i == 1 && j == 1){
@@ -142,10 +140,14 @@ function updatePlayers(players) {
     let index = 0;
 
     while (!current.done) {
+        let content = players[index];
         console.log(current.value);
-        console.log(players[index++]);
+        console.log(content);
+
+        $("#userName" + current.value).text(content.name)
 
         current = pIte.next();
+        index++;
     }
 }
 
