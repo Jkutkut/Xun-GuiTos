@@ -89,10 +89,47 @@ window.onload = function() {
     
     $("#LeftBtn").click(function(){vote(true);});
     $("#RightBtn").click(function(){vote(false);});
+
+    // GetPlayers
+    $.ajax({
+        url: "players",
+        method: "get",
+        success: function(data) {
+            console.log(data);
+            updatePlayers(data);
+        }
+    });
 }
 
 
 /** Main functions */
+
+function *playerIterator(n) {
+    if (n < 5 || n > 10 || !Number.isInteger(n)){ //if n not on the correct range or not an int
+        throw "Error at showPlayers: The value show an int be between 5 and 10, both inclusive.";
+    }
+
+    yield "mainPlayer";
+    yield 43; // Always
+    if (n > 6) yield 33;
+    yield 23; // Always
+    if (n > 8) yield 13;
+    if (n % 2 == 0) yield 12;   
+    if (n > 8) yield 11;
+    yield 21; // Always
+    if (n > 6) yield 31;
+    yield 41; // Always
+}
+
+function updatePlayers(players) {
+    let len = players.length;
+    let cells = showPlayers(len);
+    console.log(cells);
+
+    for (let c of cells) {
+        console.log(c);
+    }
+}
 
 /**
  * Given the number of players, show the containers on the correct positions.
