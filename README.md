@@ -7,6 +7,7 @@ Digitalization of the board game "[The Resistance](http://devir.es/producto/la-r
 ### v0.3:
 - v0.3.1:
     - Added basic logic of the FSM.
+    - Added sh file to find the IP of the Raspberry using brute force and foreing wifi.
 - v0.3.0:
     - Creation of player fully implemented on NodeRed.
     - Work on NodeRed bugs in code.
