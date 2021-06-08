@@ -5,18 +5,7 @@ var rootMenu = {
     playerP: {}
 };
 
-var ready4meetup = {
-    url: "canStopWaiting",
-    method: 'get',
-    success: function(data) {
-        if (data == "t") {
-            window.location.href = "waitingRoom.html?username=" + queryString["username"];
-        }
-        else {
-            console.log("not valid");
-        }
-    }
-}
+
 
 
 /**
@@ -51,6 +40,41 @@ function processPhrases(data) {
     phrases = phrases.concat(phr); // Add the extra phrases
     $("#waitingLabel").text(phr[0]); //Set the first string from the phr array as the text now
     setInterval(changePhrase, 5000); //Change the phrase periodically
+}
+
+
+var ready4meetup = {
+    url: "canStopWaiting",
+    method: 'get',
+    success: function(data) {
+        if (data == "t") {
+            window.location.href = "mainMenu.html?username=" + queryString["username"];
+        }
+        else {
+            console.log("not valid");
+            return false;
+        }
+    }
+}
+
+const sleep = async (ms) => {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+const asyncInterval = async (petition, ms, triesLeft = 10000) => {
+    return new Promise((resolve, reject) => {
+        const interval = setInterval(async () => {
+            let a = await $.ajax(petition);
+            if (a == "t") {
+                resolve();
+                clearInterval(interval);
+            } 
+            else if (triesLeft <= 1) {
+                reject();
+                clearInterval(interval);
+            }
+            triesLeft--;
+        }, ms);
+    });
 }
 
 
