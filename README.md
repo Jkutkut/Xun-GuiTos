@@ -125,6 +125,7 @@ Links to pages used to configure or consult with usefull information:
 
 
 #### Web:
+- Async petitions with interval: https://levelup.gitconnected.com/how-to-turn-settimeout-and-setinterval-into-promises-6a4977f0ace3
 - Css loading: https://loading.io/css/
 - Crop img: https://codepen.io/blackjacques/pen/bqgNoa
 - https://www.w3schools.com/cssref/css_units.asp
