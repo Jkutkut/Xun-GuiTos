@@ -48,6 +48,14 @@ const sleep = async (ms) => {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+/**
+ * Allows to execute $.ajax method periodically until the spected result is returned by the server or until the triesLeft are 0.
+ * @param {Object} petition - JavaScript object with the argument of the $.ajax(XXXXXX) method.
+ * @param {any} spected - Spected result of the petition.
+ * @param {number} ms - Time to wait between petitions in milliseconds.
+ * @param {number} triesLeft - Number of tries until the device stops making petitions.
+ * @returns 
+ */
 const asyncInterval = async (petition, spected, ms, triesLeft = 10000) => {
     return new Promise((resolve, reject) => {
         const interval = setInterval(async () => {
