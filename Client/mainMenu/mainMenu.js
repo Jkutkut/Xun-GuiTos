@@ -54,7 +54,7 @@ window.onload = function() {
             p.attr("id", i + "" + j);
             p.css("--pos", j);
 
-            $(p.children()[0]).attr("id", "img" + i + j); // Set id of the icon
+            $(p.children()[0]).attr("id", "icon" + i + j); // Set id of the icon
             let pChildren = $(p.children()[1]).children(); // Elemets to change id (see elem)
             for (let k = 0; k < elem.length; k++) { // For each element
                 $(pChildren[k]).attr("id", elem[k] + i + j); // Change the id of the element
@@ -119,7 +119,7 @@ function *playerIterator(n) {
         throw "Error at showPlayers: The value show an int be between 5 and 10, both inclusive.";
     }
 
-    yield "mainPlayer";
+    yield "MainPlayer";
     yield 43; // Always
     if (n > 6) yield 33;
     yield 23; // Always
