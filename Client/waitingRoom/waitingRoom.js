@@ -56,28 +56,6 @@ function processPhrases(data) {
 }
 
 
-
-
-const sleep = async (ms) => {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
-const asyncInterval = async (petition, ms, triesLeft = 10000) => {
-    return new Promise((resolve, reject) => {
-        const interval = setInterval(async () => {
-            if (await $.ajax(petition) == "t") {
-                resolve();
-                clearInterval(interval);
-            } 
-            else if (triesLeft <= 1) {
-                reject();
-                clearInterval(interval);
-            }
-            triesLeft--;
-        }, ms);
-    });
-}
-
-
 window.onload = function(){
     getQuerry(); //function from common.js
 
@@ -88,5 +66,5 @@ window.onload = function(){
 
     // $(".lds-ring").css("height", $(".lds-ring").css("width")); // Change propertie of the loading animation
 
-    // window.setInterval($.ajax(ready4meetup), 10000);
+    asyncInterval(ready4meetup, "t", 5000)
 }

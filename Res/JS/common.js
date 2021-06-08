@@ -43,6 +43,27 @@ function getPlayers() {
     });
 }
 
+// Asinc functions using promises
+const sleep = async (ms) => {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+const asyncInterval = async (petition, spected, ms, triesLeft = 10000) => {
+    return new Promise((resolve, reject) => {
+        const interval = setInterval(async () => {
+            if (await $.ajax(petition) == spected) {
+                resolve();
+                clearInterval(interval);
+            } 
+            else if (triesLeft <= 1) {
+                reject();
+                clearInterval(interval);
+            }
+            triesLeft--;
+        }, ms);
+    });
+}
+
 
 // Analyzers
 /**
