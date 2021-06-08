@@ -39,8 +39,8 @@ window.onload = function() {
     let mainPlayer = $("#mainPlayer"); //The div element with the info of the host of the device
 
     let h = pixel2float(mainPlayer.css("height")); //get current height of mainplayer div
-    $('#mainPlayerIcon').attr("src", "../../Res/img/default_user.png");
-    $('#mainPlayerIcon').css("height", (h * 0.75) + "px"); //adjust the size of the icon to fit the div
+    $('#iconMainPlayer').attr("src", "../../Res/img/default_user.png");
+    $('#iconMainPlayer').css("height", (h * 0.75) + "px"); //adjust the size of the icon to fit the div
     mainPlayer.css("height", h + "px"); //Also lock this height
 
 
