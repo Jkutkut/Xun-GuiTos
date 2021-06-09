@@ -208,14 +208,14 @@ function showPlayers(n){
 /** Poll zone */
 /**
  * Given the input, show it on screen and calculate the current result of the poll.
- * @param {number} si number of people who chose the positive option.
- * @param {number} no number of people who chose the negative option.
+ * @param {Array} data - Array with the result of each player (Example: [{val: 0}])
+ * @see DB-Logic to see the meaning of each value.
  */
 function updatePoll(data){
     let si = 0, no = 0;
-    for (let d of data) {
-        if (d.val == 1) si++;
-        else no++;
+    for (let d of data) { // For each player
+        if (d.val == 1) si++; // If vote is positive
+        else if (d.val == -1) no++; // If negative
     }
     $("#PollText1").text("Sí: " + si);
     $("#PollText2").text("No: " + no);
