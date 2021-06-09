@@ -5,6 +5,8 @@ Digitalization of the board game "[The Resistance](http://devir.es/producto/la-r
 
 ## Version history:
 ### v0.3:
+- v0.3.2:
+    - Logic to update RootMenu players and missions UI.
 - v0.3.1:
     - Added basic logic of the FSM.
     - Added sh file to find the IP of the Raspberry using brute force and foreign wifi.
