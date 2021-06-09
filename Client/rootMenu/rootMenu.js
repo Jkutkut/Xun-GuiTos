@@ -150,6 +150,17 @@ function updateMissions(missions) {
         else { // If no leader selected
             $("#M" + m.mId + "leader").text("");
         }
+
+        // if (!missionsEnded) break;
+
+        if (m.vYes != null) { // If poll results avalible
+            $("#M" + m.mId + "pollResult").text("Yes: " + m.vYes + " --- No: " + m.vNo);
+        }
+        else {
+            $("#M" + m.mId + "pollResult").text("");
+        }
+
+        // Player logic
     }
 }
 
