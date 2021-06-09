@@ -45,7 +45,7 @@ mId: int (1-5)
 -..
 pId: int
 -..
-vote: int (0, 1)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>230</x><y>300</y><w>100</w><h>120</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;100;50;100;50;10;80;10</additional_attributes></element><element><id>Relation</id><coordinates><x>230</x><y>260</y><w>100</w><h>140</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;120;40;120;40;10;80;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>320</x><y>440</y><w>160</w><h>80</h></coordinates><panel_attributes>Opinion (theoric)
+vote: int (0, 1)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>230</x><y>320</y><w>310</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;80;260;80;260;10;290;10</additional_attributes></element><element><id>Relation</id><coordinates><x>230</x><y>260</y><w>100</w><h>140</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;120;40;120;40;10;80;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>320</x><y>440</y><w>160</w><h>80</h></coordinates><panel_attributes>Opinion (theoric)
 --
 -..
 pId: int
