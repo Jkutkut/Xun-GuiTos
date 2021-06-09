@@ -14,7 +14,7 @@ groupPos: int
 -..
 imgId: int
 -..
-pType: int (0, 1)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>720</x><y>390</y><w>50</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>30;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>310</x><y>240</y><w>160</w><h>130</h></coordinates><panel_attributes>Mission (theoric)
+pType: int (0, 1)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>720</x><y>390</y><w>50</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>30;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>310</x><y>240</y><w>160</w><h>130</h></coordinates><panel_attributes>Missions
 --
 mId: int (1-5)
 -..
