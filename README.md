@@ -7,7 +7,10 @@ Digitalization of the board game "[The Resistance](http://devir.es/producto/la-r
 ### v0.3:
 - v0.3.2:
     - Logic to update RootMenu players and missions UI.
-    - RootMenu UI bugs fixed.
+    - Some RootMenu UI bugs fixed.
+    - RootMenu UI optimiced to be updated with Ajax petitions.
+    - MissionTeam table logic defined and implemented.
+    - Nodered get Missions returns the content of both Missions and MissionTeam tables.
 - v0.3.1:
     - Added basic logic of the FSM.
     - Added sh file to find the IP of the Raspberry using brute force and foreign wifi.
