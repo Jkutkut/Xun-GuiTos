@@ -81,7 +81,7 @@ function loadRootMenu() {
 /* PlayerList */
 function updatePlayers(players) {
     for (let p of players) {
-        $("#P" + p.pId + "_name").text(p.name);
+        renamePlayer(p.pId, p.name);
         console.log(p);
     }
 }
@@ -120,7 +120,7 @@ window.onload = function(){
     
     for (let i = 1; i <= 10; i++){
         let otherPlayer = $("<div id=\"P"+ i + "\" class=\"\" style=\"width: 100%; height: 10%;\"></div>");
-        let tag = $("<i id=\"P" + i + "_name\" class=\"username\" style=\"width: 50%; transform: translateY(50%);\">P" + i + "_name</i>");
+        let tag = $("<i id=\"P" + i + "_name\" class=\"username\" style=\"width: 50%; transform: translateY(50%);\">------</i>");
         otherPlayer.append(tag);
         rootMenu.playerL.append(otherPlayer);
 
