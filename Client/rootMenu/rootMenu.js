@@ -79,6 +79,13 @@ function loadRootMenu() {
 /* New code */
 
 /* PlayerList */
+function updatePlayers(players) {
+    for (let p of players) {
+        $("#P" + p.pId + "_name").text(p.name);
+        console.log(p);
+    }
+}
+
 /**
  * Changes the index of the leader and adds the icon to the desired player.
  * @param {number} leaderIndex index (1 based) of the player.
@@ -132,6 +139,8 @@ window.onload = function(){
     
     // $("#secretBtn_waitingM").click(toggleMenu);
     // $("#secretBtn_rootM").click(toggleMenu);
+
+    update();
 }
 
 $(function(){
@@ -139,3 +148,15 @@ $(function(){
 		/* default options */
 	});
 });
+
+
+function update() {
+    $.ajax({
+        url: "players",
+        method: "get",
+        success: function(data) {
+            console.log(data);
+            updatePlayers(data);
+        }
+    });
+}
