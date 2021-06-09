@@ -9,6 +9,11 @@ Digitalization of the board game "[The Resistance](http://devir.es/producto/la-r
     - Added basic logic of the FSM.
     - Added sh file to find the IP of the Raspberry using brute force and foreign wifi.
     - Logic added to start the game with a petition.
+    - Logic added to make players innocent or chunguitos automatic and randomly.
+    - Player creation bugs fixed.
+    - Meetup menu created and implemented between creating a player and the first round.
+    - On MainMenu, poll logic implemented to change the current vote.
+    - Mission table logic defined and created.
 - v0.3.0:
     - Creation of player fully implemented on NodeRed.
     - Work on NodeRed bugs in code.
