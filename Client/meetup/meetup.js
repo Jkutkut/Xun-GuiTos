@@ -20,7 +20,8 @@ window.onload = function() {
         $("#characterReveal").css("display", "grid");
 
         setTimeout(function() {
-            console.log("Change to MainMenu")
+            console.log("Change to MainMenu");
+            window.location.href = "mainMenu.html?username=" + queryString["username"];
         }, TIME2SEE);
     });
 
