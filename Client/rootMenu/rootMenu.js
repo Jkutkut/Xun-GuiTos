@@ -1,3 +1,5 @@
+
+
 var waitingMenu = true; // To hadle the switch between rootMenu and waitingMenu
 var phrases;
 var phrasesBuffer = [];
@@ -7,7 +9,9 @@ var rootMenu = {
     leader: {
         index: null,
         icon: null
-    }
+    },
+    players: [],
+    missions: []
 };
 
 // debug
@@ -81,6 +85,7 @@ function loadRootMenu() {
 /* PlayerList */
 
 function updatePlayers(players) {
+    rootMenu.players = players;
     for (let p of players) {
         renamePlayer(p.pId, p.name);
         console.log(p);
@@ -111,13 +116,15 @@ function renamePlayer(index, name){
 /* MISSIONS */
 
 function updateMissions(missions) {
+    rootMenu.missions = missions;
     console.log(missions);
-
+    let missionsEnded = true;
     for (let m of missions) {
-        console.log(m.mRes);
+        console.log(m);
         let result = "Result: ";
         if (m.active == 1) {
             result = "Active";
+            missionsEnded = false; // From this mission foward, all missions are not ended
         }
         else if (m.mRes == 1) { // Round won by resistance
             result = "Resistencia";
@@ -129,6 +136,20 @@ function updateMissions(missions) {
             result = "";
         }
         $("#M" + m.mId + "result").text(result);
+
+        if (m.leaderId != null) { // If leader selected
+            let leaderName;
+            for (let p of rootMenu.players) {
+                if (p.pId == m.leaderId) {
+                    leaderName = p.name;
+                    break;
+                }
+            }
+            $("#M" + m.mId + "leader").text("Leader: " + leaderName);
+        }
+        else { // If no leader selected
+            $("#M" + m.mId + "leader").text("");
+        }
     }
 }
 
