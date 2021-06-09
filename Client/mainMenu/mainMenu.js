@@ -1,4 +1,6 @@
 var height, pollBtnState;
+const POLLUPDATEPERIOD = 5000;
+
 window.onload = function() {
     getQuerry(); //function from common.js
 
@@ -109,6 +111,15 @@ window.onload = function() {
             updatePlayers(data);
         }
     });
+
+    $.ajax({
+        url: "pollStatus",
+        method: "get",
+        success: function(data) {
+            console.log(data);
+            updatePoll(data);
+        }
+    });
 }
 
 
@@ -200,7 +211,12 @@ function showPlayers(n){
  * @param {number} si number of people who chose the positive option.
  * @param {number} no number of people who chose the negative option.
  */
-function updatePoll(si, no){
+function updatePoll(data){
+    let si = 0, no = 0;
+    for (let d of data) {
+        if (d.val == 1) si++;
+        else no++;
+    }
     $("#PollText1").text("Sí: " + si);
     $("#PollText2").text("No: " + no);
     $("#PollText3").text("Misión: " + ((si > no)? "Aceptada" : "Denegada")); //mission valid -> aceptada; mission invalid -> denegada
