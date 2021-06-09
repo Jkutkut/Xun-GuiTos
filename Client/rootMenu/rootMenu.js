@@ -178,7 +178,7 @@ function updateMissions(missionOBJ) {
             }
         }
 
-        if (players.size == 0) { // If no players on this mission
+        if (players.length == 0) { // If no players on this mission
             $("#M" + m.mId + "players").text("");
         }
         else {
