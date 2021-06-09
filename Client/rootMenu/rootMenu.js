@@ -79,6 +79,7 @@ function loadRootMenu() {
 /* New code */
 
 /* PlayerList */
+
 function updatePlayers(players) {
     for (let p of players) {
         renamePlayer(p.pId, p.name);
@@ -103,9 +104,31 @@ function updateLeader(leaderIndex){
  * @param {string} name - name to change the player to.
  */
 function renamePlayer(index, name){
-    console.log("P" + index + "_name");
     $("#P" + index + "_name").text(name);
 }
+
+
+/* MISSIONS */
+
+function updateMissions(missions) {
+    console.log(missions);
+
+    for (let m of missions) {
+        console.log(m.mRes);
+        let result = "";
+        if (m.active == 1) {
+            result = "Active";
+        }
+        else if (m.mRes == 1) { // Round won by resistance
+            result = "Resistencia";
+        }
+        else if (m.mRes == 0) {
+            result = "Chunguitos";
+        }
+        $("#M" + m.mId + "result").text(result);
+    }
+}
+
 
 window.onload = function(){
     
@@ -155,8 +178,15 @@ function update() {
         url: "players",
         method: "get",
         success: function(data) {
-            console.log(data);
             updatePlayers(data);
+        }
+    });
+
+    $.ajax({
+        url: "missions",
+        method: "get",
+        success: function(data) {
+            updateMissions(data);
         }
     });
 }
