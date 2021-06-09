@@ -14,7 +14,7 @@ groupPos: int
 -..
 imgId: int
 -..
-pType: int (0, 1)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>720</x><y>390</y><w>50</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>30;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>310</x><y>240</y><w>160</w><h>120</h></coordinates><panel_attributes>Mission (theoric)
+pType: int (0, 1)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>720</x><y>390</y><w>50</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>30;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>310</x><y>240</y><w>160</w><h>130</h></coordinates><panel_attributes>Mission (theoric)
 --
 mId: int (1-5)
 -..
@@ -23,6 +23,7 @@ active: boolean
 leaderId: int
 -..
 vYes: int (0-nPlayers)
+vNo: int (0-nPlayers)
 mRes: int (0, 1)
 </panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>460</x><y>300</y><w>80</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-&gt;&gt;</panel_attributes><additional_attributes>10;10;60;10</additional_attributes></element><element><id>UMLNote</id><coordinates><x>250</x><y>10</y><w>490</w><h>200</h></coordinates><panel_attributes>Translator:
 
@@ -50,4 +51,4 @@ vote: int (0, 1)</panel_attributes><additional_attributes></additional_attribute
 pId: int
 -..
 val: int (-1, 0, 1)
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>470</x><y>340</y><w>70</w><h>160</h></coordinates><panel_attributes>lt=&lt;&lt;-&gt;&gt;</panel_attributes><additional_attributes>10;140;30;140;30;10;50;10</additional_attributes></element><element><id>Relation</id><coordinates><x>230</x><y>340</y><w>100</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>80;10;60;10;60;80;10;80</additional_attributes></element><element><id>Relation</id><coordinates><x>280</x><y>320</y><w>50</w><h>50</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>30;10;10;10;10;30</additional_attributes></element></diagram>
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>470</x><y>340</y><w>70</w><h>160</h></coordinates><panel_attributes>lt=&lt;&lt;-&gt;&gt;</panel_attributes><additional_attributes>10;140;30;140;30;10;50;10</additional_attributes></element><element><id>Relation</id><coordinates><x>230</x><y>340</y><w>100</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>80;10;60;10;60;80;10;80</additional_attributes></element><element><id>Relation</id><coordinates><x>280</x><y>320</y><w>50</w><h>50</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>30;10;10;10;10;30</additional_attributes></element><element><id>Relation</id><coordinates><x>230</x><y>360</y><w>100</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>80;10;60;10;60;60;10;60</additional_attributes></element></diagram>
