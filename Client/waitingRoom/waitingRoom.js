@@ -10,7 +10,7 @@ var ready4meetup = {
     method: 'get',
     success: function(data) {
         if (data == "t") {
-            window.location.href = "mainMenu.html?username=" + queryString["username"];
+            window.location.href = "meetup?username=" + queryString["username"];
         }
         else {
             console.log("not valid");
