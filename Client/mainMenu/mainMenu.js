@@ -113,7 +113,10 @@ window.onload = function() {
 
 
 /** Main functions */
-
+/**
+ * @param {number} n - Number of players
+ * @returns Generator with the id of the players Divs in counterClockwise order.
+ */
 function *playerIterator(n) {
     if (n < 5 || n > 10 || !Number.isInteger(n)){ //if n not on the correct range or not an int
         throw "Error at showPlayers: The value show an int be between 5 and 10, both inclusive.";
@@ -131,6 +134,10 @@ function *playerIterator(n) {
     yield 41; // Always
 }
 
+/**
+ * Updates the screen with the players given
+ * @param {Obj[]} players - Array with the objects with the player's data.
+ */
 function updatePlayers(players) {
     let len = players.length;
     showPlayers(len);
@@ -199,31 +206,29 @@ function updatePoll(si, no){
     $("#PollText3").text("Misión: " + ((si > no)? "Aceptada" : "Denegada")); //mission valid -> aceptada; mission invalid -> denegada
 }
 
-
+/**
+ * Updates the vote of the player and sends it to the Raspberry.
+ * @param {boolean} v - Whenever the btn pressed is Yes (true) or No (false). 
+ */
 function vote(v){
     // pollBtnState = Current status of the btns
     if (v == undefined || v == pollBtnState) { //if empty argument or they are the same, clear vote
         pollBtnState = 0; //reset var
     }
-    else if(v) {
+    else if(v) { // If v == true => Yes
         pollBtnState = 1;
     }
-    else {
+    else { // If v == false => No
         pollBtnState = -1;
     }
-    console.log(pollBtnState);
-
-    let voteData = {
-        user: queryString.username,
-        opinion: pollBtnState
-    };
-
-    console.log(voteData);
 
     $.ajax({
         url: "changeOpinion.php",
         method: "post",
-        data: voteData,
+        data: {
+            user: queryString.username,
+            opinion: pollBtnState
+        },
         success: function(data) {
             console.log(data);
         }
