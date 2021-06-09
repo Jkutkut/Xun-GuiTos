@@ -115,8 +115,12 @@ function renamePlayer(index, name){
 
 /* MISSIONS */
 
-function updateMissions(missions) {
-    rootMenu.missions = missions;
+function updateMissions(missionOBJ) {
+
+
+    rootMenu.missionOBJ = missionOBJ;
+    let missions = missionOBJ.missions;
+
     console.log(missions);
     let missionsEnded = true;
     for (let m of missions) {
@@ -161,6 +165,25 @@ function updateMissions(missions) {
         }
 
         // Player logic
+        let players = [];
+        let playersId = new Set();
+        for (let p of missionOBJ.missionTeam) { // For each 
+            if (p.mId == m.mId) { // If player went to the current mission
+                playersId.add(p.pId); // Add the id
+            }
+        }
+        for (let p of rootMenu.players) {
+            if (playersId.has(p.pId)) {
+                players.push(p.name);
+            }
+        }
+
+        if (players.size == 0) { // If no players on this mission
+            $("#M" + m.mId + "players").text("");
+        }
+        else {
+            $("#M" + m.mId + "players").text("Players: " + players.join(", "));
+        }
     }
 }
 
