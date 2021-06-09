@@ -198,16 +198,34 @@ function updatePoll(si, no){
     $("#PollText2").text("No: " + no);
     $("#PollText3").text("Misión: " + ((si > no)? "Aceptada" : "Denegada")); //mission valid -> aceptada; mission invalid -> denegada
 }
+
+
 function vote(v){
     // pollBtnState = Current status of the btns
     if (v == undefined || v == pollBtnState) { //if empty argument or they are the same, clear vote
-        pollBtnState = undefined; //reset var
+        pollBtnState = 0; //reset var
     }
     else if(v) {
-        pollBtnState = true;
+        pollBtnState = 1;
     }
     else {
-        pollBtnState = false;
+        pollBtnState = -1;
     }
     console.log(pollBtnState);
+
+    let voteData = {
+        user: queryString.username,
+        opinion: pollBtnState
+    };
+
+    console.log(voteData);
+
+    $.ajax({
+        url: "changeOpinion.php",
+        method: "post",
+        data: voteData,
+        success: function(data) {
+            console.log(data);
+        }
+    });
 }
