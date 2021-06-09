@@ -18,7 +18,7 @@ pType: int (0, 1)</panel_attributes><additional_attributes></additional_attribut
 --
 mId: int (1-5)
 -..
-active: boolean
+active: int (0-1)
 -..
 leaderId: int
 -..
