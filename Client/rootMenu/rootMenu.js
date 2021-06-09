@@ -115,7 +115,7 @@ function updateMissions(missions) {
 
     for (let m of missions) {
         console.log(m.mRes);
-        let result = "";
+        let result = "Result: ";
         if (m.active == 1) {
             result = "Active";
         }
@@ -124,6 +124,9 @@ function updateMissions(missions) {
         }
         else if (m.mRes == 0) {
             result = "Chunguitos";
+        }
+        else { // If mission not started
+            result = "";
         }
         $("#M" + m.mId + "result").text(result);
     }
