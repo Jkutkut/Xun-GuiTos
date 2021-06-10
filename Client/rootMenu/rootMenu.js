@@ -122,7 +122,7 @@ function setPlayersOrder() {
     $.ajax({
         url: "setPlayersOrder.php",
         method: "post",
-        data: newOrder,
+        data: {newOrder: newOrder},
         success: function(data) {
             console.log(data);
         },
