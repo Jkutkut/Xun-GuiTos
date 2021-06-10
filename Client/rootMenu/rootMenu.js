@@ -116,7 +116,8 @@ function renamePlayer(index, name){
 function setPlayersOrder() {
     let newOrder = [];
     for (let p of rootMenu.players) {
-        newOrder.push({pId: p.pId, groupPos: p.groupPos});
+        // newOrder.push({pId: p.pId, groupPos: }); // USE ME
+        newOrder.push({pId: p.pId, groupPos: p.pId}); // temporal code
     }
 
     $.ajax({
