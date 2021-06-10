@@ -113,6 +113,26 @@ function renamePlayer(index, name){
 }
 
 
+function setPlayersOrder() {
+    let newOrder = [];
+    for (let p of rootMenu.players) {
+        newOrder.push({pId: p.pId, groupPos: p.groupPos});
+    }
+
+    $.ajax({
+        url: "",
+        method: "post",
+        data: newOrder,
+        success: function(data) {
+            console.log(data);
+        },
+        error: function(errorThrown) {
+            console.warn("Error: " + errorThrown);
+        }
+    });
+}
+
+
 /* MISSIONS */
 
 function updateMissions(missionOBJ) {
