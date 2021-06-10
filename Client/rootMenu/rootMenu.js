@@ -1,6 +1,5 @@
 
 
-var waitingMenu = true; // To hadle the switch between rootMenu and waitingMenu
 var phrases;
 var phrasesBuffer = [];
 var rootMenu = {
@@ -14,69 +13,32 @@ var rootMenu = {
     missions: []
 };
 
-// debug
-debugPlayers = [
-    {"pId":1,"name":"jorge","groupPos":null,"pType":null},
-    {"pId":2,"name":"paula","groupPos":null,"pType":null},
-    {"pId":3,"name":"ana","groupPos":null,"pType":null},
-    {"pId":4,"name":"adri","groupPos":null,"pType":null},
-    {"pId":5,"name":"laura","groupPos":null,"pType":null},
-    {"pId":6,"name":"user23","groupPos":null,"pType":null},
-    {"pId":7,"name":"fklsdj","groupPos":null,"pType":null}
-]
 
 
-/* Old code */
-/**
- * Using the variable "waitingMenu", this code toggles the view of both menus
- * @param {string} btnID - ID of the button used.
- */
-function toggleMenu(btnID) {
-    let hideDiv, showDiv;
-    let menuMap = {
-        "alignPlayers_btn": {
-            hideDiv: "alignPlayers_div",
-            showDiv: ""
-        }
-    };
-    hideDiv = menuMap[btnID].hideDiv;
-    showDiv = menuMap[btnID].showDiv;
+// function loadRootMenu() {
+//     let playersContainer = $("#playersContainer"); //The div element with the rows where the player's divs + btns are stored
+//     rootMenu.playerP.container = playersContainer;
+//     let mainPlayer = $("#mainPlayer"); //The div element with the info of the host of the device
 
-    $(showDiv).css("display", "grid");
-    // $(showDiv).css("display", $(hideDiv).css("display"));
-    $(hideDiv).css("display", "none");
-    
-    console.log(hideDiv + " -> " + showDiv);
-    waitingMenu = ! waitingMenu;
-    if (!waitingMenu) {
-        loadRootMenu();
-    }
-}
-
-function loadRootMenu() {
-    let playersContainer = $("#playersContainer"); //The div element with the rows where the player's divs + btns are stored
-    rootMenu.playerP.container = playersContainer;
-    let mainPlayer = $("#mainPlayer"); //The div element with the info of the host of the device
-
-    rootMenu.playerP.w = pixel2float(playersContainer.css("width")) / 3; //get current height of mainplayer div
-    rootMenu.playerP.h = pixel2float(playersContainer.css("height")) / 5; //get current height of mainplayer div
+//     rootMenu.playerP.w = pixel2float(playersContainer.css("width")) / 3; //get current height of mainplayer div
+//     rootMenu.playerP.h = pixel2float(playersContainer.css("height")) / 5; //get current height of mainplayer div
 
     
-    $('#mainPlayerIcon').attr("src", "../../Res/img/default_user.png");
-    $('#mainPlayerIcon').css("height", (rootMenu.playerP.h * 0.8) + "px"); //adjust the size of the icon to fit the div
+//     $('#mainPlayerIcon').attr("src", "../../Res/img/default_user.png");
+//     $('#mainPlayerIcon').css("height", (rootMenu.playerP.h * 0.8) + "px"); //adjust the size of the icon to fit the div
 
-    $(".username").css("font-size", rootMenu.playerP.h * 0.2);
+//     $(".username").css("font-size", rootMenu.playerP.h * 0.2);
     
-    mainPlayer.css("width", rootMenu.playerP.w + "px"); //Also lock this width
-    mainPlayer.css("height", rootMenu.playerP.h + "px"); //Also lock this height
+//     mainPlayer.css("width", rootMenu.playerP.w + "px"); //Also lock this width
+//     mainPlayer.css("height", rootMenu.playerP.h + "px"); //Also lock this height
 
-    mainPlayer.css("position", "absolute");
+//     mainPlayer.css("position", "absolute");
 
     
-    rootMenu.box = document.getElementById('mainPlayer');
-    rootMenu.box.addEventListener('touchmove', movingElement);
-    rootMenu.box.addEventListener('touchend', landElement);
-}
+//     rootMenu.box = document.getElementById('mainPlayer');
+//     rootMenu.box.addEventListener('touchmove', movingElement);
+//     rootMenu.box.addEventListener('touchend', landElement);
+// }
 
 
 
