@@ -49,6 +49,7 @@ function getPlayersOrder() {
         // newOrder.push({pId: p.pId, groupPos: }); // USE ME
         newOrder.push({pId: p.pId, groupPos: p.pId}); // temporal code
     }
+    return newOrder;
 }
 
 
