@@ -120,14 +120,14 @@ function setPlayersOrder() {
     }
 
     $.ajax({
-        url: "",
+        url: "setPlayersOrder.php",
         method: "post",
         data: newOrder,
         success: function(data) {
             console.log(data);
         },
         error: function(errorThrown) {
-            console.warn("Error: " + errorThrown);
+            console.warn(errorThrown);
         }
     });
 }
