@@ -43,24 +43,12 @@ function renamePlayer(index, name){
 }
 
 
-function setPlayersOrder() {
+function getPlayersOrder() {
     let newOrder = [];
     for (let p of rootMenu.players) {
         // newOrder.push({pId: p.pId, groupPos: }); // USE ME
         newOrder.push({pId: p.pId, groupPos: p.pId}); // temporal code
     }
-
-    $.ajax({
-        url: "setPlayersOrder.php",
-        method: "post",
-        data: {newOrder: newOrder},
-        success: function(data) {
-            console.log(data);
-        },
-        error: function(errorThrown) {
-            console.warn(errorThrown);
-        }
-    });
 }
 
 
@@ -171,6 +159,29 @@ window.onload = function(){
     
     // $("#secretBtn_waitingM").click(toggleMenu);
     // $("#secretBtn_rootM").click(toggleMenu);
+
+
+    $("#R2P").click(function() {
+        $.ajax({
+            url: "updatePlayersOrder.php",
+            method: "post",
+            data: {newOrder: getPlayersOrder()},
+            success: function(data) {
+                console.log(data);
+                $.ajax({
+                    url: "startGame",
+                    method: "post",
+                    success: function(data) {
+                        console.log(data);
+                        console.warn("Game started");
+                    }
+                });
+            },
+            error: function(errorThrown) {
+                console.warn(errorThrown);
+            }
+        });
+    });
 
     update();
 }
