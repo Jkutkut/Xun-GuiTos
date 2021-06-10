@@ -17,6 +17,7 @@ Digitalization of the board game "[The Resistance](http://devir.es/producto/la-r
     - RootMenu old code removed.
     - RootMenu now updates the UI with server data.
     - RootMenu now can update the users location IRL and start the game!
+    - Now players are auto-created for debugging.
 - v0.3.1:
     - Added basic logic of the FSM.
     - Added sh file to find the IP of the Raspberry using brute force and foreign wifi.
