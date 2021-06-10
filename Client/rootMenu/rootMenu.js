@@ -1,5 +1,3 @@
-
-
 var phrases;
 var phrasesBuffer = [];
 var rootMenu = {
@@ -13,36 +11,6 @@ var rootMenu = {
     missions: []
 };
 
-
-
-// function loadRootMenu() {
-//     let playersContainer = $("#playersContainer"); //The div element with the rows where the player's divs + btns are stored
-//     rootMenu.playerP.container = playersContainer;
-//     let mainPlayer = $("#mainPlayer"); //The div element with the info of the host of the device
-
-//     rootMenu.playerP.w = pixel2float(playersContainer.css("width")) / 3; //get current height of mainplayer div
-//     rootMenu.playerP.h = pixel2float(playersContainer.css("height")) / 5; //get current height of mainplayer div
-
-    
-//     $('#mainPlayerIcon').attr("src", "../../Res/img/default_user.png");
-//     $('#mainPlayerIcon').css("height", (rootMenu.playerP.h * 0.8) + "px"); //adjust the size of the icon to fit the div
-
-//     $(".username").css("font-size", rootMenu.playerP.h * 0.2);
-    
-//     mainPlayer.css("width", rootMenu.playerP.w + "px"); //Also lock this width
-//     mainPlayer.css("height", rootMenu.playerP.h + "px"); //Also lock this height
-
-//     mainPlayer.css("position", "absolute");
-
-    
-//     rootMenu.box = document.getElementById('mainPlayer');
-//     rootMenu.box.addEventListener('touchmove', movingElement);
-//     rootMenu.box.addEventListener('touchend', landElement);
-// }
-
-
-
-/* New code */
 
 /* PlayerList */
 
