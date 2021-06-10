@@ -68,7 +68,14 @@ window.onload = function() {
                 p.attr("id", "12");
                 p.css("--pos", 2);
                 row.append(p);
+
+                $(p.children()[0]).attr("id", "icon" + i + j); // Set id of the icon
+                let pChildren = $(p.children()[1]).children(); // Elemets to change id (see elem)
+                for (let k = 0; k < elem.length; k++) { // For each element
+                    $(pChildren[k]).attr("id", elem[k] + "12"); // Change the id of the element
+                }
             }
+
         }
         row.appendTo(playersContainer);
     }
