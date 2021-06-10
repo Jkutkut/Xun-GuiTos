@@ -1,14 +1,6 @@
 # Things to do:
 
 - [ ] Mv links to README
-## Rasp4:
-- [ ] Bluetooth communication:
-    - [ ] Solve error: when sending msg from android, the msg is returned
-    - [ ] Solve error: sometimes it stops
-- [ ] DataBase:
-    - [ ] Optimice code
-    - [ ] Same error format
-    - [ ] Document code
 
 ## Client:
 - [ ] CreatePlayer menu:
@@ -25,13 +17,24 @@
         - [ ] 
 - [ ] WaitingRoom:
     - [x] JSON based phrases
-    - [ ] Redirect logic
+    - [x] Redirect logic
     - [ ] ERRORS:
+
 - [ ] Root menu:
     - [ ] Var-status:
-        - [ ] Text-based list
+        - [ ] list of players
+        - [x] list of missions
         - [ ] Editor_btn
-        - [ ] Refresh_btn
+        - [x] Refresh_btn
+    - [x] Get all players
+    - [ ] Allow to modify them?
+    - [ ] order the players
+    - [ ] Btns:
+        - [ ] Start game
+        - [ ] end opinion poll
+        - [ ] end mission poll
+        - [ ] 
+
     - [ ] Delete/edit players:
         - [ ] Name
         - [ ] Align players menu:
@@ -43,9 +46,9 @@
 
         
 - [ ] mainMenu:
-    - [ ] Get userNames
+    - [x] Get userNames
     - [ ] Get userIcons
-    - [ ] Btns
+    - [x] Btns
     - [ ] Leader:
         - [ ] gun asign
         - [ ] Icon asign
@@ -54,17 +57,7 @@
         - [ ] "Username" small
         - [ ] Yes/no btns not centered
         - [ ] at playerContainer, bottom div bigger than img (IOS)
-
-- [ ] Root menu:
-    - [ ] Get all players
-    - [ ] Allow to modify them?
-    - [ ] order the players
-    - [ ] Btns:
-        - [ ] Start game
-        - [ ] end opinion poll
-        - [ ] end mission poll
-        - [ ] 
-
+    
 
 
 
@@ -82,5 +75,8 @@
 - Readme
 - Custom names for resistencia and spies 
 - Laguage support
+- Text based on JSON
+- MainMenu:
+    - On click on each mission, if finnished, analice the round.
 - Enable to work even if player disconected
 - bluetooth tuto when connected with commands
