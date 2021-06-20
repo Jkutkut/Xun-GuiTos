@@ -20,10 +20,10 @@ window.onload = function() {
         setTimeout(() => {
             vote(this);
         }, 400);
-        console.log("touchStart");
+        // console.log("touchStart");
     }).bind("mouseup mouseleave touchend", function() {
         $(this).removeClass("selected");
-        console.log("released");
+        // console.log("released");
     });
 }
 
@@ -32,10 +32,22 @@ function vote(vDiv) {
         return
     }
 
-    let v = "Success";
+    let v = 1;
     if ($(vDiv).hasClass("invalidmission")) {
-        v = "Failure";
+        v = -1;
     }
 
-    console.log(v);
+    console.log("******* " + ((v == 1)? "Success" : "Failure") + " *******");
+    // $.ajax({
+    //     url: "",
+    //     method: "post",
+    //     data: {
+    //         name: queryString.username,
+    //         v: v
+    //     },
+    //     success: function(data) {
+    //         console.log(data);
+
+    //     }
+    // });
 }
