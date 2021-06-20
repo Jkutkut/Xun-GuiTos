@@ -1,9 +1,22 @@
+/* CONSTANTS */
+
 :root {
     --background-color: lightskyblue;
+
 }
 body{
     font-size:xx-large;
+
+    --blue: rgb(42, 113, 161);
+    --red: rgb(166, 23, 59);
+
+    --cMissionColor: rgb(255, 255, 61);
+    --resistanceColor: rgb(31, 132, 199);
+    --resistanceColor: rgb(194, 16, 60);
+    --baseColor: rgb(181, 181, 181);
 }
+
+
 
 /* CREATEPLAYER */
 
