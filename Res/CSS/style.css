@@ -213,3 +213,27 @@ img { /* Img at createPlayer */
 .rootMenu_playerList {
     background: green; width: 100%; height: 100%;
 }
+
+/* MissionPoll */
+.missionCard {
+    display: flex;
+    align-items: center;
+    
+    width: 95%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+.missionCard.validmission {
+    background: rgb(51, 255, 0);
+}
+.missionCard.invalidmission {
+    background: rgb(255, 0, 0);
+}
+
+
+.missionCard p {
+    text-align: center;
+    width: 100%;
+    font-size: 7rem;
+}
