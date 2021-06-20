@@ -56,14 +56,6 @@
         - [ ] "Username" small
         - [ ] Yes/no btns not centered
         - [ ] at playerContainer, bottom div bigger than img (IOS)
-    
-
-
-
-
-
-
-
 
 
 
@@ -78,4 +70,3 @@
 - MainMenu:
     - On click on each mission, if finnished, analice the round.
 - Enable to work even if player disconected
-- bluetooth tuto when connected with commands
