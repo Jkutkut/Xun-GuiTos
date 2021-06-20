@@ -6,7 +6,11 @@ Digitalization of the board game "[The Resistance](http://devir.es/producto/la-r
 ## Version history:
 ### v0.3:
 - v0.3.3:
-    - 
+    - Shell script to find the nodeRed rapsberry ip using brute-force.
+    - New client menu: Mission-Poll.
+        - Basic UI created.
+        - Logic added.
+        - 
 - v0.3.2:
     - Logic to update RootMenu players and missions UI.
     - Some RootMenu UI bugs fixed.
