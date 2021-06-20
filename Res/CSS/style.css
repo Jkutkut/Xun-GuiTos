@@ -14,8 +14,7 @@ body{
     font-size:xx-large;
     place-items: center;
 
-
-    background: var(--blue);
+    /* background: var(--blue); */
     background: linear-gradient(180deg, var(--blue) 10%, var(--red) 90%);
 }
 
@@ -60,7 +59,6 @@ body{
     width: 80%;
     font-size: 4rem;
     padding: 1.2rem;
-    background: rgb(39, 189, 240);
     border-radius: 18px;
 }
 #nameTb { /* Textbox class */
@@ -135,6 +133,16 @@ img { /* Img at createPlayer */
     100% {
         transform: rotate(360deg);
     }
+}
+
+/* MEETUP */
+
+#submitBtn {
+    background: none;
+    border: solid black 10px;
+    border-radius: 50px;
+    color: black;
+
 }
 
 
