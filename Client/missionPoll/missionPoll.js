@@ -33,7 +33,7 @@ function vote(vDiv) {
     }
 
     let v = 1;
-    if ($(vDiv).hasClass("invalidmission")) {
+    if ($(vDiv).hasClass("failuremission")) {
         v = -1;
     }
 
