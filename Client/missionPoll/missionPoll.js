@@ -1,8 +1,4 @@
 var increment = 0, timeout = 0;
-var VOTE = {
-    SUCCESS: 0,
-    FAILURE: 1
-};
 
 // debug
 // const debugPlayers = [
@@ -31,17 +27,14 @@ window.onload = function() {
     });
 }
 
-function voteSuccess() {
-    vote(VOTE.SUCCESS);
-}
-
-function voteFailure() {
-    vote(VOTE.FAILURE);
-}
-
-function vote(v) {
-    if (!$(v).hasClass("selected")) { // If pressed div isn't still selected
+function vote(vDiv) {
+    if (!$(vDiv).hasClass("selected")) { // If pressed div isn't still selected
         return
+    }
+
+    let v = "Success";
+    if ($(vDiv).hasClass("invalidmission")) {
+        v = "Failure";
     }
 
     console.log(v);
