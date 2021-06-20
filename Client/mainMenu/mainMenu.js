@@ -223,7 +223,24 @@ function showPlayers(n){
 
 
 function updateMissions(missions) {
-    
+    let i;
+    for (i = 1; i < missions.length; i++) {
+        let color = "red";
+        if (missions[i - 1].mRes == 1) { // If mission was successful
+            color = "blue";
+        }
+
+        $("#nPlayers" + i).css("background", color);
+    }
+    $("#nPlayers" + i).css("background", "yellow");
+
+    // CONVERSOR OF PLAYERS NEEDED ON EACH MISSION
+
+    // UPDATE PLAYERS NEEDED ON EACH MISSION
+
+    // SELECT LEADER
+
+    // IF I AM LEADER, ENABLE CREATE TEAM
 }
 
 /** Poll zone */
@@ -300,17 +317,3 @@ var debugMissionHistory = [
         mRes: 0
     }
 ];
-
-function updateMissionHistory() {
-    let i;
-    for (i = 1; i < debugMissionHistory.length; i++) {
-        let color = "red";
-        if (debugMissionHistory[i - 1].mRes == 1) { // If mission was successful
-            color = "blue";
-        }
-
-        $("#nPlayers" + i).css("background", color);
-    }
-    $("#nPlayers" + i).css("background", "yellow");
-
-}
