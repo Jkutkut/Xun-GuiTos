@@ -2,7 +2,7 @@ const TIME2SEE = 10000;
 
 // debug
 // const debugPlayers = [
-//     {"pId":1,"name":"jorge","groupPos":null,"pType":1},
+//     {"pId":1,"name":"jorge","groupPos":null,"pType":0},
 //     {"pId":2,"name":"paula","groupPos":null,"pType":0},
 //     {"pId":3,"name":"ana","groupPos":null,"pType":1},
 //     {"pId":4,"name":"adri","groupPos":null,"pType":0},
@@ -18,11 +18,11 @@ window.onload = function() {
     $("#submitBtn").click(function() {
         $("#main").css("display", "none");
         $("#characterReveal").css("display", "grid");
+    });
 
-        setTimeout(function() {
-            console.log("Change to MainMenu");
-            window.location.href = "mainMenu.html?username=" + queryString["username"];
-        }, TIME2SEE);
+    $(".toMainMenuBtn").click(function() { // When btn to go to MainMenu clicked
+        console.log("Change to MainMenu");
+        window.location.href = "mainMenu.html?username=" + queryString["username"];
     });
 
     $.ajax({
@@ -32,7 +32,6 @@ window.onload = function() {
             getMyCharacter(data);
         }
     });
-    // getMyCharacter(debugPlayers);
 }
 
 function getMyCharacter(data) {
@@ -49,6 +48,8 @@ function getMyCharacter(data) {
     }
     console.log("->" + whatAmI);
     $("#" + whatAmI).css("display", "grid");
+
+    $(".userName").text(queryString.username);
 
     if (whatAmI == "chunguito") {
         let chunText = chunguitos[0];
