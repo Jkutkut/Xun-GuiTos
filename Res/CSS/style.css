@@ -219,21 +219,33 @@ img { /* Img at createPlayer */
     display: flex;
     align-items: center;
     
-    width: 95%;
-    height: 100%;
+    width: 45%;
+    height: 80%;
     border-radius: 20px;
-}
 
-.missionCard.validmission {
-    background: rgb(51, 255, 0);
+    transition: all 0.4s linear;
 }
 .missionCard.invalidmission {
     background: rgb(255, 0, 0);
+    margin-left: 3%;
+    margin-right: 2%;
 }
-
+.missionCard.validmission {
+    background: rgb(51, 255, 0);
+    margin-left: 2%;
+    margin-right: 3%;
+}
 
 .missionCard p {
     text-align: center;
     width: 100%;
-    font-size: 7rem;
+    font-size: 6rem;
+}
+
+.missionCard.selected,
+.missionCard.selected:before,
+.missionCard.selected:after {
+    width: 70%;
+    height: 100%;
+    border-radius: 50px;
 }

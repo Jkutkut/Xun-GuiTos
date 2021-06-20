@@ -1,3 +1,9 @@
+var increment = 0, timeout = 0;
+var VOTE = {
+    SUCCESS: 0,
+    FAILURE: 1
+};
+
 // debug
 // const debugPlayers = [
 //     {"pId":1,"name":"jorge","groupPos":null,"pType":1},
@@ -11,4 +17,32 @@
 
 window.onload = function() {
     getQuerry(); //function from common.js
+
+    // validMission
+    $(".missionCard").on("mousedwon touchstart", function(e) {
+        $(this).addClass("selected");
+        setTimeout(() => {
+            vote(this);
+        }, 400);
+        console.log("touchStart");
+    }).bind("mouseup mouseleave touchend", function() {
+        $(this).removeClass("selected");
+        console.log("released");
+    });
+}
+
+function voteSuccess() {
+    vote(VOTE.SUCCESS);
+}
+
+function voteFailure() {
+    vote(VOTE.FAILURE);
+}
+
+function vote(v) {
+    if (!$(v).hasClass("selected")) { // If pressed div isn't still selected
+        return
+    }
+
+    console.log(v);
 }
