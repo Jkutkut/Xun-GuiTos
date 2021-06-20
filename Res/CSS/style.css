@@ -63,8 +63,8 @@ body{
 #nameTb { /* Textbox class */
     padding: 0.5rem;
     border-radius: 10px;
-    border: 1.5px solid blue;
-    background: lightskyblue;
+    border: 4px solid black;
+    background: white;
     font-size: 2rem;
     text-align: center;
 }
@@ -87,10 +87,19 @@ img { /* Img at createPlayer */
     border-radius: 1.5rem;
     
 }
-.iconBtn { /* Btn to crop the img at createPlayer */
-    text-transform: capitalize;
-    padding: 2%;
+.iconBtn { /* Btns to crop the img at createPlayer */
+    /* background */
+    --mdc-theme-primary: none; 
+    /* text color */
+    --mdc-theme-on-primary: black;
+    
+    padding: 5%;
+    width: 50%;
     height: auto;
+
+    border: 5px solid black;
+    border-radius: 20px;
+    text-transform: capitalize;
 }
 
 /* WAITING ROOM */
