@@ -120,6 +120,15 @@ window.onload = function() {
     });
 
     $.ajax({
+        url: "missions",
+        method: "get",
+        success: function(data) {
+            console.log(data);
+            updateMissions(data);
+        }
+    });
+
+    $.ajax({
         url: "pollStatus",
         method: "get",
         success: function(data) {
@@ -210,6 +219,11 @@ function showPlayers(n){
         }
     }
     display("#12", n % 2 == 0); //if even, add the one on the top middle
+}
+
+
+function updateMissions(missions) {
+    
 }
 
 /** Poll zone */
