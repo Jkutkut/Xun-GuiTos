@@ -18,6 +18,8 @@
     - [x] JSON based phrases
     - [x] Redirect logic
     - [x] ERRORS:
+- [ ] Meetup:
+    - [ ] Remove debug code
 
 - [ ] Root menu:
     - [ ] Var-status:
