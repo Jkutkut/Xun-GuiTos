@@ -1,11 +1,6 @@
 /* CONSTANTS */
 
 :root {
-    --background-color: lightskyblue;
-
-}
-body{
-    font-size:xx-large;
 
     --blue: rgb(42, 113, 161);
     --red: rgb(166, 23, 59);
@@ -15,20 +10,23 @@ body{
     --resistanceColor: rgb(194, 16, 60);
     --baseColor: rgb(181, 181, 181);
 }
+body{
+    font-size:xx-large;
+    place-items: center;
+
+
+    background: var(--blue);
+    background: linear-gradient(180deg, var(--blue) 10%, var(--red) 90%);
+}
 
 
 
 /* CREATEPLAYER */
 
 /* Containers */
-body {
-    background: var(--background-color);
-    place-items: center;
-}
 .grandparent {
     display: grid;
     place-items: center;
-    background: var(--bg, --background-color);
     padding: 2%;
     width: 100%;
     height: 100%;
