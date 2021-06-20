@@ -1,7 +1,6 @@
 /* CONSTANTS */
 
 :root {
-
     --blue: rgb(42, 113, 161);
     --red: rgb(166, 23, 59);
 
@@ -142,7 +141,19 @@ img { /* Img at createPlayer */
     border: solid black 10px;
     border-radius: 50px;
     color: black;
-
+}
+hr {
+    border: 1px solid black;
+}
+.toMainMenuBtn {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border: 10px solid black;
+    border-radius: 30px;
+}
+i {
+    text-transform: capitalize;
 }
 
 
