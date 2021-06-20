@@ -15,6 +15,7 @@ Digitalization of the board game "[The Resistance](http://devir.es/producto/la-r
         - Standar color palette created.
         - WaitingRoom style changed.
         - Meetup style changed and UI changed with more content.
+        - Create player style changed.
 
 - v0.3.2:
     - Logic to update RootMenu players and missions UI.
