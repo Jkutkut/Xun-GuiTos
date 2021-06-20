@@ -36,7 +36,7 @@ window.onload = function() {
 
 function getMyCharacter(data) {
     let chunguitos = [];
-    let whatAmI = "innocent";
+    let whatAmI = "resistance";
     for (let player of data) {
         console.log(player);
         if (player.name == queryString.username && player.pType == 1) {
