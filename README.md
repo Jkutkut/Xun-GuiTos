@@ -11,6 +11,7 @@ Digitalization of the board game "[The Resistance](http://devir.es/producto/la-r
         - Basic UI created.
         - Logic added.
         - 
+    - Standar color palette created
 - v0.3.2:
     - Logic to update RootMenu players and missions UI.
     - Some RootMenu UI bugs fixed.
