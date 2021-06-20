@@ -59,6 +59,9 @@
         - [ ] Yes/no btns not centered
         - [ ] at playerContainer, bottom div bigger than img (IOS)
 
+- [ ] MissionPoll:
+    - [ ] font size
+
 
 
 ## Ideas/future:
