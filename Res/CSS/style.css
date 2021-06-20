@@ -225,12 +225,12 @@ img { /* Img at createPlayer */
 
     transition: all 0.4s linear;
 }
-.missionCard.invalidmission {
+.missionCard.failuremission {
     background: rgb(255, 0, 0);
     margin-left: 3%;
     margin-right: 2%;
 }
-.missionCard.validmission {
+.missionCard.successmission {
     background: rgb(51, 255, 0);
     margin-left: 2%;
     margin-right: 3%;
