@@ -291,29 +291,29 @@ function vote(v){
 
 /** Mission History */
 
-var debugMissionHistory = [
-    {
-        mId: 0,
-        active: false,
-        leaderId: 1,
-        vYes: 4,
-        vNo: 1,
-        mRes: 1
-    },
-    {
-        mId: 0,
-        active: false,
-        leaderId: 4,
-        vYes: 5,
-        vNo: 0,
-        mRes: 0
-    },
-    {
-        mId: 0,
-        active: true,
-        leaderId: 3,
-        vYes: null,
-        vYes: null,
-        mRes: 0
-    }
-];
+// var debugMissionHistory = [
+//     {
+//         mId: 0,
+//         active: false,
+//         leaderId: 1,
+//         vYes: 4,
+//         vNo: 1,
+//         mRes: 1
+//     },
+//     {
+//         mId: 0,
+//         active: false,
+//         leaderId: 4,
+//         vYes: 5,
+//         vNo: 0,
+//         mRes: 0
+//     },
+//     {
+//         mId: 0,
+//         active: true,
+//         leaderId: 3,
+//         vYes: null,
+//         vYes: null,
+//         mRes: 0
+//     }
+// ];
