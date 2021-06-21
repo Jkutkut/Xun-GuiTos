@@ -13,21 +13,25 @@
 
 
 window.onload = function() {
-    // let size = $("body").css("width");
+    $(window).resize(resizeTextSize);
+    resizeTextSize();
+}
+
+function resizeTextSize() {
     let size = $("body").css("height");
     size = Number.parseInt(size.substr(0, size.length - 2) / 50);
     console.log(size);
 
-    let arr = [
-        ["huge", 5],
+    let textSize = [
+        ["huge", 3.5],
         ["bigger", 3],
         ["big", 2.5],
         ["normal", 2],
         ["small", 1.5],
         ["detail", 1]
     ]
-    for (let a of arr) {
-        $(":root").css("--" + a[0], a[1] * size + "px");
+    for (let e of textSize) {
+        $(":root").css("--" + e[0], e[1] * size + "px");
 
     }
 }
