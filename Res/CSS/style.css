@@ -184,19 +184,25 @@ i {
 
 
 /* top */
-.score {
+.missionContainer {
     display: flex;
     place-items: center;
     flex-direction: column;
     height: 100%;
     width: 100%;
 }
-.score-nPlayers {
-    text-align: center;
-    background: rgb(97, 223, 255);
+.missionTitle {
+    /* Mission 1 */
+
 }
-#score-specialM {
+.missionSticker {
     text-align: center;
+    background: var(--baseColor);
+}
+#specialMtag {
+    /* 2 fallos tag */
+    font-weight: normal;
+
 }
 
 /* main */
@@ -207,7 +213,6 @@ i {
     height: 100%;
     align-items: center;
     align-content:center;
-    background: rgb(98, 193, 252);
 }
 .left-side {
     --pos: 1;

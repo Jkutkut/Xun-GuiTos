@@ -9,30 +9,30 @@ window.onload = function() {
     $("body").css("font-size", height * 0.014);
 
     /** Missions' scores */
-    let e = ["M", "nPlayers"]; //id of elements on the score/mission div
+    let e = ["M", "missionSticker"]; //id of elements on the score/mission div
     let size = [0.2, 0.6, 0.15].map(x => x * 0.9); //height multiplier of those elements
     
-    let s = pixel2float($("#scoreM1").css("height")); //height of the container
+    let s = pixel2float($("#missionM1").css("height")); //height of the container
 
     for (let i = 0; i < e.length; i++){// for each element inside a Mission score container
         $("#" + e[i] + 1).css("font-size", (s * size[i]) + "px"); //adjust the font-size to fit the space avalible
     }
-    $("#nPlayers1").css("width", $("#nPlayers1").css("height")); //nPlayersX has a circle background, make the width = height
-    $("#nPlayers1").css("border-radius", s * 0.5); // The radius of the circle is the height/2
+    $("#missionSticker1").css("width", $("#missionSticker1").css("height")); //nPlayersX has a circle background, make the width = height
+    $("#missionSticker1").css("border-radius", s * 0.5); // The radius of the circle is the height/2
 
-    let score = $("#scoreM1"); //get the container with the 1º mission score to make the rest
+    let score = $("#missionM1"); //get the container with the 1º mission score to make the rest
     for(let i = 2; i <= 5; i++){ //for all the rest
         let newS = score.clone(); //duplicate the container and change the parameters:
-        newS.attr("id", "scoreM" + i); //id
+        newS.attr("id", "missionM" + i); //id
         let children = newS.children();
         for(let j = 0; j < children.length; j++){ //for all the children on the container
             children[j].id = e[j] + i; //change the id of the children
         }
-        $("#scoreContainer").append(newS); //add the new container to the div with all of the missions
+        $("#missionContainer").append(newS); //add the new container to the div with all of the missions
         $("#M" + i).text("Misión " + i); //also change the title of the mission
     }
-    $("#scoreM4").append(jQuery('<i id="score-specialM">2 fallos</i>')); //on the 4º, add the special label
-    $("#score-specialM").css("font-size", (s * size[2]) + "px"); //adjust the size to fit the container
+    $("#missionM4").append(jQuery('<p id="specialMtag">2 fallos</p>')); //on the 4º, add the special label
+    $("#specialMtag").css("font-size", (s * size[2]) + "px"); //adjust the size to fit the container
 
 
 
@@ -110,32 +110,34 @@ window.onload = function() {
     $("#RightBtn").click(function(){vote(false);});
 
     // GetPlayers
-    $.ajax({
-        url: "players",
-        method: "get",
-        success: function(data) {
-            console.log(data);
-            updatePlayers(data);
-        }
-    });
+    // $.ajax({
+    //     url: "players",
+    //     method: "get",
+    //     success: function(data) {
+    //         console.log(data);
+    //         updatePlayers(data);
+    //     }
+    // });
+    updatePlayers(debugPlayers);
 
-    $.ajax({
-        url: "missions",
-        method: "get",
-        success: function(data) {
-            console.log(data);
-            updateMissions(data);
-        }
-    });
+    // $.ajax({
+    //     url: "missions",
+    //     method: "get",
+    //     success: function(data) {
+    //         console.log(data);
+    //         updateMissions(data);
+    //     }
+    // });
+    updateMissions(debugMissions)
 
-    $.ajax({
-        url: "pollStatus",
-        method: "get",
-        success: function(data) {
-            console.log(data);
-            updatePoll(data);
-        }
-    });
+    // $.ajax({
+    //     url: "pollStatus",
+    //     method: "get",
+    //     success: function(data) {
+    //         console.log(data);
+    //         updatePoll(data);
+    //     }
+    // });
 }
 
 
@@ -289,31 +291,40 @@ function vote(v){
     });
 }
 
-/** Mission History */
+// debug
+const debugPlayers = [
+    {"pId":1,"name":"jorge","groupPos":null,"pType":0},
+    {"pId":2,"name":"paula","groupPos":null,"pType":0},
+    {"pId":3,"name":"ana","groupPos":null,"pType":1},
+    {"pId":4,"name":"adri","groupPos":null,"pType":0},
+    {"pId":5,"name":"laura","groupPos":null,"pType":1},
+    {"pId":6,"name":"user23","groupPos":null,"pType":0},
+    {"pId":7,"name":"fklsdj","groupPos":null,"pType":0}
+];
 
-// var debugMissionHistory = [
-//     {
-//         mId: 0,
-//         active: false,
-//         leaderId: 1,
-//         vYes: 4,
-//         vNo: 1,
-//         mRes: 1
-//     },
-//     {
-//         mId: 0,
-//         active: false,
-//         leaderId: 4,
-//         vYes: 5,
-//         vNo: 0,
-//         mRes: 0
-//     },
-//     {
-//         mId: 0,
-//         active: true,
-//         leaderId: 3,
-//         vYes: null,
-//         vYes: null,
-//         mRes: 0
-//     }
-// ];
+var debugMissions = [
+    {
+        mId: 0,
+        active: false,
+        leaderId: 1,
+        vYes: 4,
+        vNo: 1,
+        mRes: 1
+    },
+    {
+        mId: 0,
+        active: false,
+        leaderId: 4,
+        vYes: 5,
+        vNo: 0,
+        mRes: 0
+    },
+    {
+        mId: 0,
+        active: true,
+        leaderId: 3,
+        vYes: null,
+        vYes: null,
+        mRes: 0
+    }
+];
