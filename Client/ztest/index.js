@@ -27,7 +27,7 @@ window.onload = function() {
         ["detail", 1]
     ]
     for (let a of arr) {
-        $(":root").css("--" + a[0], a[1] * size);
+        $(":root").css("--" + a[0], a[1] * size + "px");
 
     }
 }

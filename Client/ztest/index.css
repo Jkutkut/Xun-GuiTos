@@ -31,3 +31,7 @@
 .detail {
     font-size: var(--detail);
 }
+
+.variable {
+     font-size: calc(var(--detail) * var(--m, 1));
+}
