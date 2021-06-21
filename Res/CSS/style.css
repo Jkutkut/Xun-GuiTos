@@ -188,21 +188,25 @@ i {
     display: flex;
     place-items: center;
     flex-direction: column;
+    justify-content: center;
+
+
     height: 100%;
     width: 100%;
 }
 .missionTitle {
     /* Mission 1 */
-
 }
 .missionSticker {
     text-align: center;
     background: var(--baseColor);
+    
+    height: 100%;
+    aspect-ratio: 1;
+    border-radius: 50%;
 }
 #specialMtag {
     /* 2 fallos tag */
-    font-weight: normal;
-
 }
 
 /* main */

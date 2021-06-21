@@ -9,30 +9,30 @@ window.onload = function() {
     $("body").css("font-size", height * 0.014);
 
     /** Missions' scores */
-    let e = ["M", "missionSticker"]; //id of elements on the score/mission div
-    let size = [0.2, 0.6, 0.15].map(x => x * 0.9); //height multiplier of those elements
+    // let e = ["M", "missionSticker"]; //id of elements on the score/mission div
+    // let size = [0.2, 0.6, 0.15].map(x => x * 0.9); //height multiplier of those elements
     
-    let s = pixel2float($("#missionM1").css("height")); //height of the container
+    // let s = pixel2float($("#missionM1").css("height")); //height of the container
 
-    for (let i = 0; i < e.length; i++){// for each element inside a Mission score container
-        $("#" + e[i] + 1).css("font-size", (s * size[i]) + "px"); //adjust the font-size to fit the space avalible
-    }
-    $("#missionSticker1").css("width", $("#missionSticker1").css("height")); //nPlayersX has a circle background, make the width = height
-    $("#missionSticker1").css("border-radius", s * 0.5); // The radius of the circle is the height/2
+    // for (let i = 0; i < e.length; i++){// for each element inside a Mission score container
+    //     $("#" + e[i] + 1).css("font-size", (s * size[i]) + "px"); //adjust the font-size to fit the space avalible
+    // }
+    // $("#missionSticker1").css("width", $("#missionSticker1").css("height")); //nPlayersX has a circle background, make the width = height
+    // $("#missionSticker1").css("border-radius", s * 0.5); // The radius of the circle is the height/2
 
-    let score = $("#missionM1"); //get the container with the 1º mission score to make the rest
-    for(let i = 2; i <= 5; i++){ //for all the rest
-        let newS = score.clone(); //duplicate the container and change the parameters:
-        newS.attr("id", "missionM" + i); //id
-        let children = newS.children();
-        for(let j = 0; j < children.length; j++){ //for all the children on the container
-            children[j].id = e[j] + i; //change the id of the children
-        }
-        $("#missionContainer").append(newS); //add the new container to the div with all of the missions
-        $("#M" + i).text("Misión " + i); //also change the title of the mission
-    }
-    $("#missionM4").append(jQuery('<p id="specialMtag">2 fallos</p>')); //on the 4º, add the special label
-    $("#specialMtag").css("font-size", (s * size[2]) + "px"); //adjust the size to fit the container
+    // let score = $("#missionM1"); //get the container with the 1º mission score to make the rest
+    // for(let i = 2; i <= 5; i++){ //for all the rest
+    //     let newS = score.clone(); //duplicate the container and change the parameters:
+    //     newS.attr("id", "missionM" + i); //id
+    //     let children = newS.children();
+    //     for(let j = 0; j < children.length; j++){ //for all the children on the container
+    //         children[j].id = e[j] + i; //change the id of the children
+    //     }
+    //     $("#missionContainer").append(newS); //add the new container to the div with all of the missions
+    //     $("#M" + i).text("Misión " + i); //also change the title of the mission
+    // }
+    // $("#missionM4").append(jQuery('<p id="specialMtag">2 fallos</p>')); //on the 4º, add the special label
+    // $("#specialMtag").css("font-size", (s * size[2]) + "px"); //adjust the size to fit the container
 
 
 
