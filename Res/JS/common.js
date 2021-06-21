@@ -1,3 +1,9 @@
+window.onload = function() {
+    
+}
+
+
+
 // Connectivity
 var queryString = new Array();
 var dataBase = {};

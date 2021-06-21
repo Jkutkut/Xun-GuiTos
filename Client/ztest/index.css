@@ -4,3 +4,30 @@
     /* width: 100%; */
     height: 10%;
 }
+
+:root {
+    --huge: 0px;
+    --big: 0px;
+    --normal: 0px;
+    --detail: 0px;
+}
+
+.huge {
+    font-size: var(--huge);
+}
+
+.big {
+    font-size: var(--big);
+}
+.bigger {
+    font-size: var(--bigger);
+}
+.normal {
+    font-size: var(--normal);
+}
+.small {
+    font-size: var(--small);
+}
+.detail {
+    font-size: var(--detail);
+}
