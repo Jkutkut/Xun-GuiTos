@@ -1,7 +1,5 @@
-window.onload = function() {
-    $(window).resize(resizeTextSize); // When screen size change, adjust text size
-    resizeTextSize(); // Update the text size with the current screen
-}
+$(window).resize(resizeTextSize); // When screen size change, adjust text size
+resizeTextSize(); // Update the text size with the current screen
 
 function resizeTextSize() {
     let size = $("body").css("height");
@@ -18,8 +16,9 @@ function resizeTextSize() {
     ]
     for (let e of textSize) {
         $(":root").css("--" + e[0] + "Text", e[1] * size + "px");
-
     }
+
+    console.log("Screen resized");
 }
 
 
