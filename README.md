@@ -16,6 +16,7 @@ Digitalization of the board game "[The Resistance](http://devir.es/producto/la-r
         - WaitingRoom style changed.
         - Meetup style changed and UI changed with more content.
         - Create player style changed.
+    - TextSize now standar using JS logic.
 
 - v0.3.2:
     - Logic to update RootMenu players and missions UI.
