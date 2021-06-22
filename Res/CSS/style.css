@@ -244,9 +244,8 @@ i {
     --pos: 3;
 }
 .playerData {
-    /* text-align: center; */
     height: var(--h, 25%);
-    width: var(--w, 100%);
+    width: var(--w, 85%);
     display: flex;
     align-items: center;
 }
