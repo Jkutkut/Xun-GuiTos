@@ -8,6 +8,16 @@
     --resistanceColor: rgb(31, 132, 199);
     --resistanceColor: rgb(194, 16, 60);
     --baseColor: rgb(181, 181, 181);
+
+    /* TextSize */
+    /*
+    --hugeText;
+    --biggerText;
+    --bigText;
+    --normalText;
+    --smallText;
+    --detailText;
+    */
 }
 body{
     font-size:xx-large;
