@@ -197,16 +197,20 @@ function showPlayers(n){
 
 
 function updateMissions(missions) {
+    console.log(missions)
     let i;
-    for (i = 1; i < missions.length; i++) {
-        let color = "red";
-        if (missions[i - 1].mRes == 1) { // If mission was successful
-            color = "blue";
+    for (i = 0; i < missions.length; i++) {
+        if (missions[i].active == true) {
+            break;
         }
-
-        $("#nPlayers" + i).css("background", color);
+        let color = "var(--chunguitoColor)";
+        if (missions[i].mRes == 1) { // If mission was successful
+            color = "var(--resistanceColor)";
+        }
+        
+        $("#missionSticker" + (i + 1)).css("background", color);
     }
-    $("#nPlayers" + i).css("background", "yellow");
+    $("#missionSticker" + (i + 1)).css("background", "yellow");
 
     // CONVERSOR OF PLAYERS NEEDED ON EACH MISSION
 
@@ -265,29 +269,29 @@ function vote(v){
 
 // debug
 const debugPlayers = [
-    {"pId":1,"name":"jorge","groupPos":null,"pType":0},
-    {"pId":2,"name":"paula","groupPos":null,"pType":0},
-    {"pId":3,"name":"ana","groupPos":null,"pType":1},
-    {"pId":4,"name":"adri","groupPos":null,"pType":0},
-    {"pId":5,"name":"laura","groupPos":null,"pType":1},
-    {"pId":6,"name":"Juan","groupPos":null,"pType":0},
-    {"pId":6,"name":"Pepa","groupPos":null,"pType":0},
-    {"pId":6,"name":"Esmeralda","groupPos":null,"pType":0},
-    {"pId":7,"name":"Luis","groupPos":null,"pType":0},
-    {"pId":7,"name":"Paco","groupPos":null,"pType":0}
+    {"pId":1,"name":"jorge","groupPos":1,"pType":0},
+    {"pId":2,"name":"paula","groupPos":2,"pType":0},
+    {"pId":3,"name":"ana","groupPos":3,"pType":1},
+    {"pId":4,"name":"adri","groupPos":4,"pType":0},
+    {"pId":5,"name":"laura","groupPos":5,"pType":1},
+    {"pId":6,"name":"Juan","groupPos":6,"pType":0},
+    {"pId":7,"name":"Pepa","groupPos":7,"pType":0},
+    {"pId":8,"name":"Esmeralda","groupPos":8,"pType":0},
+    {"pId":9,"name":"Luis","groupPos":9,"pType":0},
+    {"pId":10,"name":"Paco","groupPos":10,"pType":0}
 ];
 
 var debugMissions = [
     {
-        mId: 0,
+        mId: 1,
         active: false,
-        leaderId: 1,
+        leaderId: 3,
         vYes: 4,
         vNo: 1,
         mRes: 1
     },
     {
-        mId: 0,
+        mId: 2,
         active: false,
         leaderId: 4,
         vYes: 5,
@@ -295,11 +299,27 @@ var debugMissions = [
         mRes: 0
     },
     {
-        mId: 0,
+        mId: 3,
         active: true,
-        leaderId: 3,
+        leaderId: 5,
         vYes: null,
         vYes: null,
+        mRes: 0
+    },
+    {
+        mId: 4,
+        active: false,
+        leaderId: 6,
+        vYes: null,
+        vNo: null,
+        mRes: 0
+    },
+    {
+        mId: 5,
+        active: false,
+        leaderId: null,
+        vYes: null,
+        vNo: null,
         mRes: 0
     }
 ];
