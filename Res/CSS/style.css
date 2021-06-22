@@ -108,6 +108,10 @@ img { /* Img at createPlayer */
     background: rgb(255, 97, 97);
 }
 
+#waitingLabel {
+    margin-bottom: 10%;
+}
+
 .lds-ring {
     display: inline-block;
     position: relative;
