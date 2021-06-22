@@ -18,13 +18,9 @@
     --detailText: 0px;
 }
 body{
-    font-size:xx-large;
     place-items: center;
-
-    /* background: var(--blue); */
     background: linear-gradient(180deg, var(--blue) 10%, var(--red) 90%);
 }
-
 
 
 /* CREATEPLAYER */
@@ -58,15 +54,12 @@ body{
 /* Elements Classes */
 .label { /* Common label class */
     padding: 0.5rem;
-    font-size: 2rem;
+    font-size: var(--smallText);
     text-align: center;
 }
 .title { /* Bigger than label. Used for titles */
     text-align: center;
-    width: 80%;
-    font-size: 4rem;
-    padding: 1.2rem;
-    border-radius: 18px;
+    font-size: var(--hugeText);
 }
 #nameTb { /* Textbox class */
     padding: 0.5rem;
@@ -91,7 +84,7 @@ img { /* Img at createPlayer */
     width: 60%;
     height: 40%;
     text-transform: capitalize;
-    font-size: 1.5rem;
+    font-size: var(--normalText);
     border-radius: 1.5rem;
     
 }
@@ -102,7 +95,7 @@ img { /* Img at createPlayer */
     --mdc-theme-on-primary: black;
     
     padding: 5%;
-    width: 50%;
+    width: 70%;
     height: auto;
 
     border: 5px solid black;
