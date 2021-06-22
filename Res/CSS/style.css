@@ -1,13 +1,18 @@
 /* CONSTANTS */
 
 :root {
+    /* Teams colors */
     --blue: rgb(42, 113, 161);
     --red: rgb(166, 23, 59);
 
+    /* mission */
     --cMissionColor: rgb(255, 255, 61);
     --resistanceColor: rgb(18, 137, 216);
     --chunguitoColor: rgb(166, 23, 59);
     --baseColor: rgb(181, 181, 181);
+
+    /* Colors */
+    --black: rgb(20, 20, 20);
 
     /* TextSize */
     --hugeText: 0px;
@@ -16,6 +21,9 @@
     --normalText: 0px;
     --smallText: 0px;
     --detailText: 0px;
+}
+* {
+    color: var(--black);
 }
 body{
     place-items: center;
