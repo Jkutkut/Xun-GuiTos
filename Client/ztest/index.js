@@ -65,33 +65,3 @@ function resizeTextSize() {
     }
 }
 
-/**
- * Updates the background acording to the current score of missions
- * @param {number} resistencia - Missions won by the resistance
- * @param {number} chunguitos - Missions won by the chunguitos
- */
-function changeBackground(resistencia, chunguitos) {
-    if (resistencia >= 3) {
-        $("body").css("background", "var(--blue)");
-    }
-    else if (chunguitos >= 3) {
-        $("body").css("background", "var(--red)");
-    }
-    else { // Normal
-        const intensidad = {
-            resistencia: [
-                5,
-                15,
-                30
-            ],
-            chunguitos: [
-                90,
-                70,
-                55
-            ]
-        }
-        // console.log("linear-gradient(180deg, var(--blue) " + intensidad.resistencia[resistencia] + "%, var(--red) " + intensidad.chunguitos[chunguitos] + "%)");
-        console.log("("+resistencia+", "+chunguitos+")");
-        $("body").css("background", "linear-gradient(180deg, var(--blue) " + intensidad.resistencia[resistencia] + "%, var(--red) " + intensidad.chunguitos[chunguitos] + "%)");
-    }
-}

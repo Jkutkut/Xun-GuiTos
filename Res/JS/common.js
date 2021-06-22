@@ -1,6 +1,9 @@
 $(window).resize(resizeTextSize); // When screen size change, adjust text size
 resizeTextSize(); // Update the text size with the current screen
 
+/**
+ * Updates the CSS properties with the standar Text-Size
+ */
 function resizeTextSize() {
     let size = $("body").css("height");
     size = Number.parseInt(size.substr(0, size.length - 2) / 50);
@@ -19,6 +22,35 @@ function resizeTextSize() {
     }
 
     console.log("Screen resized");
+}
+
+/**
+ * Updates the background acording to the current score of missions
+ * @param {number} resistencia - Missions won by the resistance
+ * @param {number} chunguitos - Missions won by the chunguitos
+ */
+ function changeBackground(resistencia, chunguitos) {
+    if (resistencia >= 3) {
+        $("body").css("background", "var(--blue)");
+    }
+    else if (chunguitos >= 3) {
+        $("body").css("background", "var(--red)");
+    }
+    else { // Normal
+        const intensidad = {
+            resistencia: [
+                5,
+                15,
+                30
+            ],
+            chunguitos: [
+                90,
+                70,
+                55
+            ]
+        };
+        $("body").css("background", "linear-gradient(180deg, var(--blue) " + intensidad.resistencia[resistencia] + "%, var(--red) " + intensidad.chunguitos[chunguitos] + "%)");
+    }
 }
 
 
