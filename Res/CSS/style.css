@@ -180,6 +180,7 @@ i {
     place-items: center;
     grid-template-rows: repeat(var(--r, 5), 1fr);
     height: var(--h, 85%);
+    /* width: var(--w, 100%); */
 }
 .horizontalCols {
     display: grid;
@@ -222,8 +223,19 @@ i {
     display: flex;
     flex-direction: column;
     height: 100%;
+    width: 100%;
     align-items: center;
     align-content:center;
+    justify-content: center;
+}
+.playerIcon {
+    /* height: 50%; */
+    margin-top: 0px;
+    margin-bottom: 0px;
+    
+    height: calc(var(--hugeText) * 1.5);
+    aspect-ratio: 1;
+
 }
 .left-side {
     --pos: 1;
@@ -232,30 +244,36 @@ i {
     --pos: 3;
 }
 .playerData {
-    text-align: center;
+    /* text-align: center; */
     height: var(--h, 25%);
     width: var(--w, 100%);
     display: flex;
     align-items: center;
 }
+
+div .username {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
 .username {
-    width: 40%;
+    font-size: var(--detailText);
 }
 .playerGunTorch {
-    max-width: var(--wM, 25%);
-    height: var(--h, auto);
-    
+    height: var(--normalText); 
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    aspect-ratio: 1;
 }
 
 .PollContainer {
     width: 100%;
-    display: flex;
-    align-items: center;
+    border-radius: 20px;
+    border: solid black 5px;
 }
 .PollText {
-    padding-top: 40%;
-    text-align: center;
-    /* background: blue; */
+    font-size: var(--hugeText);
 }
 
 /* RootMenu */
