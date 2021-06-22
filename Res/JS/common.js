@@ -1,5 +1,25 @@
 window.onload = function() {
-    
+    $(window).resize(resizeTextSize); // When screen size change, adjust text size
+    resizeTextSize(); // Update the text size with the current screen
+}
+
+function resizeTextSize() {
+    let size = $("body").css("height");
+    size = Number.parseInt(size.substr(0, size.length - 2) / 50);
+    console.log(size);
+
+    let textSize = [
+        ["huge", 3.5],
+        ["bigger", 3],
+        ["big", 2.5],
+        ["normal", 2],
+        ["small", 1.5],
+        ["detail", 1]
+    ]
+    for (let e of textSize) {
+        $(":root").css("--" + e[0] + "Text", e[1] * size + "px");
+
+    }
 }
 
 
