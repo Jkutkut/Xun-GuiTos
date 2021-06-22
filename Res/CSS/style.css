@@ -193,6 +193,17 @@ i {
 
 
 /* top */
+@keyframes missionBlink {
+    0% {
+        background: var(--baseColor);
+      }
+      50% {
+        background-color: var(--cMissionColor);
+      }
+      100% {
+        background-color: var(--baseColor);
+      }
+}
 .missionContainer {
     display: flex;
     place-items: center;
@@ -212,6 +223,9 @@ i {
     aspect-ratio: 1;
     border-radius: 50%;
     font-size: var(--bigText);
+}
+.cMissionSticker {
+    animation: missionBlink 2000ms infinite;
 }
 #specialMtag {
     /* 2 fallos tag */

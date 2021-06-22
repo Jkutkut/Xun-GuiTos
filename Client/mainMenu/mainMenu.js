@@ -210,7 +210,7 @@ function updateMissions(missions) {
         
         $("#missionSticker" + (i + 1)).css("background", color);
     }
-    $("#missionSticker" + (i + 1)).css("background", "yellow");
+    $("#missionSticker" + (i + 1)).addClass("cMissionSticker");
 
     // CONVERSOR OF PLAYERS NEEDED ON EACH MISSION
 
