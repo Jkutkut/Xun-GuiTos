@@ -17,6 +17,7 @@ Digitalization of the board game "[The Resistance](http://devir.es/producto/la-r
         - Meetup style changed and UI changed with more content.
         - Create player style changed.
         - MainMenu's missions tab updated to new UI.
+        - MainMenu's players' menu updated to new UI.
     - TextSize now standar using JS logic.
 
 - v0.3.2:
