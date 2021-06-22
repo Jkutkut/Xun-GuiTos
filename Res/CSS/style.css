@@ -10,14 +10,12 @@
     --baseColor: rgb(181, 181, 181);
 
     /* TextSize */
-    /*
-    --hugeText;
-    --biggerText;
-    --bigText;
-    --normalText;
-    --smallText;
-    --detailText;
-    */
+    --hugeText: 0px;
+    --biggerText: 0px;
+    --bigText: 0px;
+    --normalText: 0px;
+    --smallText: 0px;
+    --detailText: 0px;
 }
 body{
     font-size:xx-large;
@@ -198,25 +196,24 @@ i {
     display: flex;
     place-items: center;
     flex-direction: column;
-    justify-content: center;
-
 
     height: 100%;
     width: 100%;
-}
-.missionTitle {
-    /* Mission 1 */
 }
 .missionSticker {
     text-align: center;
     background: var(--baseColor);
     
-    height: 100%;
+    /* height: 100%; */
+    height: calc(var(--bigText) * 1.25);
     aspect-ratio: 1;
     border-radius: 50%;
+    font-size: var(--bigText);
 }
 #specialMtag {
     /* 2 fallos tag */
+    margin-top: calc(var(--detailText) * 0.5);
+    font-size: var(--detailText);
 }
 
 /* main */
