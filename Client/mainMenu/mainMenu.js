@@ -9,48 +9,48 @@ window.onload = function() {
     $("body").css("font-size", height * 0.014);
 
     /** Players' containers */
-    let playersContainer = $("#playersContainer"); //The div element with the rows where the player's divs + btns are stored
-    let mainPlayer = $("#mainPlayer"); //The div element with the info of the host of the device
+    // let playersContainer = $("#playersContainer"); //The div element with the rows where the player's divs + btns are stored
+    // let mainPlayer = $("#mainPlayer"); //The div element with the info of the host of the device
 
-    let h = pixel2float(mainPlayer.css("height")); //get current height of mainplayer div
-    $('#iconMainPlayer').attr("src", "../../Res/img/default_user.png");
-    $('#iconMainPlayer').css("height", (h * 0.75) + "px"); //adjust the size of the icon to fit the div
-    mainPlayer.css("height", h + "px"); //Also lock this height
+    // let h = pixel2float(mainPlayer.css("height")); //get current height of mainplayer div
+    // $('#iconMainPlayer').attr("src", "../../Res/img/default_user.png");
+    // $('#iconMainPlayer').css("height", (h * 0.75) + "px"); //adjust the size of the icon to fit the div
+    // mainPlayer.css("height", h + "px"); //Also lock this height
 
 
-    let elem = ["torch", "userName", "gun"];
-    for(let i = 1; i < 5; i++) { //Make the rest of the users
-        //create a row
-        let row = jQuery('<div id="Row' + i + '" class="horizontalCols" style="--h: 100%;--c: 3; grid-row: ' + i + '"></div>');
-        for(let j = 1; j <= 3; j += 2){
-            let p = mainPlayer.clone();
+    // let elem = ["torch", "userName", "gun"];
+    // for(let i = 1; i < 5; i++) { //Make the rest of the users
+    //     //create a row
+    //     let row = jQuery('<div id="Row' + i + '" class="horizontalCols" style="--h: 100%;--c: 3; grid-row: ' + i + '"></div>');
+    //     for(let j = 1; j <= 3; j += 2){
+    //         let p = mainPlayer.clone();
             
-            p.attr("id", i + "" + j);
-            p.css("--pos", j);
+    //         p.attr("id", i + "" + j);
+    //         p.css("--pos", j);
 
-            $(p.children()[0]).attr("id", "icon" + i + j); // Set id of the icon
-            let pChildren = $(p.children()[1]).children(); // Elemets to change id (see elem)
-            for (let k = 0; k < elem.length; k++) { // For each element
-                $(pChildren[k]).attr("id", elem[k] + i + j); // Change the id of the element
-            }
+    //         $(p.children()[0]).attr("id", "icon" + i + j); // Set id of the icon
+    //         let pChildren = $(p.children()[1]).children(); // Elemets to change id (see elem)
+    //         for (let k = 0; k < elem.length; k++) { // For each element
+    //             $(pChildren[k]).attr("id", elem[k] + i + j); // Change the id of the element
+    //         }
 
-            row.append(p);
-            if(i == 1 && j == 1){
-                let p = mainPlayer.clone();
-                p.attr("id", "12");
-                p.css("--pos", 2);
-                row.append(p);
+    //         row.append(p);
+    //         if(i == 1 && j == 1){
+    //             let p = mainPlayer.clone();
+    //             p.attr("id", "12");
+    //             p.css("--pos", 2);
+    //             row.append(p);
 
-                $(p.children()[0]).attr("id", "icon" + i + j); // Set id of the icon
-                let pChildren = $(p.children()[1]).children(); // Elemets to change id (see elem)
-                for (let k = 0; k < elem.length; k++) { // For each element
-                    $(pChildren[k]).attr("id", elem[k] + "12"); // Change the id of the element
-                }
-            }
+    //             $(p.children()[0]).attr("id", "icon" + i + j); // Set id of the icon
+    //             let pChildren = $(p.children()[1]).children(); // Elemets to change id (see elem)
+    //             for (let k = 0; k < elem.length; k++) { // For each element
+    //                 $(pChildren[k]).attr("id", elem[k] + "12"); // Change the id of the element
+    //             }
+    //         }
 
-        }
-        row.appendTo(playersContainer);
-    }
+    //     }
+    //     row.appendTo(playersContainer);
+    // }
 
     $("#11").click(function() {
         console.log($("#11").css("background"));
@@ -58,28 +58,28 @@ window.onload = function() {
     });
 
     /** Poll zone */
-    for (let i = 2; i < 5; i++){
-        let p = jQuery('<div id="PollContainer' + (i - 1) + '" class="playercontainer PollContainer" style="--pos:2"></div>');
-        p.append(jQuery('<strong id="PollText' + (i - 1) + '" class="PollText"></strong>'))
-        p.css("height", h);
-        p.insertAfter($("#" + i + 1));
-        $("#PollText" + (i - 1)).css("font-size", h * 0.20);
-    }
+    // for (let i = 2; i < 5; i++){
+    //     let p = jQuery('<div id="PollContainer' + (i - 1) + '" class="playercontainer PollContainer" style="--pos:2"></div>');
+    //     p.append(jQuery('<strong id="PollText' + (i - 1) + '" class="PollText"></strong>'))
+    //     p.css("height", h);
+    //     p.insertAfter($("#" + i + 1));
+    //     $("#PollText" + (i - 1)).css("font-size", h * 0.20);
+    // }
 
-    $("#PollText1").text("Sí: 10");
-    $("#PollText2").text("No: 10");
-    $("#PollText3").text("Misión: Aceptada");
-    $("#PollText3").css("padding-top", "30%");
-    $("#PollText3").css("text-decoration", "underline");
+    // $("#PollText1").text("Sí: 10");
+    // $("#PollText2").text("No: 10");
+    // $("#PollText3").text("Misión: Aceptada");
+    // $("#PollText3").css("padding-top", "30%");
+    // $("#PollText3").css("text-decoration", "underline");
 
-    //Poll btns
-    $("#LefttBtn").css("height", h);
-    $("#LeftBtnLabel").css("font-size", h * 0.25);
-    $("#RightBtn").css("height", h);
-    $("#RightBtnLabel").css("font-size", h * 0.25);
+    // //Poll btns
+    // $("#LefttBtn").css("height", h);
+    // $("#LeftBtnLabel").css("font-size", h * 0.25);
+    // $("#RightBtn").css("height", h);
+    // $("#RightBtnLabel").css("font-size", h * 0.25);
     
-    $("#LeftBtn").click(function(){vote(true);});
-    $("#RightBtn").click(function(){vote(false);});
+    // $("#LeftBtn").click(function(){vote(true);});
+    // $("#RightBtn").click(function(){vote(false);});
 
     // GetPlayers
     // $.ajax({
