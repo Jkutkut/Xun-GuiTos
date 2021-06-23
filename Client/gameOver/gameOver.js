@@ -6,10 +6,9 @@ window.onload = function() {
     $("#confettiCanvas").attr("width", $("body").css("width"));
     $("#confettiCanvas").attr("height", $("body").css("height"));
     confettiCanvas = document.getElementById("confettiCanvas");
-    
-    partyTime();
-}
 
+    selectResult(3);
+}
 
 /**
  * Launches 2 sets of confetti on a canvas named #conffeti
@@ -71,4 +70,27 @@ window.onload = function() {
     setTimeout(() => {
         $("#confetti").css("display", "none");
     }, 5000)
+}
+
+function selectResult(val) {
+    switch(val) {
+        case 0:
+            $("#resistenciaWin").css("display", "block");
+            $("#main").css("background", "var(--blue)");
+            partyTime(0);
+            break;
+        case 1:
+            $("#resistenciaLoose").css("display", "block");
+            $("#main").css("background", "var(--red)");
+            break;
+        case 2:
+            $("#chunguitoWin").css("display", "block");
+            $("#main").css("background", "var(--red)");
+            partyTime(1);
+            break;
+        case 3:
+            $("#chunguitoLoose").css("display", "block");
+            $("#main").css("background", "var(--blue)");
+            break;
+    }
 }
