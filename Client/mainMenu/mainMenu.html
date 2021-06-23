@@ -153,6 +153,28 @@
         </div>
     </div>
 
+    <!-- POPUPS -->
+    <div class="popUpFrame" style="backdrop-filter: blur(20px); display: none;">
+        <div id="resistenciaPopUp" class="popUp" style="--bg: var(--blue)">
+            <p style="font-size: var(--bigText); text-align: center; margin-top: 2vh;">Misión completada</p>
+            <div style="height: 65%;">
+                <p style="font-size: var(--smallText); text-align: center;">La resistencia ha logrado cumplir satisfactoriamente la misión. Enhorabuena!</p>
+            </div>
+            <p class="smallLabel">Éxito: 5 -- Fracaso: 5</p>
+        </div>
+        <div id="chunguitosPopUp" class="popUp" style="--bg: var(--red)">
+            <p style="font-size: var(--bigText); text-align: center; margin-top: 2vh;">Misión finalizada</p>
+            <div style="height: 65%;">
+                <p style="font-size: var(--smallText); text-align: center;">Oh, no! Algún agente de Xun-GuiTo's estuvo en la misión y la ha saboteado!</p>
+            </div>
+            <p class="smallLabel">Éxito: 5 -- Fracaso: 5</p>
+        </div>
+
+        <div class="" style="position: absolute; left: 0%; bottom: 15%; display: flex; justify-content: center; width: 100%; ">
+            <a class="label continueBtn" onclick="closePopUp()">Continuar</a>
+        </div>
+    </div>
+
     <script src="../../Res/JS/common.js"></script>
 </body>
 </html>
