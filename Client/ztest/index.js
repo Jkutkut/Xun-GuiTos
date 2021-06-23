@@ -9,8 +9,14 @@ var mission = {
     mRes: 0
 };
 
-
+/**
+ * Takes the input mission and shows the popUp with the result of the mission.
+ * @param {obj} mission - Mission to use for the popUp
+ */
 function openPopUp(mission) {
+    if (mission.active || mission.vYes === null || mission.vNo === null) {
+        throw new Error("The mission hasn't finish");
+    }
     console.log($("#resistenciaPopUp").css("display"));
     
     // Select correct popUp
