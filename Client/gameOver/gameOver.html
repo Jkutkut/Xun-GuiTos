@@ -15,47 +15,64 @@
 
 </head>
 <body>
-    <div id="main" class="grandparent">
-        <!-- TITLE + INTRO -->
-        <div id="resistenciaWin" class="carta">
-                <p><strong>To: </strong><i>XXXX</i></p>
-                <p><strong>From: </strong><i>La Resistencia</i></p>
-                <p><strong>About: </strong>Lo conseguimos!</p>
-                <hr>
-                <p>Enhorabuena! Pese a todos los problemas que nos han provocado los agentes de <i>Xun-GuiTo's Enterprises</i>, hemos logrado nuestro objetivo.</p>
-                <p>De parte de toda la resistencia queremos darte las gracias. Bien hecho!</p>
-                <p>Hemos conseguido averiguar que los agentes infiltrados eran <i id="chunguitosP">XXXX y YYYY</i>. 
-                   Te alegrará saber que ninguno de estos agentes pertenecen ya a esta organización.</p>
-                <p>Contamos con tus habilidades para la siguiente fase del plan.</p>
-                <p>Nos vemos!</p>
-        </div>
-        <div id="resistenciaLoose" class="grandparent" style="display: none; background: var(--red);">
-            <div class="width: 100%; height: 100%;">
-                <p><strong>To: </strong><i class="userName">XXXX</i></p>
-                <p><strong>From: </strong><i>La Resistencia</i></p>
-                <p><strong>About: </strong>Hemos perdido esta batalla, pero no la guerra!</p>
-                <hr>
-                <p></p>
-            </div>
-        </div>
-        <div id="chunguitoWin" class="grandparent" style="display: none; background: var(--red);">
-            <div class="width: 100%; height: 100%;">
-                <p><strong>To: </strong><i class="userName">XXXX</i></p>
-                <p><strong>From: </strong><i>La Resistencia</i></p>
-                <p><strong>About: </strong></p>
-                <hr>
-                <p></p>
-            </div>
-        </div>
-        <div id="chunguitoLoose" class="grandparent" style="display: none; background: var(--blue);">
-            <div class="width: 100%; height: 100%;">
-                <p><strong>To: </strong><i class="userName">XXXX</i></p>
-                <p><strong>From: </strong><i>La Resistencia</i></p>
-                <p><strong>About: </strong></p>
-                <hr>
-                <p></p>
-            </div>
-        </div>
+    <div id="resistenciaWin" class="carta">
+        <p><strong>To: </strong><i>XXXX</i></p>
+        <p><strong>From: </strong><i>La Resistencia</i></p>
+        <p><strong>About: </strong>Lo conseguimos!</p>
+        <hr>
+        <p>Enhorabuena! Pese a todos los problemas que nos han provocado los agentes de <i>Xun-GuiTo's Enterprises</i>, hemos logrado nuestro objetivo.</p>
+        <p>De parte de toda la resistencia queremos darte las gracias. Bien hecho!</p>
+        <p>Hemos conseguido averiguar que los agentes infiltrados eran <i id="chunguitosP">XXXX y YYYY</i>. 
+            Te alegrará saber que ninguno de estos agentes pertenecen ya a esta organización.</p>
+        <p>Contamos con tus habilidades para la siguiente fase del plan. Dirígete a la base Alpha donde te esperamos para la siguiente fase.</p>
+        <p>Nos vemos!</p>
+    </div>
+    <div id="resistenciaLoose" class="carta">
+        <p><strong>To: </strong><i>XXXX</i></p>
+        <p><strong>From: </strong><i>La Resistencia</i></p>
+        <p><strong>About: </strong>No nos rendiremos!</p>
+        <hr>
+        <p>Pese a todo el esfuerzo por completar las misiones, los agentes infiltrados han logrado sabotearlas. 
+            Esto implica que <i>Xun-GuiTo's Enterprises</i> controla ahora la zona.</p>
+        <p>Hemos conseguido averiguar que los agentes infiltrados eran <i id="chunguitosP">XXXX y YYYY</i>. 
+            Te alegrará saber que ninguno de estos agentes pertenecen ya a esta organización.</p>
+        <p>Abandone la zona y dirígete a la base Alpha donde te esperamos para la siguiente fase.</p>
+        <p>Hemos perdido esta batalla, pero no la guerra!</p>
+    </div>
+    <div id="chunguitoWin" class="carta">
+        <p><strong>To: </strong><i>XXXX</i></p>
+        <p><strong>From: </strong><i>Xun-GuiTo's Enterprises</i></p>
+        <p><strong>About: </strong>Misión satisfactoria</p>
+        <hr>
+        <p>Estimado agente</p>
+        <p>Desde la organización, tenemos el orgullo de informarle que su misión de infiltración ha sido un éxito. 
+            Gracias a la labor de usted y el resto de agentes, la escoria rebelde no ha tenido opción y ha tenido que abandonar el lugar.
+            La zona ahora será segura ahora.</p>
+        <p>Sin embargo, nuestros informantes nos han reportado que este sólo era un grupo guerrillero de los múltiples que hay en la zona.</p>
+        <p>Requerimos su despliegue inmediato en un pueblo local 30º Noroeste de su posición actual, donde encontrará otra célula terrorista.</p>
+        <p>Recibirá otro mensaje con inteligencia y contacto con su equipo cuando llegue a la zona.</p>
+        <p>Un cordial saludo</p>
+        <p> Xun To</p>
+        <p>Director ejecutivo de <i>Xun-GuiTo's Enterprises</i></p>
+    </div>
+    <div id="chunguitoLoose" class="carta">
+        <p><strong>To: </strong><i>XXXX</i></p>
+        <p><strong>From: </strong><i>Xun-GuiTo's Enterprises</i></p>
+        <p><strong>About: </strong>Relocalización de agentes</p>
+        <hr>
+        <p>Estimado agente</p>
+        <p>Pese a despliegue de recursos y de personal realizado, usted y su equipo no ha sido capaz de frenar el grupo terrorista local.</p>
+        <p>Hemos enviado a un equipo para realizar su extracción inmediata de la zona. 
+            Los agentes les recogerán en el punto de extracción Bravo-Delta. Esperen allí a ser contactados.
+            Serán enviados a un centro de reacondicionamiento donde se evaluará su lealtad y eficacia;
+            tomando las acciones necesarias para el correcto desarrollo de nuestra organización.</p>
+        <p>Un cordial saludo</p>
+        <p> Xun To</p>
+        <p>Director ejecutivo de <i>Xun-GuiTo's Enterprises</i></p>
+        <p style="font-size: var(--detailText);">PD: Recuerde que de acuerdo con la <i>normativa EAD</i>,
+            todos los <strong>a</strong>gentes que no cumplan las directrices serán tratados como <strong>d</strong>esertores.
+            Estos serán <strong>e</strong>liminados mediante el uso de fuerza letal sin necesidad de juicio previo.</p>
+        <p style="font-size: var(--detailText);">Recuerde también que todos los agentes tienen un implante sub-cutáneo con GPS para la geolocalización de agentes desertores.</p>
     </div>
     <div id="confetti" style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%;">
         <canvas id="confettiCanvas"></canvas>
