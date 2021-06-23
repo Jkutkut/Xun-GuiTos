@@ -194,6 +194,10 @@ i {
     text-transform: capitalize;
 }
 
+#chunguitosP {
+    text-transform: none;
+}
+
 
 /* MAINMENU */
 .verticalRows {
