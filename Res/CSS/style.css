@@ -372,7 +372,7 @@ div .username {
 .missionCard p {
     text-align: center;
     width: 100%;
-    font-size: 6rem;
+    font-size: var(--biggerText);
 }
 
 .missionCard.selected,
