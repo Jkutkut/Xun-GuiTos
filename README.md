@@ -10,7 +10,7 @@ Digitalization of the board game "[The Resistance](http://devir.es/producto/la-r
     - New client menu: Mission-Poll.
         - Basic UI created.
         - Logic added.
-        - 
+        - Updated to new standar.
     - UI changes:
         - Standar color palette created.
         - WaitingRoom style changed.
@@ -20,6 +20,7 @@ Digitalization of the board game "[The Resistance](http://devir.es/producto/la-r
         - MainMenu's players' menu updated to new UI.
     - TextSize now standar using JS logic.
     - At mainMenu, now popUps appear with the results of the previous mission.
+    - New img added to replace leader and gun imgs when not used.
 
 - v0.3.2:
     - Logic to update RootMenu players and missions UI.
