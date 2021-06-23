@@ -5,6 +5,10 @@ Digitalization of the board game "[The Resistance](http://devir.es/producto/la-r
 
 ## Version history:
 ### v0.3:
+- v0.3.4:
+    - Now on DB.playersPos, the divId and the players are stored. This will allow the function enableUserPicking to work.
+    - Now when missions are updated, the enableUserPicking function is executed if the user is the leader.
+      This function will set a onClick event where the selected player is selected/unselected to the current mission.
 - v0.3.3:
     - Shell script to find the nodeRed rapsberry ip using brute-force.
     - New client menu: Mission-Poll.
