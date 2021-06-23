@@ -1,15 +1,15 @@
 const TIME2SEE = 10000;
 
 // debug
-// const debugPlayers = [
-//     {"pId":1,"name":"jorge","groupPos":null,"pType":0},
-//     {"pId":2,"name":"paula","groupPos":null,"pType":0},
-//     {"pId":3,"name":"ana","groupPos":null,"pType":1},
-//     {"pId":4,"name":"adri","groupPos":null,"pType":0},
-//     {"pId":5,"name":"laura","groupPos":null,"pType":1},
-//     {"pId":6,"name":"user23","groupPos":null,"pType":0},
-//     {"pId":7,"name":"fklsdj","groupPos":null,"pType":0}
-// ];
+const debugPlayers = [
+    {"pId":1,"name":"jorge","groupPos":null,"pType":0},
+    {"pId":2,"name":"paula","groupPos":null,"pType":0},
+    {"pId":3,"name":"ana","groupPos":null,"pType":1},
+    {"pId":4,"name":"adri","groupPos":null,"pType":0},
+    {"pId":5,"name":"laura","groupPos":null,"pType":1},
+    {"pId":6,"name":"user23","groupPos":null,"pType":0},
+    {"pId":7,"name":"fklsdj","groupPos":null,"pType":0}
+];
 
 window.onload = function() {
 
@@ -25,13 +25,19 @@ window.onload = function() {
         window.location.href = "mainMenu.html?username=" + queryString["username"];
     });
 
-    $.ajax({
-        url: "players",
-        method: "get",
-        success: function(data) {
-            getMyCharacter(data);
-        }
-    });
+    // $.ajax({
+    //     url: "players",
+    //     method: "get",
+    //     success: function(data) {
+    //         getMyCharacter(data);
+    //     }
+    // });
+    getMyCharacter(debugPlayers);
+
+    $("#characterReveal").css("display", "flex");
+    // $("#chunguito").css("display", "block");
+    $("#resistencia").css("display", "block");
+    $("#main").css("display", "none");
 }
 
 function getMyCharacter(data) {
@@ -49,7 +55,7 @@ function getMyCharacter(data) {
     console.log("->" + whatAmI);
     $("#" + whatAmI).css("display", "grid");
 
-    $(".userName").text(queryString.username);
+    $("#userName").text(queryString.username);
 
     if (whatAmI == "chunguito") {
         let chunText = chunguitos[0];
@@ -63,6 +69,7 @@ function getMyCharacter(data) {
         $("#chunguitosP").text(chunText);
     }
     else {
-        $("#nChunguitos").text(chunguitos.length)
+        $("#nChunguitos").text(chunguitos.length);
+        $("#resistencia").css("font-size", "calc(var(--detailText) * 1.4)");
     }
 }
