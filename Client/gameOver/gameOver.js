@@ -76,21 +76,21 @@ function selectResult(val) {
     switch(val) {
         case 0:
             $("#resistenciaWin").css("display", "block");
-            $("#main").css("background", "var(--blue)");
+            $("body").css("background", "var(--blue)");
             partyTime(0);
             break;
         case 1:
             $("#resistenciaLoose").css("display", "block");
-            $("#main").css("background", "var(--red)");
+            $("body").css("background", "var(--red)");
             break;
         case 2:
             $("#chunguitoWin").css("display", "block");
-            $("#main").css("background", "var(--red)");
+            $("body").css("background", "var(--red)");
             partyTime(1);
             break;
         case 3:
             $("#chunguitoLoose").css("display", "block");
-            $("#main").css("background", "var(--blue)");
+            $("body").css("background", "var(--blue)");
             break;
     }
 }
