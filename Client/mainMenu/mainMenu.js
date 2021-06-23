@@ -60,15 +60,15 @@ function *playerIterator(n) {
     }
 
     yield "MainPlayer";
-    yield 43; // Always
-    if (n > 6) yield 33;
-    yield 23; // Always
-    if (n > 8) yield 13;
-    if (n % 2 == 0) yield 12;   
-    if (n > 8) yield 11;
-    yield 21; // Always
-    if (n > 6) yield 31;
-    yield 41; // Always
+    if (n > 6) yield 43;
+    yield 33; // Always
+    if (n > 8) yield 23;
+    yield 13; // Always
+    if (n % 2 == 0) yield 12;
+    yield 11; // Always
+    if (n > 8) yield 21;
+    yield 31; // Always
+    if (n > 6) yield 41;
 }
 
 /**
@@ -112,25 +112,13 @@ function updatePlayers(players) {
  * @throws error if the value is not on the range [5, 10]
  */
 function showPlayers(n){
-    if (n < 5 || n > 10 || !Number.isInteger(n)){ //if n not on the correct range or not an int
-        throw "Error at showPlayers: The value show an int be between 5 and 10, both inclusive.";
+    $(".playerDiv").css("display", "none");
+    let playersDivIte = playerIterator(n);
+    while (true) {
+        let pDiv = playersDivIte.next();
+        $("#" + pDiv.value).css("display", "flex");
+        if (pDiv.done == true) break; // If done, end
     }
-    // Rows: always: 2, 4, self; n > 6: 3; n > 8: 1; if even, 12 on;
-    let index = new Set(); //set of row numbers to show on screen
-    if (n > 6) index.add(3);
-    if (n > 8) index.add(1);
-    
-    let display = function(id, visible){ //function to switch the visibility of the container given as input
-        $(id).css("display", (visible)? "flex" : "none");
-    }
-
-    for(let i = 1; i < 4; i += 2){ //for each row to change
-        let visible = index.has(i); // if not on set -> no need to drawit => delete it
-        for(let j = 1; j <= 3; j += 2){ //change both containers (left and right)
-            display("#" + i + j, visible);
-        }
-    }
-    display("#12", n % 2 == 0); //if even, add the one on the top middle
 }
 
 
@@ -251,12 +239,12 @@ const debugPlayers = [
     {"pId":2,"name":"paula","groupPos":2,"pType":0},
     {"pId":3,"name":"ana","groupPos":3,"pType":1},
     {"pId":4,"name":"adri","groupPos":4,"pType":0},
-    {"pId":5,"name":"laura","groupPos":5,"pType":1},
-    {"pId":6,"name":"Juan","groupPos":6,"pType":0},
-    {"pId":7,"name":"Pepa","groupPos":7,"pType":0},
-    {"pId":8,"name":"Esmeralda","groupPos":8,"pType":0},
-    {"pId":9,"name":"Luis","groupPos":9,"pType":0},
-    {"pId":10,"name":"Paco","groupPos":10,"pType":0}
+    {"pId":5,"name":"laura","groupPos":5,"pType":1}
+    // {"pId":6,"name":"Juan","groupPos":6,"pType":0},
+    // {"pId":7,"name":"Pepa","groupPos":7,"pType":0},
+    // {"pId":8,"name":"Esmeralda","groupPos":8,"pType":0},
+    // {"pId":9,"name":"Luis","groupPos":9,"pType":0},
+    // {"pId":10,"name":"Paco","groupPos":10,"pType":0}
 ];
 
 var debugMissions = [
