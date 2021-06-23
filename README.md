@@ -19,6 +19,7 @@ Digitalization of the board game "[The Resistance](http://devir.es/producto/la-r
         - MainMenu's missions tab updated to new UI.
         - MainMenu's players' menu updated to new UI.
     - TextSize now standar using JS logic.
+    - At mainMenu, now popUps appear with the results of the previous mission.
 
 - v0.3.2:
     - Logic to update RootMenu players and missions UI.
