@@ -1,6 +1,6 @@
 # Resistencia:
 
-Digitalization of the board game "[The Resistance](http://devir.es/producto/la-resistencia/)".
+My own version of the board game "[The Resistance](http://devir.es/producto/la-resistencia/)".
 
 
 ## Version history:
@@ -9,6 +9,7 @@ Digitalization of the board game "[The Resistance](http://devir.es/producto/la-r
     - Now on DB.playersPos, the divId and the players are stored. This will allow the function enableUserPicking to work.
     - Now when missions are updated, the enableUserPicking function is executed if the user is the leader.
       This function will set a onClick event where the selected player is selected/unselected to the current mission.
+    - Confetti added to the project.
 - v0.3.3:
     - Shell script to find the nodeRed rapsberry ip using brute-force.
     - New client menu: Mission-Poll.
@@ -131,6 +132,8 @@ Work focused on the configuration of the rapsberry pi 4 and the bluetooth commun
 - Github: [https://github.com/rosspi/gridstrap.js/](https://github.com/rosspi/gridstrap.js/)
 - Demo: [rosspi.github.io/gridstrap.js](https://rosspi.github.io/gridstrap.js/)
 
+# Confetti:
+- [npm](https://www.npmjs.com/package/canvas-confetti)
 
 ### Links:
 Links to pages used to configure or consult with usefull information:
