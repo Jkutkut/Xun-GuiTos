@@ -1,4 +1,14 @@
 var height, pollBtnState;
+
+var playersPerM = {
+    5: [ 2, 3, 2, 3, 3 ],
+    6: [ 2, 3, 4, 3, 4 ],
+    7: [ 2, 3, 3, 4, 4 ],
+    8: [ 3, 4, 4, 5, 5 ],
+    9: [ 3, 4, 4, 5, 5 ],
+    10:[ 3, 4, 4, 5, 5 ]
+}
+
 const POLLUPDATEPERIOD = 5000;
 
 window.onload = function() {
@@ -133,6 +143,11 @@ function updateMissions(missions) {
         
         $("#missionSticker" + (i + 1)).css("background", color);
     }
+
+    if (i > 0) { // If mission done
+        openPopUp(missions[i - 1]);
+    }
+
     $("#missionSticker" + (i + 1)).addClass("cMissionSticker");
     console.log("Leader -> " + DB.players[missions[i].leaderId - 1].name + " " + missions[i].leaderId + " => " + DB.playersPos[missions[i].leaderId - 1].divId);
     
@@ -143,9 +158,13 @@ function updateMissions(missions) {
         enableUserPicking(); // IF I AM LEADER, ENABLE CREATE TEAM
     }
 
-    // CONVERSOR OF PLAYERS NEEDED ON EACH MISSION
+    for (let j = 1; j <= 5; j++) {
+        $("#missionSticker" + j).text(playersPerM[DB.players.length][j - 1]);
+    }
 
-    // UPDATE PLAYERS NEEDED ON EACH MISSION
+    if (DB.players.length < 7) {
+        $("#specialMtag").css("display", "none");
+    }
 
 }
 
@@ -279,8 +298,8 @@ const debugPlayers = [
     {"pId":2,"name":"paula","groupPos":2,"pType":0},
     {"pId":3,"name":"ana","groupPos":3,"pType":1},
     {"pId":4,"name":"adri","groupPos":4,"pType":0},
-    {"pId":5,"name":"laura","groupPos":5,"pType":1}
-    // {"pId":6,"name":"Juan","groupPos":6,"pType":0},
+    {"pId":5,"name":"laura","groupPos":5,"pType":1},
+    {"pId":6,"name":"Juan","groupPos":6,"pType":0},
     // {"pId":7,"name":"Pepa","groupPos":7,"pType":0},
     // {"pId":8,"name":"Esmeralda","groupPos":8,"pType":0},
     // {"pId":9,"name":"Luis","groupPos":9,"pType":0},
@@ -301,7 +320,7 @@ var debugMissions = [
         active: false,
         leaderId: 4,
         vYes: 5,
-        vNo: 0,
+        vNo: 2,
         mRes: 0
     },
     {
