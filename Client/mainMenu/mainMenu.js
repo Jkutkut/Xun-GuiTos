@@ -76,7 +76,6 @@ function *playerIterator(n) {
  * @param {Obj[]} players - Array with the objects with the player's data.
  */
 function updatePlayers(players) {
-    console.log(players)
     DB.players = players; // Store the players on a variable for future consult
     let len = players.length;
     showPlayers(len);
@@ -99,8 +98,6 @@ function updatePlayers(players) {
         let content = players[index];
 
         $("#userName" + current.value).text(content.name); // Update the name of the user
-
-
 
         // Get and update img
         
@@ -138,7 +135,7 @@ function showPlayers(n){
 
 
 function updateMissions(missions) {
-    console.log(missions)
+    DB.missions = missions;
     let i;
     for (i = 0; i < missions.length; i++) {
         if (missions[i].active == true) {
