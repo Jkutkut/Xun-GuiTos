@@ -3,16 +3,8 @@ const POLLUPDATEPERIOD = 5000;
 
 window.onload = function() {
     getQuerry(); //function from common.js
-
-    /** CSS */
-    height = pixel2float($("body").css("height"));
-    $("body").css("font-size", height * 0.014);
-
-
-    $("#11").click(function() {
-        console.log($("#11").css("background"));
-        $("#11").css("background", "red");
-    });
+    
+    $(".gun").attr("src", "../../Res/img/empty.png");
     
     $("#LeftBtn").click(function(){vote(true);});
     $("#RightBtn").click(function(){vote(false);});
@@ -159,7 +151,36 @@ function updateMissions(missions) {
 
 
 function enableUserPicking() {
-    
+    for (let player of DB.playersPos) {
+        console.log(player);
+        $("#"+player.divId).click(function() {
+            pickUser(player);
+        })
+    }
+}
+
+function pickUser(user, value=null) {
+    let empty = "../../Res/img/empty";
+    let gun = "../../Res/img/guns/0";
+    let extension = ".png";
+
+    let newSrc;
+    if (value === null) {
+        if ($("#gun"+user.divId).attr("src") == empty + extension) {
+            let r = Math.round(Math.random() * 35) + 1;
+            if (r < 10) r = "0"+r;
+            
+            newSrc = gun + r + "-gun" + extension;
+        }
+        else {
+            newSrc = empty + extension;
+        }
+    }
+    else {
+        newSrc = value;
+    }
+
+    $("#gun"+user.divId).attr("src", newSrc)
 }
 
 
