@@ -91,9 +91,14 @@ function updatePlayers(players) {
         }
     }
 
-    DB.playersPos = new Array(len); // Store player on the position relative to the user (index: pId of the user; value: divId of the user)
+    DB.playersPos = new Array(len); // Store player on the position relative to the user:
+    // (index: pId of the user; value: {divId: divId of the user, player: object of the player})
+
     while (!current.done) {
-        DB.playersPos[index] = current.value; // Store player on the position relative to the user (index: pId of the user; value: divId of the user)
+        DB.playersPos[index] = { // Store the player divId and the player itself
+            divId: current.value,
+            player: players[index]
+        };
 
         let content = players[index];
 
@@ -137,18 +142,32 @@ function updateMissions(missions) {
         $("#missionSticker" + (i + 1)).css("background", color);
     }
     $("#missionSticker" + (i + 1)).addClass("cMissionSticker");
-    console.log("Leader -> " + DB.players[missions[i].leaderId - 1].name + " " + missions[i].leaderId + " => " + DB.playersPos[missions[i].leaderId - 1]);
+    console.log("Leader -> " + DB.players[missions[i].leaderId - 1].name + " " + missions[i].leaderId + " => " + DB.playersPos[missions[i].leaderId - 1].divId);
     
     // SELECT LEADER
     $(".torch").attr("src", "../../Res/img/empty.png");
-    $("#torch" + DB.playersPos[missions[i].leaderId - 1]).attr("src", "../../Res/img/torch.png");
+    $("#torch" + DB.playersPos[missions[i].leaderId - 1].divId).attr("src", "../../Res/img/torch.png");
+    if (typeof DB.playersPos[missions[i].leaderId - 1].divId == "string") { // If leader is this user
+        enableUserPicking(); // IF I AM LEADER, ENABLE CREATE TEAM
+    }
 
     // CONVERSOR OF PLAYERS NEEDED ON EACH MISSION
 
     // UPDATE PLAYERS NEEDED ON EACH MISSION
 
-    // IF I AM LEADER, ENABLE CREATE TEAM
 }
+
+
+function enableUserPicking() {
+    
+}
+
+
+
+
+
+
+
 
 /** Poll zone */
 /**
