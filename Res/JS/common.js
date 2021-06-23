@@ -1,3 +1,11 @@
+var DB = {
+    players: null,
+    playersPos: null,
+    missions: null,
+    opinion: null,
+    missionTeam: null
+}
+
 $(window).resize(resizeTextSize); // When screen size change, adjust text size
 resizeTextSize(); // Update the text size with the current screen
 
