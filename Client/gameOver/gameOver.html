@@ -1,0 +1,40 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Resistencia</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://unpkg.com/material-components-web@7.0.0/dist/material-components-web.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.7/cropper.css">
+    <link rel="stylesheet" href="../../Res/CSS/style.css">
+    
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+    <script src="gameOver.js"></script>
+
+</head>
+<body>
+    <div id="main" class="grandparent">
+        <!-- TITLE + INTRO -->
+        <div id="resistencia" class="grandparent" style="display: block;">
+            <div class="width: 100%; height: 100%">
+                <p><strong>To: </strong><i class="userName">XXXX</i></p>
+                <p><strong>From: </strong><i>La Resistencia</i></p>
+                <p><strong>About: </strong>Mensaje de bienvenida!</p>
+                <hr>
+                <p>Enhorabuena! Ahora eres una parte esencial de <i>La Resistencia</i>.</p>
+                <p>Necesitamos tu ayuda. La empresa tiránica <i>Xun-GuiTo's Enterprises</i> ha infiltrado <i id="nChunguitos"></i> agentes en nuestro equipo.</p>
+                <p>Estos agentes van a hacer todo lo posible por sabotear nuestras futuras misiones.</p>
+                <p>No dejes que esto ocurra, encuentra a los agentes infiltrados y completa satisfactoriamente las misiones.</p>
+                <p>Buena suerte!</p>
+            </div>
+        </div>
+    </div>
+    <div id="confetti" style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%;">
+        <canvas id="confettiCanvas"></canvas>
+    </div>
+
+    <script src="../../Res/JS/common.js"></script>
+</body>
+</html>
