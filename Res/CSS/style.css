@@ -157,13 +157,29 @@ img { /* Img at createPlayer */
 }
 
 /* MEETUP */
+.carta {
+    display: none;
+    place-items: center;
+    flex-direction: column;
+
+    width: 80%;
+    height: 85%;
+    padding: 3vw;
+
+    font-size: calc(var(--detailText) * 1.25);
+}
 
 #submitBtn {
-    background: none;
-    border: solid black 10px;
+    border: solid var(--black) 10px;
     border-radius: 50px;
-    color: black;
+
+    width: 40%;
+    padding: 2.5vh;
+
+    text-align: center;
+    font-size: var(--normalText);
 }
+
 hr {
     border: 1px solid black;
 }
