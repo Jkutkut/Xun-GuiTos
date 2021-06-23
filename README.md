@@ -11,6 +11,7 @@ My own version of the board game "[The Resistance](http://devir.es/producto/la-r
       This function will set a onClick event where the selected player is selected/unselected to the current mission.
     - Confetti added to the project.
     - Meetup textSize standar implemented.
+    - gameOver created.
 - v0.3.3:
     - Shell script to find the nodeRed rapsberry ip using brute-force.
     - New client menu: Mission-Poll.
