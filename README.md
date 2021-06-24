@@ -16,6 +16,7 @@ My own version of the board game "[The Resistance](http://devir.es/producto/la-r
     - Minor fixes in UI:
         - CreatePlayer
         - WaitingRoom
+    - RootMenu work to control the game
 - v0.3.3:
     - Shell script to find the nodeRed rapsberry ip using brute-force.
     - New client menu: Mission-Poll.
