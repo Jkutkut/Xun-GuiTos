@@ -9,7 +9,6 @@ window.onload = function(){ //When page loaded, define vars
 
     $("#submitBtn").click(function(){
         let name = $("#nameTb").val(); //Get the name entered in the input.
-        let pId;
         // if(name == "" || imgHTML.css("display") == "none"){ //If data is not correct
         //     //DO SOMETHING
         //     console.log("data not correct");
@@ -27,29 +26,31 @@ window.onload = function(){ //When page loaded, define vars
                     if (isInt(data)){ //If name added correctly
                         pId = data;
                         console.log("->" + pId)
-                        $.ajax(addImg); //Try to add the img
+                        $.ajax(addImg(pId)); //Try to add the img
                     }
                     console.log(data); //show the msg
                 }
             };
-            let addImg = {
-                url: 'addImg.php',
-                method: 'post',
-                data: {
-                    "pId": "holaCaracola",
-                    "user": name,
-                    "img": getBase64Image(document.getElementById("resultImg"))
-                },
-                success: function(data) {
-                    console.log(data);
-                    if(data == "Img stored and linked"){ // if img stored correctly:
-                        //Go to the waiting room with the user's name and being the firstTime
-                        // window.location.href = "waitingRoom.html?pId=" + pId + "&username=" + name + "&fistTime=true";
-                        console.log("->" + pId)
-                        console.log("Valid");
+            let addImg = function(pId) {
+                return {
+                    url: 'addImg.php',
+                    method: 'post',
+                    data: {
+                        "pId": pId,
+                        "user": name,
+                        "img": getBase64Image(document.getElementById("resultImg"))
+                    },
+                    success: function(data) {
+                        console.log(data);
+                        if(data == "Img stored and linked"){ // if img stored correctly:
+                            //Go to the waiting room with the user's name and being the firstTime
+                            // window.location.href = "waitingRoom.html?pId=" + pId + "&username=" + name + "&fistTime=true";
+                            console.log("->" + pId)
+                            console.log("Valid");
+                        }
                     }
-                }
-            };
+                };
+            }
 
             $.ajax(addName); //First add name
         }
