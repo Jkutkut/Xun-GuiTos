@@ -24,7 +24,8 @@ window.onload = function(){ //When page loaded, define vars
                 },
                 success: function(data) {
                     if (isInt(data)){ //If name added correctly
-                        pId = parseInt(data);
+                        pId = data;
+                        console.log("->" + pId)
                         $.ajax(addImg); //Try to add the img
                     }
                     console.log(data); //show the msg
@@ -34,7 +35,7 @@ window.onload = function(){ //When page loaded, define vars
                 url: 'addImg.php',
                 method: 'post',
                 data: {
-                    "pId": "" + pId,
+                    "pId": pId,
                     "user": name,
                     "img": getBase64Image(document.getElementById("resultImg"))
                 },
@@ -42,7 +43,8 @@ window.onload = function(){ //When page loaded, define vars
                     console.log(data);
                     if(data == "Img stored and linked"){ // if img stored correctly:
                         //Go to the waiting room with the user's name and being the firstTime
-                        window.location.href = "waitingRoom.html?pId=" + pId + "&username=" + name + "&fistTime=true";
+                        // window.location.href = "waitingRoom.html?pId=" + pId + "&username=" + name + "&fistTime=true";
+                        console.log("Valid");
                     }
                 }
             };
