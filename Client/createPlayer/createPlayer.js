@@ -36,7 +36,7 @@ window.onload = function(){ //When page loaded, define vars
                 url: 'addImg.php',
                 method: 'post',
                 data: {
-                    "pId": pId,
+                    "pId": "holaCaracola",
                     "user": name,
                     "img": getBase64Image(document.getElementById("resultImg"))
                 },
