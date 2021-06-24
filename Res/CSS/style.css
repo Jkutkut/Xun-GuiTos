@@ -356,6 +356,9 @@ div .username {
 
 
 /* RootMenu */
+.detailLabel {
+    font-size: var(--detailText);
+}
 
 #rootMenu_leaderIcon {
     background: url(../../Res/img/torch.png);
@@ -365,6 +368,21 @@ div .username {
 .rootMenu_playerList {
     background: green; width: 100%; height: 100%;
 }
+
+.root_Mission {
+    font-size: var(--detailText);
+    
+    align-items: stretch;
+    text-align: left;
+    background: lightcoral;
+}
+
+.rootBtn {
+    font-size: var(--detailText);
+
+}
+
+
 
 /* MissionPoll */
 .missionCard {
