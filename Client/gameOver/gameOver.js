@@ -7,7 +7,7 @@ window.onload = function() {
     $("#confettiCanvas").attr("height", $("body").css("height"));
     confettiCanvas = document.getElementById("confettiCanvas");
 
-    selectResult(3);
+    selectResult(0);
 }
 
 /**
