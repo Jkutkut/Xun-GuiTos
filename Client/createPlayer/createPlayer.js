@@ -1,6 +1,7 @@
 var canvas, context, imgHTML, cropper, imgF;
 
 var state = false;
+var pId;
 
 window.onload = function(){ //When page loaded, define vars
     canvas = $("#canvas");
@@ -22,7 +23,8 @@ window.onload = function(){ //When page loaded, define vars
                     "name": name //name: "Adrián"
                 },
                 success: function(data) {
-                    if (data.includes("Player created")){ //If name added correctly
+                    if (typeof data == "number"){ //If name added correctly
+                        pId = data;
                         $.ajax(addImg); //Try to add the img
                     }
                     console.log(data); //show the msg
@@ -32,6 +34,7 @@ window.onload = function(){ //When page loaded, define vars
                 url: 'addImg.php',
                 method: 'post',
                 data: {
+                    "pId": pId,
                     "user": name,
                     "img": getBase64Image(document.getElementById("resultImg"))
                 },
@@ -39,7 +42,7 @@ window.onload = function(){ //When page loaded, define vars
                     console.log(data);
                     if(data == "Img stored and linked"){ // if img stored correctly:
                         //Go to the waiting room with the user's name and being the firstTime
-                        window.location.href = "waitingRoom.html?username=" + name + "&fistTime=true";
+                        window.location.href = "waitingRoom.html?pId=" + pId + "&username=" + name + "&fistTime=true";
                     }
                 }
             };
