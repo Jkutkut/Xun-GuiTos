@@ -23,8 +23,8 @@ window.onload = function(){ //When page loaded, define vars
                     "name": name //name: "Adrián"
                 },
                 success: function(data) {
-                    if (typeof data == "number"){ //If name added correctly
-                        pId = data;
+                    if (isInt(data)){ //If name added correctly
+                        pId = parseInt(data);
                         $.ajax(addImg); //Try to add the img
                     }
                     console.log(data); //show the msg
