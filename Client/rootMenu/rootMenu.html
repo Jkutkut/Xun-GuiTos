@@ -101,8 +101,8 @@
                     <i class="detailLabel">Status: Creating Players </i>
                 </div>
                 <div>
-                    <button class="rootBtn" onclick="console.warn('upgrade')">Upgrade</button>
-                    <button class="rootBtn" onclick="update();">Update</button>
+                    <button id="upgrade" class="rootBtn" onclick="console.warn('upgrade')">Upgrade</button>
+                    <button id="update" class="rootBtn" onclick="update();">Update</button>
                 </div>
             </div>
         </div>
@@ -110,9 +110,9 @@
         <div class="parent" style="--h: 30%; background: hotpink;">
             <div>
                 <button class="rootBtn" id="R2P">Ready2Play</button>
-                <button class="rootBtn">EndPoll</button>
-                <button class="rootBtn">EndMPoll</button>
-                <button class="rootBtn">HARD RESET</button>
+                <button class="rootBtn" id="EndP">EndPoll</button>
+                <button class="rootBtn" id="EndMiP">EndMPoll</button>
+                <button class="rootBtn" id="HardReset">HARD RESET</button>
             </div>
         </div>
         
