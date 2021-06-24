@@ -9,12 +9,11 @@ window.onload = function(){ //When page loaded, define vars
 
     $("#submitBtn").click(function(){
         let name = $("#nameTb").val(); //Get the name entered in the input.
-        // if(name == "" || imgHTML.css("display") == "none"){ //If data is not correct
-        //     //DO SOMETHING
-        //     console.log("data not correct");
-        // }
-        // else{ //If data is correct
-        if (true) {
+        if(name == "" || imgHTML.css("display") == "none"){ //If data is not correct
+            //DO SOMETHING
+            console.log("data not correct");
+        }
+        else{ //If data is correct
             //add name, img to DB
             let addName = {
                 url: 'createPlayer.php',
@@ -25,7 +24,6 @@ window.onload = function(){ //When page loaded, define vars
                 success: function(data) {
                     if (isInt(data)){ //If name added correctly
                         pId = data;
-                        console.log("->" + pId)
                         $.ajax(addImg(pId)); //Try to add the img
                     }
                     console.log(data); //show the msg
@@ -44,8 +42,7 @@ window.onload = function(){ //When page loaded, define vars
                         console.log(data);
                         if(data == "Img stored and linked"){ // if img stored correctly:
                             //Go to the waiting room with the user's name and being the firstTime
-                            // window.location.href = "waitingRoom.html?pId=" + pId + "&username=" + name + "&fistTime=true";
-                            console.log("->" + pId)
+                            window.location.href = "waitingRoom.html?pId=" + pId + "&username=" + name + "&fistTime=true";
                             console.log("Valid");
                         }
                     }
