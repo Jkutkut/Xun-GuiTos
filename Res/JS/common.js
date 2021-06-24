@@ -157,6 +157,17 @@ function stillIn(e, p, conversion = true) {
         e.y + e.h > p.y + p.h);
 }
 
+/**
+ * Whenever the inputed string is a valid integer.
+ * @param {String} str - String to compare.
+ * @returns (boolean) Result.
+ */
+function isInt(str) {
+    if (typeof str != "string") return false // we only process strings!  
+    return !isNaN(str) && // use type coercion to parse the _entirety_ of the string (`parseFloat` alone does not do this)...
+           !isNaN(parseInt(str)) // ...and ensure strings of whitespace fail
+  }
+
 // Conversors
 /**
  * 
