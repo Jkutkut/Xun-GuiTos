@@ -44,6 +44,7 @@ window.onload = function(){ //When page loaded, define vars
                     if(data == "Img stored and linked"){ // if img stored correctly:
                         //Go to the waiting room with the user's name and being the firstTime
                         // window.location.href = "waitingRoom.html?pId=" + pId + "&username=" + name + "&fistTime=true";
+                        console.log("->" + pId)
                         console.log("Valid");
                     }
                 }
