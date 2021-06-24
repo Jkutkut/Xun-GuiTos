@@ -184,6 +184,77 @@ window.onload = function(){
         });
     });
 
+    $("#EndP").click(function() {
+        $.ajax({
+            url: "endPoll.php",
+            method: "post",
+            data: {},
+            success: function(data) {
+                console.log(data);
+            },
+            error: function(errorThrown) {
+                console.warn(errorThrown);
+            }
+        });
+    });
+
+    $("#EndMiP").click(function() {
+        $.ajax({
+            url: "endMissionPoll.php",
+            method: "post",
+            data: {},
+            success: function(data) {
+                console.log(data);
+            },
+            error: function(errorThrown) {
+                console.warn(errorThrown);
+            }
+        });
+    });
+
+    $("#HardReset").click(function() {
+        $.ajax({
+            url: "hardReset",
+            method: "post",
+            data: {},
+            success: function(data) {
+            },
+            error: function(errorThrown) {
+                console.warn(errorThrown);
+            }
+        });
+    });
+
+    $("#upgradeBtn").click(function() {
+        $.ajax({
+            url: "rootUpdate.php",
+            method: "post",
+            data: {
+
+            },
+            success: function(data) {
+            },
+            error: function(errorThrown) {
+                console.warn(errorThrown);
+            }
+        });
+    });
+
+    $("#updateBtn").click(function() {
+        $.ajax({
+            url: "rootUpdate.php",
+            method: "get",
+            success: function(data) {
+                console.log(data)
+            },
+            error: function(errorThrown) {
+                console.warn(errorThrown);
+            }
+        });
+    });
+
+    
+
     update();
 }
 
