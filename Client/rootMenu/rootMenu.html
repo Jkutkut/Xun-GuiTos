@@ -24,30 +24,12 @@
 </head>
 <body>
     <!-- ROOT MENU -->
-    <!-- <div id="alignPlayers_div" class="grandparent" style="display: none;">
-        <div id="alignPlayers_btn" class="parent secretBtn" style="--h: 50%"></div>
-        <div id="playersContainer" style="background: green; width: 100%; height: 100%;">
-            <div id="mainPlayer" style="background: greenyellow;">
-                <img id="mainPlayerIcon">
-                <i class="username">Username</i>
-            </div>
-        </div>
-    </div> -->
-    <!-- <div id="alignPlayers_div" class="grandparent" style="display: none;">
-        <div id="alignPlayers_btn" class="parent secretBtn" style="--h: 50%"></div>
-        <div id="playersContainer" class="row" style="background: green; width: 100%; height: 100%;">
-            <div id="mainPlayer" class="col-xs-4 col-sm-2 col-md-1" style="background: greenyellow;">
-                <img id="mainPlayerIcon">
-                <i class="username">Username</i>
-            </div>
-        </div>
-    </div> -->
     <div id="main_div" class="">
         <!-- TOP -->
         <div class="parent" style="--c: 2; --h: 70%; background: rgba(132, 177, 43, 0.418); display: flex; flex-direction: row; align-items: center; align-content: center;">
             <div id="playersList_divContainer" style="padding: 5px; height: 100%; width: 40%; text-align: center;">
                 <!-- <div id="playersList_divContainer" style="padding: 5px; height: 100%; width: 40%; background: rgba(38, 197, 123, 0.575); text-align: center;"> -->
-                <i>Players:</i>
+                <i class="detailLabel">Players:</i>
                 
                 <!-- <div id="playersList" class="verticalRows" style="--r:10; --w: 100%"> -->
                 <div id="playersList" class="" style="width: 100%; background: red; height: 95%;">
@@ -56,9 +38,9 @@
                     
             </div>
             <div style="height: 100%; width: 60%; background: yellow; text-align: center; padding: 5px;">
-                <i>Missions:</i>
+                <i class="detailLabel">Missions:</i>
                 <div>
-                    <div id="M1" style="align-items: stretch; text-align: left; background: lightcoral;">
+                    <div id="M1" class="root_Mission">
                         <div>
                             <i>M1:</i>
                             <i id="M1result" style="float: right;"></i>
@@ -69,7 +51,7 @@
                         </div>
                         <i id="M1players"></i>
                     </div>
-                    <div id="M2" style="align-items: stretch; text-align: left; background: lightcoral;">
+                    <div id="M2" class="root_Mission">
                         <div>
                             <i>M2:</i>
                             <i id="M2result" style="float: right;"></i>
@@ -80,7 +62,7 @@
                         </div>
                         <i id="M2players"></i>
                     </div>
-                    <div id="M3" style="align-items: stretch; text-align: left; background: lightcoral;">
+                    <div id="M3" class="root_Mission">
                         <div>
                             <i>M3:</i>
                             <i id="M3result" style="float: right;"></i>
@@ -91,7 +73,7 @@
                         </div>
                         <i id="M3players"></i>
                     </div>
-                    <div id="M4" style="align-items: stretch; text-align: left; background: lightcoral;">
+                    <div id="M4" class="root_Mission">
                         <div>
                             <i>M4:</i>
                             <i id="M4result" style="float: right;"></i>
@@ -102,7 +84,7 @@
                         </div>
                         <i id="M4players"></i>
                     </div>
-                    <div id="M5" style="align-items: stretch; text-align: left; background: lightcoral;">
+                    <div id="M5" class="root_Mission">
                         <div>
                             <i>M5:</i>
                             <i id="M5result" style="float: right;"></i>
@@ -116,21 +98,21 @@
                 </div>
 
                 <div>
-                    <i>Status: </i> Creating Players
+                    <i class="detailLabel">Status: Creating Players </i>
                 </div>
                 <div>
-                    <button onclick="console.warn('upgrade')">Upgrade</button>
-                    <button onclick="update();">Update</button>
+                    <button class="rootBtn" onclick="console.warn('upgrade')">Upgrade</button>
+                    <button class="rootBtn" onclick="update();">Update</button>
                 </div>
             </div>
         </div>
         <!-- BOTTOM -->
         <div class="parent" style="--h: 30%; background: hotpink;">
             <div>
-                <button id="R2P">Ready2Play</button>
-                <button>EndPoll</button>
-                <button>EndMPoll</button>
-                <button>HARD RESET</button>
+                <button class="rootBtn" id="R2P">Ready2Play</button>
+                <button class="rootBtn">EndPoll</button>
+                <button class="rootBtn">EndMPoll</button>
+                <button class="rootBtn">HARD RESET</button>
             </div>
         </div>
         
