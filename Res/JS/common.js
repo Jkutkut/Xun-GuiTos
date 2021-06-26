@@ -76,6 +76,22 @@ function getQuerry(){
                 let value = decodeURIComponent(params[i].split('=')[1]);
                 queryString[key] = value;
             }
+
+            if (queryString.username && !queryString.pId) {
+                console.warn("pId not selected");
+
+                $.ajax({
+                    url: "getpId",
+                    method: "get",
+                    data:{
+                        username: queryString.username
+                    },
+                    success: function(data) {
+                        console.log("pId recovered: " + data);
+                        queryString["pId"] = parseInt(data);
+                    }
+                });
+            }
         }
     }
 }
