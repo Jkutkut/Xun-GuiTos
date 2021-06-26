@@ -1,3 +1,7 @@
+/**
+ * This variable keeps the known NodeRed database state.
+ * @see Each time a new version of each piece is returned from server, this variable is updated.
+ */
 var DB = {
     players: null,
     playersPos: null,
@@ -6,15 +10,20 @@ var DB = {
     missionTeam: null
 }
 
-$(window).resize(resizeTextSize); // When screen size change, adjust text size
+// WHEN FILE LOADED, EXECUTE THIS CODE
 resizeTextSize(); // Update the text size with the current screen
+$(window).resize(resizeTextSize); // When screen size change, adjust text size
 
+
+// ************ CSS ************
 /**
- * Updates the CSS properties with the standar Text-Size
+ * Updates the CSS properties with the standar Text-Size.
+ * This allows to have a consistent text display, scalling text-size with the height of the window.
+ * @see this values are designed for mobile devices.
  */
 function resizeTextSize() {
-    let size = $("body").css("height");
-    size = Number.parseInt(size.substr(0, size.length - 2) / 50);
+    let size = $("body").css("height"); // Height of the window in pixels
+    size = Number.parseInt(size.substr(0, size.length - 2) / 50); // Is is the smallest text-size
 
     let textSize = [
         ["huge", 3.5],
@@ -24,8 +33,8 @@ function resizeTextSize() {
         ["small", 1.5],
         ["detail", 1]
     ]
-    for (let e of textSize) {
-        $(":root").css("--" + e[0] + "Text", e[1] * size + "px");
+    for (let e of textSize) { // for each desired textSize-type
+        $(":root").css("--" + e[0] + "Text", e[1] * size + "px"); // Add it to the CSS :root
     }
 
     console.log("Screen resized");
@@ -62,9 +71,11 @@ function resizeTextSize() {
 
 
 
-// Connectivity
+// ************ Connectivity ************
+/**
+ * This variable stores the data entered using the url (url.com?data=1 => queryString = {data: 1})
+ */
 var queryString = new Array();
-var dataBase = {};
 
 /**
  * Get all the information addressed in the URL and store it on the queryString object.
@@ -110,24 +121,13 @@ function getBase64Image(img) {
     // return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
 }
 
-function getPlayers() {
-    let f = function(data) {
-        try{
-            dataBase.players = jQuery.parseJSON(data);
-        }
-        catch(error) { // If error, set the players as empty array (should never be executed)
-            dataBase.players = jQuery.parseJSON("[]");
-        }
-        console.log("players array updated");
-    }
-    $.ajax({
-        url: 'getPlayers.php',
-        method: 'post',
-        success: f
-    });
-}
 
-
+/**
+ * Changes the current URL of the device, storing the desired data on it.
+ * This prevents the user of asking for the information all the time or the need of cache.
+ * @param {String} url - URL defined at NodeRed to go to.
+ * @param {Obj} extraData - Object with the desired extra data we want to add.
+ */
 function go2page(url, extraData={}) {
     let extra = [];
     for (const v of Object.entries(queryString)) {
@@ -171,7 +171,7 @@ const asyncInterval = async (petition, spected, ms, triesLeft = 10000) => {
 }
 
 
-// Analyzers
+// ************ Analyzers ************
 /**
  * Checks whenever an element e is (phisically) inside of a element p
  * @param {object} e - Element to check if it is inside ({x: number, y: number, w: number, h: number})
@@ -201,7 +201,7 @@ function isInt(str) {
            !isNaN(parseInt(str)) // ...and ensure strings of whitespace fail
   }
 
-// Conversors
+// ************ Conversors ************
 /**
  * 
  * @param {object} e - Query element
@@ -223,36 +223,4 @@ function div2disposition(e) {
  */
 function pixel2float(p){
     return parseFloat(p.substring(0, p.length - 2));
-}
-
-
-// DEBUGING
-/**
- * Clears the content of all the tables on the sqlite3 database.
- */
-function clearTables(){
-    tablesToClear = [
-        "Players",
-        "Imgs",
-        "Opinion"
-    ];
-    for (let t of tablesToClear){
-        clearTable(t);
-    }
-}
-/**
- * Clears the content of the sqlite3 table using ajax.
- * @param {string} t - Name of the table to clear (case sensitive).
- */
-function clearTable(t){
-    $.ajax({
-        url: 'clearTable.php',
-        method: 'post',
-        data: {
-          table: t
-        },
-        success: function(data) {
-          console.log(data);
-        }
-      });
 }
