@@ -67,20 +67,24 @@ function resizeTextSize() {
 var queryString = new Array();
 var dataBase = {};
 
+/**
+ * Get all the information addressed in the URL and store it on the queryString object.
+ */
 function getQuerry(){
     if (queryString.length == 0) {
-        if (window.location.search.split('?').length > 1) {
+        if (window.location.search.split('?').length > 1) { // If there're arguments to store
+            // Get them
             var params = window.location.search.split('?')[1].split('&');
-            for (let i = 0; i < params.length; i++) {
-                let key = params[i].split('=')[0];
-                let value = decodeURIComponent(params[i].split('=')[1]);
-                queryString[key] = value;
+            for (let i = 0; i < params.length; i++) { // For each argument
+                let d = params[i].split('='); // Split key-value
+
+                queryString[d[0]] = decodeURIComponent(d[1]);
             }
 
-            if (queryString.username && !queryString.pId) {
+            if (queryString.username && !queryString.pId) { // If username stored but pId missing
                 console.warn("pId not selected");
 
-                $.ajax({
+                $.ajax({ // Get pId and store it
                     url: "getpId",
                     method: "get",
                     data:{
