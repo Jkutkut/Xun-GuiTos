@@ -47,7 +47,7 @@ window.onload = function() {
             console.log(data);
             updatePlayers(data.players);
             updateMissions(data.missions);
-            // updateSelected(data.)
+            updateSelectedPlayers(data.missionTeam)
             updatePoll(data.opinion);
         }
     });
@@ -187,8 +187,13 @@ function updateMissions(missions) {
 
 function updateSelectedPlayers(selected) {
     DB.missionTeam = selected; //Update DB
+    console.log(DB.missionTeam);
 
-    
+    $(".gun").attr("src", "../../Res/img/empty.png"); // hide all guns
+
+    for (let p of DB.missionTeam) {
+        pickUser(DB.playersPos[p.pId - 1], 1);
+    }
 }
 
 
@@ -250,10 +255,10 @@ function pickUser(user, value=null) {
         $.ajax(response);
     }
     else {
-        if (value == 1) {
+        if (value == 1) { // if the player has been selected
             newSrc = randomWeapon();
         }
-        else if (value == 0) {
+        else if (value == 0) { // If the player hasn't been selected
             newSrc = empty + extension;
         }
         else {
@@ -261,7 +266,6 @@ function pickUser(user, value=null) {
         }
     }
 
-    console.log("player selection updated");
     $("#gun"+user.divId).attr("src", newSrc)
 }
 
