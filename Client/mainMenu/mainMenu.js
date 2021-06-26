@@ -279,12 +279,15 @@ function vote(v){
     // pollBtnState = Current status of the btns
     if (v == undefined || v == pollBtnState) { //if empty argument or they are the same, clear vote
         pollBtnState = 0; //reset var
+        $(".pollBtn").css("font-weight", "normal");
     }
     else if(v) { // If v == true => Yes
         pollBtnState = 1;
+        $("#RightBtnLabel").css("font-weight", "bold");
     }
     else { // If v == false => No
         pollBtnState = -1;
+        $("#LeftBtnLabel").css("font-weight", "bold");
     }
 
     $.ajax({

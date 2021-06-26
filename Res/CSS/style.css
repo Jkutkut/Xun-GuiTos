@@ -314,6 +314,7 @@ div .username {
 }
 .PollText {
     font-size: var(--hugeText);
+    font-weight: normal;
 }
 
 /* popups */
