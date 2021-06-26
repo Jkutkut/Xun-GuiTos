@@ -55,7 +55,7 @@ window.onload = function() {
     // updatePlayers(debugPlayers);
     // updateMissions({missions: debugMissions, missionTeam: 0});
 
-    getUpdatedPoll();
+    // getUpdatedPoll();
 
     // updatePoll(debugOpinion);
 }
@@ -206,8 +206,27 @@ function pickUser(user, value=null) {
     let gun = "../../Res/img/guns/0";
     let extension = ".png";
 
+    let randomWeapon = () => {
+        let r = Math.round(Math.random() * 35) + 1;
+        if (r < 10) r = "0"+r;
+        
+        pSelected4mission++; // New user added
+        return gun + r + "-gun" + extension;
+    };
+
     let newSrc;
     if (value === null) {
+        let response = {
+            url: "", // filled later
+            method: "post",
+            data: {
+                mId: currentMissionIndex,
+                pId: user.player.pId
+            },
+            success: (data) => {
+                console.log(data);
+            }
+        }
         if ($("#gun"+user.divId).attr("src") == empty + extension) { // if selecting user
             if (pSelected4mission >= playersPerM[DB.players.length][currentMissionIndex]) {
                 // If attempting to select user and maximun players selected reached
@@ -215,19 +234,31 @@ function pickUser(user, value=null) {
                 return;
             }
             
-            let r = Math.round(Math.random() * 35) + 1;
-            if (r < 10) r = "0"+r;
-            
-            pSelected4mission++; // New user added
-            newSrc = gun + r + "-gun" + extension;
+            newSrc = randomWeapon();
+
+            //Update response
+            response.url = "selectPlayer4mission";
         }
         else { // if unselecting user
             pSelected4mission--; // user removed
             newSrc = empty + extension;
+
+            // Update response
+            response.url = "removePlayer4mission";
         }
+
+        $.ajax(response);
     }
     else {
-        newSrc = value;
+        if (value == 1) {
+            newSrc = randomWeapon();
+        }
+        else if (value == 0) {
+            newSrc = empty + extension;
+        }
+        else {
+            throw new Error("The value for pickUser is not valid");
+        }
     }
 
     console.log("player selection updated");
