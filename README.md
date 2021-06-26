@@ -15,6 +15,7 @@ My own version of the board game "[The Resistance](http://devir.es/producto/la-r
     - Now using 'getDB' petition to get all the tables at the same time.
     - At nodeRed, selectPlayer4mission and removePlayer4mission logic added to update missionTeam table.
     - Now the leader can select the players to go to a mission and the others can update the UI with that info.
+    - RootMenu updated to new nodeRed logic
 - v0.3.4:
     - Now on DB.playersPos, the divId and the players are stored. This will allow the function enableUserPicking to work.
     - Now when missions are updated, the enableUserPicking function is executed if the user is the leader.
