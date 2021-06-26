@@ -85,13 +85,17 @@ function updatePlayers(players) {
     let pIte = playerIterator(len);
     let current = pIte.next();
     let index = 0;
-    // console.log(queryString)
+
     while(players[index].name != queryString.username) {
         index++; // While the first is not my name, go to the next
         if (index === len) {
             throw new Error("Name not found");
         }
     }
+
+
+    let today = new Date();
+    let max = 50; // 50 pngs of users
 
     DB.playersPos = new Array(len); // Store player on the position relative to the user:
     // (index: pId of the user; value: {divId: divId of the user, player: object of the player})
@@ -105,6 +109,9 @@ function updatePlayers(players) {
         let content = players[index];
 
         $("#userName" + current.value).text(content.name); // Update the name of the user
+
+        iconIndex = players[index].pId * 5 - (today.getDay() + today.getHours()) % 5;
+        $("#icon" + current.value).attr("src", "../../Res/img/users/user" + iconIndex +".png"); // Update the name of the user
 
         // Get and update img
         
