@@ -33,26 +33,25 @@ window.onload = function() {
     // });
     updatePlayers(debugPlayers);
 
-    // $.ajax({
-    //     url: "missions",
-    //     method: "get",
-    //     success: function(data) {
-    //         console.log(data);
-    //         updateMissions(data);
-    //     }
-    // });
-    updateMissions(debugMissions);
+    $.ajax({
+        url: "missions",
+        method: "get",
+        success: function(data) {
+            console.log(data);
+            updateMissions(data);
+        }
+    });
+    // updateMissions({missions: debugMissions, missionTeam: 0});
 
-    // $.ajax({
-    //     url: "pollStatus",
-    //     method: "get",
-    //     success: function(data) {
-    //         console.log(data);
-    //         updatePoll(data);
-    //     }
-    // });
+    $.ajax({
+        url: "pollStatus",
+        method: "get",
+        success: function(data) {
+            updatePoll(data);
+        }
+    });
 
-    updatePoll(debugOpinion);
+    // updatePoll(debugOpinion);
 }
 
 
@@ -140,16 +139,17 @@ function showPlayers(n){
 }
 
 
-function updateMissions(missions) {
-    DB.missions = missions;
+function updateMissions(missionsOBJ) {
+    DB.missions = missionsOBJ.missions;
+    DB.missionTeam = missionsOBJ.missionTeam;
     let i;
-    for (i = 0; i < missions.length; i++) {
-        if (missions[i].active == true) {
+    for (i = 0; i < DB.missions.length; i++) {
+        if (DB.missions[i].active == true) {
             currentMissionIndex = i; //store current index
             break;
         }
         let color = "var(--chunguitoColor)";
-        if (missions[i].mRes == 1) { // If mission was successful
+        if (DB.missions[i].mRes == 1) { // If mission was successful
             color = "var(--resistanceColor)";
         }
         
@@ -157,16 +157,16 @@ function updateMissions(missions) {
     }
 
     if (i > 0) { // If mission done
-        openPopUp(missions[i - 1]);
+        openPopUp(DB.missions[i - 1]);
     }
 
     $("#missionSticker" + (i + 1)).addClass("cMissionSticker");
-    console.log("Leader -> " + DB.players[missions[i].leaderId - 1].name + " " + missions[i].leaderId + " => " + DB.playersPos[missions[i].leaderId - 1].divId);
+    console.log("Leader -> " + DB.players[DB.missions[i].leaderId - 1].name + " " + DB.missions[i].leaderId + " => " + DB.playersPos[DB.missions[i].leaderId - 1].divId);
     
     // SELECT LEADER
     $(".torch").attr("src", "../../Res/img/empty.png");
-    $("#torch" + DB.playersPos[missions[i].leaderId - 1].divId).attr("src", "../../Res/img/torch.png");
-    if (typeof DB.playersPos[missions[i].leaderId - 1].divId == "string") { // If leader is this user
+    $("#torch" + DB.playersPos[DB.missions[i].leaderId - 1].divId).attr("src", "../../Res/img/torch.png");
+    if (typeof DB.playersPos[DB.missions[i].leaderId - 1].divId == "string") { // If leader is this user
         enableUserPicking(); // IF I AM LEADER, ENABLE CREATE TEAM
     }
 
@@ -237,7 +237,6 @@ function pickUser(user, value=null) {
  * @see DB-Logic to see the meaning of each value.
  */
 function updatePoll(data){
-    console.log(data);
     let si = [], no = [];
     for (let d of data) { // For each player
         if (d.val == 1) {
@@ -248,12 +247,27 @@ function updatePoll(data){
         }
     }
 
-    console.log(si);
-    console.log(no);
+    let siResult = "---", noResult = "---", mResult = "---"
+    
+    if (si.length > 0 || no.length > 0) {
+        siResult = si.join(", ");
+        noResult = no.join(", ");
 
-    $("#siPlayers").text(si.join(", "));
-    $("#noPlayers").text(no.join(", "));
-    $("#missionStatus").text(((si.length > no.length)? "Aceptada" : "Denegada")); //mission valid -> aceptada; mission invalid -> denegada
+        if (si.length > no.length) {
+            mResult = "Aceptada";
+        }
+        else {
+            mResult = "Denegada";
+        }
+    }
+    else {
+        $("#siPlayers").text("---");
+        $("#noPlayers").text("---");
+    }
+
+    $("#siPlayers").text(siResult);
+    $("#noPlayers").text(noResult);
+    $("#missionStatus").text(mResult); //mission valid -> aceptada; mission invalid -> denegada
 }
 
 /**
