@@ -109,11 +109,15 @@ function getPlayers() {
 }
 
 
-function go2page(url) {
+function go2page(url, extraData={}) {
     let extra = [];
     for (const v of Object.entries(queryString)) {
         extra.push(v.join("="))
     }
+    for (const v of Object.entries(extraData)) {
+        extra.push(v.join("="))
+    }
+    // console.log(url + "?" + extra.join("&"));
     window.location.href = url + "?" + extra.join("&");
 }
 
