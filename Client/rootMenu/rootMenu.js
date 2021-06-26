@@ -18,7 +18,7 @@ function updatePlayers(players) {
     rootMenu.players = players;
     for (let p of players) {
         renamePlayer(p.pId, p.name);
-        console.log(p);
+        // console.log(p);
     }
 }
 
@@ -55,16 +55,14 @@ function getPlayersOrder() {
 
 /* MISSIONS */
 
-function updateMissions(missionOBJ) {
+function updateMissions(missions, missionTeam) {
+    DB.missions = missions;
+    DB.missionTeam = missionTeam;
 
-
-    rootMenu.missionOBJ = missionOBJ;
-    let missions = missionOBJ.missions;
-
-    console.log(missions);
+    // console.log(missions);
     let missionsEnded = true;
     for (let m of missions) {
-        console.log(m);
+        // console.log(m);
         let result = "Result: ";
         if (m.active == 1) {
             result = "Active";
@@ -107,7 +105,7 @@ function updateMissions(missionOBJ) {
         // Player logic
         let players = [];
         let playersId = new Set();
-        for (let p of missionOBJ.missionTeam) { // For each 
+        for (let p of DB.missionTeam) { // For each 
             if (p.mId == m.mId) { // If player went to the current mission
                 playersId.add(p.pId); // Add the id
             }
@@ -148,7 +146,7 @@ window.onload = function(){
         otherPlayer.css("background", "yellow");
         tag.css("float", "left");
 
-        $("#P" + i).on("tap", function(){console.log("fdhakjf")});
+        // $("#P" + i).on("tap", function(){console.log("fdhakjf")});
         // $("#P" + i).click(function(){console.log("fdhakjf")});
         // $("#P" + i).click(eval("()=>{updateLeader(" + i + ");}"));
         // otherPlayer.on('tap', eval("() =>{updateLeader(" + i + ");}"));
@@ -267,24 +265,14 @@ $(function(){
 
 function update() {
     $.ajax({
-        url: "players",
+        url: "getDB",
         method: "get",
         success: function(data) {
-            updatePlayers(data);
+            updatePlayers(data.players);
+            updateMissions(data.missions, data.missionTeam);
         },
         error: (e) => {
             updatePlayers(debugPlayers)
-        }
-    });
-
-    $.ajax({
-        url: "missions",
-        method: "get",
-        success: function(data) {
-            updateMissions(data);
-        },
-        error: (e) => {
-            updateMissions(debugMissions)
         }
     });
 }
