@@ -23,21 +23,32 @@ window.onload = function() {
     $("#RightBtn").click(()=>{vote(false);});
 
     // GetPlayers
-    $.ajax({
-        url: "players",
-        method: "get",
-        success: function(data) {
-            console.log(data);
-            updatePlayers(data);
+    // $.ajax({
+    //     url: "players",
+    //     method: "get",
+    //     success: function(data) {
+    //         console.log(data);
+    //         updatePlayers(data);
 
-            $.ajax({
-                url: "missions",
-                method: "get",
-                success: function(data) {
-                    console.log(data);
-                    updateMissions(data);
-                }
-            });
+    //         $.ajax({
+    //             url: "missions",
+    //             method: "get",
+    //             success: function(data) {
+    //                 console.log(data);
+    //                 updateMissions(data);
+    //             }
+    //         });
+    //     }
+    // });
+    $.ajax({
+        url: "getDB",
+        method: "get",
+        success: (data) => {
+            console.log(data);
+            updatePlayers(data.players);
+            updateMissions(data.missions);
+            // updateSelected(data.)
+            updatePoll(data.opinion);
         }
     });
     
@@ -134,9 +145,8 @@ function showPlayers(n){
 }
 
 
-function updateMissions(missionsOBJ) {
-    DB.missions = missionsOBJ.missions;
-    DB.missionTeam = missionsOBJ.missionTeam;
+function updateMissions(missions) {
+    DB.missions = missions;
     let i;
     for (i = 0; i < DB.missions.length; i++) {
         if (DB.missions[i].active == true) {
@@ -173,6 +183,12 @@ function updateMissions(missionsOBJ) {
         $("#specialMtag").css("display", "none");
     }
 
+}
+
+function updateSelectedPlayers(selected) {
+    DB.missionTeam = selected; //Update DB
+
+    
 }
 
 
