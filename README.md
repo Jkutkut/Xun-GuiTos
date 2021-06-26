@@ -133,6 +133,7 @@ Work focused on the configuration of the rapsberry pi 4 and the bluetooth commun
 ## Special mentions:
 ### Icons:
 - Gun icons: Made by smalllikeart: https://www.flaticon.com/authors/smalllikeart
+- Users: Made by Vitaly Gorbachev: https://www.flaticon.com/authors/vitaly-gorbachev
 - Torch icon: Icons made by freepik http://www.freepik.com/
 
 ## Gridstrap:
