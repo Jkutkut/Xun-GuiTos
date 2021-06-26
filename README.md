@@ -17,8 +17,15 @@ My own version of the board game "[The Resistance](http://devir.es/producto/la-r
         - CreatePlayer
         - WaitingRoom
     - RootMenu work to control the game.
-    - CreatePlayer does not need an image. It will be required in the future.
     - PNGs from flaticon added to replace users imgs.
+    - MainMenu logic changes:
+        - CreatePlayer does not need an image anymore. It will be required in the future.
+        - Poll btn font-weight changed if selected.
+        - players and missions now can be updated from NodeRed.
+        - Now leader can not select more users than the maximum allowed.
+        - Poll now updated from nodeRed.
+        - New function go2page to standarize the way to switch between devices.
+        - User icons now replaced with new pngs using a phseudo-random logic.
 - v0.3.3:
     - Shell script to find the nodeRed rapsberry ip using brute-force.
     - New client menu: Mission-Poll.
