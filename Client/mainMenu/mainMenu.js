@@ -19,8 +19,8 @@ window.onload = function() {
     
     $(".gun").attr("src", "../../Res/img/empty.png");
     
-    $("#LeftBtn").click(function(){vote(true);});
-    $("#RightBtn").click(function(){vote(false);});
+    $("#LeftBtn").click(()=>{vote(true);});
+    $("#RightBtn").click(()=>{vote(false);});
 
     // GetPlayers
     $.ajax({
