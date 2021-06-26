@@ -44,13 +44,7 @@ window.onload = function() {
     // updatePlayers(debugPlayers);
     // updateMissions({missions: debugMissions, missionTeam: 0});
 
-    $.ajax({
-        url: "pollStatus",
-        method: "get",
-        success: function(data) {
-            updatePoll(data);
-        }
-    });
+    getUpdatedPoll();
 
     // updatePoll(debugOpinion);
 }
@@ -262,8 +256,8 @@ function updatePoll(data){
         }
     }
     else {
-        $("#siPlayers").text("---");
-        $("#noPlayers").text("---");
+        siResult = "---";
+        noResult = "---";
     }
 
     $("#siPlayers").text(siResult);
@@ -294,14 +288,26 @@ function vote(v){
         url: "changeOpinion.php",
         method: "post",
         data: {
-            user: queryString.username,
+            pId: queryString.pId,
             opinion: pollBtnState
         },
         success: function(data) {
+            getUpdatedPoll();
             console.log(data);
         }
     });
 }
+
+function getUpdatedPoll() {
+    $.ajax({
+        url: "pollStatus",
+        method: "get",
+        success: function(data) {
+            updatePoll(data);
+        }
+    });
+}
+
 
 
 /* PopUp zone */
