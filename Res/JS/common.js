@@ -15,7 +15,6 @@ resizeTextSize(); // Update the text size with the current screen
 function resizeTextSize() {
     let size = $("body").css("height");
     size = Number.parseInt(size.substr(0, size.length - 2) / 50);
-    console.log(size);
 
     let textSize = [
         ["huge", 3.5],
