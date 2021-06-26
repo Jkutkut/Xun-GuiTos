@@ -1,5 +1,8 @@
 var height, pollBtnState;
 
+var pSelected4mission = 0;
+var currentMissionIndex;
+
 var playersPerM = {
     5: [ 2, 3, 2, 3, 3 ],
     6: [ 2, 3, 4, 3, 4 ],
@@ -38,7 +41,7 @@ window.onload = function() {
     //         updateMissions(data);
     //     }
     // });
-    updateMissions(debugMissions)
+    updateMissions(debugMissions);
 
     // $.ajax({
     //     url: "pollStatus",
@@ -48,6 +51,8 @@ window.onload = function() {
     //         updatePoll(data);
     //     }
     // });
+
+    updatePoll(debugOpinion);
 }
 
 
@@ -95,7 +100,6 @@ function updatePlayers(players) {
 
 
     let today = new Date();
-    let max = 50; // 50 pngs of users
 
     DB.playersPos = new Array(len); // Store player on the position relative to the user:
     // (index: pId of the user; value: {divId: divId of the user, player: object of the player})
@@ -141,6 +145,7 @@ function updateMissions(missions) {
     let i;
     for (i = 0; i < missions.length; i++) {
         if (missions[i].active == true) {
+            currentMissionIndex = i; //store current index
             break;
         }
         let color = "var(--chunguitoColor)";
@@ -192,13 +197,21 @@ function pickUser(user, value=null) {
 
     let newSrc;
     if (value === null) {
-        if ($("#gun"+user.divId).attr("src") == empty + extension) {
+        if ($("#gun"+user.divId).attr("src") == empty + extension) { // if selecting user
+            if (pSelected4mission >= playersPerM[DB.players.length][currentMissionIndex]) {
+                // If attempting to select user and maximun players selected reached
+                console.warn("Maximum players selected reached");
+                return;
+            }
+            
             let r = Math.round(Math.random() * 35) + 1;
             if (r < 10) r = "0"+r;
             
+            pSelected4mission++; // New user added
             newSrc = gun + r + "-gun" + extension;
         }
-        else {
+        else { // if unselecting user
+            pSelected4mission--; // user removed
             newSrc = empty + extension;
         }
     }
@@ -206,6 +219,7 @@ function pickUser(user, value=null) {
         newSrc = value;
     }
 
+    console.log("player selection updated");
     $("#gun"+user.divId).attr("src", newSrc)
 }
 
@@ -223,14 +237,23 @@ function pickUser(user, value=null) {
  * @see DB-Logic to see the meaning of each value.
  */
 function updatePoll(data){
-    let si = 0, no = 0;
+    console.log(data);
+    let si = [], no = [];
     for (let d of data) { // For each player
-        if (d.val == 1) si++; // If vote is positive
-        else if (d.val == -1) no++; // If negative
+        if (d.val == 1) {
+            si.push(DB.players[d.pId - 1].name); // If vote is positive
+        }
+        else if (d.val == -1) {
+            no.push(DB.players[d.pId - 1].name); // If negative
+        }
     }
-    $("#PollText1").text("Sí: " + si);
-    $("#PollText2").text("No: " + no);
-    $("#PollText3").text("Misión: " + ((si > no)? "Aceptada" : "Denegada")); //mission valid -> aceptada; mission invalid -> denegada
+
+    console.log(si);
+    console.log(no);
+
+    $("#siPlayers").text(si.join(", "));
+    $("#noPlayers").text(no.join(", "));
+    $("#missionStatus").text(((si.length > no.length)? "Aceptada" : "Denegada")); //mission valid -> aceptada; mission invalid -> denegada
 }
 
 /**
@@ -307,10 +330,10 @@ const debugPlayers = [
     {"pId":4,"name":"adri","groupPos":4,"pType":0},
     {"pId":5,"name":"laura","groupPos":5,"pType":1},
     {"pId":6,"name":"Juan","groupPos":6,"pType":0},
-    // {"pId":7,"name":"Pepa","groupPos":7,"pType":0},
-    // {"pId":8,"name":"Esmeralda","groupPos":8,"pType":0},
-    // {"pId":9,"name":"Luis","groupPos":9,"pType":0},
-    // {"pId":10,"name":"Paco","groupPos":10,"pType":0}
+    {"pId":7,"name":"Pepa","groupPos":7,"pType":0},
+    {"pId":8,"name":"Esmeralda","groupPos":8,"pType":0},
+    {"pId":9,"name":"Luis","groupPos":9,"pType":0},
+    {"pId":10,"name":"Paco","groupPos":10,"pType":0}
 ];
 
 var debugMissions = [
@@ -353,5 +376,48 @@ var debugMissions = [
         vYes: null,
         vNo: null,
         mRes: 0
+    }
+];
+
+var debugOpinion = [
+    {
+        "pId":1,
+        "val":1
+    },
+    {
+        "pId":2,
+        "val":1
+    },
+    {
+        "pId":3,
+        "val":1
+    },
+    {
+        "pId":4,
+        "val":1
+    },
+    {
+        "pId":5,
+        "val":1
+    },
+    {
+        "pId":6,
+        "val":1
+    },
+    {
+        "pId":7,
+        "val":1
+    },
+    {
+        "pId":8,
+        "val":1
+    },
+    {
+        "pId":9,
+        "val":1
+    },
+    {
+        "pId":10,
+        "val":1
     }
 ];
