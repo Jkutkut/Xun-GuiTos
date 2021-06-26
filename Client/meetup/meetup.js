@@ -22,7 +22,7 @@ window.onload = function() {
 
     $(".toMainMenuBtn").click(function() { // When btn to go to MainMenu clicked
         console.log("Change to MainMenu");
-        window.location.href = "mainMenu.html?username=" + queryString["username"];
+        go2page("mainMenu.html");
     });
 
     // $.ajax({

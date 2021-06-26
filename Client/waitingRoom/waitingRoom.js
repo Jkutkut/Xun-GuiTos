@@ -10,7 +10,8 @@ var ready4meetup = {
     method: 'get',
     success: function(data) {
         if (data == "t") {
-            window.location.href = "meetup.html?username=" + queryString["username"];
+            delete queryString.firstTime; // If it's fistTime, remove it. If not, do nothing.
+            go2page("meetup.html");
         }
         else {
             console.log("not valid");
