@@ -12,6 +12,9 @@ My own version of the board game "[The Resistance](http://devir.es/producto/la-r
         - Refactoring of changeOpinion and minor changes based on new logic.
         - getDB petition created to get content of all tables needed in MainMenu with a single petition.
         - Now using 'getDB' petition to get all the tables at the same time.
+        - pickUser function updated. Now, when adding a 2º argument, the code should update the UI. Also ajax logic added so the leader can update the DB.
+        - At nodeRed, selectPlayer4mission and removePlayer4mission logic added to update missionTeam table.
+        - Now the leader can select the players to go to a mission and the others can update the UI with that info.
 - v0.3.4:
     - Now on DB.playersPos, the divId and the players are stored. This will allow the function enableUserPicking to work.
     - Now when missions are updated, the enableUserPicking function is executed if the user is the leader.
