@@ -9,7 +9,8 @@ window.onload = function(){ //When page loaded, define vars
 
     $("#submitBtn").click(function(){
         let name = $("#nameTb").val(); //Get the name entered in the input.
-        if(name == "" || imgHTML.css("display") == "none"){ //If data is not correct
+        if(name == ""){ //If no name entered
+        // if(name == "" || imgHTML.css("display") == "none"){ //If data is not correct
             //DO SOMETHING
             console.log("data not correct");
         }
@@ -24,7 +25,8 @@ window.onload = function(){ //When page loaded, define vars
                 success: function(data) {
                     if (isInt(data)){ //If name added correctly
                         pId = data;
-                        $.ajax(addImg(pId)); //Try to add the img
+                        // $.ajax(addImg(pId)); //Try to add the img
+                        window.location.href = "waitingRoom.html?pId=" + pId + "&username=" + name + "&fistTime=true";
                     }
                     console.log(data); //show the msg
                 }
