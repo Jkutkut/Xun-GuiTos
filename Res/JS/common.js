@@ -108,6 +108,16 @@ function getPlayers() {
     });
 }
 
+
+function go2page(url) {
+    let extra = [];
+    for (const v of Object.entries(queryString)) {
+        extra.push(v.join("="))
+    }
+    window.location.href = url + "?" + extra.join("&");
+}
+
+
 // Asinc functions using promises
 const sleep = async (ms) => {
     return new Promise(resolve => setTimeout(resolve, ms));
