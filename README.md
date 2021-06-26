@@ -4,6 +4,10 @@ My own version of the board game "[The Resistance](http://devir.es/producto/la-r
 
 
 ## Version history:
+### v0.4:
+- v0.4.0:
+    - 
+
 ### v0.3:
 - v0.3.5:
     - MainMenu changes:
@@ -155,13 +159,18 @@ Work focused on the configuration of the rapsberry pi 4 and the bluetooth commun
 - Gun icons: Made by smalllikeart: https://www.flaticon.com/authors/smalllikeart
 - Users: Made by Vitaly Gorbachev: https://www.flaticon.com/authors/vitaly-gorbachev
 - Torch icon: Icons made by freepik http://www.freepik.com/
+- Async petitions with interval: https://levelup.gitconnected.com/how-to-turn-settimeout-and-setinterval-into-promises-6a4977f0ace3
+- Css loading: https://loading.io/css/
+- Crop img: https://codepen.io/blackjacques/pen/bqgNoa
 
-## Gridstrap:
+### Gridstrap:
 - Github: [https://github.com/rosspi/gridstrap.js/](https://github.com/rosspi/gridstrap.js/)
 - Demo: [rosspi.github.io/gridstrap.js](https://rosspi.github.io/gridstrap.js/)
 
-# Confetti:
+### Confetti:
 - [npm](https://www.npmjs.com/package/canvas-confetti)
+
+
 
 ### Links:
 Links to pages used to configure or consult with usefull information:
@@ -190,10 +199,5 @@ Links to pages used to configure or consult with usefull information:
     - jQuerry ajax: https://api.jquery.com/jquery.ajax/
     - js php: https://stackoverflow.com/questions/12498839/how-to-execute-php-code-within-javascript/12498905
 
-
-
 #### Web:
-- Async petitions with interval: https://levelup.gitconnected.com/how-to-turn-settimeout-and-setinterval-into-promises-6a4977f0ace3
-- Css loading: https://loading.io/css/
-- Crop img: https://codepen.io/blackjacques/pen/bqgNoa
 - https://www.w3schools.com/cssref/css_units.asp
