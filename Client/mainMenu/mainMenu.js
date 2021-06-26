@@ -23,24 +23,25 @@ window.onload = function() {
     $("#RightBtn").click(function(){vote(false);});
 
     // GetPlayers
-    // $.ajax({
-    //     url: "players",
-    //     method: "get",
-    //     success: function(data) {
-    //         console.log(data);
-    //         updatePlayers(data);
-    //     }
-    // });
-    updatePlayers(debugPlayers);
-
     $.ajax({
-        url: "missions",
+        url: "players",
         method: "get",
         success: function(data) {
             console.log(data);
-            updateMissions(data);
+            updatePlayers(data);
+
+            $.ajax({
+                url: "missions",
+                method: "get",
+                success: function(data) {
+                    console.log(data);
+                    updateMissions(data);
+                }
+            });
         }
     });
+    
+    // updatePlayers(debugPlayers);
     // updateMissions({missions: debugMissions, missionTeam: 0});
 
     $.ajax({
@@ -161,7 +162,7 @@ function updateMissions(missionsOBJ) {
     }
 
     $("#missionSticker" + (i + 1)).addClass("cMissionSticker");
-    console.log("Leader -> " + DB.players[DB.missions[i].leaderId - 1].name + " " + DB.missions[i].leaderId + " => " + DB.playersPos[DB.missions[i].leaderId - 1].divId);
+    // console.log("Leader -> " + DB.players[DB.missions[i].leaderId - 1].name + " " + DB.missions[i].leaderId + " => " + DB.playersPos[DB.missions[i].leaderId - 1].divId);
     
     // SELECT LEADER
     $(".torch").attr("src", "../../Res/img/empty.png");
