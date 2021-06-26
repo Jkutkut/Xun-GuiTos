@@ -9,6 +9,9 @@ My own version of the board game "[The Resistance](http://devir.es/producto/la-r
     - MainMenu changes:
         - Poll now updates automatically.
         - The user can now rejoin the game using the username. The pId is requested automatically.
+        - Refactoring of changeOpinion and minor changes based on new logic.
+        - getDB petition created to get content of all tables needed in MainMenu with a single petition.
+        - Now using 'getDB' petition to get all the tables at the same time.
 - v0.3.4:
     - Now on DB.playersPos, the divId and the players are stored. This will allow the function enableUserPicking to work.
     - Now when missions are updated, the enableUserPicking function is executed if the user is the leader.
