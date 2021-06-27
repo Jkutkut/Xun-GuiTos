@@ -12,7 +12,9 @@ My own version of the board game "[The Resistance](http://devir.es/producto/la-r
         - gameOver.html, gameOver.js
         - meetup.html, meetup.js
         - waitingRoom.html, waitingRoom.js
-    - WaitingRoom phrases now on NodeRed
+        - missionPoll.html, missionPoll.js
+    - WaitingRoom phrases now on NodeRed.
+    - MissionPoll cards now with new class to avoid selecting the text.
 
 ### v0.3:
 - v0.3.5:
