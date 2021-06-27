@@ -10,12 +10,20 @@ var DB = {
     missionTeam: null
 }
 
+/**
+ * This variable stores the data entered using the url (url.com?data=1 => queryString = {data: 1})
+ */
+ var queryString = new Array();
+
+
 // WHEN FILE LOADED, EXECUTE THIS CODE
+getQuerry(); // Get information from URL
 resizeTextSize(); // Update the text size with the current screen
 $(window).resize(resizeTextSize); // When screen size change, adjust text size
 
 
 // ************ CSS ************
+
 /**
  * Updates the CSS properties with the standar Text-Size.
  * This allows to have a consistent text display, scalling text-size with the height of the window.
@@ -72,10 +80,6 @@ function resizeTextSize() {
 
 
 // ************ Connectivity ************
-/**
- * This variable stores the data entered using the url (url.com?data=1 => queryString = {data: 1})
- */
-var queryString = new Array();
 
 /**
  * Get all the information addressed in the URL and store it on the queryString object.
@@ -224,3 +228,17 @@ function div2disposition(e) {
 function pixel2float(p){
     return parseFloat(p.substring(0, p.length - 2));
 }
+
+
+// ********* DEBUG ************
+
+// debug
+const debugPlayers = [
+    {"pId":1,"name":"jorge","groupPos":null,"pType":0},
+    {"pId":2,"name":"paula","groupPos":null,"pType":0},
+    {"pId":3,"name":"ana","groupPos":null,"pType":1},
+    {"pId":4,"name":"adri","groupPos":null,"pType":0},
+    {"pId":5,"name":"laura","groupPos":null,"pType":1},
+    {"pId":6,"name":"user23","groupPos":null,"pType":0},
+    {"pId":7,"name":"fklsdj","groupPos":null,"pType":0}
+];
