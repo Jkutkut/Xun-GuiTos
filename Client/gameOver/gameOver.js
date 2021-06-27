@@ -1,8 +1,5 @@
 var confettiCanvas;
 window.onload = function() {
-    getQuerry(); //function from common.js
-
-    $("#confetti").css("display", "none");
     $("#confettiCanvas").attr("width", $("body").css("width"));
     $("#confettiCanvas").attr("height", $("body").css("height"));
     confettiCanvas = document.getElementById("confettiCanvas");
@@ -17,59 +14,38 @@ window.onload = function() {
  function partyTime(type=0) {
     $("#confetti").css("display", "block");
     let colores;
-    if (type == 0) { // Blue
+    if (type == 0) // Blue
         colores = ["#083987", "#6ea5ff", "#3874d6"];
-    }
-    else {
+    else
         colores = ["#e35d5d", "#ba3434", "#960606", "#d63c3c"];
-    }
+
     let myConfetti = confetti.create(confettiCanvas, {
         resize: true,
         useWorker: true
     });
 
-    let confetis = [
-        {
+    for (let i = 0; i < 2; i++) {
+        myConfetti({
             particleCount: 250,
             colors: colores,
-            angle: 70,
+            angle: 70 + i * 40,
             spread: 45,
             scalar: 4.5,
             gravity: 2,
             ticks: 300,
             decay: 0.8,
-            drift: 1,
+            drift: Math.pow(-1, i),
             origin: {
-                x: 0,
+                x: i,
                 y: 1
             },
             startVelocity: 270
-        },
-        {
-            particleCount: 250,
-            colors: colores,
-            angle: 110,
-            spread: 45,
-            scalar: 4.5,
-            gravity: 2,
-            ticks: 300,
-            decay: 0.8,
-            drift: -1,
-            origin: {
-                x: 1,
-                y: 1
-            },
-            startVelocity: 270
-        }
-    ];
-
-    for (let cofetti of confetis) {
-        myConfetti(cofetti);
+        });
     }
 
     setTimeout(() => {
         $("#confetti").css("display", "none");
-    }, 5000)
+    }, 5000);
 }
 
 function selectResult(val) {
