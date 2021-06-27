@@ -1,11 +1,11 @@
-var canvas, context, imgHTML, cropper, imgF;
+// var canvas, context, imgHTML, cropper, imgF;
 
 var state = false;
 
 window.onload = function(){ //When page loaded, define vars
-    canvas = $("#canvas");
-    context = canvas.get(0).getContext("2d");
-    imgHTML = $("#resultImg");
+    // canvas = $("#canvas");
+    // context = canvas.get(0).getContext("2d");
+    // imgHTML = $("#resultImg");
 
     $("#submitBtn").click(function(){
         let name = $("#nameTb").val(); //Get the name entered in the input.
@@ -54,7 +54,7 @@ window.onload = function(){ //When page loaded, define vars
         }
     });
 }
-
+/*
 var loadFile = function(event) { //When img selected
     togleMenu(); //Change to edit menuñ
     
@@ -106,3 +106,4 @@ function togleMenu() {
     $("#photo").css("display", s(!state));
     state = !state;
 }
+*/

@@ -3,14 +3,12 @@
     <meta charset="utf-8">
     <title>Resistencia</title>
     <!-- CSS -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://unpkg.com/material-components-web@7.0.0/dist/material-components-web.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.7/cropper.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.7/cropper.css"> -->
     <link rel="stylesheet" href="../../Res/CSS/style.css">
     
     <!-- JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.7/cropper.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.7/cropper.min.js"></script> -->
     <script src="createPlayer.js"></script>
 
 </head>
@@ -23,31 +21,31 @@
         </div>
         <!-- IMG -->
         <img id="resultImg" src="../../Res/img/default_user.png" style="display: none; width: 45%; height: auto;">
+        
         <!-- Img control -->
         <!-- <div class="parent">
             <p class="label" style="width: 80%;"><label for="file">Añadir imagen</label></p>
             <input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;">
         </div> -->
         
-
         <!-- NAME -->
         <div id="main" class="parent">
             <div class="label">Introduce tu nombre</div>
             <input type="text" id="nameTb" name="username">
         </div>
+
         <!-- Submit BTN -->
         <a id="submitBtn">Empezar</a>
-        <!-- <a id="submitBtn" class="btn mdc-button mdc-button--raised">Empezar</a> -->
     </div>
-    <div id="photo" class="grandparent" style="display: none;">
+    <!-- <div id="photo" class="grandparent" style="display: none;">
         <div class="parent" style="height: 85%; width: 95%;">
             <canvas id="canvas"> Your browser does not support the HTML5 canvas element. </canvas>
         </div>
         <div class="horizontalCols" style="--c: 2; --h: auto">
-            <button id="iconCancel" class="label mdc-button mdc-button--raised iconBtn" onclick="cancelCrop()">Cancelar</button>
-            <button id="iconReady" class="label mdc-button mdc-button--raised iconBtn" onclick="cropImg()">Listo!</button>
+            <button id="iconCancel" class="smallLabel iconBtn" onclick="cancelCrop()">Cancelar</button>
+            <button id="iconReady" class="smallLabel iconBtn" onclick="cropImg()">Listo!</button>
         </div>
-    </div>
+    </div> -->
     
     <script src="../../Res/JS/common.js"></script>
 </body>
