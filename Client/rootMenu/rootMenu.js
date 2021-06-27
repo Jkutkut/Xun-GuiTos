@@ -18,13 +18,12 @@ function updatePlayers(players) {
     rootMenu.players = players;
     for (let p of players) {
         renamePlayer(p.pId, p.name);
-        // console.log(p);
     }
 }
 
 /**
  * Changes the index of the leader and adds the icon to the desired player.
- * @param {number} leaderIndex index (1 based) of the player.
+ * @param {number} leaderIndex index (1 based) of the player (pId of the player).
  */
 function updateLeader(leaderIndex){
     rootMenu.leader.index = leaderIndex;
@@ -80,14 +79,16 @@ function updateMissions(missions, missionTeam) {
         $("#M" + m.mId + "result").text(result);
 
         if (m.leaderId != null) { // If leader selected
-            let leaderName;
+            let leaderName, leaderPId;
             for (let p of rootMenu.players) {
                 if (p.pId == m.leaderId) {
                     leaderName = p.name;
+                    leaderPId = p.pId;
                     break;
                 }
             }
             $("#M" + m.mId + "leader").text("Leader: " + leaderName);
+            updateLeader(leaderPId);
         }
         else { // If no leader selected
             $("#M" + m.mId + "leader").text("");
@@ -145,19 +146,9 @@ window.onload = function(){
 
         otherPlayer.css("background", "yellow");
         tag.css("float", "left");
-
-        // $("#P" + i).on("tap", function(){console.log("fdhakjf")});
-        // $("#P" + i).click(function(){console.log("fdhakjf")});
-        // $("#P" + i).click(eval("()=>{updateLeader(" + i + ");}"));
-        // otherPlayer.on('tap', eval("() =>{updateLeader(" + i + ");}"));
-        // $(document).on('vclick', '#P' + i, eval("() =>{updateLeader(" + i + ");}"));
-        // $(document).on('vclick', '#P' + i, eval("() =>{console.log('hfald')}"));
         
     }
     $("#P1").append(rootMenu.leader.icon);
-    
-    // $("#secretBtn_waitingM").click(toggleMenu);
-    // $("#secretBtn_rootM").click(toggleMenu);
 
 
     $("#R2P").click(function() {
@@ -182,73 +173,64 @@ window.onload = function(){
         });
     });
 
-    $("#EndP").click(function() {
-        $.ajax({
-            url: "endPoll.php",
-            method: "post",
-            data: {},
-            success: function(data) {
-                console.log(data);
-            },
-            error: function(errorThrown) {
-                console.warn(errorThrown);
-            }
-        });
-    });
+    // $("#EndP").click(function() {
+    //     $.ajax({
+    //         url: "endPoll.php",
+    //         method: "post",
+    //         data: {},
+    //         success: function(data) {
+    //             console.log(data);
+    //         },
+    //         error: function(errorThrown) {
+    //             console.warn(errorThrown);
+    //         }
+    //     });
+    // });
 
-    $("#EndMiP").click(function() {
-        $.ajax({
-            url: "endMissionPoll.php",
-            method: "post",
-            data: {},
-            success: function(data) {
-                console.log(data);
-            },
-            error: function(errorThrown) {
-                console.warn(errorThrown);
-            }
-        });
-    });
+    // $("#EndMiP").click(function() {
+    //     $.ajax({
+    //         url: "endMissionPoll.php",
+    //         method: "post",
+    //         data: {},
+    //         success: function(data) {
+    //             console.log(data);
+    //         },
+    //         error: function(errorThrown) {
+    //             console.warn(errorThrown);
+    //         }
+    //     });
+    // });
 
-    $("#HardReset").click(function() {
-        $.ajax({
-            url: "hardReset",
-            method: "post",
-            data: {},
-            success: function(data) {
-            },
-            error: function(errorThrown) {
-                console.warn(errorThrown);
-            }
-        });
-    });
+    // $("#HardReset").click(function() {
+    //     $.ajax({
+    //         url: "hardReset",
+    //         method: "post",
+    //         data: {},
+    //         success: function(data) {
+    //         },
+    //         error: function(errorThrown) {
+    //             console.warn(errorThrown);
+    //         }
+    //     });
+    // });
 
-    $("#upgradeBtn").click(function() {
-        $.ajax({
-            url: "rootUpdate.php",
-            method: "post",
-            data: {
+    // $("#upgradeBtn").click(function() {
+    //     $.ajax({
+    //         url: "rootUpdate.php",
+    //         method: "post",
+    //         data: {
 
-            },
-            success: function(data) {
-            },
-            error: function(errorThrown) {
-                console.warn(errorThrown);
-            }
-        });
-    });
+    //         },
+    //         success: function(data) {
+    //         },
+    //         error: function(errorThrown) {
+    //             console.warn(errorThrown);
+    //         }
+    //     });
+    // });
 
     $("#updateBtn").click(function() {
-        $.ajax({
-            url: "rootUpdate.php",
-            method: "get",
-            success: function(data) {
-                console.log(data)
-            },
-            error: function(errorThrown) {
-                console.warn(errorThrown);
-            }
-        });
+        update();
     });
 
     
