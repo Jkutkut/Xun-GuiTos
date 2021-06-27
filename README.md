@@ -9,6 +9,7 @@ My own version of the board game "[The Resistance](http://devir.es/producto/la-r
     - Code refactoring, commenting and removal of obsolete code:
         - common.js 
         - createPlayer.html, createPlayer.js
+        - gameOver.html, gameOver.js
 
 ### v0.3:
 - v0.3.5:
