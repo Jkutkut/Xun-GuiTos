@@ -10,6 +10,8 @@ My own version of the board game "[The Resistance](http://devir.es/producto/la-r
         - common.js 
         - createPlayer.html, createPlayer.js
         - gameOver.html, gameOver.js
+        - meetup.html, meetup.js
+        - waitingRoom.html, waitingRoom.js
 
 ### v0.3:
 - v0.3.5:
