@@ -5,14 +5,12 @@
 ## Client:
 - [ ] CreatePlayer menu:
     - [ ] Optimize css
-    - [ ] Optimize html
+    - [x] Optimize html
     - [ ] Optimize js
     - [ ] If data not correct, handle error
     - [ ] If username taken, handle error
     - ERRORS:
-        - [x] The img does not scale correctly
         - [ ] IOS (+ Chrome?): ScreenHeight may not be direct
-        - [x] "LISTO" btn height not correct
         - [ ] 
 - [ ] WaitingRoom:
     - [x] JSON based phrases
@@ -75,3 +73,5 @@
 - MainMenu:
     - On click on each mission, if finnished, analice the round.
 - Enable to work even if player disconected
+- Add toast logic to enable console interface.
+- Code reduced logic to create production files
