@@ -1,21 +1,11 @@
-var phrases;
-var phrasesBuffer = [];
-var rootMenu = {
-    playerL: null,
-    playerP: {},
-    leader: {
-        index: null,
-        icon: null
-    },
-    players: [],
-    missions: []
-};
-
+var leader = {
+    index: null
+}
 
 /* PlayerList */
 
 function updatePlayers(players) {
-    rootMenu.players = players;
+    DB.players = players;
     for (let p of players) {
         renamePlayer(p.pId, p.name);
     }
@@ -26,7 +16,7 @@ function updatePlayers(players) {
  * @param {number} leaderIndex index (1 based) of the player (pId of the player).
  */
 function updateLeader(leaderIndex){
-    rootMenu.leader.index = leaderIndex;
+    leader.index = leaderIndex;
     $("#rootMenu_leaderIcon").appendTo("#P" + leaderIndex);
     console.log("Changed to P" + leaderIndex);
 }
@@ -38,13 +28,15 @@ function updateLeader(leaderIndex){
  * @param {string} name - name to change the player to.
  */
 function renamePlayer(index, name){
-    $("#P" + index + "_name").text(name);
+    console.log(`${index} => ${name} -> #P${index}_name`);
+    $(`#P${index}_name`).text(name); //update div
+    $(`.P${index}_name`).text(name); //update div on gridstrap
 }
 
 
 function getPlayersOrder() {
     let newOrder = [];
-    for (let p of rootMenu.players) {
+    for (let p of DB.players) {
         // newOrder.push({pId: p.pId, groupPos: }); // USE ME
         newOrder.push({pId: p.pId, groupPos: p.pId}); // temporal code
     }
@@ -80,7 +72,7 @@ function updateMissions(missions, missionTeam) {
 
         if (m.leaderId != null) { // If leader selected
             let leaderName, leaderPId;
-            for (let p of rootMenu.players) {
+            for (let p of DB.players) {
                 if (p.pId == m.leaderId) {
                     leaderName = p.name;
                     leaderPId = p.pId;
@@ -111,7 +103,7 @@ function updateMissions(missions, missionTeam) {
                 playersId.add(p.pId); // Add the id
             }
         }
-        for (let p of rootMenu.players) {
+        for (let p of DB.players) {
             if (playersId.has(p.pId)) {
                 players.push(p.name);
             }
@@ -128,29 +120,6 @@ function updateMissions(missions, missionTeam) {
 
 
 window.onload = function(){
-    
-    getQuerry(); //function from common.js
-
-    rootMenu.playerL = $("#playersList");
-    let h = pixel2float($("#playersList_divContainer").css("height")) / 10; // size of a player on the list
-    
-    //Icon
-    rootMenu.leader.icon = "<div id=\"rootMenu_leaderIcon\" style=\"height:" + (h * 0.8) + "px; width:" + (h * 0.8) + "px; display: block; margin-left: auto; transform: translateY(9%);\"></div>";
-
-    
-    for (let i = 1; i <= 10; i++){
-        let otherPlayer = $("<div id=\"P"+ i + "\" class=\"\" style=\"width: 100%; height: 10%;\"></div>");
-        let tag = $("<i id=\"P" + i + "_name\" class=\"username\" style=\"width: 50%; transform: translateY(50%);\">------</i>");
-        otherPlayer.append(tag);
-        rootMenu.playerL.append(otherPlayer);
-
-        otherPlayer.css("background", "yellow");
-        tag.css("float", "left");
-        
-    }
-    $("#P1").append(rootMenu.leader.icon);
-
-
     $("#R2P").click(function() {
         $.ajax({
             url: "updatePlayersOrder.php",
@@ -249,7 +218,7 @@ function update() {
     $.ajax({
         url: "getDB",
         method: "get",
-        success: function(data) {
+        success: (data) => {
             updatePlayers(data.players);
             updateMissions(data.missions, data.missionTeam);
         },
