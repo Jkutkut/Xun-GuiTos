@@ -1,62 +1,45 @@
-const TIME2SEE = 10000;
-
-// debug
-const debugPlayers = [
-    {"pId":1,"name":"jorge","groupPos":null,"pType":0},
-    {"pId":2,"name":"paula","groupPos":null,"pType":0},
-    {"pId":3,"name":"ana","groupPos":null,"pType":1},
-    {"pId":4,"name":"adri","groupPos":null,"pType":0},
-    {"pId":5,"name":"laura","groupPos":null,"pType":1},
-    {"pId":6,"name":"user23","groupPos":null,"pType":0},
-    {"pId":7,"name":"fklsdj","groupPos":null,"pType":0}
-];
-
 window.onload = function() {
-
-    getQuerry(); //function from common.js
-
-    $("#submitBtn").click(function() {
+    $("#submitBtn").click(function() { // When the button to reveal the player selected
         $("#main").css("display", "none");
-        $("#characterReveal").css("display", "grid");
+        $("#characterReveal").css("display", "flex");
     });
 
     $(".toMainMenuBtn").click(function() { // When btn to go to MainMenu clicked
-        console.log("Change to MainMenu");
         go2page("mainMenu.html");
     });
 
-    // $.ajax({
-    //     url: "players",
-    //     method: "get",
-    //     success: function(data) {
-    //         getMyCharacter(data);
-    //     }
-    // });
-    getMyCharacter(debugPlayers);
-
-    $("#characterReveal").css("display", "flex");
-    // $("#chunguito").css("display", "block");
-    $("#resistencia").css("display", "block");
-    $("#main").css("display", "none");
+    $.ajax({
+        url: "players",
+        method: "get",
+        success: function(data) {
+            getMyCharacter(data);
+        }
+    });
 }
 
+/**
+ * Analices the players in the game, discovers which type of player is the user and loads the apropiate message.
+ * @param {Obj} data - Data with all the players. The object must be an Array with the content of NodeRed Database.
+ */
 function getMyCharacter(data) {
     let chunguitos = [];
-    let whatAmI = "resistance";
-    for (let player of data) {
-        console.log(player);
-        if (player.name == queryString.username && player.pType == 1) {
-            whatAmI = "chunguito";
-        }
-        else if (player.pType == 1) { // If chunguito found and it is not me
-            chunguitos.push(player.name);
+    let whatAmI = "resistencia";
+    for (let player of data) { // for each player
+        if (player.pType == 1) { // If the user is chunguito
+            if (player.name == queryString.username) { // If the player represent the user
+                whatAmI = "chunguito";
+            }
+            else { // If chunguito found and it is not me
+                chunguitos.push(player.name);
+            }
         }
     }
     console.log("->" + whatAmI);
-    $("#" + whatAmI).css("display", "grid");
 
+    $("#" + whatAmI).css("display", "block");
     $("#userName").text(queryString.username);
 
+    // Update the message choosen with extra information.
     if (whatAmI == "chunguito") {
         let chunText = chunguitos[0];
         if (chunguitos.length > 1) {
@@ -66,10 +49,11 @@ function getMyCharacter(data) {
             }
             chunText += " y " + chunguitos[i];
         }
+        // Add the partner(s) to the message
         $("#chunguitosP").text(chunText);
     }
     else {
-        $("#nChunguitos").text(chunguitos.length);
-        $("#resistencia").css("font-size", "calc(var(--detailText) * 1.4)");
+        $("#nChunguitos").text(chunguitos.length); // Show the number of chunguitos
+        $("#resistencia").css("font-size", "calc(var(--detailText) * 1.4)"); // Less text => bigger size
     }
 }
