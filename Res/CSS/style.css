@@ -371,6 +371,34 @@ div .username {
     height: 100%;
 }
 
+.rootMenuPlayerContainer {
+    width: 81%;
+    height: 4.82%;
+
+    margin: 0.3vh;
+
+    background: rgba(255, 208, 0, 0.549);
+
+    padding: 0.5vh;
+    margin: 0.5vh;
+    margin-bottom: 2vh;
+    border-radius: 10px;
+    border: 5px solid var(--black);
+
+}
+.rootMenuPlayer {
+    font-size: var(--smallText);
+    transform: translateY(25%);
+    float: left;
+    text-align: left;
+
+    padding-left: 2vh;
+}
+.rootMenuLeader {
+    aspect-ratio: 1;
+    margin-left: auto;
+}
+
 .root_Mission {
     font-size: var(--detailText);
     
