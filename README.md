@@ -5,6 +5,9 @@ My own version of the board game "[The Resistance](http://devir.es/producto/la-r
 
 ## Version history:
 ### v0.4:
+- v0.4.1:
+    - FSM simplified, keeping all functionality.
+    - Working on endPoll logic and canStopWaiting.
 - v0.4.0:
     - Code refactoring, commenting and removal of obsolete code:
         - common.js 
