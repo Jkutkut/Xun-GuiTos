@@ -17,7 +17,8 @@ My own version of the board game "[The Resistance](http://devir.es/producto/la-r
     - WaitingRoom phrases now on NodeRed.
     - MissionPoll cards now with new class to avoid selecting the text.
     - RootMenu UI updated.
-
+    - RootMenu's function getPlayersOrder now returns the correct order.
+    - MainMenu bugs fixed.
 ### v0.3:
 - v0.3.5:
     - MainMenu changes:
