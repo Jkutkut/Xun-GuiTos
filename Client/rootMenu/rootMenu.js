@@ -165,6 +165,7 @@ window.onload = function(){
                     success: function(data) {
                         console.log(data);
                         console.warn("Game started");
+                        update();
                     }
                 });
             },
@@ -174,19 +175,20 @@ window.onload = function(){
         });
     });
 
-    // $("#EndP").click(function() {
-    //     $.ajax({
-    //         url: "endPoll.php",
-    //         method: "post",
-    //         data: {},
-    //         success: function(data) {
-    //             console.log(data);
-    //         },
-    //         error: function(errorThrown) {
-    //             console.warn(errorThrown);
-    //         }
-    //     });
-    // });
+    $("#EndP").click(function() {
+        $.ajax({
+            url: "endPoll",
+            method: "post",
+            data: {},
+            success: function(data) {
+                console.log(data);
+                update();
+            },
+            error: function(errorThrown) {
+                console.warn(errorThrown);
+            }
+        });
+    });
 
     // $("#EndMiP").click(function() {
     //     $.ajax({
