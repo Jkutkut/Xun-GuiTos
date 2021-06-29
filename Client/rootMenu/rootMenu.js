@@ -17,13 +17,20 @@ var leader = {
     index: null
 }
 
-
+/**
+ * Update the UI with the current state of the game.
+ * @param {number} cState - Current state
+ */
 function updateState(cState) {
     $("#currentStatus").text(STATES[cState]);
 }
 
 /* PlayerList */
 
+/**
+ * Update players list.
+ * @param {obj} players - player object from DB
+ */
 function updatePlayers(players) {
     DB.players = players;
     for (let p of players) {
@@ -37,7 +44,8 @@ function updatePlayers(players) {
  */
 function updateLeader(leaderIndex){
     leader.index = leaderIndex;
-    $("#rootMenu_leaderIcon").appendTo("#P" + leaderIndex);
+    $("#rootMenu_leaderIcon").remove();
+    $("#rootMenu_leaderIcon").appendTo(".P" + leaderIndex);
     console.log("Changed to P" + leaderIndex);
 }
 
@@ -140,20 +148,9 @@ function updateMissions(missions, missionTeam) {
     }
 }
 
-
-function debugF() {
-    let players = getPlayersOrder();
-    for (let p of players) {
-        console.log("-> " + DB.players[p.pId - 1].name);
-    }
-}
-
 window.onload = function(){
     
     update();
-
-    setTimeout(debugF, 1000);
-    // getPlayersOrder();
 
     $("#R2P").click(function() {
         $.ajax({
