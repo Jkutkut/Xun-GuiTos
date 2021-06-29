@@ -26,6 +26,7 @@ My own version of the board game "[The Resistance](http://devir.es/producto/la-r
         - Now the poll to create a mission is handled.
         - if the mission poll can not be ended, error is raised
         - Logic added to determine the outcome of the poll and handle that result.
+    - NEW LOGIC of FSM. Next version will use it to develop endgame.
 ### v0.3:
 - v0.3.5:
     - MainMenu changes:
