@@ -28,7 +28,7 @@ function updateLeader(leaderIndex){
  * @param {string} name - name to change the player to.
  */
 function renamePlayer(index, name){
-    console.log(`${index} => ${name} -> #P${index}_name`);
+    // console.log(`${index} => ${name} -> #P${index}_name`);
     $(`#P${index}_name`).text(name); //update div
     $(`.P${index}_name`).text(name); //update div on gridstrap
 }
@@ -36,9 +36,18 @@ function renamePlayer(index, name){
 
 function getPlayersOrder() {
     let newOrder = [];
-    for (let p of DB.players) {
-        // newOrder.push({pId: p.pId, groupPos: }); // USE ME
-        newOrder.push({pId: p.pId, groupPos: p.pId}); // temporal code
+    let index = 1;
+    for (let child of $("#playersList")[0].childNodes) {
+        let id = $(child).attr("id");
+        if (id !== undefined) {
+            id = parseInt(id.substr(1));
+            if (!isNaN(id)) {
+                if (id > DB.players.length) { // If empty tag found
+                    continue; // Player not valid, go to the next one
+                }
+                newOrder.push({pId: id, groupPos: index++});               
+            }
+        }
     }
     return newOrder;
 }
@@ -119,7 +128,20 @@ function updateMissions(missions, missionTeam) {
 }
 
 
+function debugF() {
+    let players = getPlayersOrder();
+    for (let p of players) {
+        console.log("-> " + DB.players[p.pId - 1].name);
+    }
+}
+
 window.onload = function(){
+    
+    update();
+
+    setTimeout(debugF, 1000);
+    // getPlayersOrder();
+
     $("#R2P").click(function() {
         $.ajax({
             url: "updatePlayersOrder.php",
@@ -201,10 +223,6 @@ window.onload = function(){
     $("#updateBtn").click(function() {
         update();
     });
-
-    
-
-    update();
 }
 
 $(function(){
