@@ -25,7 +25,7 @@ My own version of the board game "[The Resistance](http://devir.es/producto/la-r
     - NodeRed logic:
         - Now the poll to create a mission is handled.
         - if the mission poll can not be ended, error is raised
-        - Logic added to determine the outcome of the poll
+        - Logic added to determine the outcome of the poll and handle that result.
 ### v0.3:
 - v0.3.5:
     - MainMenu changes:
