@@ -1,5 +1,25 @@
+const STATES = {
+    SETUP: 0,
+    MEETUP: 1,
+    ROUND: 2,
+    POLLM: 3,
+    MISSION: 4,
+    ENDM: 5,
+    0: "Setup",
+    1: "Meetup",
+    2: "Round",
+    3: "PollM",
+    4: "Mission",
+    5: "EndM"
+}
+
 var leader = {
     index: null
+}
+
+
+function updateState(cState) {
+    $("#currentStatus").text(STATES[cState]);
 }
 
 /* PlayerList */
@@ -28,7 +48,6 @@ function updateLeader(leaderIndex){
  * @param {string} name - name to change the player to.
  */
 function renamePlayer(index, name){
-    // console.log(`${index} => ${name} -> #P${index}_name`);
     $(`#P${index}_name`).text(name); //update div
     $(`.P${index}_name`).text(name); //update div on gridstrap
 }
@@ -232,6 +251,7 @@ function update() {
         method: "get",
         success: (data) => {
             console.log(data);
+            updateState(data.currentState);
             updatePlayers(data.players);
             updateMissions(data.missions, data.missionTeam);
         },
