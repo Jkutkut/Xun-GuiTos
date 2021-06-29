@@ -2,15 +2,13 @@ const STATES = {
     SETUP: 0,
     MEETUP: 1,
     ROUND: 2,
-    POLLM: 3,
-    MISSION: 4,
-    ENDM: 5,
+    MISSION: 3,
+    END: 4,
     0: "Setup",
     1: "Meetup",
     2: "Round",
-    3: "PollM",
-    4: "Mission",
-    5: "EndM"
+    3: "Mission",
+    4: "End"
 }
 
 var leader = {
