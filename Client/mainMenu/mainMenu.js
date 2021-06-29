@@ -225,7 +225,7 @@ function pickUser(user, value=null) {
             url: "", // filled later
             method: "post",
             data: {
-                mId: currentMissionIndex,
+                mId: currentMissionIndex + 1,
                 pId: user.player.pId
             },
             success: (data) => {
