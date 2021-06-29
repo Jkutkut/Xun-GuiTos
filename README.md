@@ -22,6 +22,10 @@ My own version of the board game "[The Resistance](http://devir.es/producto/la-r
         - missions update with the players selected for the mission.
         - Current state now appears on screen.
     - MainMenu bugs fixed.
+    - NodeRed logic:
+        - Now the poll to create a mission is handled.
+        - if the mission poll can not be ended, error is raised
+        - Logic added to determine the outcome of the poll
 ### v0.3:
 - v0.3.5:
     - MainMenu changes:
