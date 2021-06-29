@@ -10,10 +10,13 @@ var phrasesBuffer = [];
 var ready4meetup = {
     url: "canStopWaiting",
     method: 'get',
+    data: {
+        state: 1
+    },
     success: function(data) {
-        if (data == "t") {
+        if (data != "f") {
             delete queryString.firstTime; // If it's fistTime, remove it. If not, do nothing.
-            go2page("meetup.html");
+            go2page(data);
         }
         else {
             console.log("not valid");
