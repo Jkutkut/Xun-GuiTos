@@ -106,22 +106,16 @@ function updateMissions(missions, missionTeam) {
 
         // Player logic
         let players = [];
-        let playersId = new Set();
-        for (let p of DB.missionTeam) { // For each 
+        for (let p of DB.missionTeam) { // For each
+            console.log(p);
             if (p.mId == m.mId) { // If player went to the current mission
-                playersId.add(p.pId); // Add the id
+                players.push(DB.players[p.pId - 1].name); // Add the player to the array
             }
         }
-        for (let p of DB.players) {
-            if (playersId.has(p.pId)) {
-                players.push(p.name);
-            }
-        }
-
         if (players.length == 0) { // If no players on this mission
             $("#M" + m.mId + "players").text("");
         }
-        else {
+        else { // If players, show them
             $("#M" + m.mId + "players").text("Players: " + players.join(", "));
         }
     }
@@ -237,11 +231,13 @@ function update() {
         url: "getDB",
         method: "get",
         success: (data) => {
+            console.log(data);
             updatePlayers(data.players);
             updateMissions(data.missions, data.missionTeam);
         },
         error: (e) => {
-            updatePlayers(debugPlayers)
+            updatePlayers(debugPlayers);
+            updateMissions(debugMissions, []);
         }
     });
 }
