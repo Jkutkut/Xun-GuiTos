@@ -224,7 +224,8 @@ function pickUser(user, value=null) {
     let extension = ".png";
 
     let randomWeapon = () => {
-        let r = Math.floor(Math.random() * 35) + 1;
+        let today = new Date();
+        let r = user.player.pId * 3 - (today.getDay() + today.getHours()) % 3;
         if (r < 10) r = "0"+r;
         
         pSelected4mission++; // New user added
