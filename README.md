@@ -12,6 +12,7 @@ My own version of the board game "[The Resistance](http://devir.es/producto/la-r
         - Functions to update and check for next state now executing periodically.
         - Weapons now randomiced but consistent for a period of time.
         - Logic to limit amount of members for mission updated. Now it depends on server.
+        - Now players appear sorted using groupPos (IRL order).
     - NodeRed:
         - Working on endPoll logic and canStopWaiting.
         - Bugs on querys to DB fixed.
