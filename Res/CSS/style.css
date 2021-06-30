@@ -245,6 +245,7 @@ i {
     
     /* height: 100%; */
     height: calc(var(--bigText) * 1.25);
+    width: calc(var(--bigText) * 1.25);
     aspect-ratio: 1;
     border-radius: 50%;
     font-size: var(--bigText);
