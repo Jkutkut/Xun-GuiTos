@@ -23,22 +23,23 @@ function vote(vDiv) {
         return;
     }
 
-    let v = 1;
+    let v = 0; // Vote for success
     if ($(vDiv).hasClass("failuremission")) {
-        v = -1;
+        v = 1; // Vote for failure
     }
 
-    console.log("******* " + ((v == 1)? "Success" : "Failure") + " *******");
-    // $.ajax({
-    //     url: "",
-    //     method: "post",
-    //     data: {
-    //         name: queryString.username,
-    //         v: v
-    //     },
-    //     success: function(data) {
-    //         console.log(data);
-
-    //     }
-    // });
+    console.log("*** " + ((v == 1)? "Success" : "Failure") + " ***");
+    $.ajax({
+        url: "voteMission",
+        method: "post",
+        data: {
+            name: queryString.username,
+            pId: queryString.pId,
+            vote: v
+        },
+        success: function(data) {
+            console.log(data);
+            go2page("waitingRoom.html");
+        }
+    });
 }
