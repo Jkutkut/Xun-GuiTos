@@ -45,7 +45,8 @@ window.onload = function() {
         if (amIaLeader) enableUserPicking(); // IF I AM LEADER, ENABLE CREATE TEAM
     }, 1000);
 
-    asyncInterval(goToNextState, "t", 20000);
+    asyncInterval(goToNextState, "t", 5000);
+    // asyncInterval(goToNextState, "t", 20000);
 }
 
 
