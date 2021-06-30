@@ -1,6 +1,5 @@
 var height, pollBtnState;
 
-var pSelected4mission = 0;
 var currentMissionIndex;
 var amIaLeader = false;
 
@@ -200,10 +199,8 @@ function updateMissions(missions) {
 
 function updateSelectedPlayers(selected) {
     DB.missionTeam = selected; //Update DB
-    // console.log(DB.missionTeam);
 
     $(".gun").attr("src", "../../Res/img/empty.png"); // hide all guns
-
     for (let p of DB.missionTeam) {
         pickUser(DB.playersPos[p.pId - 1], 1);
     }
@@ -227,8 +224,6 @@ function pickUser(user, value=null) {
         let today = new Date();
         let r = user.player.pId * 3 - (today.getDay() + today.getHours()) % 3;
         if (r < 10) r = "0"+r;
-        
-        pSelected4mission++; // New user added
         return gun + r + "-gun" + extension;
     };
 
@@ -242,11 +237,16 @@ function pickUser(user, value=null) {
                 pId: user.player.pId
             },
             success: (data) => {
-                console.log(data);
+                // console.log(data);
+                update();
             }
         }
         if ($("#gun"+user.divId).attr("src") == empty + extension) { // if selecting user
-            if (pSelected4mission >= playersPerM[DB.players.length][currentMissionIndex]) {
+            let playersAlreadyOnMission = 0;
+            for (let p of DB.missionTeam) {
+                if (p.mId == currentMissionIndex + 1) playersAlreadyOnMission++;
+            }
+            if (playersAlreadyOnMission >= playersPerM[DB.players.length][currentMissionIndex]) {
                 // If attempting to select user and maximun players selected reached
                 console.warn("Maximum players selected reached");
                 return;
@@ -258,7 +258,6 @@ function pickUser(user, value=null) {
             response.url = "selectPlayer4mission";
         }
         else { // if unselecting user
-            pSelected4mission--; // user removed
             newSrc = empty + extension;
 
             // Update response
