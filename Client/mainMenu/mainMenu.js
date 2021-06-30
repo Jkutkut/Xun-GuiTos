@@ -2,6 +2,7 @@ var height, pollBtnState;
 
 var pSelected4mission = 0;
 var currentMissionIndex;
+var amIaLeader = false;
 
 var playersPerM = {
     5: [ 2, 3, 2, 3, 3 ],
@@ -14,6 +15,23 @@ var playersPerM = {
 
 const POLLUPDATEPERIOD = 5000;
 
+var goToNextState = {
+    url: "canStopWaiting",
+    method: 'get',
+    data: {
+        currentState: 1
+    },
+    success: function(data) {
+        if (data != "f") {
+            go2page(data);
+        }
+        else {
+            console.log("not valid");
+            return false;
+        }
+    }
+}
+
 window.onload = function() {
     getQuerry(); //function from common.js
     
@@ -22,43 +40,38 @@ window.onload = function() {
     $("#LeftBtn").click(()=>{vote(true);});
     $("#RightBtn").click(()=>{vote(false);});
 
-    // GetPlayers
-    // $.ajax({
-    //     url: "players",
-    //     method: "get",
-    //     success: function(data) {
-    //         console.log(data);
-    //         updatePlayers(data);
+    update();
+    setInterval(update, 5000); //Update periodically
+    setTimeout(() => {
+        if (amIaLeader) enableUserPicking(); // IF I AM LEADER, ENABLE CREATE TEAM
+    }, 1000);
 
-    //         $.ajax({
-    //             url: "missions",
-    //             method: "get",
-    //             success: function(data) {
-    //                 console.log(data);
-    //                 updateMissions(data);
-    //             }
-    //         });
-    //     }
-    // });
+    asyncInterval(goToNextState, "t", 20000);
+}
+
+
+function update() {
     $.ajax({
         url: "getDB",
         method: "get",
         success: (data) => {
-            console.log(data);
+            // console.log(data);
+            // console.log("Updated");
             updatePlayers(data.players);
             updateMissions(data.missions);
-            updateSelectedPlayers(data.missionTeam)
+            updateSelectedPlayers(data.missionTeam);
             updatePoll(data.opinion);
+        },
+        error: () => {
+            updatePlayers(debugPlayers);
+            updateMissions(debugMissions);
+            updateSelectedPlayers([])
+            updatePoll(debugOpinion);
         }
     });
-    
-    // updatePlayers(debugPlayers);
-    // updateMissions({missions: debugMissions, missionTeam: 0});
-
-    // getUpdatedPoll();
-
-    // updatePoll(debugOpinion);
 }
+
+
 
 
 /** Main functions */
@@ -172,7 +185,7 @@ function updateMissions(missions) {
     $(".torch").attr("src", "../../Res/img/empty.png");
     $("#torch" + DB.playersPos[DB.missions[i].leaderId - 1].divId).attr("src", "../../Res/img/torch.png");
     if (typeof DB.playersPos[DB.missions[i].leaderId - 1].divId == "string") { // If leader is this user
-        enableUserPicking(); // IF I AM LEADER, ENABLE CREATE TEAM
+        amIaLeader = true;
     }
 
     for (let j = 1; j <= 5; j++) {
@@ -187,7 +200,7 @@ function updateMissions(missions) {
 
 function updateSelectedPlayers(selected) {
     DB.missionTeam = selected; //Update DB
-    console.log(DB.missionTeam);
+    // console.log(DB.missionTeam);
 
     $(".gun").attr("src", "../../Res/img/empty.png"); // hide all guns
 
@@ -199,7 +212,6 @@ function updateSelectedPlayers(selected) {
 
 function enableUserPicking() {
     for (let player of DB.playersPos) {
-        console.log(player);
         $("#"+player.divId).click(function() {
             pickUser(player);
         })
@@ -212,7 +224,7 @@ function pickUser(user, value=null) {
     let extension = ".png";
 
     let randomWeapon = () => {
-        let r = Math.round(Math.random() * 35) + 1;
+        let r = Math.floor(Math.random() * 35) + 1;
         if (r < 10) r = "0"+r;
         
         pSelected4mission++; // New user added
@@ -344,7 +356,7 @@ function vote(v){
         },
         success: function(data) {
             getUpdatedPoll();
-            console.log(data);
+            // console.log(data);
         }
     });
 }
