@@ -108,7 +108,7 @@ function updatePlayers(players) {
     let current = pIte.next();
     let index = 0;
 
-    while(players[index].name != queryString.username) {
+    while(players[index].name != queryString.username) { //find the user with that id
         index++; // While the first is not my name, go to the next
         if (index === len) {
             throw new Error("Name not found");
@@ -121,23 +121,34 @@ function updatePlayers(players) {
     DB.playersPos = new Array(len); // Store player on the position relative to the user:
     // (index: pId of the user; value: {divId: divId of the user, player: object of the player})
 
+    let indexGroupPos = players[index].groupPos;
+    // console.log(players[index].name + " - " + indexGroupPos);
+
     while (!current.done) {
-        DB.playersPos[index] = { // Store the player divId and the player itself
+        // console.log(indexGroupPos);
+
+        let player;
+        for (let p of players) {
+            if (p.groupPos == indexGroupPos) {
+                player = p;
+            }
+        }
+        DB.playersPos[player.pId - 1] = { // Store the player divId and the player itself
             divId: current.value,
-            player: players[index]
+            player: player
         };
 
-        let content = players[index];
+        $("#userName" + current.value).text(player.name); // Update the name of the user
 
-        $("#userName" + current.value).text(content.name); // Update the name of the user
-
-        iconIndex = players[index].pId * 5 - (today.getDay() + today.getHours()) % 5;
+        iconIndex = player.pId * 5 - (today.getDay() + today.getHours()) % 5;
         $("#icon" + current.value).attr("src", "../../Res/img/users/user" + iconIndex +".png"); // Update the name of the user
 
         // Get and update img
         
         current = pIte.next();
-        index = (index + 1) % len;
+        // index = (index + 1) % len;
+        indexGroupPos = ((indexGroupPos + 1) % (len + 1));
+        if (indexGroupPos == 0) indexGroupPos = 1;
     }
 }
 
