@@ -24,6 +24,22 @@ var ready4meetup = {
         }
     }
 }
+var ready4newRound = {
+    url: "canStopWaiting",
+    method: 'get',
+    data: {
+        currentState: 2 //Mission
+    },
+    success: function(data) {
+        if (data != "f") {
+            go2page(data);
+        }
+        else {
+            console.log("not valid");
+            return false;
+        }
+    }
+}
 
 /**
  * (Executed periodically) This function updates the div tag with a random phrase from the avalible
@@ -68,6 +84,7 @@ window.onload = function(){
         asyncInterval(ready4meetup, "t", 5000);    
     }
     else {
+        asyncInterval(ready4newRound, "t", 5000);    
         
     }
     
