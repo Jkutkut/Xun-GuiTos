@@ -122,7 +122,18 @@ function updateMissions(missions, missionTeam) {
         // if (!missionsEnded) break;
 
         if (m.vYes != null) { // If poll results avalible
-            $("#M" + m.mId + "pollResult").text("Yes: " + m.vYes + " --- No: " + m.vNo);
+            let yes = 0, no = 0;
+            for (let p of missionTeam) {
+                if (p.mId == m.mId) {
+                    if (p.vote == 0) {
+                        yes++;
+                    }
+                    else {
+                        no++;
+                    }
+                }
+            }
+            $("#M" + m.mId + "pollResult").text("Yes: " + yes + " --- No: " + no);
         }
         else {
             $("#M" + m.mId + "pollResult").text("");
