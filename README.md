@@ -26,12 +26,17 @@ My own version of the board game "[The Resistance](http://devir.es/producto/la-r
         - Now when asking for missionPoll.html, the server decides if the user waits or goes to the mission.
         - Now the endPoll logic should really stop if the number of players chosen are not valid.
         - Debug setup code added to debug the endGame.
+        - GameOver logic at NodeRed added.
     - RootMenu:
         - Bug where the leader was updated each time the mission had a leader selected fixed.
         - Now the missionPoll is updated on UI.
         - Now the code stores data on DB variable to allow execution of functions without order.
         - Bug on MissionPoll result UI fixed.
         - New condition to detect if openPopUp should not be executed
+    - GameOver:
+        - new Option to show on GameOver if the end selected is not valid.
+        - selectResult updated and commented to show all possible endGames.
+        - updateCards function added to customice the endGame cards.
     - Bug creating a player fixed. Now the information of the user is adressed to the waitingRoom.
     - WaitingRoom now sends players to meetup if firstTime again.
 - v0.4.0:
