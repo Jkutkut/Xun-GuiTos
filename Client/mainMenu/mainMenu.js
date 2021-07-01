@@ -217,7 +217,9 @@ function updateSelectedPlayers(selected) {
 
     $(".gun").attr("src", "../../Res/img/empty.png"); // hide all guns
     for (let p of DB.missionTeam) {
-        pickUser(DB.playersPos[p.pId - 1], 1);
+        if (p.mId == currentMissionIndex + 1) { // If missionTeam 
+            pickUser(DB.playersPos[p.pId - 1], 1);
+        }
     }
 }
 
