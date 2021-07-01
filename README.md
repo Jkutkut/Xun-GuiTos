@@ -17,6 +17,8 @@ My own version of the board game "[The Resistance](http://devir.es/producto/la-r
         - Working on endPoll logic and canStopWaiting.
         - Bugs on querys to DB fixed.
         - Now when asking for missionPoll.html, the server decides if the user waits or goes to the mission.
+    - Bug creating a player fixed. Now the information of the user is adressed to the waitingRoom.
+    - WaitingRoom now sends players to meetup if firstTime again.
 - v0.4.0:
     - Code refactoring, commenting and removal of obsolete code:
         - common.js 
