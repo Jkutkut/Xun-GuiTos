@@ -171,7 +171,10 @@ function updateMissions() {
     let i;
     for (i = 0; i < DB.missions.length; i++) {
         if (DB.missions[i].active == true) {
-            currentMissionIndex = i; //store current index
+            if (currentMissionIndex !== i) { // If currentMisisonIndex not defined or has changed
+                currentMissionIndex = i; //store current index
+                popUpShowed = false; // I need to see the popUp
+            }
             break;
         }
         let color = "var(--chunguitoColor)";
