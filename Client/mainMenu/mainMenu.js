@@ -36,8 +36,8 @@ window.onload = function() {
     
     $(".gun").attr("src", "../../Res/img/empty.png");
     
-    $("#LeftBtn").click(()=>{vote(true);});
-    $("#RightBtn").click(()=>{vote(false);});
+    $("#LeftBtn").click(()=>{vote(1);});
+    $("#RightBtn").click(()=>{vote(-1);});
 
     update();
     setInterval(update, 5000); //Update periodically
@@ -350,13 +350,14 @@ function vote(v){
         pollBtnState = 0; //reset var
         $(".pollBtn").css("font-weight", "normal");
     }
-    else if(v) { // If v == true => Yes
+    else if(v == 1) { // If v == 1 => Yes
         pollBtnState = 1;
         $("#RightBtnLabel").css("font-weight", "bold");
     }
-    else { // If v == false => No
+    else { // If v == -1 => No
         pollBtnState = -1;
         $("#LeftBtnLabel").css("font-weight", "bold");
+        console.log("Left")
     }
 
     $.ajax({
@@ -366,9 +367,8 @@ function vote(v){
             pId: queryString.pId,
             opinion: pollBtnState
         },
-        success: function(data) {
+        success: (data) => {
             getUpdatedPoll();
-            // console.log(data);
         }
     });
 }
