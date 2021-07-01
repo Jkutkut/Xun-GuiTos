@@ -378,7 +378,7 @@ function vote(v){
             opinion: pollBtnState
         },
         success: (data) => {
-            getUpdatedPoll();
+            update();
         }
     });
 }
