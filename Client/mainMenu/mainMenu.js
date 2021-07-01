@@ -307,9 +307,9 @@ function pickUser(user, value=null) {
  * @param {Array} data - Array with the result of each player (Example: [{val: 0}])
  * @see DB-Logic to see the meaning of each value.
  */
-function updatePoll(data){
+function updatePoll(){
     let si = [], no = [];
-    for (let d of data) { // For each player
+    for (let d of DB.opinion) { // For each player
         if (d.pId == queryString.pId) {
             $(".pollBtn").css("font-weight", "normal");
             if (d.val == 1) {
