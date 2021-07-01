@@ -185,12 +185,13 @@ function updateMissions() {
         $("#missionSticker" + (i + 1)).css("background", color);
     }
 
-    if (i > 0 && !popUpShowed) { // If mission done
+    if (i > 0 && !popUpShowed) { // If mission already done and popUp not seen yet
         openPopUp(DB.missions[i - 1]);
         popUpShowed = true;
+        $(".missionSticker").removeClass("cMissionSticker");
+        $("#missionSticker" + (i + 1)).addClass("cMissionSticker");
     }
 
-    $("#missionSticker" + (i + 1)).addClass("cMissionSticker");
     // console.log("Leader -> " + DB.players[DB.missions[i].leaderId - 1].name + " " + DB.missions[i].leaderId + " => " + DB.playersPos[DB.missions[i].leaderId - 1].divId);
     
     // SELECT LEADER
