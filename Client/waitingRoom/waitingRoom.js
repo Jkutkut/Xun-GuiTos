@@ -11,7 +11,8 @@ var ready4meetup = {
     url: "canStopWaiting",
     method: 'get',
     data: {
-        currentState: 0
+        currentState: 0,
+        firstTime: true
     },
     success: function(data) {
         if (data != "f") {
