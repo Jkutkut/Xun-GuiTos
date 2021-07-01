@@ -5,6 +5,8 @@ My own version of the board game "[The Resistance](http://devir.es/producto/la-r
 
 ## Version history:
 ### v0.4:
+- v0.4.2:
+    - 
 - v0.4.1:
     - FSM simplified, keeping all functionality.
     
@@ -32,13 +34,16 @@ My own version of the board game "[The Resistance](http://devir.es/producto/la-r
         - Now the missionPoll is updated on UI.
         - Now the code stores data on DB variable to allow execution of functions without order.
         - Bug on MissionPoll result UI fixed.
-        - New condition to detect if openPopUp should not be executed
+        - New condition to detect if openPopUp should not be executed.
+        - Minor UI change.
     - GameOver:
         - new Option to show on GameOver if the end selected is not valid.
         - selectResult updated and commented to show all possible endGames.
         - updateCards function added to customice the endGame cards.
+        - GameOver cards ordered correctly now.
     - Bug creating a player fixed. Now the information of the user is adressed to the waitingRoom.
     - WaitingRoom now sends players to meetup if firstTime again.
+    - GameOver implemented!!!
 - v0.4.0:
     - Code refactoring, commenting and removal of obsolete code:
         - common.js 
