@@ -15,7 +15,7 @@ var ready4meetup = {
     },
     success: function(data) {
         if (data != "f") {
-            delete queryString.firstTime; // If it's fistTime, remove it. If not, do nothing.
+            delete queryString.firstTime; // If it's firstTime, remove it. If not, do nothing.
             go2page(data);
         }
         else {
@@ -24,22 +24,22 @@ var ready4meetup = {
         }
     }
 }
-var ready4newRound = {
-    url: "canStopWaiting",
-    method: 'get',
-    data: {
-        currentState: 2 //Mission
-    },
-    success: function(data) {
-        if (data != "f") {
-            go2page(data);
-        }
-        else {
-            console.log("not valid");
-            return false;
-        }
-    }
-}
+// var ready4newRound = {
+//     url: "canStopWaiting",
+//     method: 'get',
+//     data: {
+//         currentState: 2 //Mission
+//     },
+//     success: function(data) {
+//         if (data != "f") {
+//             go2page(data);
+//         }
+//         else {
+//             console.log("not valid");
+//             return false;
+//         }
+//     }
+// }
 
 /**
  * (Executed periodically) This function updates the div tag with a random phrase from the avalible
@@ -63,7 +63,7 @@ function processPhrases(data) {
     phrases = data.common; // Add the common phrases
     
     let phr; // Extra phrases to add to "phrases"
-    if (queryString['fistTime'] == "true") { // if first time on the waiting room
+    if (queryString['firstTime'] == "true") { // if first time on the waiting room
         phr = data.firstTime;
     }
     else {
@@ -80,11 +80,11 @@ window.onload = function(){
     jQuery.getJSON("phrases.json").then(processPhrases); // Get the phrases from the json file and process them with the function
     // processPhrases(jQuery.parseJSON('{"common": ["Luchando contra chunguitos","Practicando el baile de la resistencia","Analizando al resto de jugadores","Haciendo movidas no chungas","Creando nombres en clave para el equipo"],"firstTime": ["Esperando al resto de jugadores","Buscando aliados","Muchiflopeando los servidores","Sincronizando dispositivos","Validando datos","Preparando partida"],"newRound": ["Psicoanalizando al resto","Pensando quién puede ser chunguito","Dudando si el de al lado miente","Será bueno el de enfrente?","Duda de tí el de la derecha seguro","El de la izquierda puede ser chunguito"]}'));
 
-    if (queryString['fistTime'] == "true") { // if first time on the waiting room
+    if (queryString['firstTime'] == "true") { // if first time on the waiting room
         asyncInterval(ready4meetup, "t", 5000);    
     }
     else {
-        asyncInterval(ready4newRound, "t", 5000);    
+        // asyncInterval(ready4newRound, "t", 5000);    
         
     }
     

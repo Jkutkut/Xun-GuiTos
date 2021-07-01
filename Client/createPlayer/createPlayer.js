@@ -27,7 +27,7 @@ window.onload = function(){ //When page loaded, define vars
                     if (isInt(data)){ //If name added correctly
                         pId = data;
                         // $.ajax(addImg(pId)); //Try to add the img
-                        go2page("waitingRoom.html", {fistTime: true, username: name, pId: pId});
+                        go2page("waitingRoom.html", {firstTime: true, username: name, pId: pId});
                     }
                 }
             };
@@ -44,7 +44,7 @@ window.onload = function(){ //When page loaded, define vars
                         console.log(data);
                         if(data == "Img stored and linked"){ // if img stored correctly:
                             //Go to the waiting room with the user's name and being the firstTime
-                            go2page("waitingRoom.html", {fistTime: true});
+                            go2page("waitingRoom.html", {firstTime: true});
                         }
                     }
                 };
