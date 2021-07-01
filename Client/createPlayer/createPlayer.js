@@ -23,12 +23,12 @@ window.onload = function(){ //When page loaded, define vars
                     "name": name //name: "Adrián"
                 },
                 success: function(data) {
+                    console.log(data); //show the msg
                     if (isInt(data)){ //If name added correctly
                         pId = data;
                         // $.ajax(addImg(pId)); //Try to add the img
-                        go2page("waitingRoom.html", {fistTime: true});
+                        go2page("waitingRoom.html", {fistTime: true, username: name, pId: pId});
                     }
-                    console.log(data); //show the msg
                 }
             };
             let addImg = function(pId) {
