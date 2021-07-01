@@ -14,12 +14,24 @@ My own version of the board game "[The Resistance](http://devir.es/producto/la-r
         - Logic to limit amount of members for mission updated. Now it depends on server.
         - Now players appear sorted using groupPos (IRL order).
         - Vote logic updated.
+        - Bug where the popUp with the state of the previous mission was apearing all the time fixed.
+        - Bug when guns were given to the players who went to previous missions fixed.
+        - updatePoll now using DB variable.
+        - When updating, DB variable is stored at the same time now, to allow to use the functions no matter the order.
+        - PopUps now show the result of the missionPoll.
+        - Poll vote UI refresh updated.
     - NodeRed:
         - Working on endPoll logic and canStopWaiting.
         - Bugs on querys to DB fixed.
         - Now when asking for missionPoll.html, the server decides if the user waits or goes to the mission.
+        - Now the endPoll logic should really stop if the number of players chosen are not valid.
+        - Debug setup code added to debug the endGame.
     - RootMenu:
         - Bug where the leader was updated each time the mission had a leader selected fixed.
+        - Now the missionPoll is updated on UI.
+        - Now the code stores data on DB variable to allow execution of functions without order.
+        - Bug on MissionPoll result UI fixed.
+        - New condition to detect if openPopUp should not be executed
     - Bug creating a player fixed. Now the information of the user is adressed to the waitingRoom.
     - WaitingRoom now sends players to meetup if firstTime again.
 - v0.4.0:
