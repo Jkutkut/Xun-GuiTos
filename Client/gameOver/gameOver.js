@@ -4,7 +4,7 @@ window.onload = function() {
     $("#confettiCanvas").attr("height", $("body").css("height"));
     confettiCanvas = document.getElementById("confettiCanvas");
 
-    selectResult(0);
+    selectResult(queryString.gameResult);
 }
 
 /**
@@ -48,25 +48,32 @@ window.onload = function() {
     }, 5000);
 }
 
+/**
+ * Show the desired end card.
+ * @param {String} val - String with the desired result to show. If invalid one given, special end is shown.
+ */
 function selectResult(val) {
     switch(val) {
-        case 0:
+        case "0":
             $("#resistenciaWin").css("display", "block");
             $("body").css("background", "var(--blue)");
             partyTime(0);
             break;
-        case 1:
+        case "1":
             $("#resistenciaLoose").css("display", "block");
             $("body").css("background", "var(--red)");
             break;
-        case 2:
+        case "2":
             $("#chunguitoWin").css("display", "block");
             $("body").css("background", "var(--red)");
             partyTime(1);
             break;
-        case 3:
+        case "3":
             $("#chunguitoLoose").css("display", "block");
             $("body").css("background", "var(--blue)");
             break;
+        default:
+            $("#gameNotDone").css("display", "block");
+            $("body").css("background", "var(--baseColor)");111
     }
 }
