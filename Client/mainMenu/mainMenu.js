@@ -357,7 +357,6 @@ function vote(v){
     else { // If v == -1 => No
         pollBtnState = -1;
         $("#LeftBtnLabel").css("font-weight", "bold");
-        console.log("Left")
     }
 
     $.ajax({
