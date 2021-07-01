@@ -42,7 +42,6 @@ function updateLeader(leaderIndex){
     leader.index = leaderIndex;
     $("#rootMenu_leaderIcon").remove();
     $("#rootMenu_leaderIcon").appendTo(".P" + leaderIndex);
-    console.log("Changed to P" + leaderIndex);
 }
 
 
@@ -112,7 +111,9 @@ function updateMissions(missions, missionTeam) {
                 }
             }
             $("#M" + m.mId + "leader").text("Leader: " + leaderName);
-            updateLeader(leaderPId);
+            if (m.active == 1) {
+                updateLeader(leaderPId);
+            }
         }
         else { // If no leader selected
             $("#M" + m.mId + "leader").text("");
@@ -130,7 +131,6 @@ function updateMissions(missions, missionTeam) {
         // Player logic
         let players = [];
         for (let p of DB.missionTeam) { // For each
-            console.log(p);
             if (p.mId == m.mId) { // If player went to the current mission
                 players.push(DB.players[p.pId - 1].name); // Add the player to the array
             }
@@ -231,6 +231,7 @@ window.onload = function(){
     $("#updateBtn").click(function() {
         update();
     });
+    setInterval(update, 5000);
 }
 
 $(function(){
@@ -245,7 +246,7 @@ function update() {
         url: "getDB",
         method: "get",
         success: (data) => {
-            console.log(data);
+            // console.log(data);
             updateState(data.currentState);
             updatePlayers(data.players);
             updateMissions(data.missions, data.missionTeam);
