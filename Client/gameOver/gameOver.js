@@ -74,13 +74,13 @@ function selectResult(val) {
             $("body").css("background", "var(--red)");
             break;
         case "2":
+            $("#chunguitoLoose").css("display", "block");
+            $("body").css("background", "var(--blue)");
+            break;
+        case "3":
             $("#chunguitoWin").css("display", "block");
             $("body").css("background", "var(--red)");
             partyTime(1);
-            break;
-        case "3":
-            $("#chunguitoLoose").css("display", "block");
-            $("body").css("background", "var(--blue)");
             break;
         default:
             $("#gameNotDone").css("display", "block");
