@@ -27,9 +27,8 @@ function updateState(cState) {
  * Update players list.
  * @param {obj} players - player object from DB
  */
-function updatePlayers(players) {
-    DB.players = players;
-    for (let p of players) {
+function updatePlayers() {
+    for (let p of DB.players) {
         renamePlayer(p.pId, p.name);
     }
 }
@@ -77,13 +76,9 @@ function getPlayersOrder() {
 
 /* MISSIONS */
 
-function updateMissions(missions, missionTeam) {
-    DB.missions = missions;
-    DB.missionTeam = missionTeam;
-
-    // console.log(missions);
+function updateMissions() {
     let missionsEnded = true;
-    for (let m of missions) {
+    for (let m of DB.missions) {
         // console.log(m);
         let result = "Result: ";
         if (m.active == 1) {
@@ -121,9 +116,9 @@ function updateMissions(missions, missionTeam) {
 
         // if (!missionsEnded) break;
 
-        if (m.vYes != null) { // If poll results avalible
+        if (m.mRes != null) { // If poll results avalible
             let yes = 0, no = 0;
-            for (let p of missionTeam) {
+            for (let p of DB.missionTeam) {
                 if (p.mId == m.mId) {
                     if (p.vote == 0) {
                         yes++;
@@ -257,14 +252,22 @@ function update() {
         url: "getDB",
         method: "get",
         success: (data) => {
+            DB.players = data.players; 
+            DB.missions = data.missions;
+            DB.missionTeam = data.missionTeam;
+            DB.opinion = data.opinion;
+            
             // console.log(data);
             updateState(data.currentState);
-            updatePlayers(data.players);
-            updateMissions(data.missions, data.missionTeam);
+            updatePlayers();
+            updateMissions();
         },
         error: (e) => {
-            updatePlayers(debugPlayers);
-            updateMissions(debugMissions, []);
+            DB.players = debugPlayers;
+            DB.missions = debugMissions;
+            DB.missionTeam = [];
+            updatePlayers();
+            updateMissions();
         }
     });
 }
