@@ -27,7 +27,7 @@ var goToNextState = {
             go2page(data);
         }
         else {
-            console.log("not valid");
+            console.log("not yet");
             return false;
         }
     }
