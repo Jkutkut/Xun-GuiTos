@@ -309,6 +309,15 @@ function pickUser(user, value=null) {
 function updatePoll(data){
     let si = [], no = [];
     for (let d of data) { // For each player
+        if (d.pId == queryString.pId) {
+            $(".pollBtn").css("font-weight", "normal");
+            if (d.val == 1) {
+                $("#RightBtnLabel").css("font-weight", "bold");
+            }
+            else if (d.val == -1) {
+                $("#LeftBtnLabel").css("font-weight", "bold");
+            }
+        }
         if (d.val == 1) {
             si.push(DB.players[d.pId - 1].name); // If vote is positive
         }
@@ -346,9 +355,10 @@ function updatePoll(data){
  */
 function vote(v){
     // pollBtnState = Current status of the btns
+    $(".pollBtn").css("font-weight", "normal");
+
     if (v == undefined || v == pollBtnState) { //if empty argument or they are the same, clear vote
         pollBtnState = 0; //reset var
-        $(".pollBtn").css("font-weight", "normal");
     }
     else if(v == 1) { // If v == 1 => Yes
         pollBtnState = 1;
