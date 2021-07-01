@@ -57,12 +57,16 @@ function update() {
         url: "getDB",
         method: "get",
         success: (data) => {
-            // console.log(data);
-            // console.log("Updated");
-            updatePlayers(data.players);
-            updateMissions(data.missions);
-            updateSelectedPlayers(data.missionTeam);
-            updatePoll(data.opinion);
+            // Store data on a variable for future consult
+            DB.players = data.players; 
+            DB.missions = data.missions;
+            DB.missionTeam = data.missionTeam;
+            DB.opinion = data.opinion;
+
+            updatePlayers();
+            updateMissions();
+            updateSelectedPlayers();
+            updatePoll();
         },
         error: () => {
             updatePlayers(debugPlayers);
@@ -102,16 +106,15 @@ function *playerIterator(n) {
  * Updates the screen with the players given
  * @param {Obj[]} players - Array with the objects with the player's data.
  */
-function updatePlayers(players) {
-    DB.players = players; // Store the players on a variable for future consult
-    let len = players.length;
+function updatePlayers() {
+    let len = DB.players.length;
     showPlayers(len);
 
     let pIte = playerIterator(len);
     let current = pIte.next();
     let index = 0;
 
-    while(players[index].name != queryString.username) { //find the user with that id
+    while(DB.players[index].name != queryString.username) { //find the user with that id
         index++; // While the first is not my name, go to the next
         if (index === len) {
             throw new Error("Name not found");
@@ -124,14 +127,11 @@ function updatePlayers(players) {
     DB.playersPos = new Array(len); // Store player on the position relative to the user:
     // (index: pId of the user; value: {divId: divId of the user, player: object of the player})
 
-    let indexGroupPos = players[index].groupPos;
-    // console.log(players[index].name + " - " + indexGroupPos);
+    let indexGroupPos = DB.players[index].groupPos;
 
     while (!current.done) {
-        // console.log(indexGroupPos);
-
         let player;
-        for (let p of players) {
+        for (let p of DB.players) {
             if (p.groupPos == indexGroupPos) {
                 player = p;
             }
@@ -149,7 +149,6 @@ function updatePlayers(players) {
         // Get and update img
         
         current = pIte.next();
-        // index = (index + 1) % len;
         indexGroupPos = ((indexGroupPos + 1) % (len + 1));
         if (indexGroupPos == 0) indexGroupPos = 1;
     }
@@ -171,8 +170,7 @@ function showPlayers(n){
 }
 
 
-function updateMissions(missions) {
-    DB.missions = missions;
+function updateMissions() {
     let i;
     for (i = 0; i < DB.missions.length; i++) {
         if (DB.missions[i].active == true) {
@@ -212,9 +210,7 @@ function updateMissions(missions) {
 
 }
 
-function updateSelectedPlayers(selected) {
-    DB.missionTeam = selected; //Update DB
-
+function updateSelectedPlayers() {
     $(".gun").attr("src", "../../Res/img/empty.png"); // hide all guns
     for (let p of DB.missionTeam) {
         if (p.mId == currentMissionIndex + 1) { // If missionTeam 
@@ -417,10 +413,22 @@ function getUpdatedPoll() {
     $(".popUp").css("display", "none"); // Hide all popUps
     $(id).css("display", "block"); // Show the important one
 
+    
+    let yes = 0, no = 0;
+    for (let p of DB.missionTeam) {
+        if (p.mId == currentMissionIndex) {
+            if (p.vote == 0) {
+                yes++;
+            }
+            else {
+                no++;
+            }
+        }
+    }
     // Update popUp's score
     $(".smallLabel").text(
-        "Éxito: " + mission.vYes +
-        " -- Fracaso: " + mission.vNo
+        "Éxito: " + yes +
+        " -- Fracaso: " + no
     );
     
     $(".popUpFrame").css("display", "flex"); // Show the frame with the popUps
