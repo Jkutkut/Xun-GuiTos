@@ -3,6 +3,8 @@ var height, pollBtnState;
 var currentMissionIndex;
 var amIaLeader = false;
 
+var popUpShowed = false;
+
 var playersPerM = {
     5: [ 2, 3, 2, 3, 3 ],
     6: [ 2, 3, 4, 3, 4 ],
@@ -178,15 +180,16 @@ function updateMissions(missions) {
             break;
         }
         let color = "var(--chunguitoColor)";
-        if (DB.missions[i].mRes == 1) { // If mission was successful
+        if (DB.missions[i].mRes == 0) { // If mission was successful
             color = "var(--resistanceColor)";
         }
         
         $("#missionSticker" + (i + 1)).css("background", color);
     }
 
-    if (i > 0) { // If mission done
+    if (i > 0 && !popUpShowed) { // If mission done
         openPopUp(DB.missions[i - 1]);
+        popUpShowed = true;
     }
 
     $("#missionSticker" + (i + 1)).addClass("cMissionSticker");
@@ -403,7 +406,6 @@ function getUpdatedPoll() {
     if (mission.active || mission.vYes === null || mission.vNo === null) {
         throw new Error("The mission hasn't finish");
     }
-    console.log($("#resistenciaPopUp").css("display"));
     
     // Select correct popUp
     let id = "#chunguitosPopUp"; // Show chunguitos'
