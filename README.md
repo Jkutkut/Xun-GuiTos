@@ -13,10 +13,13 @@ My own version of the board game "[The Resistance](http://devir.es/producto/la-r
         - Weapons now randomiced but consistent for a period of time.
         - Logic to limit amount of members for mission updated. Now it depends on server.
         - Now players appear sorted using groupPos (IRL order).
+        - Vote logic updated.
     - NodeRed:
         - Working on endPoll logic and canStopWaiting.
         - Bugs on querys to DB fixed.
         - Now when asking for missionPoll.html, the server decides if the user waits or goes to the mission.
+    - RootMenu:
+        - Bug where the leader was updated each time the mission had a leader selected fixed.
     - Bug creating a player fixed. Now the information of the user is adressed to the waitingRoom.
     - WaitingRoom now sends players to meetup if firstTime again.
 - v0.4.0:
