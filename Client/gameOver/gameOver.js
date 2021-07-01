@@ -1,5 +1,15 @@
 var confettiCanvas;
 window.onload = function() {
+    $.ajax({
+        url: "players",
+        method: "get",
+        success: (data) => {
+            updateCards(data);
+        },
+        error: () => {
+            selectResult("error");
+        }
+    })
     $("#confettiCanvas").attr("width", $("body").css("width"));
     $("#confettiCanvas").attr("height", $("body").css("height"));
     confettiCanvas = document.getElementById("confettiCanvas");
@@ -76,4 +86,29 @@ function selectResult(val) {
             $("#gameNotDone").css("display", "block");
             $("body").css("background", "var(--baseColor)");111
     }
+}
+
+/**
+ * Given the players of the game, updates the cards with custom information.
+ * @param {Array} players - Array of player-objects
+ */
+function updateCards(players) {
+    $(".chunguitosP").css("text-transform", "none");
+
+    $(".userNameP").text(queryString.username);
+
+    let chunguitos = [];
+    for (let p of players) { // GetChunguitos
+        if (p.pType == 1){
+            chunguitos.push(p.name);
+        }
+    }
+
+    let i = 1, chunText = "" + chunguitos[0];
+    for (; i < chunguitos.length - 1; i++) {
+        chunText += ", " + chunguitos[i];
+    }
+    chunText += " y " + chunguitos[i];
+
+    $(".chunguitosP").text(chunText);
 }
