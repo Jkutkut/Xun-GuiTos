@@ -5,8 +5,15 @@ My own version of the board game "[The Resistance](http://devir.es/producto/la-r
 
 ## Version history:
 ### v0.4:
-- v0.4.2:
-    - 
+- v0.4.2: 
+    - Testing game states with 6 players:
+        - [x] Players creation.
+        - [x] WaitingRoom.
+        - [ ] MainMenu:
+            - [ ] OrderPlayers
+            - [ ] 
+        - [ ] MissionPoll:
+            - [x] votation
 - v0.4.1:
     - FSM simplified, keeping all functionality.
     
