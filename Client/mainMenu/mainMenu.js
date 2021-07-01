@@ -401,7 +401,7 @@ function getUpdatedPoll() {
  * @param {obj} mission - Mission to use for the popUp
  */
  function openPopUp(mission) {
-    if (mission.active || mission.vYes === null || mission.vNo === null) {
+    if (mission.mRes === null) {
         throw new Error("The mission hasn't finish");
     }
     
