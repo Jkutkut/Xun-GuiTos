@@ -43,9 +43,6 @@ window.onload = function() {
 
     update();
     setInterval(update, 5000); //Update periodically
-    setTimeout(() => {
-        if (amIaLeader) enableUserPicking(); // IF I AM LEADER, ENABLE CREATE TEAM
-    }, 1000);
 
     asyncInterval(goToNextState, "t", 5000);
     // asyncInterval(goToNextState, "t", 20000);
@@ -197,7 +194,16 @@ function updateMissions() {
     $(".torch").attr("src", "../../Res/img/empty.png");
     $("#torch" + DB.playersPos[DB.missions[i].leaderId - 1].divId).attr("src", "../../Res/img/torch.png");
     if (typeof DB.playersPos[DB.missions[i].leaderId - 1].divId == "string") { // If leader is this user
-        amIaLeader = true;
+        if (!amIaLeader) { // if I didn't know i was a leader
+            amIaLeader = true;
+            enableUserPicking(); // IF I AM LEADER, ENABLE CREATE TEAM
+        }
+    }
+    else {
+        if (amIaLeader) { // if I didn't know i was no longer a leader
+            amIaLeader = false;
+            disableUserPicking();
+        }
     }
 
     for (let j = 1; j <= 5; j++) {
@@ -227,6 +233,10 @@ function enableUserPicking() {
         })
     }
 }
+function disableUserPicking() {
+    $(".playerDiv").off( "click", "**" );
+}
+
 
 function pickUser(user, value=null) {
     let empty = "../../Res/img/empty";
@@ -250,7 +260,7 @@ function pickUser(user, value=null) {
                 pId: user.player.pId
             },
             success: (data) => {
-                // console.log(data);
+                console.log(data);
                 update();
             }
         }
@@ -351,7 +361,7 @@ function updatePoll(){
 }
 
 /**
- * Updates the vote of the player and sends it to the Raspberry.
+ * Updates the vote of the player and sends it to the Server.
  * @param {boolean} v - Whenever the btn pressed is Yes (true) or No (false). 
  */
 function vote(v){
@@ -379,6 +389,10 @@ function vote(v){
         },
         success: (data) => {
             update();
+        },
+        error: (e) => {
+            console.error("Error attempting to vote");
+            console.error(e);
         }
     });
 }
