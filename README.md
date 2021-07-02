@@ -6,14 +6,17 @@ My own version of the board game "[The Resistance](http://devir.es/producto/la-r
 ## Version history:
 ### v0.4:
 - v0.4.2: 
-    - Testing game states with 6 players:
-        - [x] Players creation.
-        - [x] WaitingRoom.
-        - [ ] MainMenu:
-            - [ ] OrderPlayers
-            - [ ] 
-        - [ ] MissionPoll:
-            - [x] votation
+    - NodeRed:
+        - bug deleting failed-team fixed.
+        - bug reseting opinion table fixed.
+        - Bug where the next leaderId was 0 fixed.
+        - EndPoll logic changed to be easier to visualize.
+    - MainMenu:
+        - Bug where mission creation failed and the previous leader was still able to select a team (blocking the new leader) fixed.
+        - Previous code to enable userPicking Timeout changed to a better solution.
+        - Bug where popup didn't show after mission changed while on mainMenu fixed.
+        - Bug when losing mission because of multiple fails making team, where the blink remain on the mission fixed.
+        - Bug where pId was requested 2 times fixed.
 - v0.4.1:
     - FSM simplified, keeping all functionality.
     
