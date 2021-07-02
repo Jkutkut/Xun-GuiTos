@@ -1,7 +1,8 @@
 # Resistencia:
 
 My own version of the board game "[The Resistance](http://devir.es/producto/la-resistencia/)".
-
+![](./Res/img/Screenshots/mainMenu.png)
+![](./Res/img/Screenshots/multiplayerExample.png)
 
 ## Version history:
 ### v0.5:
@@ -218,16 +219,16 @@ My own version of the board game "[The Resistance](http://devir.es/producto/la-r
 ### v0.0 - v0.1: Bluetooth communication
 Work focused on the configuration of the rapsberry pi 4 and the bluetooth communication protocol. Basic structure of the repository created.
     
-    - Bluetooth interpreter and communication stablised. More work will be added on the future.
-        - Connection
-        - Basic interpreter and communication
-        - Change wifi using BT
-        - Execute shells at startup (also as root if needed)
-        - Communication logic
-        - Make status respond
-        - Execute commands
-    - Basic sh files created to update the code if changed.
-    - Database basic logic
+- Bluetooth interpreter and communication stablised. More work will be added on the future.
+    - Connection
+    - Basic interpreter and communication
+    - Change wifi using BT
+    - Execute shells at startup (also as root if needed)
+    - Communication logic
+    - Make status respond
+    - Execute commands
+- Basic sh files created to update the code if changed.
+- Database basic logic
 
 
 ## Special mentions:
