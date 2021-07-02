@@ -85,10 +85,10 @@ function updateMissions() {
             result = "Active";
             missionsEnded = false; // From this mission foward, all missions are not ended
         }
-        else if (m.mRes == 1) { // Round won by resistance
+        else if (m.mRes == 0) { // Round won by resistance
             result = "Resistencia";
         }
-        else if (m.mRes == 0) {
+        else if (m.mRes == 1) {
             result = "Chunguitos";
         }
         else { // If mission not started
