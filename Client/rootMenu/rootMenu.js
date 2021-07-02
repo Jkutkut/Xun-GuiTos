@@ -122,7 +122,7 @@ function updateMissions() {
             }
         }
         else { // If no leader selected
-            $(`#M${m.mIdleader}`).text("");
+            $(`#M${m.mId}leader`).text("");
         }
 
         // Player logic
