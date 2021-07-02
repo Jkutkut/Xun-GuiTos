@@ -1,5 +1,0 @@
-<?php
-    include("setup.php");
-
-
-?>
