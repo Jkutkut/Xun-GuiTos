@@ -104,11 +104,11 @@ function updateCards(players) {
         }
     }
 
-    let i = 1, chunText = "" + chunguitos[0];
+    let i = 1, chunText = `${chunguitos[0]}`;
     for (; i < chunguitos.length - 1; i++) {
-        chunText += ", " + chunguitos[i];
+        chunText += `, ${chunguitos[i]}`;
     }
-    chunText += " y " + chunguitos[i];
+    chunText += ` y ${chunguitos[i]}`;
 
     $(".chunguitosP").text(chunText);
 }
