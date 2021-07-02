@@ -28,7 +28,7 @@ function vote(vDiv) {
         v = 1; // Vote for failure
     }
 
-    console.log("*** " + ((v == 1)? "Success" : "Failure") + " ***");
+    console.log(`*** ${((v == 1)? "Success" : "Failure")} ***`);
     $.ajax({
         url: "voteMission",
         method: "post",

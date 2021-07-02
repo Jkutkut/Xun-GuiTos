@@ -34,9 +34,9 @@ function getMyCharacter(data) {
             }
         }
     }
-    console.log("->" + whatAmI);
+    console.log(`-> ${whatAmI}`);
 
-    $("#" + whatAmI).css("display", "block");
+    $(`#${whatAmI}`).css("display", "block");
     $("#userName").text(queryString.username);
 
     // Update the message choosen with extra information.
@@ -45,9 +45,9 @@ function getMyCharacter(data) {
         if (chunguitos.length > 1) {
             let i = 1;
             for (; i < chunguitos.length - 1; i++) {
-                chunText += ", " + chunguitos[i];
+                chunText += `, ${chunguitos[i]}`;
             }
-            chunText += " y " + chunguitos[i];
+            chunText += ` y ${chunguitos[i]}`;
         }
         // Add the partner(s) to the message
         $("#chunguitosP").text(chunText);
