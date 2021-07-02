@@ -33,9 +33,7 @@ var goToNextState = {
     }
 }
 
-window.onload = function() {
-    getQuerry(); //function from common.js
-    
+window.onload = function() {    
     $(".gun").attr("src", "../../Res/img/empty.png");
     
     $("#LeftBtn").click(()=>{vote(1);});
@@ -189,7 +187,7 @@ function updateMissions() {
         openPopUp(DB.missions[i - 1]);
         popUpShowed = true;
     }
-    
+
     $(".missionSticker").removeClass("cMissionSticker");
     $("#missionSticker" + (i + 1)).addClass("cMissionSticker");
 
