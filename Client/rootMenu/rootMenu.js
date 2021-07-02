@@ -116,29 +116,14 @@ function updateMissions() {
 
         // if (!missionsEnded) break;
 
-        if (m.mRes != null) { // If poll results avalible
-            let yes = 0, no = 0;
-            for (let p of DB.missionTeam) {
-                if (p.mId == m.mId) {
-                    if (p.vote == 0) {
-                        yes++;
-                    }
-                    else {
-                        no++;
-                    }
-                }
-            }
-            $("#M" + m.mId + "pollResult").text("Yes: " + yes + " --- No: " + no);
-        }
-        else {
-            $("#M" + m.mId + "pollResult").text("");
-        }
-
         // Player logic
-        let players = [];
+        let players = [], suc = 0, fail = 0;
         for (let p of DB.missionTeam) { // For each
             if (p.mId == m.mId) { // If player went to the current mission
                 players.push(DB.players[p.pId - 1].name); // Add the player to the array
+                
+                if (p.vote == 0) suc++;
+                else if (p.vote == 1) fail++;
             }
         }
         if (players.length == 0) { // If no players on this mission
@@ -146,6 +131,12 @@ function updateMissions() {
         }
         else { // If players, show them
             $("#M" + m.mId + "players").text("Players: " + players.join(", "));
+        }
+        if (suc + fail > 0) { // If mission done and votation stored
+            $("#M" + m.mId + "mPoll").text(`Success: ${suc} -- Failure: ${fail}`);
+        }
+        else {
+            $("#M" + m.mId + "mPoll").text("");
         }
     }
 }
