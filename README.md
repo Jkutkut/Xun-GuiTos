@@ -11,6 +11,7 @@ My own version of the board game "[The Resistance](http://devir.es/producto/la-r
         - Logic updated at updateMissions to get the Success-Failure using less code.
         - Now the resultPoll label stores the current votation to create a team. Therefore, it only apears on active missions.
     - String concatenation updated to new version: MainMenu, GameOver, RootMenu, Meetup and missionPoll.
+    - Code not used anymore removed.
 ### v0.4:
 - v0.4.2: 
     - NodeRed:
