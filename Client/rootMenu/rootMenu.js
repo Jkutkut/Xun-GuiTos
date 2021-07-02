@@ -40,7 +40,7 @@ function updatePlayers() {
 function updateLeader(leaderIndex){
     leader.index = leaderIndex;
     $("#rootMenu_leaderIcon").remove();
-    $("#rootMenu_leaderIcon").appendTo(".P" + leaderIndex);
+    $("#rootMenu_leaderIcon").appendTo(`.P${leaderIndex}`);
 }
 
 
@@ -105,7 +105,7 @@ function updateMissions() {
         else { // If mission not started
             result = "";
         }
-        $("#M" + m.mId + "result").text(result);
+        $(`#M${m.mId}result`).text(result);
 
         if (m.leaderId != null) { // If leader selected
             let leaderName, leaderPId;
@@ -116,16 +116,14 @@ function updateMissions() {
                     break;
                 }
             }
-            $("#M" + m.mId + "leader").text("Leader: " + leaderName);
+            $(`#M${m.mId}leader`).text(`Leader: ${leaderName}`);
             if (m.active == 1) {
                 updateLeader(leaderPId);
             }
         }
         else { // If no leader selected
-            $("#M" + m.mId + "leader").text("");
+            $(`#M${m.mIdleader}`).text("");
         }
-
-        // if (!missionsEnded) break;
 
         // Player logic
         let players = [], suc = 0, fail = 0;
@@ -138,16 +136,17 @@ function updateMissions() {
             }
         }
         if (players.length == 0) { // If no players on this mission
-            $("#M" + m.mId + "players").text("");
+            $(`#M${m.mId}players`).text("");
         }
         else { // If players, show them
-            $("#M" + m.mId + "players").text("Players: " + players.join(", "));
+            $(`#M${m.mId}players`).text(`Players: ${players.join(", ")}`);
         }
+
         if (suc + fail > 0) { // If mission done and votation stored
-            $("#M" + m.mId + "mPoll").text(`Success: ${suc} -- Failure: ${fail}`);
+            $(`#M${m.mId}mPoll`).text(`Success: ${suc} -- Failure: ${fail}`);
         }
         else {
-            $("#M" + m.mId + "mPoll").text("");
+            $(`#M${m.mId}mPoll`).text("");
         }
     }
 }
