@@ -136,10 +136,10 @@ function updatePlayers() {
             player: player
         };
 
-        $("#userName" + current.value).text(player.name); // Update the name of the user
+        $(`#userName${current.value}`).text(player.name); // Update the name of the user
 
         iconIndex = player.pId * 5 - (today.getDay() + today.getHours()) % 5;
-        $("#icon" + current.value).attr("src", "../../Res/img/users/user" + iconIndex +".png"); // Update the name of the user
+        $(`#icon${current.value}`).attr("src", `../../Res/img/users/user${iconIndex}.png`); // Update the name of the user
 
         // Get and update img
         
@@ -159,7 +159,7 @@ function showPlayers(n){
     let playersDivIte = playerIterator(n);
     while (true) {
         let pDiv = playersDivIte.next();
-        $("#" + pDiv.value).css("display", "flex");
+        $(`#${pDiv.value}`).css("display", "flex");
         if (pDiv.done == true) break; // If done, end
     }
 }
@@ -185,7 +185,7 @@ function updateMissions() {
             mFailure++;
         }
         
-        $("#missionSticker" + (i + 1)).css("background", color);
+        $(`#missionSticker${(i + 1)}`).css("background", color);
     }
 
     changeBackground(mSuccess, mFailure);
@@ -196,13 +196,12 @@ function updateMissions() {
     }
 
     $(".missionSticker").removeClass("cMissionSticker");
-    $("#missionSticker" + (i + 1)).addClass("cMissionSticker");
+    $(`#missionSticker${(i + 1)}`).addClass("cMissionSticker");
 
-    // console.log("Leader -> " + DB.players[DB.missions[i].leaderId - 1].name + " " + DB.missions[i].leaderId + " => " + DB.playersPos[DB.missions[i].leaderId - 1].divId);
-    
+
     // SELECT LEADER
     $(".torch").attr("src", "../../Res/img/empty.png");
-    $("#torch" + DB.playersPos[DB.missions[i].leaderId - 1].divId).attr("src", "../../Res/img/torch.png");
+    $(`#torch${DB.playersPos[DB.missions[i].leaderId - 1].divId}`).attr("src", "../../Res/img/torch.png");
     if (typeof DB.playersPos[DB.missions[i].leaderId - 1].divId == "string") { // If leader is this user
         if (!amIaLeader) { // if I didn't know i was a leader
             amIaLeader = true;
@@ -217,7 +216,7 @@ function updateMissions() {
     }
 
     for (let j = 1; j <= 5; j++) {
-        $("#missionSticker" + j).text(playersPerM[DB.players.length][j - 1]);
+        $(`#missionSticker${j}`).text(playersPerM[DB.players.length][j - 1]);
     }
 
     if (DB.players.length < 7) {
@@ -257,7 +256,7 @@ function pickUser(user, value=null) {
         let today = new Date();
         let r = user.player.pId * 3 - (today.getDay() + today.getHours()) % 3;
         if (r < 10) r = "0"+r;
-        return gun + r + "-gun" + extension;
+        return gun + r + `-gun${extension}`;
     };
 
     let newSrc;
@@ -450,10 +449,7 @@ function getUpdatedPoll() {
         }
     }
     // Update popUp's score
-    $(".smallLabel").text(
-        "Éxito: " + yes +
-        " -- Fracaso: " + no
-    );
+    $(".smallLabel").text(`Éxito: ${yes} -- Fracaso: ${no}`);
     
     $(".popUpFrame").css("display", "flex"); // Show the frame with the popUps
 }
