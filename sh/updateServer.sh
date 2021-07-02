@@ -1,5 +1,6 @@
 #!/bin/sh
-# Shell to update the server from this repository
+# Shell to update the server from this repository to another directory
+exit 0;
 
 #colors:
   NC='\033[0m' # No Color
