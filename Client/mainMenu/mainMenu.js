@@ -166,7 +166,7 @@ function showPlayers(n){
 
 
 function updateMissions() {
-    let i;
+    let i, mSuccess = 0, mFailure = 0;
     for (i = 0; i < DB.missions.length; i++) {
         if (DB.missions[i].active == true) {
             if (currentMissionIndex !== i) { // If currentMisisonIndex not defined or has changed
@@ -175,13 +175,20 @@ function updateMissions() {
             }
             break;
         }
-        let color = "var(--chunguitoColor)";
+        let color;
         if (DB.missions[i].mRes == 0) { // If mission was successful
             color = "var(--resistanceColor)";
+            mSuccess++;
+        }
+        else {
+            color = "var(--chunguitoColor)";
+            mFailure++;
         }
         
         $("#missionSticker" + (i + 1)).css("background", color);
     }
+
+    changeBackground(mSuccess, mFailure);
 
     if (i > 0 && !popUpShowed) { // If mission already done and popUp not seen yet
         openPopUp(DB.missions[i - 1]);
