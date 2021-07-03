@@ -42,7 +42,7 @@ function resizeTextSize() {
         ["detail", 1]
     ]
     for (let e of textSize) { // for each desired textSize-type
-        $(":root").css("--" + e[0] + "Text", e[1] * size + "px"); // Add it to the CSS :root
+        $(":root").css(`--${e[0]}Text`, `${e[1] * size}px`); // Add it to the CSS :root
     }
 
     console.log("Screen resized");
@@ -54,6 +54,12 @@ function resizeTextSize() {
  * @param {number} chunguitos - Missions won by the chunguitos
  */
  function changeBackground(resistencia, chunguitos) {
+    if (typeof resistencia != "number" || typeof chunguitos != "number")  {
+        throw new Error("The arguments must be numbers");
+    }
+    if (resistencia < 0 || chunguitos < 0)  {
+        throw new Error("The arguments must be positive");
+    }
     if (resistencia >= 3) {
         $("body").css("background", "var(--blue)");
     }
@@ -73,7 +79,7 @@ function resizeTextSize() {
                 55
             ]
         };
-        $("body").css("background", "linear-gradient(180deg, var(--blue) " + intensidad.resistencia[resistencia] + "%, var(--red) " + intensidad.chunguitos[chunguitos] + "%)");
+        $("body").css("background", `linear-gradient(180deg, var(--blue) ${intensidad.resistencia[resistencia]}%, var(--red) ${intensidad.chunguitos[chunguitos]}%)`);
     }
 }
 
@@ -113,18 +119,6 @@ function getQuerry(){
         }
     }
 }
-
-function getBase64Image(img) {
-    var canvas = document.createElement("canvas");
-    canvas.width = img.width;
-    canvas.height = img.height;
-    var ctx = canvas.getContext("2d");
-    ctx.drawImage(img, 0, 0);
-    var dataURL = canvas.toDataURL("image/png");
-    return dataURL;
-    // return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
-}
-
 
 /**
  * Changes the current URL of the device, storing the desired data on it.
@@ -203,22 +197,19 @@ function isInt(str) {
     if (typeof str != "string") return false // we only process strings!  
     return !isNaN(str) && // use type coercion to parse the _entirety_ of the string (`parseFloat` alone does not do this)...
            !isNaN(parseInt(str)) // ...and ensure strings of whitespace fail
-  }
+}
 
 // ************ Conversors ************
-/**
- * 
- * @param {object} e - Query element
- * @returns {object} {x: top}
- */
-function div2disposition(e) {
-    let posi = e.position();
-    return {
-        x: posi.left,
-        y: posi.top,
-        w: pixel2float(e.css("width")),
-        h: pixel2float(e.css("height"))
-    }
+
+function getBase64Image(img) {
+    var canvas = document.createElement("canvas");
+    canvas.width = img.width;
+    canvas.height = img.height;
+    var ctx = canvas.getContext("2d");
+    ctx.drawImage(img, 0, 0);
+    var dataURL = canvas.toDataURL("image/png");
+    return dataURL;
+    // return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
 }
 
 /**
