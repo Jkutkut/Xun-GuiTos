@@ -13,6 +13,8 @@ My own version of the board game "[The Resistance](http://devir.es/producto/la-r
         - Now the resultPoll label stores the current votation to create a team. Therefore, it only apears on active missions.
     - String concatenation updated to new version: MainMenu, GameOver, RootMenu, Meetup and missionPoll.
     - Code not used anymore removed.
+    - At common.js: code updated, minor changes and obsolete code removed.
+    - Use of [Code style converter](https://github.com/Jkutkut/PY_Code-style-converter) to generate style.min.css & common.min.js.
 ### v0.4:
 - v0.4.2: 
     - NodeRed:
