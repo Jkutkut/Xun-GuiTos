@@ -1,6 +1,6 @@
 #!/bin/sh
 # Shell to update the server from this repository to another directory
-exit 0;
+
 
 #colors:
   NC='\033[0m' # No Color
@@ -25,6 +25,16 @@ error(){ # function to generate the error messages. If executed, ends the script
     $1${NC}";
   exit 1
 }
+
+reduceCode(){
+  dir=$1;
+  f=$2;
+  e=$(echo $f | sed -rn 's/.+(\.[a-zA-Z0-9]+)$/\1/p'); # Extension of the file
+  f=$(echo $f | sed -rn 's/\.[a-zA-Z0-9]+$//p'); # remove extension of the file
+  echo "$dir$f$e";
+  python3 ../../PY_Code-style-converter/main.py $dir$f$e $dir$f.min$e;
+}
+
 echo "${TITLE}
                  _       _       __                          
  _   _ _ __   __| | __ _| |_ ___/ _\ ___ _ ____   _____ _ __ 
@@ -32,6 +42,16 @@ echo "${TITLE}
 | |_| | |_) | (_| | (_| | ||  __/\ \  __/ |   \ V /  __/ |   
  \__,_| .__/ \__,_|\__,_|\__\___\__/\___|_|    \_/ \___|_|   
       |_|${NC}"
+
+
+
+
+reduceCode ../Res/JS/ common.js
+reduceCode ../Res/CSS/ style.css
+
+
+exit 0;
+
 
 htmlDestination="/var/www/html/"
 resDestination="/var/www/Res/"
