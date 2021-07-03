@@ -8,12 +8,12 @@ var DB = {
     missions: null,
     opinion: null,
     missionTeam: null
-}
+};
 
 /**
  * This variable stores the data entered using the url (url.com?data=1 => queryString = {data: 1})
  */
- var queryString = new Array();
+var queryString = new Array();
 
 
 // WHEN FILE LOADED, EXECUTE THIS CODE
@@ -40,7 +40,7 @@ function resizeTextSize() {
         ["normal", 2],
         ["small", 1.5],
         ["detail", 1]
-    ]
+    ];
     for (let e of textSize) { // for each desired textSize-type
         $(":root").css(`--${e[0]}Text`, `${e[1] * size}px`); // Add it to the CSS :root
     }
@@ -135,13 +135,13 @@ function go2page(url, extraData={}) {
         extra.push(v.join("="))
     }
     window.location.href = url + "?" + extra.join("&");
-}
+};
 
 
 // Asinc functions using promises
 const sleep = async (ms) => {
     return new Promise(resolve => setTimeout(resolve, ms));
-}
+};
 
 /**
  * Allows to execute $.ajax method periodically until the spected result is returned by the server or until the triesLeft are 0.
@@ -165,7 +165,7 @@ const asyncInterval = async (petition, spected, ms, triesLeft = 10000) => {
             triesLeft--;
         }, ms);
     });
-}
+};
 
 
 // ************ Analyzers ************
@@ -193,9 +193,11 @@ function stillIn(e, p, conversion = true) {
  * @returns (boolean) Result.
  */
 function isInt(str) {
-    if (typeof str != "string") return false // we only process strings!  
+    if (typeof str != "string") {
+        return false; // we only process strings!  
+    }
     return !isNaN(str) && // use type coercion to parse the _entirety_ of the string (`parseFloat` alone does not do this)...
-           !isNaN(parseInt(str)) // ...and ensure strings of whitespace fail
+           !isNaN(parseInt(str)); // ...and ensure strings of whitespace fail
 }
 
 // ************ Conversors ************
