@@ -134,7 +134,6 @@ function go2page(url, extraData={}) {
     for (const v of Object.entries(extraData)) {
         extra.push(v.join("="))
     }
-    // console.log(url + "?" + extra.join("&"));
     window.location.href = url + "?" + extra.join("&");
 }
 
