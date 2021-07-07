@@ -33,6 +33,20 @@ var goToNextState = {
     }
 }
 
+// GetDB functions
+var successGetDBf = (data) => {
+    updatePlayers();
+    updateMissions();
+    updateSelectedPlayers();
+    updatePoll();
+};
+var errorGetDBf = (e) => {
+    updatePlayers(debugPlayers);
+    updateMissions(debugMissions);
+    updateSelectedPlayers([])
+    updatePoll(debugOpinion);
+};
+
 window.onload = function() {    
     $(".gun").attr("src", "../../Res/img/empty.png");
     
@@ -48,24 +62,11 @@ window.onload = function() {
         errorGetDBf
     );
 
-    setInterval(()=>{getDB(successGetDBf, errorGetDBf);}, 5000); //Update periodically
+    setInterval(()=>{getDB(successGetDBf, errorGetDBf);}, 500); //Update periodically
 
     asyncInterval(goToNextState, "t", 5000);
     // asyncInterval(goToNextState, "t", 20000);
 }
-
-var successGetDBf = (data) => {
-    updatePlayers();
-    updateMissions();
-    updateSelectedPlayers();
-    updatePoll();
-};
-var errorGetDBf = (e) => {
-    updatePlayers(debugPlayers);
-    updateMissions(debugMissions);
-    updateSelectedPlayers([])
-    updatePoll(debugOpinion);
-};
 
 
 
