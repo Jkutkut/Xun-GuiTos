@@ -146,14 +146,25 @@ function getDB(successF, failF) {
             lastTime: lastTime //
         },
         success: (data) => {
-            if (data.lastTime > lastTime) {
-                lastTime = data.lastTime;
-                successF(data);
-                console.log("UPDATING NOW");
+            if (data.lastTime > lastTime) { // If the content is new
+                lastTime = data.lastTime; // Do not update until DB change in the future
 
+                // Store is DB
+                DB.players = data.players; 
+                DB.missions = data.missions;
+                DB.missionTeam = data.missionTeam;
+                DB.opinion = data.opinion;
+
+                successF(data);
             }
         },
         error: (e) => {
+            // store debug content
+            DB.players = debugPlayers;
+            DB.missions = debugMissions;
+            DB.missionTeam = [];
+            DB.opinion = [];
+
             failF(e);
         }
     });

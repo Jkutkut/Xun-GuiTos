@@ -209,7 +209,7 @@ window.onload = function(){
     $("#updateBtn").click(function() {
         update();
     });
-    setInterval(update, 5000);
+    // setInterval(update, 5000);
 }
 
 $(function(){
@@ -219,27 +219,17 @@ $(function(){
 });
 
 
+var successGetDBf = (data) => {    
+    // console.log(data);
+    updateState(data.currentState);
+    updatePlayers();
+    updateMissions();
+};
+var errorGetDBf = (e) => {
+    updatePlayers();
+    updateMissions();
+};
+
 function update() {
-    $.ajax({
-        url: "getDB",
-        method: "get",
-        success: (data) => {
-            DB.players = data.players; 
-            DB.missions = data.missions;
-            DB.missionTeam = data.missionTeam;
-            DB.opinion = data.opinion;
-            
-            // console.log(data);
-            updateState(data.currentState);
-            updatePlayers();
-            updateMissions();
-        },
-        error: (e) => {
-            DB.players = debugPlayers;
-            DB.missions = debugMissions;
-            DB.missionTeam = [];
-            updatePlayers();
-            updateMissions();
-        }
-    });
+    getDB(successGetDBf, errorGetDBf);
 }
