@@ -15,6 +15,8 @@ My own version of the board game "[The Resistance](http://devir.es/producto/la-r
     - Code not used anymore removed.
     - At common.js: code updated, minor changes and obsolete code removed.
     - Use of [Code style converter](https://github.com/Jkutkut/PY_Code-style-converter) to generate style.min.css & common.min.js.
+    - getDB function works on user side and lastTime logic works on server. This change will reduce a lot the network consumtion.
+    - New standar to get and store content from DB.
 ### v0.4:
 - v0.4.2: 
     - NodeRed:
