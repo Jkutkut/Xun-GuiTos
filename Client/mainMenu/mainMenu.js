@@ -62,13 +62,15 @@ window.onload = function() {
         errorGetDBf
     );
 
-    setInterval(()=>{getDB(successGetDBf, errorGetDBf);}, 500); //Update periodically
+    setInterval(update, 500); //Update periodically
 
     asyncInterval(goToNextState, "t", 5000);
     // asyncInterval(goToNextState, "t", 20000);
 }
 
-
+function update() {
+    getDB(successGetDBf, errorGetDBf);
+}
 
 
 /** Main functions */

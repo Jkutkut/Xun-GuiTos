@@ -196,7 +196,7 @@ window.onload = function(){
     $("#updateBtn").click(function() {
         update();
     });
-    // setInterval(update, 5000);
+    setInterval(update, 1000);
 }
 
 $(function(){
