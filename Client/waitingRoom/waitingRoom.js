@@ -32,10 +32,6 @@ var ready4newRound = {
         if (data != "f") {
             go2page(data);
         }
-        else {
-            console.log("not valid");
-            return false;
-        }
     }
 }
 
@@ -70,17 +66,13 @@ function processPhrases(data) {
 
     phrases = phrases.concat(phr); // Add the extra phrases
     $("#waitingLabel").text(phr[0]); //Set the first string from the phr array as the text now
-    setInterval(changePhrase, 5000); //Change the phrase periodically
+    setInterval(changePhrase, 500); //Change the phrase periodically
 }
 
 
 window.onload = function(){
     jQuery.getJSON("phrases.json").then(processPhrases); // Get the phrases from the json file and process them with the function
 
-    if (queryString['firstTime'] == "true") { // if first time on the waiting room
-        asyncInterval(ready4meetup, "t", 5000);
-    }
-    else {
-        asyncInterval(ready4newRound, "t", 5000);
-    }
+    let f = (queryString['firstTime'] == "true")? ready4meetup : ready4newRound; // if first time on the waiting room
+    asyncInterval(f, "t", 5000);
 }

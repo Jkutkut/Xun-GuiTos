@@ -26,10 +26,6 @@ var goToNextState = {
         if (data != "f") {
             go2page(data);
         }
-        else {
-            console.log("not yet");
-            return false;
-        }
     }
 }
 
@@ -64,8 +60,7 @@ window.onload = function() {
 
     setInterval(update, 500); //Update periodically
 
-    asyncInterval(goToNextState, "t", 5000);
-    // asyncInterval(goToNextState, "t", 20000);
+    asyncInterval(goToNextState, "t", 500);
 }
 
 function update() {
