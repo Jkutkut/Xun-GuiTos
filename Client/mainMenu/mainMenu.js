@@ -39,7 +39,15 @@ window.onload = function() {
     $("#LeftBtn").click(()=>{vote(1);});
     $("#RightBtn").click(()=>{vote(-1);});
 
-    getDB(successGetDBf, errorGetDBf);
+    getDB((data)=>{
+        if (data.currentState == 0) {
+            throw new Error("The game has not started!");
+        }
+        successGetDBf(data);
+        }, 
+        errorGetDBf
+    );
+
     setInterval(()=>{getDB(successGetDBf, errorGetDBf);}, 5000); //Update periodically
 
     asyncInterval(goToNextState, "t", 5000);
