@@ -20,6 +20,7 @@ My own version of the board game "[The Resistance](http://devir.es/producto/la-r
         - RootMenu.
         - MainMenu.
     - Now on MainMenu, the status of the first getDB is checked to see if the game has started.
+    - Minor changes and code cleaned in some files.
 ### v0.4:
 - v0.4.2: 
     - NodeRed:

@@ -143,7 +143,7 @@ function getDB(successF, failF) {
         url: "getDB",
         method: "get",
         data: {
-            lastTime: lastTime //
+            lastTime: lastTime
         },
         success: (data) => {
             if (data.lastTime > lastTime) { // If the content is new
