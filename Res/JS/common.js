@@ -137,6 +137,28 @@ function go2page(url, extraData={}) {
     window.location.href = url + "?" + extra.join("&");
 };
 
+var lastTime = 0;
+function getDB(successF, failF) {
+    $.ajax({
+        url: "getDB",
+        method: "get",
+        data: {
+            lastTime: lastTime //
+        },
+        success: (data) => {
+            if (data.lastTime > lastTime) {
+                lastTime = data.lastTime;
+                successF(data);
+                console.log("UPDATING NOW");
+
+            }
+        },
+        error: (e) => {
+            failF(e);
+        }
+    });
+};
+
 
 // Asinc functions using promises
 const sleep = async (ms) => {
