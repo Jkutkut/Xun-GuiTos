@@ -8,6 +8,7 @@ My own version of the board game "[The Resistance](http://devir.es/producto/la-r
 ### v0.5:
 - v0.5.1:
     - Testing full game.
+    - Logo added.
 - v0.5.0:
     - RootMenu:
         - Bug where the result of a successful mission was inverted fixed.
@@ -242,7 +243,7 @@ Work focused on the configuration of the rapsberry pi 4 and the bluetooth commun
 
 
 ## Special mentions:
-- Special thanks to [Paula]() for the help with the creative design of the project.
+- Special thanks to [Paula]() for her help with the creative design of the project.
 - Icons:
     - Gun icons: Made by smalllikeart: [link](https://www.flaticon.com/authors/smalllikeart)
     - Users: Made by Vitaly Gorbachev: [link](https://www.flaticon.com/authors/vitaly-gorbachev)
@@ -250,6 +251,7 @@ Work focused on the configuration of the rapsberry pi 4 and the bluetooth commun
     - Async petitions with interval: [link](https://levelup.gitconnected.com/how-to-turn-settimeout-and-setinterval-into-promises-6a4977f0ace3)
     - Css loading: [link](https://loading.io/css/)
     - Crop img: [link](https://codepen.io/blackjacques/pen/bqgNoa)
+    - Logo: based on Freepik's logo: [link](https://www.freepik.com)
 
 - Gridstrap:
     - Github: [link](https://github.com/rosspi/gridstrap.js/)
