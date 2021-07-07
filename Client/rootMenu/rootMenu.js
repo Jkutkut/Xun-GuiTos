@@ -193,19 +193,6 @@ window.onload = function(){
         });
     });
 
-    // $("#HardReset").click(function() {
-    //     $.ajax({
-    //         url: "hardReset",
-    //         method: "post",
-    //         data: {},
-    //         success: function(data) {
-    //         },
-    //         error: function(errorThrown) {
-    //             console.warn(errorThrown);
-    //         }
-    //     });
-    // });
-
     $("#updateBtn").click(function() {
         update();
     });
