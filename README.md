@@ -16,7 +16,10 @@ My own version of the board game "[The Resistance](http://devir.es/producto/la-r
     - At common.js: code updated, minor changes and obsolete code removed.
     - Use of [Code style converter](https://github.com/Jkutkut/PY_Code-style-converter) to generate style.min.css & common.min.js.
     - getDB function works on user side and lastTime logic works on server. This change will reduce a lot the network consumtion.
-    - New standar to get and store content from DB.
+    - New standar to get and store content from DB:
+        - RootMenu.
+        - MainMenu.
+    - Now on MainMenu, the status of the first getDB is checked to see if the game has started.
 ### v0.4:
 - v0.4.2: 
     - NodeRed:
