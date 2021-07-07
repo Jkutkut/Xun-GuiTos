@@ -6,6 +6,8 @@ My own version of the board game "[The Resistance](http://devir.es/producto/la-r
 
 ## Version history:
 ### v0.5:
+- v0.5.1:
+    - Testing full game.
 - v0.5.0:
     - RootMenu:
         - Bug where the result of a successful mission was inverted fixed.
