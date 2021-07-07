@@ -219,8 +219,7 @@ $(function(){
 });
 
 
-var successGetDBf = (data) => {    
-    // console.log(data);
+var successGetDBf = (data) => {
     updateState(data.currentState);
     updatePlayers();
     updateMissions();
