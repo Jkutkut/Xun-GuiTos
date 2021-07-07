@@ -39,38 +39,25 @@ window.onload = function() {
     $("#LeftBtn").click(()=>{vote(1);});
     $("#RightBtn").click(()=>{vote(-1);});
 
-    update();
-    setInterval(update, 5000); //Update periodically
+    getDB(successGetDBf, errorGetDBf);
+    setInterval(()=>{getDB(successGetDBf, errorGetDBf);}, 5000); //Update periodically
 
     asyncInterval(goToNextState, "t", 5000);
     // asyncInterval(goToNextState, "t", 20000);
 }
 
-
-function update() {
-    $.ajax({
-        url: "getDB",
-        method: "get",
-        success: (data) => {
-            // Store data on a variable for future consult
-            DB.players = data.players; 
-            DB.missions = data.missions;
-            DB.missionTeam = data.missionTeam;
-            DB.opinion = data.opinion;
-
-            updatePlayers();
-            updateMissions();
-            updateSelectedPlayers();
-            updatePoll();
-        },
-        error: () => {
-            updatePlayers(debugPlayers);
-            updateMissions(debugMissions);
-            updateSelectedPlayers([])
-            updatePoll(debugOpinion);
-        }
-    });
-}
+var successGetDBf = (data) => {
+    updatePlayers();
+    updateMissions();
+    updateSelectedPlayers();
+    updatePoll();
+};
+var errorGetDBf = (e) => {
+    updatePlayers(debugPlayers);
+    updateMissions(debugMissions);
+    updateSelectedPlayers([])
+    updatePoll(debugOpinion);
+};
 
 
 
