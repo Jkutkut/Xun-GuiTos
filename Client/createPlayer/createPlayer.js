@@ -15,44 +15,69 @@ window.onload = function(){ //When page loaded, define vars
             console.log("data not correct");
         }
         else{ //If data is correct
-            //add name, img to DB
-            let addName = {
-                url: 'createPlayer.php',
-                method: 'post',
-                data: {
-                    "name": name //name: "Adrián"
-                },
-                success: function(data) {
-                    console.log(data); //show the msg
-                    if (isInt(data)){ //If name added correctly
-                        pId = data;
-                        // $.ajax(addImg(pId)); //Try to add the img
-                        go2page("waitingRoom.html", {firstTime: true, username: name, pId: pId});
-                    }
-                }
-            };
-            let addImg = function(pId) {
-                return {
-                    url: 'addImg.php',
-                    method: 'post',
-                    data: {
-                        "pId": pId,
-                        "user": name,
-                        "img": getBase64Image(document.getElementById("resultImg"))
-                    },
-                    success: function(data) {
-                        console.log(data);
-                        if(data == "Img stored and linked"){ // if img stored correctly:
-                            //Go to the waiting room with the user's name and being the firstTime
-                            go2page("waitingRoom.html", {firstTime: true});
-                        }
-                    }
-                };
-            }
-
-            $.ajax(addName); //First add name
+            createPlayer(name);
         }
     });
+}
+
+function createPlayer(name) {
+    let checkName = {
+        url: "players",
+        method: "get",
+        success: (players) => {
+            let found = false;
+            for (let p of players) {
+                if (p.name == name)  {
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found) {
+                $.ajax(addName);         
+            }
+            else {
+                console.warn("Player already created");
+            }
+        }
+    }
+    //add name, img to DB
+    let addName = {
+        url: 'createPlayer.php',
+        method: 'post',
+        data: {
+            "name": name //name: "Adrián"
+        },
+        success: function(data) {
+            console.log(data); //show the msg
+            if (isInt(data)){ //If name added correctly
+                pId = data;
+                // $.ajax(addImg(pId)); //Try to add the img
+                go2page("waitingRoom.html", {firstTime: true, username: name, pId: pId});
+            }
+        }
+    };
+    let addImg = function(pId) {
+        return {
+            url: 'addImg.php',
+            method: 'post',
+            data: {
+                "pId": pId,
+                "user": name,
+                "img": getBase64Image(document.getElementById("resultImg"))
+            },
+            success: function(data) {
+                console.log(data);
+                if(data == "Img stored and linked"){ // if img stored correctly:
+                    //Go to the waiting room with the user's name and being the firstTime
+                    go2page("waitingRoom.html", {firstTime: true});
+                }
+            }
+        };
+    }
+
+    $.ajax(checkName);
+    // $.ajax(addName); //First add name
 }
 /*
 var loadFile = function(event) { //When img selected
