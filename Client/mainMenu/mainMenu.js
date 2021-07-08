@@ -323,13 +323,14 @@ function updatePoll(){
     let si = [], no = [];
     for (let d of DB.opinion) { // For each player
         if (d.pId == queryString.pId) {
-            $(".pollBtn").css("font-weight", "normal");
-            if (d.val == 1) {
-                $("#RightBtnLabel").css("font-weight", "bold");
-            }
-            else if (d.val == -1) {
-                $("#LeftBtnLabel").css("font-weight", "bold");
-            }
+            // $(".pollBtn").css("font-weight", "normal");
+            // if (d.val == 1) {
+            //     $("#RightBtnLabel").css("font-weight", "bold");
+            // }
+            // else if (d.val == -1) {
+            //     $("#LeftBtnLabel").css("font-weight", "bold");
+            // }
+            vote(d.val, false);
         }
         if (d.val == 1) {
             si.push(DB.players[d.pId - 1].name); // If vote is positive
@@ -366,21 +367,25 @@ function updatePoll(){
  * Updates the vote of the player and sends it to the Server.
  * @param {boolean} v - Whenever the btn pressed is Yes (true) or No (false). 
  */
-function vote(v){
+function vote(v, updateDB=true){
     // pollBtnState = Current status of the btns
     $(".pollBtn").css("font-weight", "normal");
 
-    if (v == undefined || v == pollBtnState) { //if empty argument or they are the same, clear vote
+    console.log(v)
+    if ((v == undefined || v == pollBtnState) && updateDB || //if empty argument or they are the same and vote btn pressed
+        (v == 0 && !updateDB)) { //if just updating the screen, clear vote
         pollBtnState = 0; //reset var
     }
     else if(v == 1) { // If v == 1 => Yes
         pollBtnState = 1;
-        $("#RightBtnLabel").css("font-weight", "bold");
+        $("#LeftBtnLabel").css("font-weight", "bold");
     }
     else { // If v == -1 => No
         pollBtnState = -1;
-        $("#LeftBtnLabel").css("font-weight", "bold");
+        $("#RightBtnLabel").css("font-weight", "bold");
     }
+
+    if (!updateDB) return; // if just updating the screen, end here.
 
     $.ajax({
         url: "changeOpinion.php",
