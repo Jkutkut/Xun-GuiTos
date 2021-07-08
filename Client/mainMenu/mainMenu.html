@@ -2,6 +2,8 @@
 <head>
     <meta charset="utf-8">
     <title>Resistencia</title>
+    <link rel="icon" href="../../Res/img/logo.png">
+
     <!-- CSS -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://unpkg.com/material-components-web@7.0.0/dist/material-components-web.css">
@@ -155,21 +157,16 @@
     </div>
 
     <!-- POPUPS -->
-    <div class="popUpFrame" style="backdrop-filter: blur(20px); display: none;">
+    <div class="popUpFrame">
         <div id="resistenciaPopUp" class="popUp" style="--bg: var(--blue)">
-            <p style="font-size: var(--bigText); text-align: center; margin-top: 2vh;">Misión completada</p>
-            <div style="height: 65%;">
-                <p style="font-size: var(--smallText); text-align: center;">La resistencia ha logrado cumplir satisfactoriamente la misión. Enhorabuena!</p>
-            </div>
-            <br>
-            <p class="smallLabel">Éxito: 5 -- Fracaso: 5</p>
+            <p class="popUpTitle">Misión completada</p>
+            <p class="smallLabel">La resistencia ha logrado cumplir satisfactoriamente la misión. Enhorabuena!</p>
+            <p class="smallLabel PopUpmissionResult">Éxito: 5 -- Fracaso: 5</p>
         </div>
         <div id="chunguitosPopUp" class="popUp" style="--bg: var(--red)">
-            <p style="font-size: var(--bigText); text-align: center; margin-top: 2vh;">Misión finalizada</p>
-            <div style="height: 65%;">
-                <p style="font-size: var(--smallText); text-align: center;">Oh, no! Algún agente de Xun-GuiTo's estuvo en la misión y la ha saboteado!</p>
-            </div>
-            <p class="smallLabel">Éxito: 5 -- Fracaso: 5</p>
+            <p class="popUpTitle">Misión finalizada</p>
+            <p class="smallLabel">Oh, no! Algún agente de Xun-GuiTo's estuvo en la misión y la ha saboteado!</p>
+            <p class="smallLabel PopUpmissionResult">Éxito: 5 -- Fracaso: 5</p>
         </div>
 
         <div class="" style="position: absolute; left: 0%; bottom: 15%; display: flex; justify-content: center; width: 100%; ">

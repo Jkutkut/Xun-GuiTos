@@ -442,7 +442,7 @@ function getUpdatedPoll() {
         }
     }
     // Update popUp's score
-    $(".smallLabel").text(`Éxito: ${yes} -- Fracaso: ${no}`);
+    $(".PopUpmissionResult").text(`Éxito: ${yes} -- Fracaso: ${no}`);
     
     $(".popUpFrame").css("display", "flex"); // Show the frame with the popUps
 }
