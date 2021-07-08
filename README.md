@@ -260,7 +260,6 @@ Work focused on the configuration of the rapsberry pi 4 and the bluetooth commun
     - Async petitions with interval: [link](https://levelup.gitconnected.com/how-to-turn-settimeout-and-setinterval-into-promises-6a4977f0ace3)
     - Css loading: [link](https://loading.io/css/)
     - Crop img: [link](https://codepen.io/blackjacques/pen/bqgNoa)
-    - Logo: based on Freepik's logo: [link](https://www.freepik.com)
 
 - Gridstrap:
     - Github: [link](https://github.com/rosspi/gridstrap.js/)
