@@ -9,6 +9,9 @@ My own version of the board game "[The Resistance](http://devir.es/producto/la-r
 - v0.5.1:
     - Testing full game.
     - Logo added.
+    - At createPlayers: Player with the same should not be possible now.
+    - Play test:
+        - Fixing bugs.
 - v0.5.0:
     - RootMenu:
         - Bug where the result of a successful mission was inverted fixed.
