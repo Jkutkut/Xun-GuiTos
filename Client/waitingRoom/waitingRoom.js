@@ -66,7 +66,7 @@ function processPhrases(data) {
 
     phrases = phrases.concat(phr); // Add the extra phrases
     $("#waitingLabel").text(phr[0]); //Set the first string from the phr array as the text now
-    setInterval(changePhrase, 500); //Change the phrase periodically
+    setInterval(changePhrase, 5000); //Change the phrase periodically
 }
 
 
