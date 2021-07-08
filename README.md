@@ -4,6 +4,12 @@ My own version of the board game "[The Resistance](http://devir.es/producto/la-r
 ![](./Res/img/Screenshots/mainMenu.png)
 ![](./Res/img/Screenshots/multiplayerExample.png)
 
+## How to play:
+Go to the link:
+
+    IP:1880/createPlayer
+    (IP is the IP address of the server running Node-Red)
+
 ## Version history:
 ### v0.5:
 - v0.5.1:
