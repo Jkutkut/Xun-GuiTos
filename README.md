@@ -15,9 +15,23 @@ Go to the link:
 - v0.5.1:
     - Testing full game.
     - Logo added.
-    - At createPlayers: Player with the same should not be possible now.
+    - CreatePlayers:
+        - Player with the same should not be possible now.
+    - Phrases updated:
+        - Minor fix.
+        - Addition of new ones.
+    - MainMenu:
+        - Safari bug with blur fixed.
+        - Safari bug with popUp size fixed.
+        - PopUp UI refactored.
+        - Icon added.
+        - Bug with voteBtn-ids' fixed.
+        - New logic to change the vote UI using the vote function only.
+    - Node-Red:
+        - bugs fixed and new logic to remove players manually.
     - Play test:
         - Fixing bugs.
+        - First game successful!
 - v0.5.0:
     - RootMenu:
         - Bug where the result of a successful mission was inverted fixed.
