@@ -1,6 +1,7 @@
 // var canvas, context, imgHTML, cropper, imgF;
 
 var state = false;
+var creatingPlayer = false;
 
 window.onload = function(){ //When page loaded, define vars
     // canvas = $("#canvas");
@@ -21,6 +22,10 @@ window.onload = function(){ //When page loaded, define vars
 }
 
 function createPlayer(name) {
+    if (creatingPlayer) return; // If already creating player, stop
+
+    creatingPlayer = true;
+
     let checkName = {
         url: "players",
         method: "get",
@@ -37,6 +42,7 @@ function createPlayer(name) {
                 $.ajax(addName);         
             }
             else {
+                createPlayer = false; // No longer creating player
                 console.warn("Player already created");
             }
         }
@@ -77,7 +83,6 @@ function createPlayer(name) {
     }
 
     $.ajax(checkName);
-    // $.ajax(addName); //First add name
 }
 /*
 var loadFile = function(event) { //When img selected
