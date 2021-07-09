@@ -131,7 +131,7 @@ function updatePlayers() {
 
         $(`#userName${current.value}`).text(player.name); // Update the name of the user
 
-        iconIndex = player.pId * 5 - (today.getDay() + today.getHours()) % 5;
+        iconIndex = (player.pId + today.getDay() + today.getHours()) % 50 + 1;
         $(`#icon${current.value}`).attr("src", `../../Res/img/users/user${iconIndex}.png`); // Update the name of the user
 
         // Get and update img
@@ -242,15 +242,7 @@ function disableUserPicking() {
 
 function pickUser(user, value=null) {
     let empty = "../../Res/img/empty";
-    let gun = "../../Res/img/guns/0";
     let extension = ".png";
-
-    let randomWeapon = () => {
-        let today = new Date();
-        let r = user.player.pId * 3 - (today.getDay() + today.getHours()) % 3;
-        if (r < 10) r = "0"+r;
-        return gun + r + `-gun${extension}`;
-    };
 
     let newSrc;
     if (value === null) {
@@ -277,7 +269,7 @@ function pickUser(user, value=null) {
                 return;
             }
             
-            newSrc = randomWeapon();
+            newSrc = randomWeapon(user);
 
             //Update response
             response.url = "selectPlayer4mission";
@@ -293,7 +285,7 @@ function pickUser(user, value=null) {
     }
     else {
         if (value == 1) { // if the player has been selected
-            newSrc = randomWeapon();
+            newSrc = randomWeapon(user);
         }
         else if (value == 0) { // If the player hasn't been selected
             newSrc = empty + extension;
@@ -306,7 +298,16 @@ function pickUser(user, value=null) {
     $("#gun"+user.divId).attr("src", newSrc)
 }
 
+function randomWeapon(user) {
+    const MAX = 35;
+    const gun = "../../Res/img/guns/0";
+    const extension = ".png";
 
+    let today = new Date();
+    let r = (user.player.pId + today.getDay() + today.getHours()) % MAX + 1;
+    if (r < 10) r = "0"+r;
+    return gun + r + `-gun${extension}`;
+};
 
 
 
