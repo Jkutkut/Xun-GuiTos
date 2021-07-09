@@ -29,6 +29,8 @@ Go to the link:
         - New logic to change the vote UI using the vote function only.
     - Node-Red:
         - bugs fixed and new logic to remove players manually.
+    - RootMenu:
+        - Now the mission containers have scroll for large groups.
     - Play test:
         - Fixing bugs.
         - First game successful!
