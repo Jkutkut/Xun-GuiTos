@@ -310,6 +310,7 @@ div .username {
 
 .PollContainer {
     width: 85%;
+    aspect-ratio: 1;
     border-radius: 20px;
     border: solid black 5px;
 }

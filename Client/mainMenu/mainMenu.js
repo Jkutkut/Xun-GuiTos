@@ -379,6 +379,9 @@ function vote(v, updateDB=true){
     else if(v == 1) { // If v == 1 => Yes
         pollBtnState = 1;
         $("#LeftBtnLabel").css("font-weight", "bold");
+        $("#RightBtn").css("width", "60%");
+        // $("#LeftBtn").css("height", "60%");
+
     }
     else { // If v == -1 => No
         pollBtnState = -1;
