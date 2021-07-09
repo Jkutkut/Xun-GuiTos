@@ -370,6 +370,7 @@ function updatePoll(){
 function vote(v, updateDB=true){
     // pollBtnState = Current status of the btns
     $(".pollBtn").css("font-weight", "normal");
+    $(".pollContainer").css("width", "85%");
 
     console.log(v)
     if ((v == undefined || v == pollBtnState) && updateDB || //if empty argument or they are the same and vote btn pressed
@@ -380,12 +381,11 @@ function vote(v, updateDB=true){
         pollBtnState = 1;
         $("#LeftBtnLabel").css("font-weight", "bold");
         $("#RightBtn").css("width", "60%");
-        // $("#LeftBtn").css("height", "60%");
-
     }
     else { // If v == -1 => No
         pollBtnState = -1;
         $("#RightBtnLabel").css("font-weight", "bold");
+        $("#LeftBtn").css("width", "60%");
     }
 
     if (!updateDB) return; // if just updating the screen, end here.
