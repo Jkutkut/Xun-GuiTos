@@ -423,6 +423,8 @@ div .username {
     margin: 0.5vh;
     border-radius: 10px;
     border: 5px solid var(--black);
+
+    overflow-y: scroll;
 }
 
 .rootBtn {
