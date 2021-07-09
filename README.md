@@ -1,6 +1,6 @@
-# Resistencia:
+# Xun-GuiTo's:
 
-My own version of the board game "[The Resistance](http://devir.es/producto/la-resistencia/)".
+
 ![](./Res/img/Screenshots/mainMenu.png)
 ![](./Res/img/Screenshots/multiplayerExample.png)
 
@@ -267,6 +267,7 @@ Work focused on the configuration of the rapsberry pi 4 and the bluetooth commun
 
 ## Special mentions:
 - Special thanks to [Paula]() for her help with the creative design of the project.
+- This game has been created using "[The Resistance](http://devir.es/producto/la-resistencia/)" game as inspiration.
 - Icons:
     - Gun icons: Made by smalllikeart: [link](https://www.flaticon.com/authors/smalllikeart)
     - Users: Made by Vitaly Gorbachev: [link](https://www.flaticon.com/authors/vitaly-gorbachev)
