@@ -75,3 +75,18 @@
 - Enable to work even if player disconected
 - Add toast logic to enable console interface.
 - Code reduced logic to create production files
+
+
+## 
+
+rootmenu:
+scroll on missions
+
+mainMenu:
+- icono mas resaltado al decir si o no
+
+- mission result size (paula)
+
+- armas cambian entre misiones
+
+- Use style.min and common.min
