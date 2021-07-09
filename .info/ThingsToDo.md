@@ -79,13 +79,8 @@
 
 ## 
 
-rootmenu:
-scroll on missions
-
 mainMenu:
 - icono mas resaltado al decir si o no
-
-- mission result size (paula)
 
 - armas cambian entre misiones
 
