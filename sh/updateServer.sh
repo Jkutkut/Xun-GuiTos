@@ -32,64 +32,21 @@ reduceCode(){
   e=$(echo $f | sed -rn 's/.+(\.[a-zA-Z0-9]+)$/\1/p'); # Extension of the file
   f=$(echo $f | sed -rn 's/\.[a-zA-Z0-9]+$//p'); # remove extension of the file
   echo "$dir$f$e";
-  python3 ../../PY_Code-style-converter/main.py $dir$f$e $dir$f.min$e;
+  python3 ../PY_Code-style-converter/main.py $dir$f$e $dir$f.min$e;
 }
 
-echo "${TITLE}
+echo -e "${TITLE}
                  _       _       __                          
  _   _ _ __   __| | __ _| |_ ___/ _\ ___ _ ____   _____ _ __ 
 | | | | '_ \ / _\` |/ _\` | __/ _ \ \ / _ \ '__\ \ / / _ \ '__|
 | |_| | |_) | (_| | (_| | ||  __/\ \  __/ |   \ V /  __/ |   
  \__,_| .__/ \__,_|\__,_|\__\___\__/\___|_|    \_/ \___|_|   
-      |_|${NC}"
+      |_|\n\n${NC}"
 
 
 
-
-reduceCode ../Res/JS/ common.js
-reduceCode ../Res/CSS/ style.css
-
-
-exit 0;
+reduceCode Res/JS/ common.js
+reduceCode Res/CSS/ style.css
 
 
-htmlDestination="/var/www/html/"
-resDestination="/var/www/Res/"
-
-# Remove old version
-echo "
-${YELLOW}Removing deprecated version${NC}"
-(sudo rm /var/www/html/* &&
-echo "Removing deprecated files 50%" &&
-sudo rm -rf /var/www/Res/* &&
-echo "Removing deprecated files 100%" ||
-error "Error removing old version") &&
-echo "${GREEN}Deprecated files removed${NC}
-"
-
-# Save new version
-echo "${YELLOW}Installing new version${NC}"
-
-# html
-(sudo cp ../Client/createPlayer/* $htmlDestination -rf && # createPlayer
-echo "CreatePlayer html/js code moved" &&
-sudo cp ../Client/mainMenu/* $htmlDestination -rf && # mainMenu
-echo "MainMenu html/js code moved" &&
-sudo cp ../Client/waitingRoom/* $htmlDestination -rf && # waitingRoom
-echo "WaitingRoom html/js/json code moved" &&
-sudo cp ../Client/rootMenu/* $htmlDestination -rf && # rootMenu
-echo "RootMenu html/js code moved" &&
-sudo cp ../DB-Server/php/*.php $htmlDestination -rf && # PHP
-echo "Php code moved to html folder" &&
-
-# Res
-sudo cp ../Res/img $resDestination -rf && # Imgs
-echo "img moved to Res folder" &&
-sudo cp ../Res/CSS $resDestination -rf && # CSS
-echo "CSS moved to Res folder" &&
-sudo cp ../Res/JS $resDestination -rf && # JS
-echo "CSS moved to Res folder" ||
-
-error "Error moving files") &&
-echo "${GREEN}done${NC}
-"
+echo -e "\n${GREEN}done${NC}"
