@@ -21,11 +21,19 @@ window.onload = function(){ //When page loaded, define vars
     });
 }
 
+/**
+ * Attempts to create a player on the server. If a player with this name already exists, the player can't be created.
+ * @see This function should only run on one instance.
+ * @param {String} name - Name of the desired player 
+ */
 function createPlayer(name) {
     if (creatingPlayer) return; // If already creating player, stop
 
-    creatingPlayer = true;
+    creatingPlayer = true; // Now creating player
 
+    /**
+     * This ajax argument checks if no player has this name. If unique, the next expression is triggered.
+     */
     let checkName = {
         url: "players",
         method: "get",
@@ -38,31 +46,45 @@ function createPlayer(name) {
                 }
             }
 
-            if (!found) {
-                $.ajax(addName);         
+            if (!found) { // If there's no player with this name
+                $.ajax(addName); // Create player
             }
             else {
                 createPlayer = false; // No longer creating player
                 console.warn("Player already created");
             }
+        },
+        error: (e) => {
+            console.error("Error checking the player");
+            console.error(e);
+            createPlayer = false; // No longer creating player
         }
     }
-    //add name, img to DB
+    
+    /**
+     * Attempts to create the player with the name
+     */
     let addName = {
         url: 'createPlayer.php',
         method: 'post',
         data: {
             "name": name //name: "Adrián"
         },
-        success: function(data) {
+        success: function(data) { // If correct, the data should be the player's pId
             console.log(data); //show the msg
             if (isInt(data)){ //If name added correctly
                 pId = data;
                 // $.ajax(addImg(pId)); //Try to add the img
                 go2page("waitingRoom.html", {firstTime: true, username: name, pId: pId});
             }
+        },
+        error: (e) => {
+            console.error("Error creating the player");
+            console.error(e);
+            createPlayer = false; // No longer creating player
         }
     };
+
     let addImg = function(pId) {
         return {
             url: 'addImg.php',
@@ -82,11 +104,11 @@ function createPlayer(name) {
         };
     }
 
-    $.ajax(checkName);
+    $.ajax(checkName); // Check the name and create the player if valid
 }
 /*
 var loadFile = function(event) { //When img selected
-    togleMenu(); //Change to edit menuñ
+    toggleMenu(); //Change to edit menu
     
     imgF = new Image(); //Here the new img File will be stored
     imgF.onload = function(event) { //When img loaded, display it the best way possible
@@ -123,14 +145,14 @@ function cropImg(){ //When cropped btn selected, this code is executed
     cropper.destroy(); //The cropper is destroyed
 
     imgHTML.css("display", "inline");
-    togleMenu(); //Return to normal menu
+    toggleMenu(); //Return to normal menu
 }
 function cancelCrop(){
     cropper.destroy(); //The cropper is destroyed
-    togleMenu(); //Return to normal menu
+    toggleMenu(); //Return to normal menu
 }
 
-function togleMenu() {
+function toggleMenu() {
     let s = function(sta){ return (sta)? "grid" : "none";};
     $("#main").css("display", s(state));
     $("#photo").css("display", s(!state));
