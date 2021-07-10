@@ -27,6 +27,8 @@ Go to the link:
         - Icon added.
         - Bug with voteBtn-ids' fixed.
         - New logic to change the vote UI using the vote function only.
+        - Vote btns now become smaller if the other one is selected.
+        - Both weapons and players imgs now using better randomizer.
     - Node-Red:
         - bugs fixed and new logic to remove players manually.
     - RootMenu:
@@ -38,13 +40,13 @@ Go to the link:
     - RootMenu:
         - Bug where the result of a successful mission was inverted fixed.
         - Logic updated at updateMissions to get the Success-Failure using less code.
-        - Now the resultPoll label stores the current votation to create a team. Therefore, it only apears on active missions.
+        - Now the resultPoll label stores the current poll to create a team. Therefore, it only appears on active missions.
     - String concatenation updated to new version: MainMenu, GameOver, RootMenu, Meetup and missionPoll.
     - Code not used anymore removed.
     - At common.js: code updated, minor changes and obsolete code removed.
     - Use of [Code style converter](https://github.com/Jkutkut/PY_Code-style-converter) to generate style.min.css & common.min.js.
-    - getDB function works on user side and lastTime logic works on server. This change will reduce a lot the network consumtion.
-    - New standar to get and store content from DB:
+    - getDB function works on user side and lastTime logic works on server. This change will reduce a lot the network consumption.
+    - New standard to get and store content from DB:
         - RootMenu.
         - MainMenu.
     - Now on MainMenu, the status of the first getDB is checked to see if the game has started.
@@ -53,7 +55,7 @@ Go to the link:
 - v0.4.2: 
     - NodeRed:
         - bug deleting failed-team fixed.
-        - bug reseting opinion table fixed.
+        - bug resetting opinion table fixed.
         - Bug where the next leaderId was 0 fixed.
         - EndPoll logic changed to be easier to visualize.
     - MainMenu:
@@ -67,11 +69,11 @@ Go to the link:
     
     - MainMenu:
         - Functions to update and check for next state now executing periodically.
-        - Weapons now randomiced but consistent for a period of time.
+        - Weapons now randomized but consistent for a period of time.
         - Logic to limit amount of members for mission updated. Now it depends on server.
         - Now players appear sorted using groupPos (IRL order).
         - Vote logic updated.
-        - Bug where the popUp with the state of the previous mission was apearing all the time fixed.
+        - Bug where the popUp with the state of the previous mission was appearing all the time fixed.
         - Bug when guns were given to the players who went to previous missions fixed.
         - updatePoll now using DB variable.
         - When updating, DB variable is stored at the same time now, to allow to use the functions no matter the order.
@@ -79,7 +81,7 @@ Go to the link:
         - Poll vote UI refresh updated.
     - NodeRed:
         - Working on endPoll logic and canStopWaiting.
-        - Bugs on querys to DB fixed.
+        - Bugs on query to DB fixed.
         - Now when asking for missionPoll.html, the server decides if the user waits or goes to the mission.
         - Now the endPoll logic should really stop if the number of players chosen are not valid.
         - Debug setup code added to debug the endGame.
@@ -94,9 +96,9 @@ Go to the link:
     - GameOver:
         - new Option to show on GameOver if the end selected is not valid.
         - selectResult updated and commented to show all possible endGames.
-        - updateCards function added to customice the endGame cards.
+        - updateCards function added to customize the endGame cards.
         - GameOver cards ordered correctly now.
-    - Bug creating a player fixed. Now the information of the user is adressed to the waitingRoom.
+    - Bug creating a player fixed. Now the information of the user is addressed to the waitingRoom.
     - WaitingRoom now sends players to meetup if firstTime again.
     - GameOver implemented!!!
 - v0.4.0:
@@ -138,7 +140,7 @@ Go to the link:
     - Now when missions are updated, the enableUserPicking function is executed if the user is the leader.
       This function will set a onClick event where the selected player is selected/unselected to the current mission.
     - Confetti added to the project.
-    - Meetup textSize standar implemented.
+    - Meetup textSize standard implemented.
     - gameOver created.
     - NodeRed now returns the pId to the user when creating a player. This way, there's no need to convert name->pId every time.
     - Minor fixes in UI:
@@ -152,31 +154,31 @@ Go to the link:
         - players and missions now can be updated from NodeRed.
         - Now leader can not select more users than the maximum allowed.
         - Poll now updated from nodeRed.
-        - New function go2page to standarize the way to switch between devices.
-        - User icons now replaced with new pngs using a phseudo-random logic.
+        - New function go2page to standardize the way to switch between devices.
+        - User icons now replaced with new pngs using a pseudo-random logic.
 - v0.3.3:
-    - Shell script to find the nodeRed rapsberry ip using brute-force.
+    - Shell script to find the nodeRed raspberry ip using brute-force.
     - New client menu: Mission-Poll.
         - Basic UI created.
         - Logic added.
-        - Updated to new standar.
+        - Updated to new standard.
     - UI changes:
-        - Standar color palette created.
+        - Standard color palette created.
         - WaitingRoom style changed.
         - Meetup style changed and UI changed with more content.
         - Create player style changed.
         - MainMenu's missions tab updated to new UI.
         - MainMenu's players' menu updated to new UI.
-    - TextSize now standar using JS logic.
+    - TextSize now standard using JS logic.
     - At mainMenu, now popUps appear with the results of the previous mission.
     - New img added to replace leader and gun imgs when not used.
 
 - v0.3.2:
     - Logic to update RootMenu players and missions UI.
     - Some RootMenu UI bugs fixed.
-    - RootMenu UI optimiced to be updated with Ajax petitions.
+    - RootMenu UI optimized to be updated with Ajax petitions.
     - MissionTeam table logic defined and implemented.
-    - Nodered get Missions returns the content of both Missions and MissionTeam tables.
+    - NodeRed get Missions returns the content of both Missions and MissionTeam tables.
     - Bug on MainMenu user R1C2 (12) UI updated.
     - RootMenu old code removed.
     - RootMenu now updates the UI with server data.
@@ -199,15 +201,15 @@ Go to the link:
 ### v0.2:
 - v0.2.5: 
     - Minor fixes to UI.
-    - Getting ready for NODERED and new OS (raspberry).
+    - Getting ready for NodeRed and new OS (raspberry).
 - v0.2.4: Root menu:
     - rootMenu:
         - Features defined.
         - UI design.
     - DB-logic.uxf mayor modification:
-        - Now tables not implemented (yet) apear as theorical.
+        - Now tables not implemented (yet) apear as theoretical.
         - FieldTypes now apear on diagram.
-        - New fileds on Players, Mission => *new Tables*.
+        - New fields on Players, Mission => *new Tables*.
     - Opinion table created
 - v0.2.3: Data base and menus integration:
     - Mayor upgrade of the common.js file:
@@ -216,7 +218,7 @@ Go to the link:
     - Alpha version of RootMenu at waitingRoom.
     - CreateMenu and Waiting room basic logic implemented.
     - Waiting Room interface created, with custom waiting-msgs.
-    - Now the game stores the username and the icon asociated, to the waiting Room.
+    - Now the game stores the username and the icon associated, to the waiting Room.
     - Visual change to createMenu:
         - When selecting an img, the crop menu is opened on a dedicated screen.
         - There isn't a default player icon anymore.
@@ -234,18 +236,18 @@ Go to the link:
         - sqliteTables.txt 
     - Minor changes on Style.css and updateServer.sh upgraded.
 - v0.2.2: Data base creation
-    - First aproach to DB creation and modification usign JS/JQuerry/PHP.
+    - First approach to DB creation and modification using JS/JQuerry/PHP.
         - Communication to Raspberry using PHP and JQuerry (Ajax).
         - Ajax commands to send information (plain text).
         - Database logic defined.
-        - Game proccess logic defined.
+        - Game states logic defined.
         - Use of uxf file to display info.
         - Change between menus using php.
-        - Succesfull sqlite update of table using php and ajax.
+        - Successful sqlite update of table using php and ajax.
 - v0.2.1: Main menu
     - Work on the main menu.
         - Basic layout defined.
-        - Some funcionalities added.
+        - Some functionalities added.
         - Icons for guns and team leader added.
         - CSS file unified.
         - Feedback system implemented.
@@ -253,9 +255,8 @@ Go to the link:
     - Work focused on the form to create a new player menu.
 
 ### v0.0 - v0.1: Bluetooth communication
-Work focused on the configuration of the rapsberry pi 4 and the bluetooth communication protocol. Basic structure of the repository created.
-    
-- Bluetooth interpreter and communication stablised. More work will be added on the future.
+Work focused on the configuration of the raspberry pi 4 and the bluetooth communication protocol. Basic structure of the repository created.
+- Bluetooth interpreter and communication established. More work will be added on the future.
     - Connection
     - Basic interpreter and communication
     - Change wifi using BT
