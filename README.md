@@ -16,7 +16,8 @@ Go to the link:
     - Documentation cleaned.
     - Code cleaned and commented:
         - CreatePlayer.
-        
+        - GameOver.
+    - updateServer script updated: bug fixed and minor logic change made.
 - v0.5.1:
     - Testing full game.
     - Logo added.

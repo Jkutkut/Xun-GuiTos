@@ -1,33 +1,31 @@
-var confettiCanvas;
 window.onload = function() {
-    $.ajax({
+    $.ajax({ // Get players in the game
         url: "players",
         method: "get",
         success: (data) => {
-            updateCards(data);
+            updateCards(data); // Select gameResult based on the player
         },
         error: () => {
-            selectResult("error");
+            selectResult("error getting players"); // Open error result
         }
     })
+
+    // Make canvas as big as it can get
     $("#confettiCanvas").attr("width", $("body").css("width"));
     $("#confettiCanvas").attr("height", $("body").css("height"));
-    confettiCanvas = document.getElementById("confettiCanvas");
-
+    
     selectResult(queryString.gameResult);
 }
 
 /**
- * Launches 2 sets of confetti on a canvas named #conffeti
+ * Launches 2 sets of confetti on a canvas stored on the confettiCanvas variable.
  * @param {number} type - Type of confetti (0: blue, 1: red)
  */
- function partyTime(type=0) {
+function partyTime(type=0) {
+    let confettiCanvas = document.getElementById("confettiCanvas"); // Store canvas
+
     $("#confetti").css("display", "block");
-    let colores;
-    if (type == 0) // Blue
-        colores = ["#083987", "#6ea5ff", "#3874d6"];
-    else
-        colores = ["#e35d5d", "#ba3434", "#960606", "#d63c3c"];
+    const colores = (type == 0)? ["#083987", "#6ea5ff", "#3874d6"] : ["#e35d5d", "#ba3434", "#960606", "#d63c3c"]; // Blue or red
 
     let myConfetti = confetti.create(confettiCanvas, {
         resize: true,
@@ -53,7 +51,7 @@ window.onload = function() {
         });
     }
 
-    setTimeout(() => {
+    setTimeout(() => { // When effect ended, remove the popUp
         $("#confetti").css("display", "none");
     }, 5000);
 }
