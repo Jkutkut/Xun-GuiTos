@@ -1,82 +1,45 @@
 # Things to do:
 
-- [ ] Mv links to README
-
 ## Client:
 - [ ] CreatePlayer menu:
-    - [ ] Optimize css
-    - [x] Optimize html
-    - [ ] Optimize js
     - [ ] If data not correct, handle error
     - [ ] If username taken, handle error
-    - ERRORS:
-        - [ ] IOS (+ Chrome?): ScreenHeight may not be direct
-        - [ ] 
-- [ ] WaitingRoom:
-    - [x] JSON based phrases
-    - [x] Redirect logic
-    - [x] ERRORS:
-- [ ] Meetup:
-    - [ ] Remove debug code
-
-- [ ] Root menu:
-    - [ ] Var-status:
-        - [x] list of players
-        - [x] list of missions
-        - [ ] Editor_btn
-        - [x] Refresh_btn
-    - [x] Get all players
-    - [ ] Allow to modify them?
-    - [ ] order the players
-    - [ ] Btns:
-        - [x] Start game
-        - [ ] end opinion poll
-        - [ ] end mission poll
-        - [ ] 
-
-    - [ ] Delete/edit players:
-        - [ ] Name
-        - [ ] Align players menu:
-            - [ ] Get Players on load
-            - [ ] Drag-drop players div
-            - [ ] Apply player's align
-        - [ ] Delete
     - [ ] ERRORS:
+        - IOS (+ Chrome?): ScreenHeight may not be direct
 
+- [x] WaitingRoom:
+    - [x] ERRORS:
+        - 
+
+- [x] Meetup:
+    - [x] ERRORS:
+        - 
+
+- [x] Root menu:
+    - [ ] Allow to modify them?
+    - [ ] Delete/edit players:
+    - [x] ERRORS:
+        - 
         
-- [ ] mainMenu:
-    - [x] Get userNames
-    - [ ] Get userIcons
-    - [x] Btns
-    - [ ] Leader:
-        - [ ] gun asign
-        - [ ] Icon asign
-    - [ ] ERRORS: 
-        - [ ] "2Fallos label" small
-        - [ ] "Username" small
-        - [ ] Yes/no btns not centered
-        - [ ] at playerContainer, bottom div bigger than img (IOS)
+- [x] MainMenu:
+    - [x] ERRORS: 
+        - 
 
-- [ ] MissionPoll:
-    - [ ] font size
-
+- [x] MissionPoll:
+    - [x] ERRORS:
+        - 
 
 
 ## Ideas/future:
 - Client on the rasp (graphic interface) to visualize the status of the game on a monitor/TV.
-- Store previous wifis.
-- Tutorial?
+- Tutorial.
 - Readme.
 - Custom names for resistencia and spies.
 - Language support.
 - Text based on JSON.
 - MainMenu:
-    - On click on each mission, if finished, analice the round.
+    - On click on each mission, if finished, analyze the round.
 - Enable to work even if player disconnected.
 - Add toast logic to enable console interface.
 - Code reduced logic to create production files.
-
-
-## 
-
 - Use style.min and common.min
