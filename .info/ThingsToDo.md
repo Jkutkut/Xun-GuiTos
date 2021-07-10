@@ -64,24 +64,19 @@
 
 ## Ideas/future:
 - Client on the rasp (graphic interface) to visualize the status of the game on a monitor/TV.
-- Store previous wifis
+- Store previous wifis.
 - Tutorial?
-- Readme
-- Custom names for resistencia and spies 
-- Laguage support
-- Text based on JSON
+- Readme.
+- Custom names for resistencia and spies.
+- Language support.
+- Text based on JSON.
 - MainMenu:
-    - On click on each mission, if finnished, analice the round.
-- Enable to work even if player disconected
+    - On click on each mission, if finished, analice the round.
+- Enable to work even if player disconnected.
 - Add toast logic to enable console interface.
-- Code reduced logic to create production files
+- Code reduced logic to create production files.
 
 
 ## 
-
-mainMenu:
-- icono mas resaltado al decir si o no
-
-- armas cambian entre misiones
 
 - Use style.min and common.min
