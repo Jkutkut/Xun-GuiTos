@@ -12,6 +12,11 @@ Go to the link:
 
 ## Version history:
 ### v0.5:
+- v0.5.2:
+    - Documentation cleaned.
+    - Code cleaned and commented:
+        - CreatePlayer.
+        
 - v0.5.1:
     - Testing full game.
     - Logo added.
