@@ -18,7 +18,7 @@
     <!-- ROOT MENU -->
     <div id="main_div" class="">
         <!-- TOP -->
-        <div class="parent" style="--c: 2; --h: 75%; display: flex; flex-direction: row; align-items: center; align-content: center;">
+        <div class="parent" style="--c: 2; --h: 85%; display: flex; flex-direction: row; align-items: center; align-content: center;">
             <div id="playersList_divContainer" style="padding: 5px; height: 100%; width: 40%; text-align: center;">
                 <i class="label">Players:</i>
                 <div id="playersList" class="" style="width: 100%; height: 95%; border: 5px solid var(--black);">
@@ -66,10 +66,10 @@
                         </div>
                         <div>
                             <i id="M1leader">Leader: LeaderName</i>
-                            <i id="M1pollResult" style="float: right;">Yes: 10 -- No: 0</i>
+                            <i id="" style="float: right;">Yes: 10 -- No: 0</i>
                         </div>
                         <i id="M1players"></i>
-                        <br><br>
+                        <br><br>M1pollResult
                         <i id="M1mPoll">Success: 2 -- Failure: 1</i>
                     </div>
                     <div id="M2" class="root_Mission">
@@ -128,18 +128,14 @@
             </div>
         </div>
         <!-- BOTTOM -->
-        <div class="parent" style="--h: 25%;">
+        <div class="parent" style="--h: 15%;">
             <div>
                 <i class="label">Status: <i id="currentStatus">Creating Players</i></i>
             </div>
             <div>
                 <button id="updateBtn" class="rootBtn" onclick="update();">Update</button>
-                <button class="rootBtn" id="HardReset">HARD RESET</button>
-            </div>
-            <div>
                 <button class="rootBtn" id="R2P">Ready2Play</button>
                 <button class="rootBtn" id="EndP">EndPoll</button>
-                <!-- <button class="rootBtn" id="EndMiP">EndMPoll</button> -->
             </div>
         </div>
         
