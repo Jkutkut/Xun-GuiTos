@@ -17,6 +17,9 @@ Go to the link:
     - Code cleaned and commented:
         - CreatePlayer.
         - GameOver.
+        - MainMenu.
+        - WaitingRoom.
+        - MissionPoll.
     - updateServer script updated: bug fixed and minor logic change made.
 - v0.5.1:
     - Testing full game.
