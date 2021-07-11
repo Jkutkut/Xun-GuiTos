@@ -4,7 +4,7 @@ window.onload = function() {
     getQuerry(); //function from common.js
 
     // validMission
-    $(".missionCard").on("mousedwon touchstart", function(e) { // When missionCard pressed
+    $(".missionCard").on("mousedown touchstart", function(e) { // When missionCard pressed
         $(this).addClass("selected"); // Start selection animation
         setTimeout(() => {
             vote(this);
@@ -24,7 +24,7 @@ function vote(vDiv) {
     }
 
     let v = 0; // Vote for success
-    if ($(vDiv).hasClass("failuremission")) {
+    if ($(vDiv).hasClass("failureMission")) {
         v = 1; // Vote for failure
     }
 
