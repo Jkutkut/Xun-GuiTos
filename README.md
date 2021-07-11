@@ -20,6 +20,10 @@ Go to the link:
         - MainMenu.
         - WaitingRoom.
         - MissionPoll.
+    - New client menu: desktop
+        - Directory created.
+        - Basic shape defined.
+    - New CSS standard for tables. MainMenu and desktop will be using this in the future.
     - updateServer script updated: bug fixed and minor logic change made.
 - v0.5.1:
     - Testing full game.
