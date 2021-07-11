@@ -1,10 +1,31 @@
-var height, pollBtnState;
+/**
+ * Current state of the user's poll status.
+ */
+var pollBtnState;
 
+
+/**
+ * The index of the current Mission (1º mission => 0).
+ */
 var currentMissionIndex;
+
+/**
+ * Whenever I am the leader of the mission.
+ */
 var amIaLeader = false;
 
+/**
+ * If the popUp with the status of the previous mission has been shown.
+ */
 var popUpShowed = false;
 
+/**
+ * Key: number of players in the game.
+ * 
+ * Index: number of the mission.
+ * 
+ * Value: number of players needed for that mission.
+ */
 var playersPerM = {
     5: [ 2, 3, 2, 3, 3 ],
     6: [ 2, 3, 4, 3, 4 ],
@@ -14,8 +35,9 @@ var playersPerM = {
     10:[ 3, 4, 4, 5, 5 ]
 }
 
-const POLLUPDATEPERIOD = 5000;
-
+/**
+ * Ajax argument to decide if the user should go to the next state
+ */
 var goToNextState = {
     url: "canStopWaiting",
     method: 'get',
@@ -30,12 +52,22 @@ var goToNextState = {
 }
 
 // GetDB functions
+
+/**
+ * Function to execute when data from getDB is received from server.
+ * @param {Obj} data - Object from server.
+ */
 var successGetDBf = (data) => {
     updatePlayers();
     updateMissions();
     updateSelectedPlayers();
     updatePoll();
 };
+
+/**
+ * Function to execute when error getting data from getDB.
+ * @param {Obj} data - Object from server.
+ */
 var errorGetDBf = (e) => {
     updatePlayers(debugPlayers);
     updateMissions(debugMissions);
@@ -43,26 +75,33 @@ var errorGetDBf = (e) => {
     updatePoll(debugOpinion);
 };
 
-window.onload = function() {    
-    $(".gun").attr("src", "../../Res/img/empty.png");
-    
+window.onload = function() {
+    // Create poll btns events    
     $("#LeftBtn").click(()=>{vote(1);});
     $("#RightBtn").click(()=>{vote(-1);});
 
+
     getDB((data)=>{
-        if (data.currentState == 0) {
+        if (data.currentState == 0) { // If the user shouldn't be here
             throw new Error("The game has not started!");
         }
-        successGetDBf(data);
+        successGetDBf(data); // else, process data.
         }, 
-        errorGetDBf
+        errorGetDBf // If error getting data, execute this function
     );
 
-    setInterval(update, 500); //Update periodically
+    //Update periodically the following functions
+
+    setInterval(update, 500);
 
     asyncInterval(goToNextState, "t", 500);
 }
 
+/**
+ * Executes the function to get the content of the DB using the functions:
+ * @see successGetDBf
+ * @see errorGetDBf
+ */
 function update() {
     getDB(successGetDBf, errorGetDBf);
 }
@@ -157,12 +196,16 @@ function showPlayers(n){
     }
 }
 
-
+/**
+ * Having the missions stored on the DB variable, the function analices the current status.
+ * 
+ * Updates the DOM, changes the background and enables userPicking if leader.
+ */
 function updateMissions() {
     let i, mSuccess = 0, mFailure = 0;
     for (i = 0; i < DB.missions.length; i++) {
         if (DB.missions[i].active == true) {
-            if (currentMissionIndex !== i) { // If currentMisisonIndex not defined or has changed
+            if (currentMissionIndex !== i) { // If currentMissionIndex not defined or has changed
                 currentMissionIndex = i; //store current index
                 popUpShowed = false; // I need to see the popUp
             }
@@ -218,35 +261,57 @@ function updateMissions() {
 
 }
 
+/**
+ * Having the players selected on the DB variable, search the players on the current mission.
+ */
 function updateSelectedPlayers() {
     $(".gun").attr("src", "../../Res/img/empty.png"); // hide all guns
-    for (let p of DB.missionTeam) {
-        if (p.mId == currentMissionIndex + 1) { // If missionTeam 
+    for (let p of DB.missionTeam) { // For each player selected for a mission
+        if (p.mId == currentMissionIndex + 1) { // If player is on the current mission
             pickUser(DB.playersPos[p.pId - 1], 1);
         }
     }
 }
 
 
+/**
+ * Adds a click-eventListener on each of the playersContainers of the screen to enable selection of players.
+ * @see this function is only executed if the user is the leader.
+ */
 function enableUserPicking() {
-    for (let player of DB.playersPos) {
-        $("#"+player.divId).click(function() {
+    for (let player of DB.playersPos) { // For each ID of the players containers
+        $("#"+player.divId).click(function() { // When player container clicked
             pickUser(player);
         })
     }
 }
+
+/**
+ * Removes the click-eventListener on each of the playersContainers.
+ * @see This function is the antagonist of enableUserPicking.
+ * @see This function is executed when the user is the leader.
+ */
 function disableUserPicking() {
     $(".playerDiv").off( "click", "**" );
 }
 
-
+/**
+ * Updates the weapon of the given user. This function has 2 modes:
+ * - If value not given, the user is (un)selected to go to the current mission (if maximum not reached yet).
+ * - If value given, updates the given user to the given value/state
+ * 
+ * @param {Obj} user - Object from the server with the information of the desired player
+ * @param {number|optional} value - If given, the desired value of the user. If not, the value is calculated.
+ * 
+ * @see this function is executed with value always and without it when the player has selected this player
+ */
 function pickUser(user, value=null) {
     let empty = "../../Res/img/empty";
     let extension = ".png";
 
     let newSrc;
     if (value === null) {
-        let response = {
+        let response = { // Ajax argument to send to the server with the new state of the player
             url: "", // filled later
             method: "post",
             data: {
@@ -254,38 +319,37 @@ function pickUser(user, value=null) {
                 pId: user.player.pId
             },
             success: (data) => {
-                console.log(data);
                 update();
             }
         }
-        if ($("#gun"+user.divId).attr("src") == empty + extension) { // if selecting user
+        if ($("#gun"+user.divId).attr("src") == empty + extension) { // if selecting user (Now empty img)
             let playersAlreadyOnMission = 0;
-            for (let p of DB.missionTeam) {
+            for (let p of DB.missionTeam) { // Count the number of players on the mission
                 if (p.mId == currentMissionIndex + 1) playersAlreadyOnMission++;
             }
             if (playersAlreadyOnMission >= playersPerM[DB.players.length][currentMissionIndex]) {
-                // If attempting to select user and maximun players selected reached
-                console.warn("Maximum players selected reached");
+                // If attempting to select user and maximum players selected reached
+                console.error("Maximum players selected reached");
                 return;
             }
             
-            newSrc = randomWeapon(user);
+            newSrc = randomWeapon(user); // Get a URL of a random weapon
 
             //Update response
             response.url = "selectPlayer4mission";
         }
-        else { // if unselecting user
-            newSrc = empty + extension;
+        else { // if unselecting user (already with gun)
+            newSrc = empty + extension; // Get empty url
 
             // Update response
             response.url = "removePlayer4mission";
         }
 
-        $.ajax(response);
+        $.ajax(response); // Send new state to server
     }
     else {
         if (value == 1) { // if the player has been selected
-            newSrc = randomWeapon(user);
+            newSrc = randomWeapon(user); 
         }
         else if (value == 0) { // If the player hasn't been selected
             newSrc = empty + extension;
@@ -295,17 +359,23 @@ function pickUser(user, value=null) {
         }
     }
 
-    $("#gun"+user.divId).attr("src", newSrc)
+    $("#gun"+user.divId).attr("src", newSrc); // change gun img element to the new one
 }
 
+/**
+ * Returns a random link to a weapon.
+ * @param {Obj} user - Object representing the player of the game from the server.
+ * @returns The link to the weapon.
+ */
 function randomWeapon(user) {
-    const MAX = 35;
-    const gun = "../../Res/img/guns/0";
+    const MAX = 35; // Amount of weapons stored (1-MAX)
+    const gun = "../../Res/img/guns/0"; // Directory of the gun and the common name
     const extension = ".png";
 
+    // Get random index
     let today = new Date();
     let r = (user.player.pId + today.getDay() + today.getHours()) % MAX + 1;
-    if (r < 10) r = "0"+r;
+    if (r < 10) r = "0"+r; // All files have same length
     return gun + r + `-gun${extension}`;
 };
 
@@ -322,15 +392,8 @@ function randomWeapon(user) {
  */
 function updatePoll(){
     let si = [], no = [];
-    for (let d of DB.opinion) { // For each player
-        if (d.pId == queryString.pId) {
-            // $(".pollBtn").css("font-weight", "normal");
-            // if (d.val == 1) {
-            //     $("#RightBtnLabel").css("font-weight", "bold");
-            // }
-            // else if (d.val == -1) {
-            //     $("#LeftBtnLabel").css("font-weight", "bold");
-            // }
+    for (let d of DB.opinion) { // For each players' opinion
+        if (d.pId == queryString.pId) { // if the player is current user
             vote(d.val, false);
         }
         if (d.val == 1) {
@@ -343,7 +406,7 @@ function updatePoll(){
 
     let siResult = "---", noResult = "---", mResult = "---"
     
-    if (si.length > 0 || no.length > 0) {
+    if (si.length > 0 || no.length > 0) { // If someone have updated the poll
         siResult = si.join(", ");
         noResult = no.join(", ");
 
@@ -353,11 +416,7 @@ function updatePoll(){
         else {
             mResult = "Denegada";
         }
-    }
-    else {
-        siResult = "---";
-        noResult = "---";
-    }
+    } // else, keep variables the same way
 
     $("#siPlayers").text(siResult);
     $("#noPlayers").text(noResult);
@@ -367,13 +426,13 @@ function updatePoll(){
 /**
  * Updates the vote of the player and sends it to the Server.
  * @param {boolean} v - Whenever the btn pressed is Yes (true) or No (false). 
+ * @see pollBtnState = Current status of the btns
  */
 function vote(v, updateDB=true){
-    // pollBtnState = Current status of the btns
+    // Reset btn status
     $(".pollBtn").css("font-weight", "normal");
     $(".pollContainer").css("width", "85%");
 
-    console.log(v)
     if ((v == undefined || v == pollBtnState) && updateDB || //if empty argument or they are the same and vote btn pressed
         (v == 0 && !updateDB)) { //if just updating the screen, clear vote
         pollBtnState = 0; //reset var
@@ -391,7 +450,7 @@ function vote(v, updateDB=true){
 
     if (!updateDB) return; // if just updating the screen, end here.
 
-    $.ajax({
+    $.ajax({ // Update the server with opinion
         url: "changeOpinion.php",
         method: "post",
         data: {
@@ -408,17 +467,6 @@ function vote(v, updateDB=true){
     });
 }
 
-function getUpdatedPoll() {
-    $.ajax({
-        url: "pollStatus",
-        method: "get",
-        success: function(data) {
-            updatePoll(data);
-        }
-    });
-}
-
-
 
 /* PopUp zone */
 /**
@@ -431,17 +479,16 @@ function getUpdatedPoll() {
     }
     
     // Select correct popUp
-    let id = "#chunguitosPopUp"; // Show chunguitos'
+    let id = "#chunguitosPopUp"; // Show chunguitos' popUp
     if (mission.mRes == 0) {
-       id = "#resistenciaPopUp"; // Show resistencia
+       id = "#resistenciaPopUp"; // Show Resistencia's popUp
     }
     $(".popUp").css("display", "none"); // Hide all popUps
     $(id).css("display", "block"); // Show the important one
 
-    
     let yes = 0, no = 0;
-    for (let p of DB.missionTeam) {
-        if (p.mId == currentMissionIndex) {
+    for (let p of DB.missionTeam) { // for each player on mission
+        if (p.mId == currentMissionIndex) { // if player on the currentMission
             if (p.vote == 0) {
                 yes++;
             }
@@ -451,12 +498,12 @@ function getUpdatedPoll() {
         }
     }
     // Update popUp's score
-    $(".PopUpmissionResult").text(`Éxito: ${yes} -- Fracaso: ${no}`);
+    $(".PopUpMissionResult").text(`Éxito: ${yes} -- Fracaso: ${no}`);
     
     $(".popUpFrame").css("display", "flex"); // Show the frame with the popUps
 }
 /**
- * Closes the frame will all the popUps
+ * Closes the frame will all the popUps.
  */
 function closePopUp() {
     $(".popUpFrame").css("display", "none");
