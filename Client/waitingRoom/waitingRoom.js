@@ -1,5 +1,11 @@
-var waitingMenu = true; // To hadle the switch between rootMenu and waitingMenu
+/**
+ * All the valid phrases will be stored here.
+ */
 var phrases;
+
+/**
+ * Buffer with the current phrases that will apear on the screen.
+ */
 var phrasesBuffer = [];
 
 /**
@@ -15,10 +21,6 @@ var ready4meetup = {
         if (data != "f") {
             delete queryString.firstTime; // If it's firstTime, remove it. If not, do nothing.
             go2page(data);
-        }
-        else {
-            console.log("not valid");
-            return false;
         }
     }
 }
@@ -36,14 +38,14 @@ var ready4newRound = {
 }
 
 /**
- * (Executed periodically) This function updates the div tag with a random phrase from the avalible
+ * (Executed periodically) This function updates the div tag with a random phrase from the available.
  * (See processPhrases to see how the phrases have been obtained)
  */
 function changePhrase(){
     if (phrasesBuffer.length == 0){
         phrasesBuffer = [...phrases]; // Refill with the phrases
     }
-    // At this point phrasesBuffer has length != 1
+    // At this point phrasesBuffer has length > 0
     let randomIndex = Math.floor(Math.random() * phrasesBuffer.length); //Using phrasesBuffer to avoid repeat the same phrase
     let p = phrasesBuffer.splice(randomIndex, 1);
     $("#waitingLabel").text(p);
@@ -74,5 +76,5 @@ window.onload = function(){
     jQuery.getJSON("phrases.json").then(processPhrases); // Get the phrases from the json file and process them with the function
 
     let f = (queryString['firstTime'] == "true")? ready4meetup : ready4newRound; // if first time on the waiting room
-    asyncInterval(f, "t", 5000);
+    asyncInterval(f, "t", 500);
 }
