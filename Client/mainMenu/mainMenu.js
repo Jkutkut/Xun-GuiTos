@@ -3,7 +3,6 @@
  */
 var pollBtnState;
 
-
 /**
  * The index of the current Mission (1º mission => 0).
  */
