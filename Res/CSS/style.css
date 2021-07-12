@@ -498,7 +498,7 @@ div .username {
     grid-template-columns: repeat(var(--c), 1fr);
 }
 
-.itemTable {
+.tableContainer > div {
     --r: var(--r, 1);
     --c: var(--c, 1);
     --w: var(--w, 0);
