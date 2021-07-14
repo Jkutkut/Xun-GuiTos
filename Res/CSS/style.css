@@ -490,12 +490,12 @@ div .username {
 /* Desktop version */
 
 .tableContainer {
-    height: var(--h, 100%);
-    width: var(--w, 100%);
+    height: var(--height, 100%);
+    width: var(--width, 100%);
 
     display: grid;
-    grid-template-rows: repeat(var(--r), 1fr);
-    grid-template-columns: repeat(var(--c), 1fr);
+    grid-template-rows: repeat(var(--rows), 1fr);
+    grid-template-columns: repeat(var(--cols), 1fr);
 }
 
 .tableContainer > div {
