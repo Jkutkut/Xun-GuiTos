@@ -79,16 +79,14 @@ function getPlayersOrder() {
 function updateMissions() {
     let missionsEnded = true;
     for (let m of DB.missions) {
-        // console.log(m);
         $(`#M${m.mId}pollResult`).text("");
         let result = "Result: ";
         if (m.active == 1) {
             result = "Active";
-            missionsEnded = false; // From this mission foward, all missions are not ended
+            missionsEnded = false; // From this mission forward, all missions are not ended
             
             let yes = 0, no = 0;
             for (let o of DB.opinion) {
-                console.log(o);
                 if (o.val == 1) yes++;
                 else if (o.val == -1) no++;
             }
@@ -142,7 +140,7 @@ function updateMissions() {
             $(`#M${m.mId}players`).text(`Players: ${players.join(", ")}`);
         }
 
-        if (suc + fail > 0) { // If mission done and votation stored
+        if (suc + fail > 0 && m.active == 0) { // If mission done and poll stored
             $(`#M${m.mId}mPoll`).text(`Success: ${suc} -- Failure: ${fail}`);
         }
         else {
