@@ -18,7 +18,7 @@ window.onload = function() {
 }
 
 /**
- * Analices the players in the game, discovers which type of player is the user and loads the apropiate message.
+ * Analices the players in the game, discovers which type of player is the user and loads the correct message.
  * @param {Obj} data - Data with all the players. The object must be an Array with the content of NodeRed Database.
  */
 function getMyCharacter(data) {
@@ -37,7 +37,7 @@ function getMyCharacter(data) {
     console.log(`-> ${whatAmI}`);
 
     $(`#${whatAmI}`).css("display", "block");
-    $("#userName").text(queryString.username);
+    $(".userNameTag").text(queryString.username);
 
     // Update the message choosen with extra information.
     if (whatAmI == "chunguito") {
