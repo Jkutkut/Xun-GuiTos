@@ -27,8 +27,10 @@ Go to the link:
     - updateServer script updated: bug fixed and minor logic change made.
     - RootMenu:
         - Minor bugs fixed.
+        - MissionPoll results now only appear when the mission has ended.
     - Meetup:
         - bug where Xun-Guito didn't get the name on the custom msg fixed.
+    - Files now fully-local
 - v0.5.1:
     - Testing full game.
     - Logo added.
