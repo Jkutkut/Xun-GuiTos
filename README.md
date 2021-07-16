@@ -25,6 +25,10 @@ Go to the link:
         - Basic shape defined.
     - New CSS standard for tables. MainMenu and desktop will be using this in the future.
     - updateServer script updated: bug fixed and minor logic change made.
+    - RootMenu:
+        - Minor bugs fixed.
+    - Meetup:
+        - bug where Xun-Guito didn't get the name on the custom msg fixed.
 - v0.5.1:
     - Testing full game.
     - Logo added.
