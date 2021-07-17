@@ -200,22 +200,6 @@ i {
 
 
 /* MAINMENU */
-.verticalRows {
-    display: grid;
-    place-items: center;
-    grid-template-rows: repeat(var(--r, 5), 1fr);
-    height: var(--h, 85%);
-    /* width: var(--w, 100%); */
-}
-.horizontalCols {
-    display: grid;
-    place-items: center;
-    width: 100%;
-    height: var(--h, 100%);
-    grid-template-columns: repeat(var(--c, 3), 1fr);
-    padding: 0.7rem;
-}
-
 
 /* top */
 @keyframes missionBlink {
@@ -261,7 +245,6 @@ i {
 
 /* main */
 .playerContainer {
-    grid-column: var(--pos, 1);
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -490,22 +473,32 @@ div .username {
 /* Desktop version */
 
 .tableContainer {
+    /* default values of variables */
+    --defaultRow: auto;
+    --defaultCol: auto;
+    --defaultChildWidth: 1;
+    --defaultChildHeight: 1;
+
     height: var(--height, 100%);
     width: var(--width, 100%);
 
     display: grid;
-    grid-template-rows: repeat(var(--rows), 1fr);
-    grid-template-columns: repeat(var(--cols), 1fr);
+    grid-template-rows: repeat(var(--rows, 1), 1fr);
+    grid-template-columns: repeat(var(--cols, 1), 1fr);
 }
 
 .tableContainer > div {
-    --r: var(--r, 1);
-    --c: var(--c, 1);
-    --w: var(--w, 0);
-    --h: var(--h, 0);
+    /* default values of variables */
+    --r: var(--defaultRow);
+    --c: var(--defaultCol);
+    --widthUnit: var(--defaultChildWidth);
+    --heightUnit: var(--defaultChildHeight);
+
+    height: 100%;
+    width: 100%;
 
     grid-column-start: var(--c);
-    grid-column-end: calc(var(--w) + var(--c));
+    grid-column-end: calc(var(--widthUnit) + var(--c));
     grid-row-start: var(--r);
-    grid-row-end: calc(var(--h) + var(--r));
+    grid-row-end: calc(var(--heightUnit) + var(--r));
 }
