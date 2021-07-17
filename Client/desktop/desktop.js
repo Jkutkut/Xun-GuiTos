@@ -107,5 +107,39 @@ window.onload = function() {
         if (pDiv.done == true) break; // If done, end
     }
 
-    // MISSING LOGIC
+    // Bottom
+    if (n == 6 || n == 8) {
+        for (let i = 2; i <= 4; i+=2) {
+            $(`#4${i}`).css("--c", i + 2);
+        }
+    }
+    else {
+        for (let i = 2; i <= 4; i+=2) {
+            $(`#4${i}`).css("--c", i * 2 - 1);
+        }
+    }
+
+    // Sides
+    if (n < 7) {
+        for (let c = 1; c <= 5; c+=4) {
+            $(`#3${c}`).css("--r", 4);
+        }
+    }
+    else {
+        for (let c = 1; c <= 5; c+=4) {
+            $(`#3${c}`).css("--r", 5);
+        }
+    }
+
+    // Top
+    if (n > 5 && n < 10) {
+        for (let i = 2; i <= 4; i+=2) {
+            $(`#1${i}`).css("--c", i + 2);
+        }
+    }
+    else {
+        for (let i = 2; i <= 4; i+=2) {
+            $(`#1${i}`).css("--c", i * 2 - 1);
+        }
+    }
 }
