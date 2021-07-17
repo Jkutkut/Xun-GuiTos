@@ -31,7 +31,7 @@
 
 
 ## Ideas/future:
-- Client on the rasp (graphic interface) to visualize the status of the game on a monitor/TV.
+- Client on the rasp (graphic interface) to visualize the status of the game on a monitor/TV. -> DESKTOP version
 - Tutorial.
 - Readme.
 - Custom names for resistencia and spies.

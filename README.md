@@ -23,13 +23,19 @@ Go to the link:
     - New client menu: desktop
         - Directory created.
         - Basic shape defined.
-    - New CSS standard for tables. MainMenu and desktop will be using this in the future.
-    - updateServer script updated: bug fixed and minor logic change made.
+        - It will be implemented in the future.
+    - Style.css:
+        - New CSS standard for tables. MainMenu and desktop will be using this in the future:
+        - tableContainer CSS style updated to have more flexibility.
     - RootMenu:
         - Minor bugs fixed.
         - MissionPoll results now only appear when the mission has ended.
     - Meetup:
         - bug where Xun-Guito didn't get the name on the custom msg fixed.
+    - MainMenu:
+        - MainMenu now using the new table standard at players.
+        - Missions also based now on new table standard.
+    - updateServer script updated: bug fixed and minor logic change made.
     - Files now fully-local
 - v0.5.1:
     - Testing full game.
