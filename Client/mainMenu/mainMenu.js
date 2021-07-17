@@ -91,9 +91,9 @@ window.onload = function() {
 
     //Update periodically the following functions
 
-    // setInterval(update, 500);
+    setInterval(update, 500);
 
-    // asyncInterval(goToNextState, "t", 500);
+    asyncInterval(goToNextState, "t", 500);
 }
 
 /**
