@@ -276,10 +276,11 @@ function updateMissions() {
  */
 function updateSelectedPlayers() {
     $(".gun").attr("src", "../../Res/img/empty.png"); // hide all guns
-    for (let p of DB.missionTeam) { // For each player selected for a mission
-        if (p.mId == currentMissionIndex + 1) { // If player is on the current mission
-            pickUser(DB.playersPos[p.pId - 1], 1);
-        }
+
+    for (let i = DB.missionTeam.length - 1, p; i >= 0; i--) { // For each player selected for a mission
+        p = DB.missionTeam[i];
+        if (p.mId != currentMissionIndex + 1) break; // if this player is not in this mission, the rest aren't too => end
+        pickUser(DB.playersPos[p.pId - 1], 1);
     }
 }
 
@@ -333,9 +334,13 @@ function pickUser(user, value=null) {
         }
         if ($("#gun"+user.divId).attr("src") == empty + extension) { // if selecting user (Now empty img)
             let playersAlreadyOnMission = 0;
-            for (let p of DB.missionTeam) { // Count the number of players on the mission
-                if (p.mId == currentMissionIndex + 1) playersAlreadyOnMission++;
-            }
+
+            for (let i = DB.missionTeam.length - 1, p; i >= 0; i--) { // For each player selected for a mission
+                p = DB.missionTeam[i];
+                if (p.mId != currentMissionIndex + 1) break; // if this player is not in this mission, the rest aren't too => end
+                playersAlreadyOnMission++;
+            }            
+            
             if (playersAlreadyOnMission >= playersPerM[DB.players.length][currentMissionIndex]) {
                 // If attempting to select user and maximum players selected reached
                 console.error("Maximum players selected reached");
@@ -492,16 +497,18 @@ function vote(v, updateDB=true){
     $(id).css("display", "block"); // Show the important one
 
     let yes = 0, no = 0;
-    for (let p of DB.missionTeam) { // for each player on mission
-        if (p.mId == currentMissionIndex) { // if player on the currentMission
-            if (p.vote == 0) {
-                yes++;
-            }
-            else {
-                no++;
-            }
+    
+    for (let i = DB.missionTeam.length - 1, p; i >= 0; i--) { // For each player selected for a mission
+        p = DB.missionTeam[i];
+        if (p.mId != currentMissionIndex) break; // if this player is not in last mission, the rest aren't too => end
+        if (p.vote == 0) {
+            yes++;
+        }
+        else {
+            no++;
         }
     }
+
     // Update popUp's score
     $(".PopUpMissionResult").text(`Éxito: ${yes} -- Fracaso: ${no}`);
     
