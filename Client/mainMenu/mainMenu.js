@@ -91,9 +91,9 @@ window.onload = function() {
 
     //Update periodically the following functions
 
-    setInterval(update, 500);
+    // setInterval(update, 500);
 
-    asyncInterval(goToNextState, "t", 500);
+    // asyncInterval(goToNextState, "t", 500);
 }
 
 /**
@@ -186,12 +186,23 @@ function updatePlayers() {
  * @throws error if the value is not on the range [5, 10]
  */
 function showPlayers(n){
-    $(".playerDiv").css("display", "none");
     let playersDivIte = playerIterator(n);
+    $(".playerDiv").css("display", "none");
     while (true) {
         let pDiv = playersDivIte.next();
         $(`#${pDiv.value}`).css("display", "flex");
         if (pDiv.done == true) break; // If done, end
+    }
+    
+    if (n == 7 || n == 8) {
+        for (let col = 1; col <= 3; col+=2) {
+            $(`#3${col}`).css("--r", 4);
+        }
+    }
+    else { // Reset playersContainers positions:
+        for (let col = 1; col <= 3; col+=2) {
+            $(`#3${col}`).css("--r", 5);
+        }
     }
 }
 
@@ -271,7 +282,6 @@ function updateSelectedPlayers() {
         }
     }
 }
-
 
 /**
  * Adds a click-eventListener on each of the playersContainers of the screen to enable selection of players.
@@ -380,9 +390,6 @@ function randomWeapon(user) {
 
 
 
-
-
-
 /** Poll zone */
 /**
  * Given the input, show it on screen and calculate the current result of the poll.
@@ -466,7 +473,6 @@ function vote(v, updateDB=true){
     });
 }
 
-
 /* PopUp zone */
 /**
  * Takes the input mission and shows the popUp with the result of the mission.
@@ -501,6 +507,7 @@ function vote(v, updateDB=true){
     
     $(".popUpFrame").css("display", "flex"); // Show the frame with the popUps
 }
+
 /**
  * Closes the frame will all the popUps.
  */
