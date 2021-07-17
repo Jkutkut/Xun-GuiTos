@@ -68,10 +68,7 @@ var successGetDBf = (data) => {
  * @param {Obj} data - Object from server.
  */
 var errorGetDBf = (e) => {
-    updatePlayers(debugPlayers);
-    updateMissions(debugMissions);
-    updateSelectedPlayers([])
-    updatePoll(debugOpinion);
+    console.error(e);
 };
 
 window.onload = function() {

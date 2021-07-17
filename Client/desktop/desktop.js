@@ -37,10 +37,7 @@ var successGetDBf = (data) => {
  * @param {Obj} data - Object from server.
  */
 var errorGetDBf = (e) => {
-    updatePlayers(debugPlayers);
-    updateMissions(debugMissions);
-    updateSelectedPlayers([])
-    updatePoll(debugOpinion);
+    console.error(e);
 };
 
 /**
@@ -60,6 +57,15 @@ window.onload = function() {
     $(".torch").attr("src", "../../Res/img/torch.png");
     $(".gun").attr("src", "../../Res/img/guns/007-gun.png");
     $(".playerIcon").attr("src", "../../Res/img/users/user13.png");
+
+    getDB((data)=>{
+        if (data.currentState == 0) { // If the user shouldn't be here
+            throw new Error("The game has not started!");
+        }
+        successGetDBf(data); // else, process data.
+        }, 
+        errorGetDBf // If error getting data, execute this function
+    );
 }
 
 /** Main functions */

@@ -210,8 +210,7 @@ var successGetDBf = (data) => {
     updateMissions();
 };
 var errorGetDBf = (e) => {
-    updatePlayers();
-    updateMissions();
+    console.error(e);
 };
 
 function update() {
