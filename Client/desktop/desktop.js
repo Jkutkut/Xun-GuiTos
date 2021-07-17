@@ -43,6 +43,15 @@ var errorGetDBf = (e) => {
     updatePoll(debugOpinion);
 };
 
+/**
+ * Executes the function to get the content of the DB using the functions:
+ * @see successGetDBf
+ * @see errorGetDBf
+ */
+ function update() {
+    getDB(successGetDBf, errorGetDBf);
+}
+
 window.onload = function() {
     // Create poll btns events    
     $("#LeftBtn").click(()=>{vote(1);});
@@ -51,20 +60,4 @@ window.onload = function() {
     $(".torch").attr("src", "../../Res/img/torch.png");
     $(".gun").attr("src", "../../Res/img/guns/007-gun.png");
     $(".playerIcon").attr("src", "../../Res/img/users/user13.png");
-    // update();
-
-    //Update periodically the following functions
-
-    // setInterval(update, 500);
-
-    // asyncInterval(goToNextState, "t", 500);
-}
-
-/**
- * Executes the function to get the content of the DB using the functions:
- * @see successGetDBf
- * @see errorGetDBf
- */
-function update() {
-    getDB(successGetDBf, errorGetDBf);
 }
