@@ -13,6 +13,19 @@ Go to the link:
 ## Version history:
 ### v0.5:
 - v0.5.2:
+    - MainMenu:
+        - Players' container now is a 10rows x 3cols table where each player has a 2rows x 1 col size.
+        - With the logic added at showPlayers and new table logic, the players now appear centered.
+        - Now when searching players in specific mission at DB.missionTeam, the algorithm much faster (O(N) -> O(1)).
+    - Desktop:
+        - Now players on a 8rows x 10cols for 2x2 players.
+        - ShowPlayers now display the correct containers in the correct position.
+        - Middle section filled with mainMenu UI.
+        - Logic from mainMenu exported here.
+    - Common.js:
+        - Now the text-size resizes correctly when the display is horizontal or vertical.
+    - errorGetDBf function now logs the error.
+- v0.5.2:
     - Documentation cleaned.
     - Code cleaned and commented:
         - CreatePlayer.
