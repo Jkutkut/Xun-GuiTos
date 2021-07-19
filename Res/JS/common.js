@@ -25,12 +25,22 @@ $(window).resize(resizeTextSize); // When screen size change, adjust text size
 // ************ CSS ************
 
 /**
- * Updates the CSS properties with the standar Text-Size.
- * This allows to have a consistent text display, scalling text-size with the height of the window.
+ * Updates the CSS properties with the standard Text-Size.
+ * This allows to have a consistent text display, where text-size scale with the window.
  * @see this values are designed for mobile devices.
  */
 function resizeTextSize() {
-    let size = $("body").css("height"); // Height of the window in pixels
+    let w = $("body").css("width"); // Width of the window in pixels
+    let h = $("body").css("height"); // Height of the window in pixels
+
+    let size;
+    if (w > h) { // Horizontal position
+        size = w;
+    }
+    else { // Vertical position
+        size = h;
+    }
+
     size = Number.parseInt(size.substr(0, size.length - 2) / 50); // Is is the smallest text-size
 
     let textSize = [
@@ -171,23 +181,23 @@ function getDB(successF, failF) {
 };
 
 
-// Asinc functions using promises
+// Async functions using promises
 const sleep = async (ms) => {
     return new Promise(resolve => setTimeout(resolve, ms));
 };
 
 /**
- * Allows to execute $.ajax method periodically until the spected result is returned by the server or until the triesLeft are 0.
+ * Allows to execute $.ajax method periodically until the expected result is returned by the server or until the triesLeft are 0.
  * @param {Object} petition - JavaScript object with the argument of the $.ajax(XXXXXX) method.
- * @param {any} spected - Spected result of the petition.
+ * @param {any} expected - Expected result of the petition.
  * @param {number} ms - Time to wait between petitions in milliseconds.
  * @param {number} triesLeft - Number of tries until the device stops making petitions.
  * @returns 
  */
-const asyncInterval = async (petition, spected, ms, triesLeft = 10000) => {
+const asyncInterval = async (petition, expected, ms, triesLeft = 10000) => {
     return new Promise((resolve, reject) => {
         const interval = setInterval(async () => {
-            if (await $.ajax(petition) == spected) {
+            if (await $.ajax(petition) == expected) {
                 resolve();
                 clearInterval(interval);
             } 
@@ -203,7 +213,7 @@ const asyncInterval = async (petition, spected, ms, triesLeft = 10000) => {
 
 // ************ Analyzers ************
 /**
- * Checks whenever an element e is (phisically) inside of a element p
+ * Checks whenever an element e is (physically) inside of a element p
  * @param {object} e - Element to check if it is inside ({x: number, y: number, w: number, h: number})
  * @param {object} p - Parent ({x: number, y: number, w: number, h: number})
  * @param {boolean} conversion - (optional) if the input is a HTML element (true) or it is a object with the div2disposition function format
@@ -221,7 +231,7 @@ function stillIn(e, p, conversion = true) {
 }
 
 /**
- * Whenever the inputed string is a valid integer.
+ * Whenever the inputted string is a valid integer.
  * @param {String} str - String to compare.
  * @returns (boolean) Result.
  */
@@ -233,7 +243,7 @@ function isInt(str) {
            !isNaN(parseInt(str)); // ...and ensure strings of whitespace fail
 }
 
-// ************ Conversors ************
+// ************ Conversos ************
 
 function getBase64Image(img) {
     var canvas = document.createElement("canvas");
