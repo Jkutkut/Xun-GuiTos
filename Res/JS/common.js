@@ -41,6 +41,8 @@ function resizeTextSize() {
         size = h;
     }
 
+    size = h;
+
     size = Number.parseInt(size.substr(0, size.length - 2) / 50); // Is is the smallest text-size
 
     let textSize = [
